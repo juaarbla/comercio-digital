@@ -1,0 +1,57 @@
+[
+  {
+    "url": "https://juanarmada.com/podcast/feed/",
+    "modulo": "Del Autor",
+    "tipo": "podcast",
+    "activo": true
+  },
+  {
+    "url": "https://juanarmada.com/inteligencia-artificial/feed/",
+    "modulo": "Del Autor",
+    "tipo": "articulo",
+    "activo": true
+  },
+  {
+    "url": "https://juanarmada.com/marketing-digital/feed/",
+    "modulo": "Del Autor",
+    "tipo": "articulo",
+    "activo": true
+  },
+  {
+    "url": "https://juanarmada.com/wp-json/wp/v2/posts?per_page=20&orderby=date&order=desc&_fields=id,link,date,date_gmt,title,excerpt,content,categories",
+    "modulo": "",
+    "tipo": "articulo",
+    "activo": true,
+    "source": "wordpress_api"
+  },
+  {
+    "url": "https://ecommerce-news.es/feed/",
+    "modulo": "Comercio Electrónico",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://marketing4ecommerce.net/ecommerce/feed",
+    "modulo": "Comercio Electrónico",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://www.marketingdirecto.com/feed",
+    "modulo": "Marketing Digital",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://www.ontsi.es/es/rss.xml",
+    "modulo": "Digitalización GS",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://www.incibe.es/rss.xml",
+    "modulo": "Digitalización GS",
+    "tipo": "noticia",
+    "activo": true
+  }
+]

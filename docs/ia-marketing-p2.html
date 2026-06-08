@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA & Marketing — Pág. 2 — Comercio Digital</title>
+  <meta name="description" content="La actualidad del sector para el aula de FP">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0f0e0d;
+    --ink-light:  #3a3632;
+    --ink-faint:  #6b6560;
+    --paper:      #f5f0e8;
+    --paper-dark: #ede8dc;
+    --rule:       #1a1814;
+    --accent:     #8b1a1a;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── Masthead ── */
+  .masthead {
+    border-top: 4px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .masthead-side {
+    font-size: 0.7rem; color: var(--ink-faint);
+    text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5;
+    width: 160px;
+  }
+  .masthead-side.right { text-align: right; }
+  .site-title {
+    font-family: 'UnifrakturMaguntia', cursive;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1; color: var(--ink); text-align: center; flex: 1;
+  }
+  .site-title a { color: inherit; }
+
+  /* ── Nav ── */
+  nav {
+    border-bottom: 3px double var(--rule);
+    background: var(--ink);
+  }
+  nav ul {
+    max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;
+    list-style: none; display: flex; gap: 0; flex-wrap: wrap;
+  }
+  nav ul li a {
+    display: block; padding: 0.55rem 1.1rem;
+    font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: #d4c9b0;
+    border-right: 1px solid #333;
+    transition: background 0.15s, color 0.15s;
+  }
+  nav ul li a:hover, nav ul li a.active { background: var(--accent); color: #fff; }
+
+  /* ── Subtitle bar ── */
+  .subtitle-bar {
+    border-bottom: 1px solid #ccc;
+    padding: 0.35rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem; font-style: italic; color: var(--ink-faint);
+    max-width: 1140px; margin: 0 auto;
+  }
+
+  /* ── Badges ── */
+  .cat-badge {
+    font-size: 0.62rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: #fff; background: var(--ink);
+    padding: 0.12rem 0.45rem; display: inline-block;
+  }
+  .ra-badge {
+    font-size: 0.6rem; font-weight: 600;
+    color: var(--accent); border: 1px solid var(--accent);
+    padding: 0.08rem 0.35rem; display: inline-block;
+  }
+  .meta { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .fecha { font-size: 0.68rem; color: var(--ink-faint); font-style: italic; }
+
+  /* ── Lead story ── */
+  .lead-story {
+    padding: 2rem 0 1.5rem;
+    border-bottom: 2px solid var(--rule);
+    display: grid; gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  .lead-story.has-img { grid-template-columns: 1fr 1fr; }
+  .lead-img img {
+    width: 100%; height: 300px; object-fit: cover;
+    filter: grayscale(15%); border: 1px solid #bbb;
+  }
+  .lead-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+    font-weight: 900; line-height: 1.15; margin-bottom: 0.75rem;
+  }
+  .lead-summary {
+    font-size: 1rem; line-height: 1.75; color: var(--ink-light);
+    font-style: italic; border-left: 3px solid var(--accent);
+    padding-left: 1rem; margin-bottom: 0.75rem;
+  }
+  .read-more {
+    font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent); font-weight: 700;
+  }
+
+  /* ── Section header ── */
+  .sec-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    display: flex; align-items: center; gap: 0.8rem;
+    margin: 2rem 0 1rem;
+  }
+  .sec-header::before, .sec-header::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+  .sec-header a { color: inherit; }
+  .sec-header a:hover { color: var(--accent); }
+
+  /* ── Stories grid (portada) ── */
+  .stories-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+  }
+  .story-card {
+    padding: 1rem 1.1rem;
+    border-right: 1px solid #ccc;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .story-card:last-child { border-right: none; }
+  .story-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; line-height: 1.3;
+  }
+  .story-summary {
+    font-size: 0.85rem; color: var(--ink-light); line-height: 1.6; flex: 1;
+  }
+
+  /* ── Ver más link ── */
+  .ver-mas {
+    text-align: right; padding: 0.4rem 0 1.5rem;
+    font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent);
+    border-bottom: 1px solid #ccc;
+  }
+  .ver-mas a { font-weight: 700; }
+
+  /* ── Sección completa — lista de noticias ── */
+  .seccion-lista { padding: 1.5rem 0; }
+  .noticia-full {
+    border-bottom: 1px solid #ccc;
+    padding: 1.4rem 0;
+    display: grid; gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  .noticia-full.has-img { grid-template-columns: 220px 1fr; }
+  .noticia-full img {
+    width: 100%; height: 140px; object-fit: cover;
+    filter: grayscale(10%); border: 1px solid #bbb;
+  }
+  .noticia-full .n-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.5rem;
+  }
+  .noticia-full .n-summary {
+    font-size: 0.9rem; color: var(--ink-light); line-height: 1.65;
+    font-style: italic; margin-bottom: 0.5rem;
+  }
+  .justificacion {
+    font-size: 0.75rem; color: var(--ink-faint);
+    border-left: 2px solid var(--paper-dark);
+    padding-left: 0.6rem; font-style: normal;
+  }
+
+  /* ── Paginación ── */
+  .paginacion {
+    display: flex; justify-content: center; gap: 0.5rem;
+    padding: 2rem 0; border-top: 1px solid #ccc;
+  }
+  .paginacion a, .paginacion span {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem; border: 1px solid #bbb;
+    color: var(--ink);
+  }
+  .paginacion a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .paginacion .current { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 3px double var(--rule);
+    margin-top: 2rem; padding: 1.2rem 1.5rem;
+    text-align: center; font-size: 0.72rem;
+    color: var(--ink-faint); font-style: italic;
+  }
+  footer strong { font-family: 'Playfair Display', serif; font-style: normal; color: var(--ink); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .masthead { flex-direction: column; text-align: center; }
+    .masthead-side { display: none; }
+    .stories-row { grid-template-columns: 1fr; }
+    .story-card { border-right: none; border-bottom: 1px solid #ccc; }
+    .lead-story.has-img { grid-template-columns: 1fr; }
+    .noticia-full.has-img { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="masthead">
+      <div class="masthead-side">Formación Profesional<br>Comercio y Marketing</div>
+      <div class="site-title"><a href="index.html">Comercio Digital</a></div>
+      <div class="masthead-side right">Domingo, 7 de junio de 2026<br>comerciodigital.net</div>
+    </div>
+  </header><nav><ul><li><a href="index.html">Portada</a></li>
+    <li><a href="comercio-electronico.html">E-Commerce</a></li>
+    <li><a href="internacional.html">Internacional</a></li>
+    <li><a href="digitalizacion.html">Digitalización</a></li>
+    <li><a href="ia-marketing.html" class="active">IA & Marketing</a></li>
+    <li><a href="marketing.html">Marketing</a></li>
+</ul></nav><div class="subtitle-bar"><span>IA & Marketing · 10 noticias</span><span>Domingo, 7 de junio de 2026</span></div>
+<main class="container"><div class="sec-header">IA & Marketing</div>
+<div class="seccion-lista">
+    <article class="noticia-full">
+      
+      <div>
+        <div class="meta"><span class="cat-badge">IA & Marketing</span><span class="ra-badge">RA5</span><span class="fecha">5 jun. 2026</span></div>
+        <div class="n-title"><a href="https://www.marketingdirecto.com/digital-general/digital/making-science-analiza-ia-agentica-movera-billones-quinta-ola-tecnologica" target="_blank" rel="noopener">Making Science analiza cómo la IA agéntica moverá entre 4 y 12 billones en la quinta ola tecnológica</a></div>
+        <p class="n-summary">Expertos señalan que la Inteligencia Artificial (IA) avanzada está generando una transformación económica masiva, marcando lo que se denomina la quinta ola tecnológica. Este avance no es solo saber datos, sino que la IA actúa de forma autónoma, funcionando como un "agente" que gestiona tareas dentro de una empresa. Para nosotros en Marketing Digital, esto significa una oportunidad enorme para automatizar y potenciar nuestras campañas. Debemos aprender a integrar estas herramientas inteligentes, ya que nos permitirán segmentar clientes con una eficiencia y escala nunca antes vistas.</p>
+        <p class="justificacion">📚 La noticia se centra en cómo la IA agéntica permite automatizar y segmentar clientes con eficiencia y escala en campañas de Marketing Digital.</p>
+        <a href="https://www.marketingdirecto.com/digital-general/digital/making-science-analiza-ia-agentica-movera-billones-quinta-ola-tecnologica" class="read-more" target="_blank" rel="noopener">Leer noticia completa →</a>
+      </div>
+    </article>
+    <article class="noticia-full">
+      
+      <div>
+        <div class="meta"><span class="cat-badge">IA & Marketing</span><span class="ra-badge">RA7</span><span class="fecha">5 jun. 2026</span></div>
+        <div class="n-title"><a href="https://www.marketingdirecto.com/imprescindibles/inteligencia-artificial/youtube-sistema-etiquetado-contenido-generado-ia" target="_blank" rel="noopener">Más claridad en la era de la IA: YouTube mejora su sistema de etiquetado</a></div>
+        <p class="n-summary">YouTube ha actualizado su sistema de etiquetado para añadir mayor transparencia en el manejo de contenidos creados por Inteligencia Artificial (IA). Esta mejora implica que las plataformas de vídeo son más claras sobre el origen de la información que consumimos online. Para el Marketing Digital, esto es crucial porque afecta directamente la **credibilidad** del contenido y la estrategia de marca. Los profesionales debemos tener en cuenta que los usuarios serán cada vez más escépticos y exigentes con saber si están viendo contenido 100% humano.</p>
+        <p class="justificacion">📚 La noticia se centra en la transparencia del origen del contenido (IA vs. humano), lo cual aborda directamente los temas de ética, legalidad y cumplimiento normativo en el uso de IA.</p>
+        <a href="https://www.marketingdirecto.com/imprescindibles/inteligencia-artificial/youtube-sistema-etiquetado-contenido-generado-ia" class="read-more" target="_blank" rel="noopener">Leer noticia completa →</a>
+      </div>
+    </article></div><div class="paginacion"><a href="ia-marketing.html">1</a><span class="current">2</span></div></main>
+  <footer>
+    <strong>Comercio Digital</strong> · Generado el Domingo, 7 de junio de 2026 ·
+    Resúmenes generados con IA a partir de fuentes públicas ·
+    Uso educativo — FP Comercio y Marketing CV
+  </footer>
+</body>
+</html>

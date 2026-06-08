@@ -1,0 +1,28 @@
+# Credenciales — NUNCA subir
+.env
+
+# Datos generados localmente
+noticias_resumidas.json
+noticias_clasificadas.json
+historial.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# VSCode
+.vscode/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Lo que SÍ se sube:
+# - docs/          (la web generada para GitHub Pages)
+# - *.py           (los scripts)
+# - .env.example   (plantilla sin credenciales)
+# - arrancar.bat
+# - README.md

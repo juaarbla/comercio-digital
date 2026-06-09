@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Generador web Comercio Digital
 Portada + páginas de sección - estilo periódico clásico
@@ -16,6 +16,26 @@ from dotenv import load_dotenv
 load_dotenv()
 
 INPUT_FILE = Path("noticias_clasificadas.json")
+
+def limpiar_texto(texto: str) -> str:
+    import re as _re
+    if not texto:
+        return ""
+    try:
+        texto = texto.encode("latin-1").decode("utf-8")
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    for mal, bien in [
+        ("“", '"'), ("”", '"'),
+        ("‘", "'"), ("’", "'"),
+        ("…", "..."),
+        ("–", "-"), ("—", "-"),
+    ]:
+        texto = texto.replace(mal, bien)
+    texto = _re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", texto)
+    texto = _re.sub(r"\*(.+?)\*",     r"<em>\1</em>",         texto)
+    texto = _re.sub(r"`(.+?)`",       r"<code>\1</code>",     texto)
+    return texto
 DOCS_DIR = Path("docs")
 
 SITE_TITLE = "Comercio Digital"
@@ -197,7 +217,7 @@ def card_lead(n: dict, seccion: dict | None = None) -> str:
     img = safe_src(n.get("imagen_url", ""))
     url = safe_href(n.get("url", ""))
     titulo = esc_text(n.get("titulo", ""))
-    resumen = esc_text(n.get("resumen", ""))
+    resumen = limpiar_texto(n.get("resumen", ""))
     cls = "lead-story has-img" if img else "lead-story"
     img_html = f'<div class="lead-img"><img src="{esc_attr(img)}" alt=""></div>' if img else ""
     return f"""
@@ -213,7 +233,7 @@ def card_lead(n: dict, seccion: dict | None = None) -> str:
 def card_story(n: dict, seccion: dict | None = None) -> str:
     url = safe_href(n.get("url", ""))
     titulo = esc_text(n.get("titulo", ""))
-    resumen = esc_text(n.get("resumen", ""))
+    resumen = limpiar_texto(n.get("resumen", ""))
     return f"""
       <div class="story-card">
         {badge_html(n, seccion)}
@@ -227,11 +247,11 @@ def noticia_full_html(n: dict) -> str:
     img = safe_src(n.get("imagen_url", ""))
     url = safe_href(n.get("url", ""))
     titulo = esc_text(n.get("titulo", ""))
-    resumen = esc_text(n.get("resumen", ""))
+    resumen = limpiar_texto(n.get("resumen", ""))
     cls = "noticia-full has-img" if img else "noticia-full"
     img_html = f'<img src="{esc_attr(img)}" alt="">' if img else ""
     just = n.get("ra_justificacion", "")
-    just_html = f'<p class="justificacion">&#128218; {esc_text(just)}</p>' if just else ""
+    just_html = f'<p class="justificacion">&#128218; {limpiar_texto(just)}</p>' if just else ""
     sec = modulo_a_seccion(n.get("modulo_asignado", ""))
     return f"""
     <article class="{cls}">
@@ -304,7 +324,7 @@ def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
     html += "\n</body>\n</html>"
 
     out = DOCS_DIR / "index.html"
-    out.write_text(html, encoding="utf-8")
+    out.write_text(html, encoding="utf-8-sig")
     print(f"  Portada -> {out}")
 
 
@@ -344,7 +364,7 @@ def generar_seccion(seccion: dict, noticias: list, secciones_activas: set = None
 
         fname = seccion["file"] if pag == 1 else seccion["file"].replace(".html", f"-p{pag}.html")
         out = DOCS_DIR / fname
-        out.write_text(html, encoding="utf-8")
+        out.write_text(html, encoding="utf-8-sig")
         print(f"  {seccion['label']} p.{pag} -> {out}")
 
 

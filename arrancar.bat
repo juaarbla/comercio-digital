@@ -87,9 +87,7 @@ goto PAUSA
 echo.
 echo  Publicando en GitHub Pages...
 echo  -----------------------------------------------
-git add docs/
-git commit -m "Actualizacion %date% %time%"
-git push
+call :PUBLICAR_GITHUB
 goto PAUSA
 
 :ABRIR
@@ -124,12 +122,28 @@ echo.
 python generar_web.py
 echo.
 echo  Publicando en GitHub Pages...
-git add docs/
-git commit -m "Actualizacion %date% %time%"
-git push
+call :PUBLICAR_GITHUB
 echo.
 echo  Publicado. En 1-2 min disponible en GitHub Pages.
 goto PAUSA
+
+:PUBLICAR_GITHUB
+git pull --rebase --autostash origin main
+if errorlevel 1 (
+    echo.
+    echo  ERROR: no se pudo sincronizar con origin/main.
+    exit /b 1
+)
+
+git add docs/
+git commit -m "Actualizacion %date% %time%" >nul 2>&1
+git push origin main
+if errorlevel 1 (
+    echo.
+    echo  ERROR: fallo al subir cambios a GitHub.
+    exit /b 1
+)
+exit /b 0
 
 :PAUSA
 echo.

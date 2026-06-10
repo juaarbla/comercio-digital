@@ -2,21 +2,12 @@
 
 ## 2026-06-09
 
-- Problema/objetivo: añadir una capa docente a las noticias para que el agregador no sea solo informativo, sino también útil para el aula.
-- Causa: las noticias estaban clasificadas por módulo y RA, pero no incluían una propuesta directa de uso didáctico.
-- Cambios realizados: se ha creado `enriquecer_docente.py`, que añade `pregunta_aula`, `conceptos_clave` y `actividad_breve` a cada noticia. Se ha actualizado `generar_web.py` para mostrar el bloque “Uso en el aula” como acordeón desplegable en las páginas de sección. Se ha actualizado `docs/assets/style.css`.
-- Validación ejecutada: prueba del enriquecimiento docente sobre noticias clasificadas y generación local con `python generar_web.py`.
-- Resultado final: las páginas de sección muestran el bloque “Uso en el aula” desplegable, mientras que la portada se mantiene limpia sin cajas docentes.
-- Pendientes: integrar `enriquecer_docente.py` en `run_pipeline.py`, ejecutar el pipeline completo y subir cambios a GitHub.
-
-## 2026-06-09
-
-- Problema/objetivo: simplificar la ejecución diaria del agregador y evitar tener que lanzar varios scripts manualmente.
-- Causa: el flujo dependía de ejecutar por separado `news_aggregator.py`, `clasificador_ra.py`, `imagen_destacada.py` y `generar_web.py`.
-- Cambios realizados: se ha creado `run_pipeline.py`, que ejecuta todo el pipeline en orden.
-- Validación ejecutada: ejecución local con `python run_pipeline.py`.
-- Resultado final: la web local se ha actualizado correctamente.
-- Pendientes: subir cambios a GitHub y comprobar la publicación en `https://comerciodigital.net`.
+- Problema/objetivo: separar la autoría del contenido propio de la clasificación docente por módulo y RA.
+- Causa: algunos artículos propios de `juanarmada.com`, aunque estaban correctamente clasificados por módulo y RA, no aparecían en la sección “Del Autor” porque la sección web se calculaba a partir del módulo asignado.
+- Cambios realizados: se ha actualizado `generar_web.py` para que cualquier noticia o artículo cuya URL contenga `juanarmada.com` se muestre editorialmente en la sección “Del Autor”.
+- Validación prevista: ejecutar `python generar_web.py` y comprobar que los contenidos propios aparecen en `docs/del-autor.html` o en el bloque “Del Autor” de la portada, manteniendo sus datos docentes de módulo, RA y “Uso en el aula”.
+- Resultado final:
+- Pendientes: probar la generación local y subir cambios a GitHub si el resultado es correcto.
 
 ## 2026-06-08
 
@@ -29,14 +20,13 @@
 ## Checklist diaria
 
 1. Activar entorno virtual (`venv`).
-2. Ejecutar el pipeline completo: `python run_pipeline.py`.
-3. Revisar salida en consola y confirmar que no hay errores.
-4. Verificar en `docs/index.html` que aparezcan titulares actualizados.
-5. Verificar al menos una sección temática, por ejemplo `docs/ia-marketing.html`.
-6. Abrir una noticia de sección y comprobar, si procede, el acordeón “Uso en el aula”.
-7. Subir cambios a GitHub.
-8. Comprobar la publicación en `https://comerciodigital.net`.
-9. Si hubo cambios funcionales, registrar entrada nueva en este diario.
+2. Ejecutar agregación: `python news_aggregator.py`.
+3. Revisar salida: confirmar noticias nuevas detectadas y sin errores de fuente.
+4. Ejecutar clasificación: `python clasificador_ra.py`.
+5. Ejecutar generación web: `python generar_web.py`.
+6. Verificar en `docs/index.html` que aparezcan titulares del día.
+7. Verificar al menos una sección temática (por ejemplo, IA) en `docs/ia-marketing.html`.
+8. Si hubo cambios funcionales, registrar entrada nueva en este diario.
 
 ## Plantilla de nueva entrada
 

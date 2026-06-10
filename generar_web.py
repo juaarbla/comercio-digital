@@ -71,6 +71,14 @@ def normalizar_modulo(modulo: str) -> str:
     return MODULO_ALIASES.get(raw, raw)
 
 
+def es_contenido_propio(n: dict) -> bool:
+    url = (n.get("url") or "").lower()
+    return "juanarmada.com" in url
+
+
+def seccion_del_autor() -> dict | None:
+    return next((s for s in SECCIONES if s["id"] == "del-autor"), None)
+
 def modulo_a_seccion(modulo: str) -> dict | None:
     modulo = normalizar_modulo(modulo)
     if modulo == "Digitalización":
@@ -285,7 +293,7 @@ def noticia_full_html(n: dict) -> str:
     img_html = f'<img src="{esc_attr(img)}" alt="">' if img else ""
     just = n.get("ra_justificacion", "")
     just_html = f'<p class="justificacion">&#128218; {limpiar_texto(just)}</p>' if just else ""
-    sec = modulo_a_seccion(n.get("modulo_asignado", ""))
+    sec = seccion_del_autor() if es_contenido_propio(n) else modulo_a_seccion(n.get("modulo_asignado", ""))
     return f"""
     <article class="{cls}">
       {img_html}
@@ -419,8 +427,12 @@ def generar_web():
     noticias_por_seccion = {s["id"]: [] for s in SECCIONES}
     sin_seccion = []
     for n in noticias:
-        m = n.get("modulo_asignado") or n.get("modulo", "")
-        sec = modulo_a_seccion(m)
+        if es_contenido_propio(n):
+            sec = seccion_del_autor()
+        else:
+            m = n.get("modulo_asignado") or n.get("modulo", "")
+            sec = modulo_a_seccion(m)
+
         if sec:
             noticias_por_seccion[sec["id"]].append(n)
         else:

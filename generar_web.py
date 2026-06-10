@@ -319,21 +319,6 @@ def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
         if ns:
             bloques += card_lead(ns[0], primera_seccion)
 
-    autor_noticias = noticias_por_seccion.get("del-autor", [])
-    if autor_noticias:
-        muestra_autor = autor_noticias[:3]
-        cards_autor = "".join(card_story(n, {"label": "Del Autor"}) for n in muestra_autor)
-        bloques += f'''<div class="autor-section">
-          <div class="sec-header"><a href="del-autor.html">Del Autor &mdash; Juan Armada</a></div>
-          <div class="autor-bio">
-            <div class="autor-bio-text">
-              <strong>Juan Armada</strong> &mdash; Docente FP Comercio y Marketing &middot;
-              Blog, podcast y videotutoriales en
-              <a href="https://juanarmada.com" target="_blank" rel="noopener noreferrer">juanarmada.com</a>
-            </div>
-          </div>
-          <div class="stories-row">{cards_autor}</div>
-        </div>'''
 
     for seccion in SECCIONES:
         sid = seccion["id"]

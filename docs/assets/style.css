@@ -486,3 +486,90 @@ footer strong {
   color: var(--ink-light);
   font-size: 0.72rem;
 }
+
+/* ── Del Autor compacto en portada ── */
+.autor-compact {
+  margin: 1.5rem 0 1.8rem;
+  padding: 1rem 1.1rem;
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid #d8c8bb;
+  background: linear-gradient(to right, #fdf8f3, var(--paper));
+}
+
+.autor-compact-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid #e0c8b8;
+}
+
+.autor-compact-kicker {
+  font-family: "Playfair Display", serif;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.autor-compact-bio {
+  margin-top: 0.2rem;
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.autor-compact-link {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.autor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.autor-grid .story-card {
+  padding: 0.85rem 1rem 0.65rem;
+  border-right: 1px solid #d8c8bb;
+  border-bottom: none;
+}
+
+.autor-grid .story-card:last-child {
+  border-right: none;
+}
+
+.autor-grid .story-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .autor-compact-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .autor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .autor-grid .story-card {
+    border-right: none;
+    border-bottom: 1px solid #d8c8bb;
+  }
+
+  .autor-grid .story-card:last-child {
+    border-bottom: none;
+  }
+}
+

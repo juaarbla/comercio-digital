@@ -30,6 +30,11 @@ PASOS = [
         "obligatorio": True,
     },
     {
+        "nombre": "Enriquecimiento docente",
+        "script": "enriquecer_docente.py",
+        "obligatorio": False,
+    },
+    {
         "nombre": "Imágenes destacadas",
         "script": "imagen_destacada.py",
         "obligatorio": False,

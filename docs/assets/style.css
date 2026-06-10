@@ -426,3 +426,63 @@ footer strong {
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Uso en el aula ── */
+.docente-box {
+  margin: 0.9rem 0;
+  padding: 0;
+  border-left: 4px solid var(--accent);
+  background: var(--paper-dark);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.docente-box-title {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  list-style: none;
+}
+
+.docente-box-title::-webkit-details-marker {
+  display: none;
+}
+
+.docente-box-title::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.45rem;
+  transition: transform 0.15s ease;
+}
+
+.docente-box[open] .docente-box-title::before {
+  transform: rotate(90deg);
+}
+
+.docente-box-content {
+  padding: 0 0.9rem 0.85rem;
+}
+
+.docente-box p {
+  margin: 0.35rem 0;
+}
+
+.conceptos-clave {
+  margin-top: 0.45rem;
+}
+
+.concepto-chip {
+  display: inline-block;
+  margin: 0.2rem 0.25rem 0 0;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #d0c6b8;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-light);
+  font-size: 0.72rem;
+}

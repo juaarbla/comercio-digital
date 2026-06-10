@@ -243,6 +243,39 @@ def card_story(n: dict, seccion: dict | None = None) -> str:
       </div>"""
 
 
+def docente_html(n: dict) -> str:
+    pregunta = limpiar_texto(n.get("pregunta_aula", ""))
+    actividad = limpiar_texto(n.get("actividad_breve", ""))
+    conceptos = n.get("conceptos_clave", [])
+
+    if isinstance(conceptos, str):
+        conceptos = [c.strip() for c in conceptos.split(",") if c.strip()]
+    elif not isinstance(conceptos, list):
+        conceptos = []
+
+    conceptos = [esc_text(c) for c in conceptos if str(c).strip()]
+
+    if not pregunta and not actividad and not conceptos:
+        return ""
+
+    pregunta_html = f'<p><strong>Pregunta para el aula:</strong> {pregunta}</p>' if pregunta else ""
+    actividad_html = f'<p><strong>Actividad breve:</strong> {actividad}</p>' if actividad else ""
+
+    conceptos_html = ""
+    if conceptos:
+        chips = "".join(f'<span class="concepto-chip">{c}</span>' for c in conceptos)
+        conceptos_html = f'<div class="conceptos-clave"><strong>Conceptos clave:</strong> {chips}</div>'
+
+    return f"""
+        <details class="docente-box">
+          <summary class="docente-box-title">Uso en el aula</summary>
+          <div class="docente-box-content">
+            {pregunta_html}
+            {actividad_html}
+            {conceptos_html}
+          </div>
+        </details>"""
+
 def noticia_full_html(n: dict) -> str:
     img = safe_src(n.get("imagen_url", ""))
     url = safe_href(n.get("url", ""))
@@ -261,6 +294,7 @@ def noticia_full_html(n: dict) -> str:
         <div class="n-title"><a href="{esc_attr(url)}" target="_blank" rel="noopener noreferrer">{titulo}</a></div>
         <p class="n-summary">{resumen}</p>
         {just_html}
+        {docente_html(n)}
         <a href="{esc_attr(url)}" class="read-more" target="_blank" rel="noopener noreferrer">Leer noticia completa &rarr;</a>
       </div>
     </article>"""

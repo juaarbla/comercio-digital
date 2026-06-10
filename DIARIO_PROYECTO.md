@@ -2,6 +2,15 @@
 
 ## 2026-06-09
 
+- Problema/objetivo: añadir una capa docente a las noticias para que el agregador no sea solo informativo, sino también útil para el aula.
+- Causa: las noticias estaban clasificadas por módulo y RA, pero no incluían una propuesta directa de uso didáctico.
+- Cambios realizados: se ha creado `enriquecer_docente.py`, que añade `pregunta_aula`, `conceptos_clave` y `actividad_breve` a cada noticia. Se ha actualizado `generar_web.py` para mostrar el bloque “Uso en el aula” como acordeón desplegable en las páginas de sección. Se ha actualizado `docs/assets/style.css`.
+- Validación ejecutada: prueba del enriquecimiento docente sobre noticias clasificadas y generación local con `python generar_web.py`.
+- Resultado final: las páginas de sección muestran el bloque “Uso en el aula” desplegable, mientras que la portada se mantiene limpia sin cajas docentes.
+- Pendientes: integrar `enriquecer_docente.py` en `run_pipeline.py`, ejecutar el pipeline completo y subir cambios a GitHub.
+
+## 2026-06-09
+
 - Problema/objetivo: simplificar la ejecución diaria del agregador y evitar tener que lanzar varios scripts manualmente.
 - Causa: el flujo dependía de ejecutar por separado `news_aggregator.py`, `clasificador_ra.py`, `imagen_destacada.py` y `generar_web.py`.
 - Cambios realizados: se ha creado `run_pipeline.py`, que ejecuta todo el pipeline en orden.
@@ -24,9 +33,10 @@
 3. Revisar salida en consola y confirmar que no hay errores.
 4. Verificar en `docs/index.html` que aparezcan titulares actualizados.
 5. Verificar al menos una sección temática, por ejemplo `docs/ia-marketing.html`.
-6. Subir cambios a GitHub.
-7. Comprobar la publicación en `https://comerciodigital.net`.
-8. Si hubo cambios funcionales, registrar entrada nueva en este diario.
+6. Abrir una noticia de sección y comprobar, si procede, el acordeón “Uso en el aula”.
+7. Subir cambios a GitHub.
+8. Comprobar la publicación en `https://comerciodigital.net`.
+9. Si hubo cambios funcionales, registrar entrada nueva en este diario.
 
 ## Plantilla de nueva entrada
 

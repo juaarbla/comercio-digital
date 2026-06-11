@@ -4,19 +4,34 @@ title Comercio Digital - Panel de control
 
 cd /d "%~dp0"
 
-if not exist "venv\" (
-    echo Creando entorno virtual por primera vez...
-    python -m venv venv
+rem El entorno virtual se guarda fuera de Google Drive.
+rem LOCALAPPDATA cambia automaticamente segun el usuario y el equipo.
+set "VENV_DIR=%LOCALAPPDATA%\PythonVenvs\comercio-digital"
+
+if not exist "%VENV_DIR%\Scripts\python.exe" (
+    echo Creando entorno virtual por primera vez en:
+    echo %VENV_DIR%
+    echo.
+    py -m venv "%VENV_DIR%"
     if errorlevel 1 (
         echo ERROR: No se pudo crear el entorno virtual.
+        echo Comprueba que Python y el lanzador py estan instalados.
+        pause
+        exit /b 1
+    )
+
+    call "%VENV_DIR%\Scripts\activate.bat"
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+    if errorlevel 1 (
+        echo ERROR: No se pudieron instalar las dependencias.
         pause
         exit /b 1
     )
     echo Listo.
+) else (
+    call "%VENV_DIR%\Scripts\activate.bat"
 )
-
-call venv\Scripts\activate.bat
-pip install feedparser anthropic python-dotenv requests -q >nul 2>&1
 
 if not exist ".env" (
     echo AVISO: No se encontro .env

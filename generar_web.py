@@ -184,7 +184,8 @@ def footer_html() -> str:
   </footer>"""
 
 
-def head_html(titulo: str) -> str:
+def head_html(titulo: str, canonical_path: str = "/") -> str:
+    canonical_url = f"{SITE_URL.rstrip('/')}/{canonical_path.lstrip('/')}" if canonical_path != "/" else f"{SITE_URL.rstrip('/')}/"
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -192,6 +193,7 @@ def head_html(titulo: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{titulo} &mdash; {SITE_TITLE}</title>
   <meta name="description" content="{SITE_SUBTITLE}">
+  <link rel="canonical" href="{canonical_url}">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -342,7 +344,7 @@ def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
             bloques += f'<div class="ver-mas"><a href="{seccion["file"]}">Ver {total_rest} noticias m&aacute;s en {seccion["label"]} &rarr;</a></div>\n'
 
     total = sum(len(v) for v in noticias_por_seccion.values())
-    html = head_html(f"Portada &mdash; {fecha_hoy()}")
+    html = head_html(f"Portada &mdash; {fecha_hoy()}", "/")
     html += masthead_html()
     html += nav_html(secciones_con_noticias=secciones_activas)
     html += f'<div class="subtitle-bar"><span>{SITE_SUBTITLE}</span><span>{total} noticias &middot; {fecha_hoy()}</span></div>\n'
@@ -381,7 +383,8 @@ def generar_seccion(seccion: dict, noticias: list, secciones_activas: set = None
             cuerpo += f'<div class="paginacion">{pags_html}</div>'
 
         titulo_pag = f"{seccion['label']} &mdash; P&aacute;g. {pag}" if total_pags > 1 else seccion["label"]
-        html = head_html(titulo_pag)
+        fname = seccion["file"] if pag == 1 else seccion["file"].replace(".html", f"-p{pag}.html")
+        html = head_html(titulo_pag, fname)
         html += masthead_html()
         html += nav_html(seccion["id"], secciones_activas)
         html += f'<div class="subtitle-bar"><span>{seccion["label"]} &middot; {len(noticias)} noticias</span><span>{fecha_hoy()}</span></div>\n'
@@ -389,7 +392,6 @@ def generar_seccion(seccion: dict, noticias: list, secciones_activas: set = None
         html += footer_html()
         html += "\n</body>\n</html>"
 
-        fname = seccion["file"] if pag == 1 else seccion["file"].replace(".html", f"-p{pag}.html")
         out = DOCS_DIR / fname
         out.write_text(html, encoding="utf-8-sig")
         print(f"  {seccion['label']} p.{pag} -> {out}")

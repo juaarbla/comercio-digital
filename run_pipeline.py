@@ -5,8 +5,11 @@ Pipeline principal del agregador Comercio Digital.
 Ejecuta, en orden:
 1. Agregación y resumen de noticias
 2. Clasificación por módulo y RA
-3. Obtención de imágenes destacadas
-4. Generación de la web estática
+3. Enriquecimiento docente
+4. Obtención de imágenes destacadas
+5. Generación de la web estática principal
+6. Generación de la página de aula
+7. SEO técnico
 
 Uso:
     python run_pipeline.py
@@ -40,9 +43,15 @@ PASOS = [
         "obligatorio": False,
     },
     {
-        "nombre": "Generación de la web",
+        "nombre": "Generación de la web principal",
         "script": "generar_web.py",
         "obligatorio": True,
+    },
+    {
+        "nombre": "Generación de la página de aula",
+        "script": "generar_aula.py",
+        "obligatorio": True,
+        "args": ["--max-noticias", "25"],
     },
     {
         "nombre": "SEO técnico",
@@ -57,10 +66,13 @@ def ejecutar_paso(paso: dict) -> bool:
     script = paso["script"]
     nombre = paso["nombre"]
     obligatorio = paso.get("obligatorio", True)
+    args = paso.get("args", [])
 
     print("\n" + "=" * 70)
     print(f"▶ {nombre}")
     print(f"   Script: {script}")
+    if args:
+        print(f"   Args: {' '.join(args)}")
     print("=" * 70)
 
     if not Path(script).exists():
@@ -71,7 +83,7 @@ def ejecutar_paso(paso: dict) -> bool:
         print(mensaje + " — paso omitido")
         return True
 
-    resultado = subprocess.run([sys.executable, script])
+    resultado = subprocess.run([sys.executable, script, *args])
 
     if resultado.returncode == 0:
         print(f"✅ Paso completado: {nombre}")

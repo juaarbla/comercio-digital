@@ -1,6 +1,6 @@
 # Comercio Digital — Agregador de noticias para FP
 
-Proyecto en Python para recopilar noticias de actualidad, resumirlas con IA, clasificarlas por módulos/RA de Formación Profesional y generar una web estática publicable en GitHub Pages.
+Proyecto en Python para recopilar noticias de actualidad, resumirlas con IA, clasificarlas por módulos/RA de Formación Profesional, enriquecerlas con una capa docente y generar una web estática publicable en GitHub Pages.
 
 Web pública:
 
@@ -12,12 +12,7 @@ https://comerciodigital.net
 
 El proyecto no busca crear solo un agregador automático de noticias, sino una herramienta de actualidad para FP de Comercio y Marketing.
 
-La idea es conectar noticias reales con:
-
-- módulos profesionales,
-- resultados de aprendizaje,
-- tendencias del sector,
-- posibles usos en el aula.
+La idea es conectar noticias reales con módulos profesionales, resultados de aprendizaje, tendencias del sector y posibles usos en el aula.
 
 ## Flujo general
 
@@ -32,9 +27,15 @@ clasificador_ra.py
    ↓
 noticias_clasificadas.json
    ↓
+enriquecer_docente.py
+   ↓
 imagen_destacada.py
    ↓
 generar_web.py
+   ↓
+generar_aula.py
+   ↓
+generar_seo.py
    ↓
 docs/
    ↓
@@ -43,28 +44,20 @@ GitHub Pages
 
 ## Ejecución recomendada
 
-Desde la carpeta raíz del proyecto:
-
 ```bash
 python run_pipeline.py
 ```
 
-Este comando ejecuta en orden:
-
-1. `news_aggregator.py`
-2. `clasificador_ra.py`
-3. `imagen_destacada.py`
-4. `generar_web.py`
-
-## Ejecución manual por pasos
-
-También se puede ejecutar el flujo manualmente:
+## Ejecución manual
 
 ```bash
 python news_aggregator.py
 python clasificador_ra.py
+python enriquecer_docente.py --forzar
 python imagen_destacada.py
 python generar_web.py
+python generar_aula.py --max-noticias 25
+python generar_seo.py
 ```
 
 ## Archivos principales
@@ -72,55 +65,53 @@ python generar_web.py
 - `feeds.json`: fuentes RSS y WordPress API.
 - `news_aggregator.py`: obtiene noticias nuevas y las resume.
 - `clasificador_ra.py`: clasifica las noticias por módulo y RA.
+- `enriquecer_docente.py`: añade capa docente, `score_docente`, selección de aula y newsletter.
 - `imagen_destacada.py`: intenta obtener imagen destacada.
-- `generar_web.py`: genera la web estática en `docs/`.
-- `run_pipeline.py`: ejecuta todo el flujo de generación en un solo comando.
-- `historial.json`: guarda noticias ya procesadas.
-- `noticias_resumidas.json`: noticias resumidas.
-- `noticias_clasificadas.json`: noticias clasificadas.
+- `generar_web.py`: genera la web estática principal en `docs/`.
+- `generar_aula.py`: genera `docs/aula.html`.
+- `generar_seo.py`: añade metadatos SEO y genera `sitemap.xml` y `robots.txt`.
+- `run_pipeline.py`: ejecuta el flujo completo.
 - `DIARIO_PROYECTO.md`: registro de cambios y validaciones.
 
-## Fuentes
+## Archivos generados localmente
 
-Las fuentes se configuran en `feeds.json`.
+Normalmente no se suben a GitHub:
 
-Actualmente el proyecto puede trabajar con:
+- `historial.json`
+- `noticias_resumidas.json`
+- `noticias_clasificadas.json`
+- `noticias_clasificadas.backup_*.json`
 
-- feeds RSS,
-- artículos propios,
-- podcast,
-- entradas de WordPress mediante API REST,
-- fuentes externas de comercio electrónico, marketing digital, digitalización y ciberseguridad.
+La publicación pública se realiza desde:
+
+```text
+docs/
+```
+
+## Página de aula
+
+`docs/aula.html` muestra noticias seleccionadas por valor docente y utiliza:
+
+```text
+docs/assets/style.css
+```
 
 ## Checklist diaria
 
 1. Activar el entorno virtual.
-2. Ejecutar:
-
-```bash
-python run_pipeline.py
-```
-
-3. Revisar que la consola no muestre errores.
-4. Revisar `docs/index.html`.
+2. Ejecutar `python run_pipeline.py`.
+3. Revisar `docs/index.html`.
+4. Revisar `docs/aula.html`.
 5. Revisar una sección temática, por ejemplo `docs/ia-marketing.html`.
-6. Subir cambios a GitHub.
-7. Comprobar la publicación en `https://comerciodigital.net`.
-
-## Publicación
-
-La carpeta `docs/` contiene la web estática generada.
-
-GitHub Pages debe estar configurado para publicar desde:
-
-```text
-/docs
-```
+6. Comprobar `docs/sitemap.xml` y `docs/robots.txt`.
+7. Subir cambios a GitHub.
+8. Comprobar `https://comerciodigital.net`.
+9. Comprobar `https://comerciodigital.net/aula.html`.
 
 ## Próximas mejoras previstas
 
-- Añadir una capa docente por noticia: pregunta para el aula, conceptos clave y actividad breve.
-- Separar mejor módulo de origen, módulo asignado y sección visible de la web.
-- Generar `sitemap.xml` y `robots.txt`.
-- Crear una página `sobre.html` explicando el proyecto.
-- Mejorar el filtrado de fuentes técnicas para evitar exceso de ruido.
+- Generar fichas Markdown a partir de noticias con mayor `score_docente`.
+- Crear newsletter docente desde `seleccion_newsletter = true`.
+- Crear una página `sobre.html`.
+- Mejorar el filtrado de fuentes técnicas.
+- Añadir introducciones SEO permanentes en páginas de sección.

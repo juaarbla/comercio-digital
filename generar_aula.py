@@ -1,280 +1,324 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-generar_aula.py — versión 3
 
-Genera docs/aula.html con las noticias de mayor valor docente.
+"""
+Genera docs/aula.html usando el style.css principal de Comercio Digital.
 
 Uso:
     python generar_aula.py
-
-Con archivo de prueba:
-    python generar_aula.py --entrada noticias_clasificadas_v3.json
-
-Opcional:
-    python generar_aula.py --max-noticias 30
+    python generar_aula.py --entrada noticias_clasificadas.json --salida docs/aula.html --max-noticias 25
 """
-
-from __future__ import annotations
 
 import argparse
 import html
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from datetime import datetime
 
 
-def cargar_json(ruta: Path) -> Any:
-    if not ruta.exists():
-        raise FileNotFoundError(f"No se encuentra el archivo: {ruta}")
-    with ruta.open("r", encoding="utf-8-sig") as f:
-        return json.load(f)
+MENU = [
+    ("index.html", "Portada"),
+    ("ecommerce.html", "E-commerce"),
+    ("internacional.html", "Internacional"),
+    ("digitalizacion.html", "Digitalización"),
+    ("ia-marketing.html", "IA & Marketing"),
+    ("aula.html", "Aula"),
+    ("autor.html", "Del autor"),
+]
 
 
-def extraer_noticias(datos: Any) -> List[Dict[str, Any]]:
-    if isinstance(datos, list):
-        return datos
-    if isinstance(datos, dict) and isinstance(datos.get("noticias"), list):
-        return datos["noticias"]
-    raise ValueError("No se ha encontrado una lista de noticias válida.")
+def h(valor):
+    if valor is None:
+        return ""
+    return html.escape(str(valor), quote=True)
 
 
-def resolver_entrada(ruta: str | None) -> Path:
-    if ruta:
-        return Path(ruta)
+def cargar_noticias(ruta):
+    with open(ruta, "r", encoding="utf-8") as f:
+        data = json.load(f)
 
-    for candidato in [
-        Path("noticias_clasificadas.json"),
-        Path("data/noticias_clasificadas.json"),
-        Path("datos/noticias_clasificadas.json"),
-        Path("noticias_clasificadas_v3.json"),
-        Path("noticias_clasificadas_v2.json"),
-    ]:
-        if candidato.exists():
-            return candidato
+    if isinstance(data, list):
+        return data
 
-    return Path("noticias_clasificadas.json")
+    if isinstance(data, dict):
+        for clave in ("noticias", "items", "data"):
+            if clave in data and isinstance(data[clave], list):
+                return data[clave]
+
+    raise ValueError("No se ha encontrado una lista de noticias en el JSON.")
 
 
-def campo(n: Dict[str, Any], *nombres: str, defecto: str = "") -> str:
-    for nombre in nombres:
-        valor = n.get(nombre)
-        if valor:
-            return str(valor)
-    return defecto
-
-
-def filtrar_ordenar(noticias: List[Dict[str, Any]], max_noticias: int) -> List[Dict[str, Any]]:
-    seleccionadas = [
-        n for n in noticias
-        if str(n.get("valor_docente", "")).lower() == "alto" or n.get("generar_ficha") is True
-    ]
-
-    seleccionadas.sort(
-        key=lambda n: (
-            int(n.get("score_docente", 0)),
-            1 if n.get("seleccion_newsletter") else 0,
-            1 if n.get("imagen_url") else 0,
-        ),
-        reverse=True,
+def fuente(noticia):
+    return (
+        noticia.get("fuente_detectada")
+        or noticia.get("fuente")
+        or noticia.get("medio")
+        or ""
     )
 
-    return seleccionadas[:max_noticias]
+
+def fecha(noticia):
+    return (
+        noticia.get("fecha_detectada")
+        or noticia.get("fecha_publicacion")
+        or noticia.get("fecha")
+        or ""
+    )
 
 
-def render_tarjeta(n: Dict[str, Any]) -> str:
-    titulo = html.escape(campo(n, "titulo", "title", defecto="Sin título"))
-    resumen = html.escape(campo(n, "resumen", "summary", "descripcion", "description", defecto="Sin resumen disponible."))
-    url = html.escape(campo(n, "url", "link", defecto="#"))
-    fuente = html.escape(campo(n, "fuente_detectada", "fuente", "source", defecto="Fuente no indicada"))
-    fecha = html.escape(campo(n, "fecha_detectada", "fecha_publicacion", "fecha", "date", defecto=""))
-    modulo = html.escape(campo(n, "modulo_relacionado", "modulo_asignado", "modulo", defecto="General"))
-    valor = html.escape(campo(n, "valor_docente", defecto=""))
-    tipo = html.escape(campo(n, "tipo_uso", defecto=""))
-    pregunta = html.escape(campo(n, "pregunta_aula", defecto=""))
-    actividad = html.escape(campo(n, "actividad_breve", defecto=""))
-    score = html.escape(campo(n, "score_docente", defecto=""))
-    imagen = campo(n, "imagen_url", defecto="")
-    newsletter = n.get("seleccion_newsletter") is True
+def fecha_cabecera():
+    meses = [
+        "enero", "febrero", "marzo", "abril", "mayo", "junio",
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    ]
+    hoy = datetime.now()
+    return f"{hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
 
-    imagen_html = f'<img class="thumb" src="{html.escape(imagen)}" alt="">' if imagen else ""
 
-    newsletter_html = '<span class="newsletter">Newsletter</span>' if newsletter else ""
+def seleccionar_noticias(noticias, max_noticias):
+    candidatas = []
+
+    for noticia in noticias:
+        valor = str(noticia.get("valor_docente", "")).lower()
+        generar_ficha = bool(noticia.get("generar_ficha", False))
+        newsletter = bool(noticia.get("seleccion_newsletter", False))
+
+        if valor == "alto" or generar_ficha or newsletter:
+            candidatas.append(noticia)
+
+    def orden(n):
+        return (
+            1 if n.get("seleccion_newsletter") else 0,
+            int(n.get("score_docente") or 0),
+            1 if n.get("imagen_url") else 0,
+            str(fecha(n)),
+        )
+
+    candidatas.sort(key=orden, reverse=True)
+    return candidatas[:max_noticias]
+
+
+def render_nav(activa="aula.html"):
+    items = []
+    for href, texto in MENU:
+        clase = "active" if href == activa else ""
+        items.append(f'<li><a class="{clase}" href="{href}">{h(texto)}</a></li>')
+    return "\n".join(items)
+
+
+def render_conceptos(conceptos):
+    if not conceptos or not isinstance(conceptos, list):
+        return ""
+
+    chips = "\n".join(
+        f'<span class="concepto-chip">{h(c)}</span>'
+        for c in conceptos[:6]
+        if c
+    )
+
+    if not chips:
+        return ""
+
+    return f"""
+    <div class="conceptos-clave">
+      {chips}
+    </div>
+    """
+
+
+def render_docente_box(noticia):
+    pregunta = h(noticia.get("pregunta_aula") or "")
+    actividad = h(noticia.get("actividad_breve") or "")
+    tipo_uso = h(noticia.get("tipo_uso") or "uso en el aula")
+    conceptos = render_conceptos(noticia.get("conceptos_clave") or [])
+
+    if not pregunta and not actividad and not conceptos:
+        return ""
 
     actividad_html = ""
     if actividad:
-        actividad_html = f"""
-        <div class="activity">
-          <strong>Actividad breve:</strong><br>
-          {actividad}
-        </div>
-        """
+        actividad_html = f"<p><strong>Actividad breve:</strong><br>{actividad}</p>"
+
+    pregunta_html = ""
+    if pregunta:
+        pregunta_html = f"<p><strong>Pregunta para el aula:</strong><br>{pregunta}</p>"
 
     return f"""
-    <article class="card">
+    <details class="docente-box">
+      <summary class="docente-box-title">Uso en el aula · {tipo_uso}</summary>
+      <div class="docente-box-content">
+        {pregunta_html}
+        {actividad_html}
+        {conceptos}
+      </div>
+    </details>
+    """
+
+
+def render_noticia(noticia):
+    titulo = h(noticia.get("titulo") or "Sin título")
+    url = h(noticia.get("url") or "#")
+    resumen = h(noticia.get("resumen") or "")
+    modulo = h(noticia.get("modulo_relacionado") or noticia.get("modulo") or "General")
+    imagen = h(noticia.get("imagen_url") or "")
+    fecha_txt = h(fecha(noticia))
+    fuente_txt = h(fuente(noticia))
+    ra = h(noticia.get("ra_asignado") or "")
+    justificacion = h(noticia.get("ra_justificacion") or "")
+    score = h(noticia.get("score_docente") or "")
+    newsletter = bool(noticia.get("seleccion_newsletter"))
+
+    has_img = "has-img" if imagen else ""
+
+    imagen_html = ""
+    if imagen:
+        imagen_html = f"""
+        <a href="{url}" target="_blank" rel="noopener">
+          <img src="{imagen}" alt="">
+        </a>
+        """
+
+    ra_html = f'<span class="ra-badge">{ra}</span>' if ra else ""
+    fecha_html = f'<span class="fecha">{fecha_txt}</span>' if fecha_txt else ""
+    score_html = f'<span class="ra-badge">Score {score}</span>' if score else ""
+    newsletter_html = '<span class="ra-badge">Newsletter</span>' if newsletter else ""
+
+    fuente_html = ""
+    if fuente_txt:
+        fuente_html = f'<p class="justificacion">Fuente: {fuente_txt}</p>'
+
+    justificacion_html = ""
+    if justificacion:
+        justificacion_html = f'<p class="justificacion">🧩 {justificacion}</p>'
+
+    return f"""
+    <article class="noticia-full {has_img}">
       {imagen_html}
-      <div class="content">
+      <div>
         <div class="meta">
-          <span>{modulo}</span>
-          <span>Valor docente: {valor}</span>
-          <span>{tipo}</span>
-          <span>Score: {score}</span>
+          <span class="cat-badge">{modulo}</span>
+          {ra_html}
+          {fecha_html}
+          {score_html}
           {newsletter_html}
         </div>
-        <h2>{titulo}</h2>
-        <p class="source">{fuente} · {fecha}</p>
-        <p>{resumen}</p>
-        <div class="question">
-          <strong>Pregunta para el aula:</strong><br>
-          {pregunta}
-        </div>
-        {actividad_html}
-        <p><a href="{url}" target="_blank" rel="noopener">Leer noticia original</a></p>
+
+        <h2 class="n-title">
+          <a href="{url}" target="_blank" rel="noopener">{titulo}</a>
+        </h2>
+
+        <p class="n-summary">{resumen}</p>
+
+        {fuente_html}
+        {justificacion_html}
+        {render_docente_box(noticia)}
+
+        <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
       </div>
     </article>
     """
 
 
-def generar_html(noticias: List[Dict[str, Any]]) -> str:
-    tarjetas = "\n".join(render_tarjeta(n) for n in noticias)
+def render_html(noticias):
+    listado = "\n".join(render_noticia(n) for n in noticias)
 
-    if not tarjetas:
-        tarjetas = """
-        <section class="empty">
-          <p>No hay noticias con valor docente alto.</p>
-          <p>Ejecuta primero: <code>python enriquecer_docente.py --forzar</code></p>
+    if not listado:
+        listado = """
+        <section class="seccion-lista">
+          <p>No hay noticias seleccionadas para trabajar en clase.</p>
         </section>
         """
+
+    fecha_hoy = h(fecha_cabecera())
 
     return f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Noticias para trabajar en clase</title>
+  <title>Noticias para trabajar en clase · Comercio Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {{
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }}
-    header {{
-      background: #111827;
-      color: white;
-      padding: 2rem 1rem;
-    }}
-    header .wrap, main {{
-      max-width: 1050px;
-      margin: 0 auto;
-    }}
-    h1 {{
-      margin: 0 0 .5rem 0;
-      font-size: 2rem;
-    }}
-    header p {{
-      margin: 0;
-      color: #d1d5db;
-    }}
-    main {{
-      padding: 1.5rem 1rem 3rem;
-    }}
-    .card {{
-      background: white;
-      border-radius: 14px;
-      margin-bottom: 1rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,.06);
-      border: 1px solid #e5e7eb;
-      overflow: hidden;
-    }}
-    .content {{
-      padding: 1.2rem;
-    }}
-    .thumb {{
-      width: 100%;
-      max-height: 230px;
-      object-fit: cover;
-      display: block;
-      background: #e5e7eb;
-    }}
-    .card h2 {{
-      margin: .7rem 0 .4rem;
-      font-size: 1.35rem;
-    }}
-    .source {{
-      color: #6b7280;
-      font-size: .92rem;
-    }}
-    .meta {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      font-size: .82rem;
-    }}
-    .meta span {{
-      background: #eef2ff;
-      color: #3730a3;
-      padding: .25rem .55rem;
-      border-radius: 999px;
-    }}
-    .meta .newsletter {{
-      background: #ecfdf5;
-      color: #047857;
-    }}
-    .question, .activity {{
-      background: #f9fafb;
-      border-left: 4px solid #111827;
-      padding: .8rem 1rem;
-      margin: 1rem 0;
-    }}
-    .activity {{
-      border-left-color: #4b5563;
-    }}
-    a {{
-      color: #1d4ed8;
-      font-weight: 600;
-    }}
-    .empty {{
-      background: white;
-      padding: 1.2rem;
-      border-radius: 12px;
-    }}
-  </style>
+  <meta name="description" content="Selección de noticias de comercio digital para trabajar en clase con preguntas, actividades breves y enfoque docente.">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <h1>Noticias para trabajar en clase</h1>
-      <p>Selección editorial generada a partir del valor docente de las noticias clasificadas.</p>
+
+  <header class="masthead">
+    <div class="masthead-side">
+      Formación<br>
+      Profesional<br>
+      Comercio y Marketing
+    </div>
+
+    <div class="site-title">
+      <a href="index.html">Comercio Digital</a>
+    </div>
+
+    <div class="masthead-side right">
+      {fecha_hoy}<br>
+      comerciodigital.net
     </div>
   </header>
-  <main>
-    {tarjetas}
+
+  <nav>
+    <ul>
+      {render_nav("aula.html")}
+    </ul>
+  </nav>
+
+  <div class="subtitle-bar">
+    <span>Aula · {len(noticias)} noticias seleccionadas</span>
+    <span>Selección docente generada a partir de noticias clasificadas</span>
+  </div>
+
+  <main class="container">
+    <h1 class="sec-header">Para trabajar en clase</h1>
+
+    <section class="autor-compact">
+      <div class="autor-compact-head">
+        <div>
+          <div class="autor-compact-kicker">Uso docente</div>
+          <p class="autor-compact-bio">
+            Noticias seleccionadas para conectar la actualidad del comercio digital con actividades,
+            preguntas de aula, casos de empresa y debates para Formación Profesional.
+          </p>
+        </div>
+        <a class="autor-compact-link" href="index.html">Volver a portada →</a>
+      </div>
+    </section>
+
+    <section class="seccion-lista">
+      {listado}
+    </section>
   </main>
+
+  <footer>
+    <strong>Comercio Digital</strong><br>
+    Selección editorial para uso educativo.
+  </footer>
+
 </body>
 </html>
 """
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Genera docs/aula.html desde el JSON enriquecido.")
-    parser.add_argument("--entrada", help="Ruta del JSON enriquecido.")
-    parser.add_argument("--salida", default="docs/aula.html", help="Ruta del HTML de salida.")
-    parser.add_argument("--max-noticias", type=int, default=40, help="Número máximo de noticias en aula.html.")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--entrada", default="noticias_clasificadas.json")
+    parser.add_argument("--salida", default="docs/aula.html")
+    parser.add_argument("--max-noticias", type=int, default=25)
     args = parser.parse_args()
 
-    entrada = resolver_entrada(args.entrada)
+    entrada = Path(args.entrada)
     salida = Path(args.salida)
 
-    datos = cargar_json(entrada)
-    noticias = extraer_noticias(datos)
-    noticias_aula = filtrar_ordenar(noticias, args.max_noticias)
+    noticias = cargar_noticias(entrada)
+    seleccionadas = seleccionar_noticias(noticias, args.max_noticias)
 
     salida.parent.mkdir(parents=True, exist_ok=True)
-    salida.write_text(generar_html(noticias_aula), encoding="utf-8")
+    salida.write_text(render_html(seleccionadas), encoding="utf-8")
 
     print(f"Página generada: {salida}")
-    print(f"Noticias para aula: {len(noticias_aula)}")
-    print(f"Archivo de entrada: {entrada}")
+    print(f"Noticias para aula: {len(seleccionadas)}")
 
 
 if __name__ == "__main__":

@@ -44,6 +44,11 @@ PASOS = [
         "script": "generar_web.py",
         "obligatorio": True,
     },
+    {
+        "nombre": "SEO técnico",
+        "script": "generar_seo.py",
+        "obligatorio": True,
+    },
 ]
 
 

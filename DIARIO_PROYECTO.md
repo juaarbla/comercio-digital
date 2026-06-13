@@ -1,5 +1,52 @@
 # Diario del Proyecto
 
+## 2026-06-12 — SEO técnico básico
+
+- Problema/objetivo: mejorar la visibilidad técnica de la web en buscadores y evitar que todas las páginas compartan los mismos metadatos.
+- Causa: la web disponía de títulos y descripciones básicos, pero no generaba metadatos SEO específicos por sección, `sitemap.xml`, `robots.txt` ni etiquetas sociales completas.
+- Cambios realizados:
+  - Se ha creado `generar_seo.py`.
+  - El script procesa los archivos HTML generados en `docs/`.
+  - Se añaden títulos SEO específicos por sección.
+  - Se añaden meta descriptions diferenciadas.
+  - Se actualizan las etiquetas canonical.
+  - Se añaden metadatos Open Graph.
+  - Se añaden etiquetas Twitter Card.
+  - Se genera `docs/sitemap.xml`.
+  - Se genera `docs/robots.txt`.
+  - Se ha actualizado `run_pipeline.py` para ejecutar `generar_seo.py` después de `generar_web.py`.
+- Flujo actual:
+
+```text
+news_aggregator.py
+   ↓
+clasificador_ra.py
+   ↓
+enriquecer_docente.py
+   ↓
+imagen_destacada.py
+   ↓
+generar_web.py
+   ↓
+generar_seo.py
+   ↓
+generar_seo.py
+```
+
+- Validación prevista:
+  - Ejecutar `python generar_seo.py`.
+  - Comprobar `docs/sitemap.xml` y `docs/robots.txt`.
+  - Revisar el `<head>` de `docs/index.html` y de una página de sección.
+  - Ejecutar después `python run_pipeline.py`.
+- Resultado final:
+- Pendientes:
+  - Validar la salida local.
+  - Publicar los cambios en GitHub.
+  - Comprobar `https://comerciodigital.net/sitemap.xml`.
+  - Comprobar `https://comerciodigital.net/robots.txt`.
+  - Crear una página `sobre.html`.
+  - Añadir introducciones SEO permanentes en las páginas de sección.
+
 ## 2026-06-10
 
 - Problema/objetivo: ajustar la presencia de los contenidos propios en la web sin sobrecargar la portada.
@@ -82,9 +129,13 @@ python run_pipeline.py
 6. Comprobar una noticia con el acordeón “Uso en el aula”.
 7. Verificar que `docs/del-autor.html` se genera cuando existen contenidos propios.
 8. Confirmar que la portada no muestra el bloque “Del Autor”.
-9. Subir los cambios a GitHub.
-10. Comprobar la publicación en `https://comerciodigital.net`.
-11. Si hubo cambios funcionales, registrar una nueva entrada en este diario.
+9. Verificar que existen `docs/sitemap.xml` y `docs/robots.txt`.
+10. Revisar que la portada y una página de sección tienen `title`, `meta description`, `canonical` y Open Graph.
+11. Subir los cambios a GitHub.
+12. Comprobar la publicación en `https://comerciodigital.net`.
+13. Comprobar `https://comerciodigital.net/sitemap.xml`.
+14. Comprobar `https://comerciodigital.net/robots.txt`.
+15. Si hubo cambios funcionales, registrar una nueva entrada en este diario.
 
 ## Plantilla de nueva entrada
 

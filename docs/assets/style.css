@@ -224,19 +224,24 @@ nav ul li a.active {
 /* â”€â”€ Stories grid (portada) â”€â”€ */
 .stories-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid #ccc;
   margin-bottom: 0.5rem;
+  column-gap: 0;
+  align-items: start;
 }
+.stories-row.cols-1 { grid-template-columns: minmax(0, 1fr); }
+.stories-row.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stories-row.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .story-card {
   padding: 1rem 1.1rem;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
-.story-card:last-child {
-  border-right: none;
+.story-card:first-child {
+  border-left: none;
 }
 .story-title {
   font-family: "Playfair Display", serif;
@@ -404,37 +409,181 @@ footer strong {
 }
 
 /* â”€â”€ Responsive â”€â”€ */
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .masthead-side {
+    width: 140px;
+    flex-basis: 140px;
+  }
+
+  .masthead-side.right {
+    white-space: normal;
+  }
+
+  /* 3 tarjetas → 3 col; 2 → 2 col; 1 → 1 col */
+  .stories-row        { grid-template-columns: repeat(2, 1fr); }
+  .stories-row.cols-1 { grid-template-columns: 1fr; }
+  .stories-row.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .story-card {
+    min-height: auto;
+  }
+
+  .story-title,
+  .story-summary {
+    min-height: 0;
+  }
+
+  .noticia-full.has-img,
+  body.ficha-page .lead-story.has-img {
+    grid-template-columns: 1fr;
+  }
+
+  body.ficha-page .lead-img img {
+    height: 240px;
+  }
+}
+
 @media (max-width: 768px) {
   .masthead {
     flex-direction: column;
     text-align: center;
+    min-height: 0;
   }
+
   .masthead-side {
     display: none;
   }
-  .stories-row {
+
+  /* En móvil todo a 1 columna sin excepción */
+  .stories-row,
+  .stories-row.cols-1,
+  .stories-row.cols-2,
+  .stories-row.cols-3 {
     grid-template-columns: 1fr;
   }
+
   .story-card {
-    border-right: none;
+    min-height: auto;
+    border-left: none;
     border-bottom: 1px solid #ccc;
   }
-  .lead-story.has-img {
+
+  .story-title,
+  .story-summary {
+    min-height: 0;
+  }
+
+  .lead-story.has-img,
+  .noticia-full.has-img,
+  body.ficha-page .lead-story.has-img {
     grid-template-columns: 1fr;
   }
-  .noticia-full.has-img {
+
+  .subtitle-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.1rem;
+  }
+
+  nav ul li a {
+    border-right: 1px solid #333;
+  }
+
+  .autor-compact-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .autor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .autor-grid .story-card {
+    border-left: none;
+    border-bottom: 1px solid #d8c8bb;
+  }
+
+  .autor-grid .story-card:last-child {
+    border-bottom: none;
+  }
+
+  body.aula-page .read-more + .read-more {
+    margin-left: 0;
+    display: block;
   }
 }
 
-/* ── Uso en el aula ── */
+
+/* ==========================================================
+   PARCHE FINAL: grid portada + acordeones aula/fichas
+   ========================================================== */
+
+/* Portada: asegurar tres columnas reales cuando hay tres tarjetas */
+.stories-row,
+.stories-row.cols-3 {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  width: 100%;
+}
+
+.stories-row.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.stories-row.cols-1 {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.story-card {
+  min-width: 0;
+  height: 100%;
+  border-left: 1px solid #ccc;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-card:first-child {
+  border-left: none;
+}
+
+.story-card .read-more {
+  margin-top: auto;
+}
+
+.story-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Acordeón / caja docente */
 .docente-box {
-  margin: 0.9rem 0;
-  padding: 0;
+  margin: 0.9rem 0 1rem;
   border-left: 4px solid var(--accent);
   background: var(--paper-dark);
+  box-shadow: inset 0 0 0 1px rgba(139, 26, 26, 0.08);
   font-size: 0.88rem;
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+details.docente-box {
+  padding: 0;
+}
+
+div.docente-box {
+  padding: 0.85rem 0.95rem;
 }
 
 .docente-box-title {
@@ -460,16 +609,20 @@ footer strong {
   transition: transform 0.15s ease;
 }
 
-.docente-box[open] .docente-box-title::before {
+details.docente-box[open] .docente-box-title::before {
   transform: rotate(90deg);
 }
 
 .docente-box-content {
-  padding: 0 0.9rem 0.85rem;
+  padding: 0 0.9rem 0.9rem;
+}
+
+div.docente-box .docente-box-content {
+  padding: 0;
 }
 
 .docente-box p {
-  margin: 0.35rem 0;
+  margin: 0.45rem 0;
 }
 
 .conceptos-clave {
@@ -478,8 +631,8 @@ footer strong {
 
 .concepto-chip {
   display: inline-block;
-  margin: 0.2rem 0.25rem 0 0;
-  padding: 0.1rem 0.45rem;
+  margin: 0.22rem 0.28rem 0 0;
+  padding: 0.12rem 0.48rem;
   border: 1px solid #d0c6b8;
   border-radius: 999px;
   background: var(--paper);
@@ -487,207 +640,23 @@ footer strong {
   font-size: 0.72rem;
 }
 
-/* ── Del Autor compacto en portada ── */
-.autor-compact {
-  margin: 1.5rem 0 1.8rem;
-  padding: 1rem 1.1rem;
-  border-top: 2px solid var(--accent);
-  border-bottom: 1px solid #d8c8bb;
-  background: linear-gradient(to right, #fdf8f3, var(--paper));
-}
-
-.autor-compact-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1rem;
-  padding-bottom: 0.65rem;
-  margin-bottom: 0.35rem;
-  border-bottom: 1px solid #e0c8b8;
-}
-
-.autor-compact-kicker {
-  font-family: "Playfair Display", serif;
-  color: var(--accent);
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.autor-compact-bio {
-  margin-top: 0.2rem;
-  font-size: 0.76rem;
-  color: var(--ink-faint);
-  font-style: italic;
-}
-
-.autor-compact-link {
-  flex: 0 0 auto;
-  color: var(--accent);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-}
-
-.autor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.autor-grid .story-card {
-  padding: 0.85rem 1rem 0.65rem;
-  border-right: 1px solid #d8c8bb;
-  border-bottom: none;
-}
-
-.autor-grid .story-card:last-child {
-  border-right: none;
-}
-
-.autor-grid .story-summary {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .autor-compact-head {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .autor-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .autor-grid .story-card {
-    border-right: none;
-    border-bottom: 1px solid #d8c8bb;
-  }
-
-  .autor-grid .story-card:last-child {
-    border-bottom: none;
-  }
-}
-
-
-
-/* ==========================================================
-   Ajustes finales 2026-06-15
-   Cabecera, portada, aula y fichas docentes
-   ========================================================== */
-
-/* Cabecera: evita que la fecha larga rompa el masthead */
-.masthead {
-  min-height: 76px;
-}
-
-.masthead-side {
-  width: 185px;
-  flex: 0 0 185px;
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.masthead-side.right {
-  white-space: nowrap;
-  font-size: 0.64rem;
-  line-height: 1.65;
-}
-
-.site-title {
-  min-width: 0;
-}
-
-/* Menú: compacto y estable */
-nav ul {
-  justify-content: center;
-}
-
-nav ul li a {
-  padding: 0.55rem 0.95rem;
-  white-space: nowrap;
-}
-
-/* Portada: tarjetas equilibradas */
-.stories-row {
-  align-items: stretch;
-}
-
-.story-card {
-  min-height: 210px;
-}
-
-.story-card .meta {
-  min-height: 20px;
-}
-
-.story-title {
-  min-height: 2.6em;
-}
-
-.story-summary {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 5.4em;
-}
-
-.story-card .read-more {
-  margin-top: auto;
-  align-self: flex-start;
-}
-
-.ver-mas {
-  clear: both;
-}
-
-/* Listados */
-.noticia-full {
-  align-items: start;
-}
-
-.noticia-full.has-img {
-  grid-template-columns: 230px minmax(0, 1fr);
-}
-
-.noticia-full img {
-  height: 150px;
-}
-
-.noticia-full .n-summary {
-  max-width: 850px;
-}
-
 /* Aula */
-body.aula-page .seccion-lista {
-  padding-top: 0.75rem;
-}
-
-body.aula-page .autor-compact {
-  margin-bottom: 2.2rem;
+body.aula-page .docente-box {
+  max-width: 880px;
 }
 
 body.aula-page .noticia-full {
-  padding: 1.7rem 0;
-}
-
-body.aula-page .docente-box {
-  max-width: 860px;
+  padding: 1.55rem 0;
 }
 
 body.aula-page .read-more + .read-more {
   margin-left: 1rem;
 }
 
-/* Ficha docente */
+/* Fichas docentes */
 body.ficha-page .lead-story {
-  margin-top: 1.4rem;
-  padding-top: 1.2rem;
+  margin-top: 1.35rem;
+  padding-top: 1.15rem;
 }
 
 body.ficha-page .lead-story.has-img {
@@ -718,90 +687,221 @@ body.ficha-page .noticia-full {
   padding-top: 0.5rem;
 }
 
-body.ficha-page .docente-box {
-  padding: 1rem 1.1rem;
-  border-left: 4px solid var(--accent);
-}
-
-body.ficha-page .docente-box-content {
-  padding: 0;
-}
-
-body.ficha-page .docente-box-content p {
-  margin: 0 0 0.9rem;
-}
-
-body.ficha-page .n-title {
+body.ficha-page .noticia-full .n-title {
   margin-top: 1rem;
-  padding-top: 0.4rem;
+  padding-top: 0.55rem;
   border-top: 1px solid #d2c8ba;
 }
 
-.read-more {
-  display: inline-block;
-  margin-top: 0.45rem;
+body.ficha-page .docente-box {
+  max-width: 100%;
 }
 
-/* Responsive final */
-@media (max-width: 900px) {
-  .masthead-side {
-    width: 140px;
-    flex-basis: 140px;
-  }
+/* Cabecera y menú */
+.masthead-side.right {
+  white-space: nowrap;
+  font-size: 0.64rem;
+  line-height: 1.65;
+}
 
-  .masthead-side.right {
-    white-space: normal;
-  }
+.masthead-side {
+  width: 185px;
+  flex: 0 0 185px;
+}
 
-  .stories-row {
-    grid-template-columns: 1fr;
+nav ul {
+  justify-content: center;
+}
+
+nav ul li a {
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stories-row,
+  .stories-row.cols-1,
+  .stories-row.cols-2,
+  .stories-row.cols-3 {
+    grid-template-columns: 1fr !important;
   }
 
   .story-card {
-    min-height: auto;
-    border-right: none;
+    border-left: none;
     border-bottom: 1px solid #ccc;
   }
 
-  .story-title,
-  .story-summary {
-    min-height: 0;
-  }
-
-  .noticia-full.has-img,
-  body.ficha-page .lead-story.has-img {
-    grid-template-columns: 1fr;
+  body.ficha-page .lead-story.has-img,
+  .lead-story.has-img,
+  .noticia-full.has-img {
+    grid-template-columns: 1fr !important;
   }
 
   body.ficha-page .lead-img img {
     height: 240px;
-  }
-}
-
-@media (max-width: 768px) {
-  .masthead {
-    min-height: 0;
   }
 
   .masthead-side {
     display: none;
   }
 
-  nav ul {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 0.1rem;
+  .masthead-side.right {
+    white-space: normal;
   }
 
-  nav ul li a {
-    border-right: 1px solid #333;
+  body.aula-page .read-more + .read-more {
+    margin-left: 0;
+    display: block;
   }
+}
 
-  .subtitle-bar {
-    flex-direction: column;
+
+/* ==========================================================
+   Aula: recursos docentes y enlaces Markdown
+   ========================================================== */
+
+.autor-compact {
+  margin: 1.5rem 0 1.8rem;
+  padding: 1rem 1.1rem;
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid #d8c8bb;
+  background: linear-gradient(to right, #fdf8f3, var(--paper));
+}
+
+.autor-compact-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid #e0c8b8;
+}
+
+.autor-compact-kicker {
+  font-family: "Playfair Display", serif;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.autor-compact-bio {
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  color: var(--ink-light);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.autor-compact-link {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.aula-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.docente-box {
+  margin: 0.9rem 0 1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--paper-dark);
+  box-shadow: inset 0 0 0 1px rgba(139, 26, 26, 0.08);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+details.docente-box {
+  padding: 0;
+}
+
+div.docente-box {
+  padding: 0.85rem 0.95rem;
+}
+
+.docente-box-title {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  list-style: none;
+}
+
+.docente-box-title::-webkit-details-marker {
+  display: none;
+}
+
+.docente-box-title::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 0.45rem;
+  transition: transform 0.15s ease;
+}
+
+details.docente-box[open] .docente-box-title::before {
+  transform: rotate(90deg);
+}
+
+.docente-box-content {
+  padding: 0 0.9rem 0.9rem;
+}
+
+div.docente-box .docente-box-content {
+  padding: 0;
+}
+
+.docente-box p {
+  margin: 0.45rem 0;
+}
+
+.conceptos-clave {
+  margin-top: 0.45rem;
+}
+
+.concepto-chip {
+  display: inline-block;
+  margin: 0.22rem 0.28rem 0 0;
+  padding: 0.12rem 0.48rem;
+  border: 1px solid #d0c6b8;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-light);
+  font-size: 0.72rem;
+}
+
+body.aula-page .docente-box {
+  max-width: 900px;
+}
+
+body.aula-page .noticia-full {
+  padding: 1.6rem 0;
+}
+
+body.aula-page .read-more + .read-more {
+  margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+  .autor-compact-head {
     align-items: flex-start;
-    gap: 0.25rem;
+    flex-direction: column;
+  }
+
+  .aula-actions {
+    align-items: flex-start;
   }
 
   body.aula-page .read-more + .read-more {

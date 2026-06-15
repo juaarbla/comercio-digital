@@ -3,7 +3,7 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Mon, 08 Jun 2026 14:21:00 +0000
+- **Fecha:** 8 jun. 2026
 - **Enlace:** https://ecommerce-news.es/el-95-de-las-empresa-logisticas-acelera-su-digitalizacion-en-2026/
 - **Módulo:** Digitalización
 - **Resultado de aprendizaje:** RA2
@@ -21,7 +21,7 @@ El sector logístico está pasando por una enorme transformación, ya que la may
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ El sector logístico está pasando por una enorme transformación, ya que la may
 
 ### Por qué encaja en este RA
 
-El avance tecnológico y la automatización (robots, software avanzado) en la cadena de suministro se enmarcan directamente en los conceptos de la 4ª Revolución Industrial y los sistemas ciber-físicos.
+La noticia se centra en la automatización y la transformación digital de la logística, conceptos clave de la Cuarta Revolución Industrial y los sistemas ciber-físicos.
 
 ## Propuesta de dinámica
 

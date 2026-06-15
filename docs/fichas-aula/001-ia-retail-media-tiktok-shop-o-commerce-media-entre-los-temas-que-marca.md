@@ -3,7 +3,7 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Wed, 10 Jun 2026 14:50:00 +0000
+- **Fecha:** 10 jun. 2026
 - **Enlace:** https://ecommerce-news.es/ia-retail-media-tiktok-shop-o-commerce-media-entre-los-temas-que-marcaran-el-marketplace-summit-2026/
 - **Módulo:** Comercio Electrónico
 - **Resultado de aprendizaje:** RA1
@@ -21,7 +21,7 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 ### Por qué encaja en este RA
 
-La necesidad de integrar la IA y la estrategia de contenido social se alinea con la gestión de estrategias de marketing digital (RA1).
+La noticia aborda estrategias de marketing avanzado (IA y Social Commerce) y el análisis de tendencias, lo que se conecta con la aplicación de un plan de marketing digital.
 
 ## Propuesta de dinámica
 

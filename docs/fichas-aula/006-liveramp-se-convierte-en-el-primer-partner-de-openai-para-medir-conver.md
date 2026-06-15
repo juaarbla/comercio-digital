@@ -3,7 +3,7 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Thu, 11 Jun 2026 14:06:00 +0000
+- **Fecha:** 11 jun. 2026
 - **Enlace:** https://ecommerce-news.es/liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conversiones-con-chatgpt/
 - **Módulo:** Comercio Electrónico
 - **Resultado de aprendizaje:** RA1
@@ -21,7 +21,7 @@ Esta noticia es vital para comprender la importancia de la analítica y el segui
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ Esta noticia es vital para comprender la importancia de la analítica y el segui
 
 ### Por qué encaja en este RA
 
-La noticia aborda la medición de conversiones y el retorno de la inversión (ROI) de marketing digital, lo cual es parte central de la planificación y optimización de campañas.
+Mejorar la medición de conversiones y demostrar el retorno de las inversiones de marketing en comercio digital es fundamental para la planificación de campañas y el SEO/SEM.
 
 ## Propuesta de dinámica
 

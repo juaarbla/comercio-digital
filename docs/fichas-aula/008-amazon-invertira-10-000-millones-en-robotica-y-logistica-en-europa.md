@@ -3,10 +3,10 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Mon, 08 Jun 2026 14:23:00 +0000
+- **Fecha:** 8 jun. 2026
 - **Enlace:** https://ecommerce-news.es/amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa/
 - **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA2
+- **Resultado de aprendizaje:** RA4
 - **Tipo de uso:** Caso de empresa
 
 ## Resumen
@@ -21,7 +21,7 @@ Amazon está invirtiendo una enorme cantidad de dinero (10.000 millones de dóla
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ Amazon está invirtiendo una enorme cantidad de dinero (10.000 millones de dóla
 
 ### Por qué encaja en este RA
 
-La inversión masiva en robótica y automatización se enmarca en los sistemas ciber-físicos y la automatización, elementos clave de la 4ª Revolución Industrial.
+La inversión en robótica y automatización de almacenes aborda directamente el tema de la robótica colaborativa e infraestructura 4.0 en la cadena de suministro.
 
 ## Propuesta de dinámica
 

@@ -3,7 +3,7 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Tue, 09 Jun 2026 14:30:00 +0000
+- **Fecha:** 9 jun. 2026
 - **Enlace:** https://ecommerce-news.es/merchantee-capta-18m-para-impulsar-su-expansion-por-europa/
 - **Módulo:** Digitalización
 - **Resultado de aprendizaje:** RA4
@@ -21,7 +21,7 @@ La empresa Merchantee, especializada en herramientas de inteligencia artificial,
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ La empresa Merchantee, especializada en herramientas de inteligencia artificial,
 
 ### Por qué encaja en este RA
 
-La noticia aborda el uso de herramientas de inteligencia artificial (IA) para gestionar la complejidad de los marketplaces, lo cual es un ejemplo de tecnología habilitadora digital.
+La gestión de grandes plataformas (marketplaces) requiere tecnologías de automatización e inteligencia artificial para optimizar la venta digital, en línea con el estudio de tecnologías habilitadoras.
 
 ## Propuesta de dinámica
 

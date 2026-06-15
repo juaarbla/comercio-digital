@@ -3,7 +3,7 @@
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** Tue, 09 Jun 2026 14:15:00 +0000
+- **Fecha:** 9 jun. 2026
 - **Enlace:** https://ecommerce-news.es/openai-sigue-a-anthropic-y-prepara-su-salida-a-bolsa/
 - **Módulo:** IA
 - **Resultado de aprendizaje:** RA6
@@ -21,7 +21,7 @@ La empresa OpenAI, detrás de ChatGPT, está preparando su salida a bolsa, un pr
 
 ### Actividad breve
 
-
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
 
 ### Conceptos clave
 
@@ -29,7 +29,7 @@ La empresa OpenAI, detrás de ChatGPT, está preparando su salida a bolsa, un pr
 
 ### Por qué encaja en este RA
 
-La noticia trata sobre el uso de la IA en funcionalidades clave como chatbots y atención al cliente.
+La noticia destaca la IA como motor de funcionalidades como chatbots y la atención al cliente, que se abordan en el RA6.
 
 ## Propuesta de dinámica
 

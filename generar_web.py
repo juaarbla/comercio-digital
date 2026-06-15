@@ -155,12 +155,22 @@ def formatear_fecha(s: str) -> str:
 
 
 def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
+    """Menú principal común de toda la web.
+
+    La página Aula no depende de SECCIONES porque la genera generar_aula.py,
+    por eso se añade siempre al final del menú.
+    """
     items = '<li><a href="index.html">Portada</a></li>\n'
+
     for seccion in SECCIONES:
         if secciones_con_noticias is not None and seccion["id"] not in secciones_con_noticias:
             continue
         cls = ' class="active"' if seccion["id"] == activa else ""
         items += f'    <li><a href="{seccion["file"]}"{cls}>{seccion["label"]}</a></li>\n'
+
+    aula_cls = ' class="active"' if activa == "aula" else ""
+    items += f'    <li><a href="aula.html"{aula_cls}>Aula</a></li>\n'
+
     return f'<nav><ul>{items}</ul></nav>'
 
 

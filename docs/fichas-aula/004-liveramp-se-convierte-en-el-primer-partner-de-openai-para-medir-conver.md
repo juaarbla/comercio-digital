@@ -29,7 +29,7 @@ Esta noticia es vital para comprender la importancia de la analítica y el segui
 
 ### Por qué encaja en este RA
 
-La noticia trata sobre la medición precisa de conversiones y el retorno de la inversión publicitaria, lo cual es un pilar clave de las directrices de un plan de marketing digital.
+La noticia aborda la medición de conversiones y el retorno de la inversión (ROI) de marketing digital, lo cual es parte central de la planificación y optimización de campañas.
 
 ## Propuesta de dinámica
 

@@ -5,8 +5,8 @@
 - **Fuente:** ecommerce-news.es
 - **Fecha:** Wed, 10 Jun 2026 14:13:00 +0000
 - **Enlace:** https://ecommerce-news.es/locus-robotics-duplica-la-productividad-dedhl-y-makro-en-espana-con-robots-moviles-autonomos-y-automatizacion-flexible/
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA2
 - **Tipo de uso:** Caso de empresa
 
 ## Resumen
@@ -17,7 +17,7 @@ Este caso demuestra cómo la tecnología está transformando la logística de gr
 
 ### Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Cómo puede afectar esta noticia a una pequeña tienda online?
 
 ### Actividad breve
 
@@ -29,7 +29,7 @@ Este caso demuestra cómo la tecnología está transformando la logística de gr
 
 ### Por qué encaja en este RA
 
-La automatización y la robótica son tecnologías habilitadoras clave de la Industria 4.0, esenciales para la optimización de la cadena de suministro y el *fulfillment* (RA4).
+La gestión de inventario y el *fulfillment* ultrarrápido son aspectos clave de la logística y la operación de una tienda online (RA2).
 
 ## Propuesta de dinámica
 

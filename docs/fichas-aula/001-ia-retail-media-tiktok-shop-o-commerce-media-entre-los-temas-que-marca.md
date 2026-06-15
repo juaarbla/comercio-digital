@@ -29,7 +29,7 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 ### Por qué encaja en este RA
 
-La noticia aborda la integración de IA y el Retail Media, lo cual implica la aplicación de estrategias de marketing digital avanzadas y nuevas fuentes de ingresos.
+La necesidad de integrar la IA y la estrategia de contenido social se alinea con la gestión de estrategias de marketing digital (RA1).
 
 ## Propuesta de dinámica
 

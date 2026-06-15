@@ -29,7 +29,7 @@ Las grandes plataformas como Amazon están evolucionando, pasando de los sencill
 
 ### Por qué encaja en este RA
 
-El foco en automatización y ayuda decisional requiere aplicar estrategias de marketing digital avanzadas para mejorar la conversión.
+La evolución de la recomendación a agentes de IA afecta directamente las directrices de marketing digital, posicionamiento y mejora de la tasa de conversión.
 
 ## Propuesta de dinámica
 

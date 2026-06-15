@@ -29,7 +29,7 @@ La empresa Merchantee, especializada en herramientas de inteligencia artificial,
 
 ### Por qué encaja en este RA
 
-La mención a herramientas de inteligencia artificial (IA) y la optimización de tareas complejas se relaciona con las tecnologías habilitadoras digitales (IA, Big Data) que impulsan la automatización comercial.
+La noticia aborda el uso de herramientas de inteligencia artificial (IA) para gestionar la complejidad de los marketplaces, lo cual es un ejemplo de tecnología habilitadora digital.
 
 ## Propuesta de dinámica
 

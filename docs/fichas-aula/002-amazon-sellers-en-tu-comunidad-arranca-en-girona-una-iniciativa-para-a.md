@@ -6,7 +6,7 @@
 - **Fecha:** Wed, 10 Jun 2026 15:01:09 +0000
 - **Enlace:** https://ecommerce-news.es/amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-acercar-la-digitalizacion-a-las-pymes/
 - **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
+- **Resultado de aprendizaje:** RA2
 - **Tipo de uso:** Caso de empresa
 
 ## Resumen
@@ -29,7 +29,7 @@ Amazon ha lanzado una iniciativa llamada ‘Amazon Sellers en tu comunidad’ en
 
 ### Por qué encaja en este RA
 
-La iniciativa aborda cómo conectar el comercio físico tradicional con las herramientas digitales, lo cual implica aplicar directrices de marketing digital como el posicionamiento y la digitalización.
+El foco en acercar el comercio local a la venta digital (Amazon) se relaciona con la creación y gestión de modelos de negocio online y logística.
 
 ## Propuesta de dinámica
 

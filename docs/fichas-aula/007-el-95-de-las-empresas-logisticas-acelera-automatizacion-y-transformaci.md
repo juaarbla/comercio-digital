@@ -29,7 +29,7 @@ El sector logístico está pasando por una enorme transformación, ya que la may
 
 ### Por qué encaja en este RA
 
-La aceleración de la automatización y la gestión digital del almacén es un ejemplo claro de los sistemas ciber-físicos y entornos 4.0.
+El avance tecnológico y la automatización (robots, software avanzado) en la cadena de suministro se enmarcan directamente en los conceptos de la 4ª Revolución Industrial y los sistemas ciber-físicos.
 
 ## Propuesta de dinámica
 

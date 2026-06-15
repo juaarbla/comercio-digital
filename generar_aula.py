@@ -8,10 +8,8 @@ Uso:
     python generar_aula.py
     python generar_aula.py --entrada noticias_clasificadas.json --salida docs/aula.html --max-noticias 25
 
-Notas:
-    - score_docente, valor_docente y seleccion_newsletter se usan internamente
-      para seleccionar y ordenar noticias.
-    - No se muestran en la página pública para mantener una presentación docente limpia.
+Si existe docs/fichas-aula/index_fichas.json, añade un botón "Ver ficha docente"
+en las noticias que tengan ficha generada.
 """
 
 import argparse
@@ -31,6 +29,8 @@ MENU = [
     ("aula.html", "Aula"),
     ("del-autor.html", "Del autor"),
 ]
+
+FICHAS_INDEX = Path("docs/fichas-aula/index_fichas.json")
 
 
 def h(valor):
@@ -54,12 +54,32 @@ def cargar_noticias(ruta):
     raise ValueError("No se ha encontrado una lista de noticias en el JSON.")
 
 
+def cargar_indice_fichas():
+    if not FICHAS_INDEX.exists():
+        return {}
+    try:
+        with open(FICHAS_INDEX, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
 def fuente(noticia):
-    return noticia.get("fuente_detectada") or noticia.get("fuente") or noticia.get("medio") or ""
+    return (
+        noticia.get("fuente_detectada")
+        or noticia.get("fuente")
+        or noticia.get("medio")
+        or ""
+    )
 
 
 def fecha(noticia):
-    return noticia.get("fecha_detectada") or noticia.get("fecha_publicacion") or noticia.get("fecha") or ""
+    return (
+        noticia.get("fecha_detectada")
+        or noticia.get("fecha_publicacion")
+        or noticia.get("fecha")
+        or ""
+    )
 
 
 def fecha_cabecera():
@@ -72,7 +92,12 @@ def fecha_cabecera():
 
 
 def normalizar_modulo_visible(noticia):
-    return noticia.get("modulo_relacionado") or noticia.get("modulo_asignado") or noticia.get("modulo") or "General"
+    return (
+        noticia.get("modulo_relacionado")
+        or noticia.get("modulo_asignado")
+        or noticia.get("modulo")
+        or "General"
+    )
 
 
 def seleccionar_noticias(noticias, max_noticias):
@@ -190,7 +215,20 @@ def render_docente_box(noticia):
     """
 
 
-def render_noticia(noticia):
+def ficha_link_html(noticia, indice_fichas):
+    clave = noticia.get("url") or noticia.get("titulo") or ""
+    ficha = indice_fichas.get(clave)
+    if not ficha:
+        return ""
+
+    href = ficha.get("html") or ""
+    if not href:
+        return ""
+
+    return f'<a class="read-more" href="{h(href)}">Ver ficha docente →</a>'
+
+
+def render_noticia(noticia, indice_fichas):
     titulo = h(noticia.get("titulo") or "Sin título")
     url = h(noticia.get("url") or "#")
     resumen = h(noticia.get("resumen") or "")
@@ -239,14 +277,15 @@ def render_noticia(noticia):
         {fuente_html}
         {render_docente_box(noticia)}
 
+        {ficha_link_html(noticia, indice_fichas)}
         <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
       </div>
     </article>
     """
 
 
-def render_html(noticias):
-    listado = "\n".join(render_noticia(n) for n in noticias)
+def render_html(noticias, indice_fichas):
+    listado = "\n".join(render_noticia(n, indice_fichas) for n in noticias)
 
     if not listado:
         listado = """
@@ -339,12 +378,14 @@ def main():
 
     noticias = cargar_noticias(entrada)
     seleccionadas = seleccionar_noticias(noticias, args.max_noticias)
+    indice_fichas = cargar_indice_fichas()
 
     salida.parent.mkdir(parents=True, exist_ok=True)
-    salida.write_text(render_html(seleccionadas), encoding="utf-8")
+    salida.write_text(render_html(seleccionadas, indice_fichas), encoding="utf-8")
 
     print(f"Página generada: {salida}")
     print(f"Noticias para aula: {len(seleccionadas)}")
+    print(f"Fichas enlazadas disponibles: {len(indice_fichas)}")
 
 
 if __name__ == "__main__":

@@ -7,9 +7,10 @@ Ejecuta, en orden:
 2. Clasificación por módulo y RA
 3. Enriquecimiento docente
 4. Obtención de imágenes destacadas
-5. Generación de la web estática principal
-6. Generación de la página de aula
-7. SEO técnico
+5. Generación de la web principal
+6. Generación de fichas docentes de aula
+7. Generación de aula.html
+8. SEO técnico
 
 Uso:
     python run_pipeline.py
@@ -36,6 +37,7 @@ PASOS = [
         "nombre": "Enriquecimiento docente",
         "script": "enriquecer_docente.py",
         "obligatorio": False,
+        "args": ["--forzar"],
     },
     {
         "nombre": "Imágenes destacadas",
@@ -46,6 +48,12 @@ PASOS = [
         "nombre": "Generación de la web principal",
         "script": "generar_web.py",
         "obligatorio": True,
+    },
+    {
+        "nombre": "Generación de fichas docentes de aula",
+        "script": "generar_fichas_aula.py",
+        "obligatorio": True,
+        "args": ["--max-fichas", "10", "--limpiar"],
     },
     {
         "nombre": "Generación de la página de aula",
@@ -116,7 +124,7 @@ def main():
     print("\n" + "=" * 70)
     print("🎉 Pipeline completado correctamente")
     print(f"Duración aproximada: {duracion}")
-    print("Revisa la carpeta docs/ y publica los cambios en GitHub.")
+    print("Revisa docs/index.html, docs/aula.html y docs/fichas-aula/.")
     print("=" * 70)
 
 

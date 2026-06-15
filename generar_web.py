@@ -143,6 +143,15 @@ def fecha_hoy() -> str:
     return f"{dias[hoy.weekday()]}, {hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
 
 
+
+
+def fecha_corta() -> str:
+    """Fecha compacta para la cabecera, evitando que se rompa el masthead."""
+    hoy = datetime.now()
+    meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+    return f"{hoy.day} {meses[hoy.month - 1]} {hoy.year}"
+
+
 def formatear_fecha(s: str) -> str:
     try:
         from email.utils import parsedate_to_datetime
@@ -155,10 +164,10 @@ def formatear_fecha(s: str) -> str:
 
 
 def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
-    """Menú principal común de toda la web.
+    """Menú principal común.
 
-    La página Aula no depende de SECCIONES porque la genera generar_aula.py,
-    por eso se añade siempre al final del menú.
+    Las secciones de noticias pueden filtrarse si no tienen contenido.
+    Aula se añade siempre porque la genera generar_aula.py.
     """
     items = '<li><a href="index.html">Portada</a></li>\n'
 
@@ -180,7 +189,7 @@ def masthead_html(subtitulo: str = "") -> str:
     <div class="masthead">
       <div class="masthead-side">Formaci&oacute;n Profesional<br>Comercio y Marketing</div>
       <div class="site-title"><a href="index.html">{SITE_TITLE}</a></div>
-      <div class="masthead-side right">{fecha_hoy()}<br>{SITE_URL.replace("https://","")}</div>
+      <div class="masthead-side right">{fecha_corta()}<br>{SITE_URL.replace("https://","")}</div>
     </div>
   </header>"""
 

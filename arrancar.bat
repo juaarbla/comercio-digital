@@ -9,8 +9,6 @@ rem Comercio Digital - Panel de control
 rem Proyecto: https://comerciodigital.net
 rem ==========================================================
 
-rem El entorno virtual se guarda fuera de Google Drive.
-rem LOCALAPPDATA cambia automaticamente segun el usuario y el equipo.
 set "VENV_DIR=%LOCALAPPDATA%\PythonVenvs\comercio-digital"
 
 if not exist "%VENV_DIR%\Scripts\python.exe" (
@@ -41,9 +39,6 @@ if not exist "%VENV_DIR%\Scripts\python.exe" (
         pause
         exit /b 1
     )
-
-    echo.
-    echo Entorno virtual creado correctamente.
 ) else (
     call "%VENV_DIR%\Scripts\activate.bat"
 )
@@ -73,15 +68,16 @@ echo    5. Solo clasificar
 echo    6. Solo enriquecimiento docente
 echo    7. Solo imagenes
 echo    8. Solo generar web principal
-echo    9. Solo generar aula
-echo   10. Solo SEO tecnico
+echo    9. Solo generar fichas de aula
+echo   10. Solo generar aula
+echo   11. Solo SEO tecnico
 echo.
-echo   11. Abrir portada local
-echo   12. Abrir aula local
-echo   13. Estado de Git
+echo   12. Abrir portada local
+echo   13. Abrir aula local
+echo   14. Estado de Git
 echo.
-echo   14. Publicar SOLO web docs/
-echo   15. Publicar TODO el proyecto
+echo   15. Publicar SOLO web docs/
+echo   16. Publicar TODO el proyecto
 echo.
 echo    0. Salir
 echo.
@@ -95,13 +91,14 @@ if "%OPCION%"=="5" goto CLASIFICAR
 if "%OPCION%"=="6" goto ENRIQUECER
 if "%OPCION%"=="7" goto IMAGENES
 if "%OPCION%"=="8" goto WEB
-if "%OPCION%"=="9" goto AULA
-if "%OPCION%"=="10" goto SEO
-if "%OPCION%"=="11" goto ABRIR_PORTADA
-if "%OPCION%"=="12" goto ABRIR_AULA
-if "%OPCION%"=="13" goto ESTADO_GIT
-if "%OPCION%"=="14" goto GIT_DOCS
-if "%OPCION%"=="15" goto GIT_PROYECTO
+if "%OPCION%"=="9" goto FICHAS
+if "%OPCION%"=="10" goto AULA
+if "%OPCION%"=="11" goto SEO
+if "%OPCION%"=="12" goto ABRIR_PORTADA
+if "%OPCION%"=="13" goto ABRIR_AULA
+if "%OPCION%"=="14" goto ESTADO_GIT
+if "%OPCION%"=="15" goto GIT_DOCS
+if "%OPCION%"=="16" goto GIT_PROYECTO
 if "%OPCION%"=="0" goto FIN
 goto MENU
 
@@ -142,6 +139,14 @@ echo.
 echo  Generando web principal...
 echo  -----------------------------------------------
 python generar_web.py
+if errorlevel 1 goto ERROR_PROCESO
+goto PAUSA
+
+:FICHAS
+echo.
+echo  Generando fichas docentes de aula...
+echo  -----------------------------------------------
+python generar_fichas_aula.py --max-fichas 10 --limpiar
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
@@ -208,10 +213,6 @@ echo  Ejecutando proceso completo...
 echo  -----------------------------------------------
 python run_pipeline.py
 if errorlevel 1 goto ERROR_PROCESO
-
-echo.
-echo  Proceso completo finalizado.
-echo  Revisa docs\index.html y docs\aula.html antes de publicar.
 goto PAUSA
 
 :COMPLETO_GIT_DOCS
@@ -225,11 +226,6 @@ echo.
 echo  Publicando SOLO docs/...
 call :PUBLICAR_DOCS
 if errorlevel 1 goto ERROR_PROCESO
-
-echo.
-echo  Web publicada. Revisa:
-echo  https://comerciodigital.net
-echo  https://comerciodigital.net/aula.html
 goto PAUSA
 
 :COMPLETO_GIT_PROYECTO
@@ -243,14 +239,10 @@ echo.
 echo  Publicando TODO el proyecto...
 call :PUBLICAR_PROYECTO
 if errorlevel 1 goto ERROR_PROCESO
-
-echo.
-echo  Proyecto publicado. Revisa GitHub y GitHub Pages.
 goto PAUSA
 
 :PUBLICAR_DOCS
 git pull --rebase --autostash origin main
-
 if errorlevel 1 (
     echo.
     echo ERROR: no se pudo sincronizar con origin/main.
@@ -268,7 +260,6 @@ if errorlevel 1 (
 )
 
 git push origin main
-
 if errorlevel 1 (
     echo.
     echo ERROR: fallo al subir cambios a GitHub.
@@ -279,7 +270,6 @@ exit /b 0
 
 :PUBLICAR_PROYECTO
 git pull --rebase --autostash origin main
-
 if errorlevel 1 (
     echo.
     echo ERROR: no se pudo sincronizar con origin/main.
@@ -302,7 +292,6 @@ if errorlevel 1 (
 )
 
 git push origin main
-
 if errorlevel 1 (
     echo.
     echo ERROR: fallo al subir cambios a GitHub.

@@ -305,7 +305,7 @@ def render_html(noticias, indice_fichas):
   <meta name="description" content="Selección de noticias de comercio digital para trabajar en clase con preguntas, actividades breves, conceptos clave y enfoque docente.">
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="aula-page">
 
   <header class="masthead">
     <div class="masthead-side">

@@ -210,7 +210,7 @@ def render_html(n, md_file):
   <meta name="description" content="Ficha docente para trabajar una noticia de comercio digital en clase.">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="ficha-page">
 
 <header class="masthead">
   <div class="masthead-side">Formación<br>Profesional<br>Comercio y Marketing</div>
@@ -263,7 +263,7 @@ def render_html(n, md_file):
         <div class="docente-box">
           <div class="docente-box-content">
             <p><strong>Pregunta detonadora:</strong><br>{h(n.get("pregunta_aula") or "")}</p>
-            <p><strong>Actividad breve:</strong><br>{h(n.get("actividad_breve") or "")}</p>
+            <p><strong>Actividad breve:</strong><br>{h(n.get("actividad_breve") or "Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.")}</p>
             <p><strong>Conceptos clave:</strong></p>
             <div class="conceptos-clave">{conceptos_html}</div>
             <p><strong>Por qué encaja en este RA:</strong><br>{h(n.get("ra_justificacion") or "")}</p>

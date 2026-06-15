@@ -7,6 +7,11 @@ Genera docs/aula.html usando el style.css principal de Comercio Digital.
 Uso:
     python generar_aula.py
     python generar_aula.py --entrada noticias_clasificadas.json --salida docs/aula.html --max-noticias 25
+
+Notas:
+    - score_docente, valor_docente y seleccion_newsletter se usan internamente
+      para seleccionar y ordenar noticias.
+    - No se muestran en la página pública para mantener una presentación docente limpia.
 """
 
 import argparse
@@ -18,12 +23,13 @@ from datetime import datetime
 
 MENU = [
     ("index.html", "Portada"),
-    ("ecommerce.html", "E-commerce"),
+    ("comercio-electronico.html", "E-commerce"),
     ("internacional.html", "Internacional"),
     ("digitalizacion.html", "Digitalización"),
     ("ia-marketing.html", "IA & Marketing"),
+    ("marketing.html", "Marketing"),
     ("aula.html", "Aula"),
-    ("autor.html", "Del autor"),
+    ("del-autor.html", "Del autor"),
 ]
 
 
@@ -49,21 +55,11 @@ def cargar_noticias(ruta):
 
 
 def fuente(noticia):
-    return (
-        noticia.get("fuente_detectada")
-        or noticia.get("fuente")
-        or noticia.get("medio")
-        or ""
-    )
+    return noticia.get("fuente_detectada") or noticia.get("fuente") or noticia.get("medio") or ""
 
 
 def fecha(noticia):
-    return (
-        noticia.get("fecha_detectada")
-        or noticia.get("fecha_publicacion")
-        or noticia.get("fecha")
-        or ""
-    )
+    return noticia.get("fecha_detectada") or noticia.get("fecha_publicacion") or noticia.get("fecha") or ""
 
 
 def fecha_cabecera():
@@ -73,6 +69,10 @@ def fecha_cabecera():
     ]
     hoy = datetime.now()
     return f"{hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
+
+
+def normalizar_modulo_visible(noticia):
+    return noticia.get("modulo_relacionado") or noticia.get("modulo_asignado") or noticia.get("modulo") or "General"
 
 
 def seleccionar_noticias(noticias, max_noticias):
@@ -107,12 +107,14 @@ def render_nav(activa="aula.html"):
 
 
 def render_conceptos(conceptos):
-    if not conceptos or not isinstance(conceptos, list):
-        return ""
+    if isinstance(conceptos, str):
+        conceptos = [c.strip() for c in conceptos.split(",") if c.strip()]
+    elif not isinstance(conceptos, list):
+        conceptos = []
 
     chips = "\n".join(
         f'<span class="concepto-chip">{h(c)}</span>'
-        for c in conceptos[:6]
+        for c in conceptos[:8]
         if c
     )
 
@@ -121,35 +123,68 @@ def render_conceptos(conceptos):
 
     return f"""
     <div class="conceptos-clave">
+      <strong>Conceptos clave:</strong><br>
       {chips}
     </div>
     """
 
 
+def render_linea_docente(label, valor):
+    valor = h(valor)
+    if not valor:
+        return ""
+    return f"<p><strong>{label}:</strong><br>{valor}</p>"
+
+
+def etiqueta_tipo_uso(tipo_uso):
+    tipo = str(tipo_uso or "").strip().lower()
+    equivalencias = {
+        "actividad": "Actividad de aula",
+        "actividad_aula": "Actividad de aula",
+        "caso_empresa": "Caso de empresa",
+        "caso": "Caso de empresa",
+        "debate": "Debate",
+        "seguimiento": "Seguimiento de actualidad",
+        "seguimiento_actualidad": "Seguimiento de actualidad",
+    }
+    return equivalencias.get(tipo, tipo_uso or "Uso en el aula")
+
+
 def render_docente_box(noticia):
-    pregunta = h(noticia.get("pregunta_aula") or "")
-    actividad = h(noticia.get("actividad_breve") or "")
-    tipo_uso = h(noticia.get("tipo_uso") or "uso en el aula")
+    pregunta = noticia.get("pregunta_aula") or ""
+    actividad = noticia.get("actividad_breve") or ""
+    tipo_uso = etiqueta_tipo_uso(noticia.get("tipo_uso") or "uso en el aula")
+    modulo = normalizar_modulo_visible(noticia)
+    ra = noticia.get("ra_asignado") or ""
+    justificacion = noticia.get("ra_justificacion") or ""
     conceptos = render_conceptos(noticia.get("conceptos_clave") or [])
 
-    if not pregunta and not actividad and not conceptos:
+    if not any([pregunta, actividad, conceptos, justificacion, modulo, ra]):
         return ""
 
-    actividad_html = ""
-    if actividad:
-        actividad_html = f"<p><strong>Actividad breve:</strong><br>{actividad}</p>"
+    datos = []
+    if modulo:
+        datos.append(f"<span class='concepto-chip'>Módulo: {h(modulo)}</span>")
+    if ra:
+        datos.append(f"<span class='concepto-chip'>RA: {h(ra)}</span>")
 
-    pregunta_html = ""
-    if pregunta:
-        pregunta_html = f"<p><strong>Pregunta para el aula:</strong><br>{pregunta}</p>"
+    datos_html = ""
+    if datos:
+        datos_html = f"""
+        <div class="conceptos-clave">
+          {"".join(datos)}
+        </div>
+        """
 
     return f"""
-    <details class="docente-box">
-      <summary class="docente-box-title">Uso en el aula · {tipo_uso}</summary>
+    <details class="docente-box" open>
+      <summary class="docente-box-title">Ficha docente · {h(tipo_uso)}</summary>
       <div class="docente-box-content">
-        {pregunta_html}
-        {actividad_html}
+        {datos_html}
+        {render_linea_docente("Pregunta detonadora", pregunta)}
+        {render_linea_docente("Actividad breve", actividad)}
         {conceptos}
+        {render_linea_docente("Por qué encaja en el RA", justificacion)}
       </div>
     </details>
     """
@@ -159,14 +194,12 @@ def render_noticia(noticia):
     titulo = h(noticia.get("titulo") or "Sin título")
     url = h(noticia.get("url") or "#")
     resumen = h(noticia.get("resumen") or "")
-    modulo = h(noticia.get("modulo_relacionado") or noticia.get("modulo") or "General")
+    modulo = h(normalizar_modulo_visible(noticia))
+    tipo_uso = h(etiqueta_tipo_uso(noticia.get("tipo_uso") or ""))
     imagen = h(noticia.get("imagen_url") or "")
     fecha_txt = h(fecha(noticia))
     fuente_txt = h(fuente(noticia))
     ra = h(noticia.get("ra_asignado") or "")
-    justificacion = h(noticia.get("ra_justificacion") or "")
-    score = h(noticia.get("score_docente") or "")
-    newsletter = bool(noticia.get("seleccion_newsletter"))
 
     has_img = "has-img" if imagen else ""
 
@@ -180,16 +213,11 @@ def render_noticia(noticia):
 
     ra_html = f'<span class="ra-badge">{ra}</span>' if ra else ""
     fecha_html = f'<span class="fecha">{fecha_txt}</span>' if fecha_txt else ""
-    score_html = f'<span class="ra-badge">Score {score}</span>' if score else ""
-    newsletter_html = '<span class="ra-badge">Newsletter</span>' if newsletter else ""
+    tipo_html = f'<span class="ra-badge">{tipo_uso}</span>' if tipo_uso else ""
 
     fuente_html = ""
     if fuente_txt:
         fuente_html = f'<p class="justificacion">Fuente: {fuente_txt}</p>'
-
-    justificacion_html = ""
-    if justificacion:
-        justificacion_html = f'<p class="justificacion">🧩 {justificacion}</p>'
 
     return f"""
     <article class="noticia-full {has_img}">
@@ -198,9 +226,8 @@ def render_noticia(noticia):
         <div class="meta">
           <span class="cat-badge">{modulo}</span>
           {ra_html}
+          {tipo_html}
           {fecha_html}
-          {score_html}
-          {newsletter_html}
         </div>
 
         <h2 class="n-title">
@@ -210,7 +237,6 @@ def render_noticia(noticia):
         <p class="n-summary">{resumen}</p>
 
         {fuente_html}
-        {justificacion_html}
         {render_docente_box(noticia)}
 
         <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
@@ -237,7 +263,7 @@ def render_html(noticias):
   <meta charset="utf-8">
   <title>Noticias para trabajar en clase · Comercio Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Selección de noticias de comercio digital para trabajar en clase con preguntas, actividades breves y enfoque docente.">
+  <meta name="description" content="Selección de noticias de comercio digital para trabajar en clase con preguntas, actividades breves, conceptos clave y enfoque docente.">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -267,7 +293,7 @@ def render_html(noticias):
 
   <div class="subtitle-bar">
     <span>Aula · {len(noticias)} noticias seleccionadas</span>
-    <span>Selección docente generada a partir de noticias clasificadas</span>
+    <span>Ficha docente, pregunta, actividad y conceptos clave</span>
   </div>
 
   <main class="container">
@@ -278,8 +304,8 @@ def render_html(noticias):
         <div>
           <div class="autor-compact-kicker">Uso docente</div>
           <p class="autor-compact-bio">
-            Noticias seleccionadas para conectar la actualidad del comercio digital con actividades,
-            preguntas de aula, casos de empresa y debates para Formación Profesional.
+            Noticias seleccionadas para conectar la actualidad del comercio digital con módulos,
+            resultados de aprendizaje, actividades, conceptos clave y debates para Formación Profesional.
           </p>
         </div>
         <a class="autor-compact-link" href="index.html">Volver a portada →</a>

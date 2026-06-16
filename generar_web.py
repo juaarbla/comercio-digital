@@ -36,6 +36,34 @@ def limpiar_texto(texto: str) -> str:
     texto = _re.sub(r"\*(.+?)\*",     r"<em>\1</em>",         texto)
     texto = _re.sub(r"`(.+?)`",       r"<code>\1</code>",     texto)
     return texto
+
+def texto_plano(texto: str) -> str:
+    """Devuelve texto seguro para tarjetas de portada.
+
+    Evita cortar resúmenes dentro de etiquetas HTML como <em>, <strong>
+    o <code>, que pueden romper el DOM y descolocar el grid.
+    """
+    import re as _re
+    if not texto:
+        return ""
+
+    texto = str(texto)
+    texto = texto.replace("“", '"').replace("”", '"')
+    texto = texto.replace("‘", "'").replace("’", "'")
+    texto = texto.replace("…", "...")
+    texto = texto.replace("–", "-").replace("—", "-")
+
+    # Markdown simple a texto plano, no a HTML.
+    texto = _re.sub(r"\*\*(.+?)\*\*", r"\1", texto)
+    texto = _re.sub(r"\*(.+?)\*", r"\1", texto)
+    texto = _re.sub(r"`(.+?)`", r"\1", texto)
+
+    # Por seguridad, eliminar cualquier etiqueta HTML previa.
+    texto = _re.sub(r"<[^>]+>", "", texto)
+    texto = _re.sub(r"\s+", " ", texto).strip()
+    return texto
+
+
 DOCS_DIR = Path("docs")
 
 SITE_TITLE = "Comercio Digital"
@@ -143,15 +171,6 @@ def fecha_hoy() -> str:
     return f"{dias[hoy.weekday()]}, {hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
 
 
-
-
-def fecha_corta() -> str:
-    """Fecha compacta para la cabecera, evitando que se rompa el masthead."""
-    hoy = datetime.now()
-    meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
-    return f"{hoy.day} {meses[hoy.month - 1]} {hoy.year}"
-
-
 def formatear_fecha(s: str) -> str:
     try:
         from email.utils import parsedate_to_datetime
@@ -166,19 +185,39 @@ def formatear_fecha(s: str) -> str:
 def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
     """Menú principal común.
 
-    Las secciones de noticias pueden filtrarse si no tienen contenido.
-    Aula se añade siempre porque la genera generar_aula.py.
+    Aula se añade siempre porque no depende de SECCIONES:
+    la página la genera generar_aula.py.
+
+    Orden:
+    Portada → E-Commerce → Internacional → Digitalización → IA & Marketing → Marketing → Aula → Del Autor
     """
     items = '<li><a href="index.html">Portada</a></li>\n'
 
     for seccion in SECCIONES:
-        if secciones_con_noticias is not None and seccion["id"] not in secciones_con_noticias:
+        sid = seccion["id"]
+
+        # No mostrar Otros en el menú principal.
+        if sid == "otros":
             continue
-        cls = ' class="active"' if seccion["id"] == activa else ""
+
+        # Del Autor se añade al final, después de Aula.
+        if sid == "del-autor":
+            continue
+
+        if secciones_con_noticias is not None and sid not in secciones_con_noticias:
+            continue
+
+        cls = ' class="active"' if sid == activa else ""
         items += f'    <li><a href="{seccion["file"]}"{cls}>{seccion["label"]}</a></li>\n'
 
     aula_cls = ' class="active"' if activa == "aula" else ""
     items += f'    <li><a href="aula.html"{aula_cls}>Aula</a></li>\n'
+
+    del_autor = next((s for s in SECCIONES if s["id"] == "del-autor"), None)
+    if del_autor:
+        if secciones_con_noticias is None or "del-autor" in secciones_con_noticias:
+            cls = ' class="active"' if activa == "del-autor" else ""
+            items += f'    <li><a href="{del_autor["file"]}"{cls}>{del_autor["label"]}</a></li>\n'
 
     return f'<nav><ul>{items}</ul></nav>'
 
@@ -189,7 +228,7 @@ def masthead_html(subtitulo: str = "") -> str:
     <div class="masthead">
       <div class="masthead-side">Formaci&oacute;n Profesional<br>Comercio y Marketing</div>
       <div class="site-title"><a href="index.html">{SITE_TITLE}</a></div>
-      <div class="masthead-side right">{fecha_corta()}<br>{SITE_URL.replace("https://","")}</div>
+      <div class="masthead-side right">{fecha_hoy()}<br>{SITE_URL.replace("https://","")}</div>
     </div>
   </header>"""
 
@@ -262,12 +301,18 @@ def card_lead(n: dict, seccion: dict | None = None) -> str:
 def card_story(n: dict, seccion: dict | None = None) -> str:
     url = safe_href(n.get("url", ""))
     titulo = esc_text(n.get("titulo", ""))
-    resumen = limpiar_texto(n.get("resumen", ""))
+
+    resumen_plano = texto_plano(n.get("resumen", ""))
+    if len(resumen_plano) > 180:
+        resumen_plano = resumen_plano[:180].rstrip() + "..."
+
+    resumen = esc_text(resumen_plano)
+
     return f"""
       <div class="story-card">
         {badge_html(n, seccion)}
         <div class="story-title"><a href="{esc_attr(url)}" target="_blank" rel="noopener noreferrer">{titulo}</a></div>
-        <div class="story-summary">{resumen[:180]}&hellip;</div>
+        <div class="story-summary">{resumen}</div>
         <a href="{esc_attr(url)}" class="read-more" target="_blank" rel="noopener noreferrer">Leer &rarr;</a>
       </div>"""
 
@@ -356,7 +401,8 @@ def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
 
         bloques += f'<div class="sec-header"><a href="{seccion["file"]}">{seccion["label"]}</a></div>\n'
         cards = "".join(card_story(n, seccion) for n in muestra)
-        bloques += f'<div class="stories-row">{cards}</div>\n'
+        cols_cls = f"cols-{min(len(muestra), 3)}"
+        bloques += f'<div class="stories-row {cols_cls}">{cards}</div>\n'
 
         if len(ns) > inicio + NOTICIAS_PORTADA_POR_SECCION:
             total_rest = len(ns) - inicio - NOTICIAS_PORTADA_POR_SECCION

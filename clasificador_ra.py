@@ -5,6 +5,7 @@ Lee noticias_resumidas.json y añade módulo, RA y CE a cada noticia
 
 import os
 import json
+import hashlib
 import requests
 from pathlib import Path
 from dotenv import load_dotenv
@@ -20,6 +21,30 @@ ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY", "")
 
 INPUT_FILE  = Path("noticias_resumidas.json")
 OUTPUT_FILE = Path("noticias_clasificadas.json")
+CACHE_FILE  = Path("cache_clasificacion.json")  # hash(titulo+resumen) -> clasificación (solo éxitos)
+
+# ─── CACHÉ DE CLASIFICACIÓN ────────────────────────────────────────────────
+
+def clave_cache(noticia: dict) -> str:
+    """Hash de título+resumen: si el resumen cambia, se reclasifica."""
+    base = (noticia.get("titulo", "") + "|" + noticia.get("resumen", "")).encode("utf-8")
+    return hashlib.sha256(base).hexdigest()
+
+
+def cargar_cache() -> dict:
+    if not CACHE_FILE.exists():
+        return {}
+    try:
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Aviso: no se pudo leer la caché de clasificación ({e}). Se empieza vacía.")
+        return {}
+
+
+def guardar_cache(cache: dict) -> None:
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
 
 # ─── BASE DE CONOCIMIENTO: RA/CE POR MÓDULO ───────────────────────────────────
 
@@ -163,6 +188,9 @@ def clasificar_noticias():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         noticias = json.load(f)
 
+    cache = cargar_cache()
+    print(f"Caché de clasificación: {len(cache)} entradas\n")
+
     # Filtrar las que ya tienen clasificacion
     pendientes = [n for n in noticias if "ra_asignado" not in n]
     ya_clasificadas = [n for n in noticias if "ra_asignado" in n]
@@ -177,16 +205,31 @@ def clasificar_noticias():
         return
 
     resultados_nuevos = []
+    desde_cache = 0
+    nuevas_en_cache = 0
+
     for i, noticia in enumerate(pendientes, 1):
         titulo_corto = noticia['titulo'][:60]
         print(f"[{i}/{len(pendientes)}] {titulo_corto}...")
 
-        # Contenido propio — no clasificar por RA
+        # Contenido propio — no clasificar por RA, no pasa por caché
         if noticia.get("modulo") == "Del Autor":
             noticia["ra_asignado"]      = ""
             noticia["modulo_asignado"]  = "Del Autor"
             noticia["ra_justificacion"] = ""
             print(f"         -> Del Autor (sin clasificar por RA)")
+            resultados_nuevos.append(noticia)
+            continue
+
+        clave = clave_cache(noticia)
+
+        if clave in cache:
+            clasificacion = cache[clave]
+            noticia["ra_asignado"]      = clasificacion.get("ra", "")
+            noticia["modulo_asignado"]  = clasificacion.get("modulo", "")
+            noticia["ra_justificacion"] = clasificacion.get("justificacion", "")
+            print(f"         -> {noticia['modulo_asignado']} | {noticia['ra_asignado']} (caché)")
+            desde_cache += 1
             resultados_nuevos.append(noticia)
             continue
 
@@ -197,6 +240,14 @@ def clasificar_noticias():
             noticia["modulo_asignado"]  = clasificacion.get("modulo", "")
             noticia["ra_justificacion"] = clasificacion.get("justificacion", "")
             print(f"         -> {noticia['modulo_asignado']} | {noticia['ra_asignado']}")
+
+            # Solo éxitos van a caché
+            cache[clave] = {
+                "modulo": noticia["modulo_asignado"],
+                "ra": noticia["ra_asignado"],
+                "justificacion": noticia["ra_justificacion"],
+            }
+            nuevas_en_cache += 1
         else:
             noticia["ra_asignado"]      = "Sin clasificar"
             noticia["modulo_asignado"]  = noticia.get("modulo", "")
@@ -211,8 +262,13 @@ def clasificar_noticias():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(todos, f, ensure_ascii=False, indent=2)
 
+    if nuevas_en_cache:
+        guardar_cache(cache)
+
     print(f"\nListo! {len(resultados_nuevos)} noticias clasificadas")
+    print(f"Desde caché: {desde_cache} · Nuevas peticiones con éxito: {nuevas_en_cache}")
     print(f"Guardadas en: {OUTPUT_FILE}")
+    print(f"Caché actualizada en: {CACHE_FILE} ({len(cache)} entradas totales)")
 
 
 # ─── ENTRADA ──────────────────────────────────────────────────────────────────

@@ -4,41 +4,21 @@ title Comercio Digital - Panel de control
 
 cd /d "%~dp0"
 
-rem ==========================================================
-rem Comercio Digital - Panel de control
-rem Proyecto: https://comerciodigital.net
-rem ==========================================================
-
 set "VENV_DIR=%LOCALAPPDATA%\PythonVenvs\comercio-digital"
 
 if not exist "%VENV_DIR%\Scripts\python.exe" (
     echo.
-    echo Creando entorno virtual por primera vez en:
+    echo Creando entorno virtual en:
     echo %VENV_DIR%
-    echo.
     py -m venv "%VENV_DIR%"
-
     if errorlevel 1 (
-        echo.
         echo ERROR: No se pudo crear el entorno virtual.
-        echo Comprueba que Python y el lanzador py estan instalados.
         pause
         exit /b 1
     )
-
     call "%VENV_DIR%\Scripts\activate.bat"
-
-    echo.
-    echo Instalando dependencias...
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
-
-    if errorlevel 1 (
-        echo.
-        echo ERROR: No se pudieron instalar las dependencias.
-        pause
-        exit /b 1
-    )
 ) else (
     call "%VENV_DIR%\Scripts\activate.bat"
 )
@@ -47,7 +27,6 @@ if not exist ".env" (
     echo.
     echo AVISO: No se encontro el archivo .env
     echo Copia .env.example como .env y rellena los valores necesarios.
-    echo.
     pause
     exit /b 1
 )
@@ -103,219 +82,130 @@ if "%OPCION%"=="0" goto FIN
 goto MENU
 
 :FEEDS
-echo.
-echo  Leyendo feeds y resumiendo noticias...
-echo  -----------------------------------------------
 python news_aggregator.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :CLASIFICAR
-echo.
-echo  Clasificando por modulo, RA y CE...
-echo  -----------------------------------------------
 python clasificador_ra.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :ENRIQUECER
-echo.
-echo  Generando capa docente...
-echo  -----------------------------------------------
 python enriquecer_docente.py --forzar
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :IMAGENES
-echo.
-echo  Buscando imagenes destacadas...
-echo  -----------------------------------------------
 python imagen_destacada.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :WEB
-echo.
-echo  Generando web principal...
-echo  -----------------------------------------------
 python generar_web.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :FICHAS
-echo.
-echo  Generando fichas docentes de aula...
-echo  -----------------------------------------------
 python generar_fichas_aula.py --max-fichas 10 --limpiar
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :AULA
-echo.
-echo  Generando pagina de aula...
-echo  -----------------------------------------------
 python generar_aula.py --max-noticias 25
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :SEO
-echo.
-echo  Ejecutando SEO tecnico...
-echo  -----------------------------------------------
 python generar_seo.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :ABRIR_PORTADA
-if exist "docs\index.html" (
-    start "" "docs\index.html"
-) else (
-    echo.
-    echo No existe docs\index.html. Ejecuta primero el proceso completo.
-)
+start "" "docs\index.html"
 goto PAUSA
 
 :ABRIR_AULA
-if exist "docs\aula.html" (
-    start "" "docs\aula.html"
-) else (
-    echo.
-    echo No existe docs\aula.html. Ejecuta primero generar aula o proceso completo.
-)
+start "" "docs\aula.html"
 goto PAUSA
 
 :ESTADO_GIT
-echo.
-echo  Estado de Git...
-echo  -----------------------------------------------
 git status
 goto PAUSA
 
 :GIT_DOCS
-echo.
-echo  Publicando SOLO la web docs/ en GitHub...
-echo  -----------------------------------------------
 call :PUBLICAR_DOCS
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :GIT_PROYECTO
-echo.
-echo  Publicando TODO el proyecto en GitHub...
-echo  -----------------------------------------------
 call :PUBLICAR_PROYECTO
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :COMPLETO
-echo.
-echo  Ejecutando proceso completo...
-echo  -----------------------------------------------
 python run_pipeline.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :COMPLETO_GIT_DOCS
-echo.
-echo  Ejecutando proceso completo...
-echo  -----------------------------------------------
 python run_pipeline.py
 if errorlevel 1 goto ERROR_PROCESO
-
-echo.
-echo  Publicando SOLO docs/...
 call :PUBLICAR_DOCS
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :COMPLETO_GIT_PROYECTO
-echo.
-echo  Ejecutando proceso completo...
-echo  -----------------------------------------------
 python run_pipeline.py
 if errorlevel 1 goto ERROR_PROCESO
-
-echo.
-echo  Publicando TODO el proyecto...
 call :PUBLICAR_PROYECTO
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
 :PUBLICAR_DOCS
 git pull --rebase --autostash origin main
-if errorlevel 1 (
-    echo.
-    echo ERROR: no se pudo sincronizar con origin/main.
-    exit /b 1
-)
-
+if errorlevel 1 exit /b 1
 git add docs/
-
 git diff --cached --quiet
 if errorlevel 1 (
     git commit -m "Actualiza web %date% %time%"
 ) else (
-    echo.
-    echo No hay cambios nuevos en docs/ para confirmar.
+    echo No hay cambios nuevos en docs/.
 )
-
 git push origin main
-if errorlevel 1 (
-    echo.
-    echo ERROR: fallo al subir cambios a GitHub.
-    exit /b 1
-)
-
+if errorlevel 1 exit /b 1
 exit /b 0
 
 :PUBLICAR_PROYECTO
 git pull --rebase --autostash origin main
-if errorlevel 1 (
-    echo.
-    echo ERROR: no se pudo sincronizar con origin/main.
-    exit /b 1
-)
-
+if errorlevel 1 exit /b 1
 git add docs/
 git add *.py
 git add *.md
 git add arrancar.bat
 git add .gitignore
 git add .env.example
-
 git diff --cached --quiet
 if errorlevel 1 (
     git commit -m "Actualiza proyecto %date% %time%"
 ) else (
-    echo.
     echo No hay cambios nuevos para confirmar.
 )
-
 git push origin main
-if errorlevel 1 (
-    echo.
-    echo ERROR: fallo al subir cambios a GitHub.
-    exit /b 1
-)
-
+if errorlevel 1 exit /b 1
 exit /b 0
 
 :ERROR_PROCESO
 echo.
-echo  =============================================
-echo  ERROR: el proceso no se ha completado.
-echo  Revisa los mensajes anteriores.
-echo  =============================================
-goto PAUSA
+echo ERROR: el proceso no se ha completado.
+pause
+goto MENU
 
 :PAUSA
 echo.
-echo  -----------------------------------------------
-echo  Pulsa cualquier tecla para volver al menu...
+echo Pulsa cualquier tecla para volver al menu...
 pause >nul
 goto MENU
 
 :FIN
-echo.
-echo  Hasta luego.
-echo.
+echo Hasta luego.

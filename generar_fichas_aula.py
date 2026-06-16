@@ -7,11 +7,8 @@ Genera fichas docentes en HTML y Markdown para las mejores noticias de aula.
 Salida:
     docs/fichas-aula/*.html
     docs/fichas-aula/*.md
+    docs/fichas-aula/material-aula.md
     docs/fichas-aula/index_fichas.json
-
-Uso:
-    python generar_fichas_aula.py
-    python generar_fichas_aula.py --max-fichas 10 --limpiar
 """
 
 import argparse
@@ -20,6 +17,27 @@ import json
 import re
 import unicodedata
 from pathlib import Path
+from datetime import datetime
+
+
+def fecha_corta():
+    hoy = datetime.now()
+    meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
+             "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+    return f"{hoy.day} {meses[hoy.month - 1]} {hoy.year}"
+
+
+def formatear_fecha_rss(s):
+    if not s:
+        return ""
+    try:
+        from email.utils import parsedate_to_datetime
+        dt = parsedate_to_datetime(s)
+        meses = ["ene", "feb", "mar", "abr", "may", "jun",
+                 "jul", "ago", "sep", "oct", "nov", "dic"]
+        return f"{dt.day} {meses[dt.month - 1]}. {dt.year}"
+    except Exception:
+        return str(s)[:10] if s else ""
 
 
 def h(v):
@@ -58,7 +76,8 @@ def modulo(n):
 
 
 def fecha(n):
-    return campo(n, "fecha_detectada", "fecha_publicacion", "fecha")
+    raw = campo(n, "fecha_detectada", "fecha_publicacion", "fecha")
+    return formatear_fecha_rss(raw)
 
 
 def fuente(n):
@@ -128,6 +147,8 @@ def seleccionar(noticias, max_fichas):
 
 def render_md(n):
     lista_conceptos = "\n".join(f"- {c}" for c in conceptos(n)) or "-"
+    actividad = n.get("actividad_breve") or "Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital."
+
     return f"""# {n.get("titulo") or "Sin título"}
 
 ## Datos de la noticia
@@ -151,7 +172,7 @@ def render_md(n):
 
 ### Actividad breve
 
-{n.get("actividad_breve") or ""}
+{actividad}
 
 ### Conceptos clave
 
@@ -174,20 +195,25 @@ Ficha generada por Comercio Digital para uso educativo.
 
 
 def nav_html():
+    docs = Path("docs")
     menu = [
-        ("../index.html", "Portada"),
-        ("../comercio-electronico.html", "E-commerce"),
-        ("../internacional.html", "Internacional"),
-        ("../digitalizacion.html", "Digitalización"),
-        ("../ia-marketing.html", "IA & Marketing"),
-        ("../marketing.html", "Marketing"),
-        ("../aula.html", "Aula"),
-        ("../del-autor.html", "Del autor"),
+        ("../index.html", "Portada", "index.html"),
+        ("../comercio-electronico.html", "E-commerce", "comercio-electronico.html"),
+        ("../internacional.html", "Internacional", "internacional.html"),
+        ("../digitalizacion.html", "Digitalización", "digitalizacion.html"),
+        ("../ia-marketing.html", "IA & Marketing", "ia-marketing.html"),
+        ("../marketing.html", "Marketing", "marketing.html"),
+        ("../aula.html", "Aula", "aula.html"),
+        ("../del-autor.html", "Del autor", "del-autor.html"),
     ]
-    return "\n".join(
-        f'<li><a class="{"active" if txt == "Aula" else ""}" href="{href}">{h(txt)}</a></li>'
-        for href, txt in menu
-    )
+    siempre = {"index.html", "aula.html", "del-autor.html"}
+    items = []
+    for href, txt, check in menu:
+        if check not in siempre and not (docs / check).exists():
+            continue
+        cls = "active" if txt == "Aula" else ""
+        items.append(f'<li><a class="{cls}" href="{href}">{h(txt)}</a></li>')
+    return "\n".join(items)
 
 
 def render_html(n, md_file):
@@ -195,6 +221,7 @@ def render_html(n, md_file):
     url = h(n.get("url") or "#")
     resumen = h(n.get("resumen") or "")
     img = h(n.get("imagen_url") or "")
+    actividad = h(n.get("actividad_breve") or "Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.")
     conceptos_html = "".join(f'<span class="concepto-chip">{h(c)}</span>' for c in conceptos(n)[:10])
 
     imagen_html = ""
@@ -215,7 +242,7 @@ def render_html(n, md_file):
 <header class="masthead">
   <div class="masthead-side">Formación<br>Profesional<br>Comercio y Marketing</div>
   <div class="site-title"><a href="../index.html">Comercio Digital</a></div>
-  <div class="masthead-side right">Ficha docente<br>comerciodigital.net</div>
+  <div class="masthead-side right">{fecha_corta()}<br>comerciodigital.net</div>
 </header>
 
 <nav><ul>{nav_html()}</ul></nav>
@@ -263,7 +290,7 @@ def render_html(n, md_file):
         <div class="docente-box">
           <div class="docente-box-content">
             <p><strong>Pregunta detonadora:</strong><br>{h(n.get("pregunta_aula") or "")}</p>
-            <p><strong>Actividad breve:</strong><br>{h(n.get("actividad_breve") or "Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.")}</p>
+            <p><strong>Actividad breve:</strong><br>{actividad}</p>
             <p><strong>Conceptos clave:</strong></p>
             <div class="conceptos-clave">{conceptos_html}</div>
             <p><strong>Por qué encaja en este RA:</strong><br>{h(n.get("ra_justificacion") or "")}</p>
@@ -295,6 +322,59 @@ def render_html(n, md_file):
 """
 
 
+def render_material_aula_md(seleccionadas, indice_archivos):
+    partes = [
+        "# Material de aula · Comercio Digital",
+        "",
+        "Selección de fichas docentes generadas a partir de noticias clasificadas.",
+        "",
+        f"Fecha de generación: {fecha_corta()}",
+        "",
+        "---",
+        "",
+    ]
+
+    for i, n in enumerate(seleccionadas, 1):
+        partes.append(f"# {i}. {n.get('titulo') or 'Sin título'}")
+        partes.append("")
+        partes.append(f"- **Fuente:** {fuente(n)}")
+        partes.append(f"- **Fecha:** {fecha(n)}")
+        partes.append(f"- **Enlace:** {n.get('url') or ''}")
+        partes.append(f"- **Módulo:** {modulo(n)}")
+        partes.append(f"- **RA:** {n.get('ra_asignado') or ''}")
+        partes.append(f"- **Tipo de uso:** {tipo_uso(n)}")
+        archivos = indice_archivos.get(n.get("url") or n.get("titulo") or "")
+        if archivos:
+            partes.append(f"- **Ficha HTML:** {archivos.get('html', '')}")
+            partes.append(f"- **Ficha Markdown:** {archivos.get('md', '')}")
+        partes.append("")
+        partes.append("## Resumen")
+        partes.append("")
+        partes.append(n.get("resumen") or "")
+        partes.append("")
+        partes.append("## Pregunta detonadora")
+        partes.append("")
+        partes.append(n.get("pregunta_aula") or "")
+        partes.append("")
+        partes.append("## Actividad breve")
+        partes.append("")
+        partes.append(n.get("actividad_breve") or "Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.")
+        partes.append("")
+        partes.append("## Conceptos clave")
+        partes.append("")
+        cs = conceptos(n)
+        partes.extend([f"- {c}" for c in cs] or ["-"])
+        partes.append("")
+        partes.append("## Por qué encaja en este RA")
+        partes.append("")
+        partes.append(n.get("ra_justificacion") or "")
+        partes.append("")
+        partes.append("---")
+        partes.append("")
+
+    return "\n".join(partes)
+
+
 def limpiar(salida):
     salida.mkdir(parents=True, exist_ok=True)
     for patron in ("*.html", "*.md", "index_fichas.json"):
@@ -320,6 +400,7 @@ def main():
         salida.mkdir(parents=True, exist_ok=True)
 
     indice = {}
+
     for i, n in enumerate(seleccionadas, 1):
         base = f"{i:03d}-{slugify(n.get('titulo'))}"
         html_file = f"{base}.html"
@@ -335,12 +416,18 @@ def main():
             "titulo": n.get("titulo") or "",
         }
 
+    (salida / "material-aula.md").write_text(
+        render_material_aula_md(seleccionadas, indice),
+        encoding="utf-8"
+    )
+
     (salida / "index_fichas.json").write_text(
         json.dumps(indice, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
     print(f"Fichas generadas: {len(seleccionadas)}")
+    print(f"Material de aula: {salida / 'material-aula.md'}")
     print(f"Carpeta: {salida}")
 
 

@@ -21,6 +21,24 @@ OPENAI_IMG_MODEL = os.getenv("OPENAI_IMG_MODEL", "dall-e-3")
 
 INPUT_FILE  = Path("noticias_clasificadas.json")
 OUTPUT_FILE = Path("noticias_clasificadas.json")   # Actualiza el mismo archivo
+CACHE_FILE  = Path("cache_imagenes.json")          # url_noticia -> imagen_url (solo éxitos)
+
+# ─── CACHÉ DE IMÁGENES ─────────────────────────────────────────────────────
+
+def cargar_cache() -> dict:
+    if not CACHE_FILE.exists():
+        return {}
+    try:
+        with open(CACHE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Aviso: no se pudo leer la caché de imágenes ({e}). Se empieza vacía.")
+        return {}
+
+
+def guardar_cache(cache: dict) -> None:
+    with open(CACHE_FILE, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
 
 # ─── OPCIÓN C: EXTRAER IMAGEN DEL RSS ─────────────────────────────────────────
 
@@ -127,6 +145,9 @@ def procesar_imagenes():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
         noticias = json.load(f)
 
+    cache = cargar_cache()
+    print(f"Caché de imágenes: {len(cache)} URLs ya resueltas\n")
+
     pendientes     = [n for n in noticias if not n.get("imagen_url")]
     ya_procesadas  = [n for n in noticias if n.get("imagen_url")]
 
@@ -140,19 +161,30 @@ def procesar_imagenes():
         return
 
     actualizadas = []
+    desde_cache = 0
+    nuevas_en_cache = 0
+
     for i, noticia in enumerate(pendientes, 1):
         titulo_corto = noticia["titulo"][:55]
+        url_noticia = noticia.get("url", "")
         print(f"[{i}/{len(pendientes)}] {titulo_corto}...")
 
-        url_imagen = obtener_imagen(noticia)
-
-        if url_imagen:
-            noticia["imagen_url"] = url_imagen
-            print(f"           OK: {url_imagen[:70]}...")
+        # 1. Comprobar caché primero (solo éxitos quedan cacheados)
+        if url_noticia and url_noticia in cache:
+            url_imagen = cache[url_noticia]
+            print(f"           Caché: {url_imagen[:70]}...")
+            desde_cache += 1
         else:
-            noticia["imagen_url"] = ""
-            print(f"           Sin imagen")
+            url_imagen = obtener_imagen(noticia)
+            if url_imagen:
+                print(f"           OK: {url_imagen[:70]}...")
+                if url_noticia:
+                    cache[url_noticia] = url_imagen
+                    nuevas_en_cache += 1
+            else:
+                print(f"           Sin imagen")
 
+        noticia["imagen_url"] = url_imagen
         actualizadas.append(noticia)
 
     todos = actualizadas + ya_procesadas
@@ -160,9 +192,14 @@ def procesar_imagenes():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(todos, f, ensure_ascii=False, indent=2)
 
+    if nuevas_en_cache:
+        guardar_cache(cache)
+
     con_imagen = sum(1 for n in todos if n.get("imagen_url"))
     print(f"\nListo! {con_imagen}/{len(todos)} noticias con imagen")
+    print(f"Desde caché: {desde_cache} · Nuevas peticiones con éxito: {nuevas_en_cache}")
     print(f"Guardado en: {OUTPUT_FILE}")
+    print(f"Caché actualizada en: {CACHE_FILE} ({len(cache)} URLs totales)")
 
 
 # ─── ENTRADA ──────────────────────────────────────────────────────────────────

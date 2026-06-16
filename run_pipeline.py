@@ -1,19 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Pipeline principal del agregador Comercio Digital.
-
-Ejecuta, en orden:
-1. Agregación y resumen de noticias
-2. Clasificación por módulo y RA
-3. Enriquecimiento docente
-4. Obtención de imágenes destacadas
-5. Generación de la web principal
-6. Generación de fichas docentes de aula
-7. Generación de aula.html
-8. SEO técnico
-
-Uso:
-    python run_pipeline.py
 """
 
 import subprocess
@@ -27,6 +14,11 @@ PASOS = [
         "nombre": "Agregación y resumen de noticias",
         "script": "news_aggregator.py",
         "obligatorio": True,
+    },
+    {
+        "nombre": "Limpieza de duplicados",
+        "script": "limpiar_duplicados.py",
+        "obligatorio": False,
     },
     {
         "nombre": "Clasificación por RA",
@@ -70,7 +62,6 @@ PASOS = [
 
 
 def ejecutar_paso(paso: dict) -> bool:
-    """Ejecuta un script del pipeline y devuelve True si termina correctamente."""
     script = paso["script"]
     nombre = paso["nombre"]
     obligatorio = paso.get("obligatorio", True)
@@ -98,7 +89,6 @@ def ejecutar_paso(paso: dict) -> bool:
         return True
 
     print(f"❌ Error en: {nombre}")
-
     if obligatorio:
         print("Pipeline detenido porque este paso es obligatorio.")
         return False
@@ -109,21 +99,17 @@ def ejecutar_paso(paso: dict) -> bool:
 
 def main():
     inicio = datetime.now()
-
     print("\n🚀 Iniciando pipeline Comercio Digital")
     print(f"Fecha/hora: {inicio.strftime('%Y-%m-%d %H:%M:%S')}")
 
     for paso in PASOS:
-        ok = ejecutar_paso(paso)
-        if not ok:
+        if not ejecutar_paso(paso):
             sys.exit(1)
 
     fin = datetime.now()
-    duracion = fin - inicio
-
     print("\n" + "=" * 70)
     print("🎉 Pipeline completado correctamente")
-    print(f"Duración aproximada: {duracion}")
+    print(f"Duración aproximada: {fin - inicio}")
     print("Revisa docs/index.html, docs/aula.html y docs/fichas-aula/.")
     print("=" * 70)
 

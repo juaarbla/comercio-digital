@@ -74,21 +74,35 @@ def fuente(noticia):
 
 
 def fecha(noticia):
-    return (
+    raw = (
         noticia.get("fecha_detectada")
         or noticia.get("fecha_publicacion")
         or noticia.get("fecha")
         or ""
     )
+    return formatear_fecha_rss(raw)
 
 
 def fecha_cabecera():
-    meses = [
-        "enero", "febrero", "marzo", "abril", "mayo", "junio",
-        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-    ]
+    """Fecha compacta para la cabecera — igual que en generar_web.py."""
     hoy = datetime.now()
-    return f"{hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
+    meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
+             "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
+    return f"{hoy.day} {meses[hoy.month - 1]} {hoy.year}"
+
+
+def formatear_fecha_rss(s):
+    """Convierte 'Wed, 10 Jun 2026 14:50:00 +0000' → '10 jun. 2026'."""
+    if not s:
+        return ""
+    try:
+        from email.utils import parsedate_to_datetime
+        dt = parsedate_to_datetime(s)
+        meses = ["ene", "feb", "mar", "abr", "may", "jun",
+                 "jul", "ago", "sep", "oct", "nov", "dic"]
+        return f"{dt.day} {meses[dt.month - 1]}. {dt.year}"
+    except Exception:
+        return s[:10] if len(s) >= 10 else s
 
 
 def normalizar_modulo_visible(noticia):
@@ -124,18 +138,31 @@ def seleccionar_noticias(noticias, max_noticias):
 
 
 def render_nav(activa="aula.html"):
+    docs = Path("docs")
     items = []
     for href, texto in MENU:
+        # Portada, aula y del-autor se incluyen siempre
+        # El resto solo si el archivo ya existe en docs/
+        if href not in ("index.html", "aula.html", "del-autor.html"):
+            if not (docs / href).exists():
+                continue
         clase = "active" if href == activa else ""
         items.append(f'<li><a class="{clase}" href="{href}">{h(texto)}</a></li>')
     return "\n".join(items)
 
 
-def render_conceptos(conceptos):
+def conceptos_lista(conceptos):
     if isinstance(conceptos, str):
-        conceptos = [c.strip() for c in conceptos.split(",") if c.strip()]
-    elif not isinstance(conceptos, list):
-        conceptos = []
+        return [c.strip() for c in conceptos.split(",") if c.strip()]
+    if isinstance(conceptos, list):
+        return [str(c).strip() for c in conceptos if str(c).strip()]
+    return []
+
+
+def render_conceptos(conceptos, noticia=None):
+    conceptos = conceptos_lista(conceptos)
+    if not conceptos and noticia is not None:
+        conceptos = conceptos_fallback(noticia)
 
     chips = "\n".join(
         f'<span class="concepto-chip">{h(c)}</span>'
@@ -161,6 +188,46 @@ def render_linea_docente(label, valor):
     return f"<p><strong>{label}:</strong><br>{valor}</p>"
 
 
+
+def actividad_fallback(noticia):
+    modulo = normalizar_modulo_visible(noticia)
+    return (
+        f"Lee la noticia y analiza en pequeños grupos qué cambio plantea para una empresa vinculada a {modulo}. "
+        "Después, elaborad una propuesta breve de actuación: qué debería revisar la empresa, qué decisión tomaría "
+        "y qué indicador usaría para comprobar si la decisión funciona."
+    )
+
+
+def pregunta_fallback(noticia):
+    return "¿Qué decisión debería tomar una empresa si esta noticia afectara directamente a su actividad digital?"
+
+
+def justificacion_fallback(noticia):
+    modulo = normalizar_modulo_visible(noticia)
+    ra = noticia.get("ra_asignado") or "el resultado de aprendizaje correspondiente"
+    return (
+        f"La noticia permite conectar la actualidad del sector con contenidos de {modulo} y trabajar {ra} "
+        "a partir de una situación real de empresa."
+    )
+
+
+def conceptos_fallback(noticia):
+    modulo = normalizar_modulo_visible(noticia).lower()
+    titulo = (noticia.get("titulo") or "").lower()
+
+    if "marketplace" in titulo or "amazon" in titulo:
+        return ["Marketplace", "Catálogo online", "SEO", "Ficha de producto"]
+    if "logistic" in titulo or "almac" in titulo or "wms" in titulo:
+        return ["Logística e-commerce", "Almacén inteligente", "Automatización", "Cadena de suministro"]
+    if "ia" in titulo or "inteligencia artificial" in titulo or "tiktok" in titulo:
+        return ["Inteligencia artificial", "Social commerce", "Retail media", "Estrategia digital"]
+    if "internacional" in modulo:
+        return ["Comercio internacional", "Aduanas", "Plataformas globales", "Normativa"]
+    if "digitalización" in modulo or "digitalizacion" in modulo:
+        return ["Digitalización", "Ciberseguridad", "Transformación digital", "Riesgo tecnológico"]
+    return ["Comercio digital", "Modelo de negocio", "Cliente online", "Estrategia digital"]
+
+
 def etiqueta_tipo_uso(tipo_uso):
     tipo = str(tipo_uso or "").strip().lower()
     equivalencias = {
@@ -176,16 +243,13 @@ def etiqueta_tipo_uso(tipo_uso):
 
 
 def render_docente_box(noticia):
-    pregunta = noticia.get("pregunta_aula") or ""
-    actividad = noticia.get("actividad_breve") or ""
+    pregunta = noticia.get("pregunta_aula") or pregunta_fallback(noticia)
+    actividad = noticia.get("actividad_breve") or actividad_fallback(noticia)
     tipo_uso = etiqueta_tipo_uso(noticia.get("tipo_uso") or "uso en el aula")
     modulo = normalizar_modulo_visible(noticia)
     ra = noticia.get("ra_asignado") or ""
-    justificacion = noticia.get("ra_justificacion") or ""
-    conceptos = render_conceptos(noticia.get("conceptos_clave") or [])
-
-    if not any([pregunta, actividad, conceptos, justificacion, modulo, ra]):
-        return ""
+    justificacion = noticia.get("ra_justificacion") or justificacion_fallback(noticia)
+    conceptos = render_conceptos(noticia.get("conceptos_clave") or [], noticia)
 
     datos = []
     if modulo:
@@ -215,17 +279,22 @@ def render_docente_box(noticia):
     """
 
 
-def ficha_link_html(noticia, indice_fichas):
+def ficha_links_html(noticia, indice_fichas):
     clave = noticia.get("url") or noticia.get("titulo") or ""
     ficha = indice_fichas.get(clave)
     if not ficha:
         return ""
 
-    href = ficha.get("html") or ""
-    if not href:
-        return ""
+    html_href = ficha.get("html") or ""
+    md_href = ficha.get("md") or ""
 
-    return f'<a class="read-more" href="{h(href)}">Ver ficha docente →</a>'
+    links = []
+    if html_href:
+        links.append(f'<a class="read-more" href="{h(html_href)}">Ver ficha docente →</a>')
+    if md_href:
+        links.append(f'<a class="read-more" href="{h(md_href)}">Descargar Markdown →</a>')
+
+    return "\n        ".join(links)
 
 
 def render_noticia(noticia, indice_fichas):
@@ -277,7 +346,7 @@ def render_noticia(noticia, indice_fichas):
         {fuente_html}
         {render_docente_box(noticia)}
 
-        {ficha_link_html(noticia, indice_fichas)}
+        {ficha_links_html(noticia, indice_fichas)}
         <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
       </div>
     </article>
@@ -309,8 +378,7 @@ def render_html(noticias, indice_fichas):
 
   <header class="masthead">
     <div class="masthead-side">
-      Formación<br>
-      Profesional<br>
+      Formación Profesional<br>
       Comercio y Marketing
     </div>
 

@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La noticia aborda estrategias de marketing avanzado (IA y Social Commerce) y el análisis de tendencias, lo que se conecta con la aplicación de un plan de marketing digital.
+La noticia aborda la integración de IA y estrategias de contenido social para potenciar ventas online, lo cual es parte de las directrices de un plan de marketing digital (SEO/SEM, publicidad, tendencias).
 
 ## Propuesta de dinámica
 

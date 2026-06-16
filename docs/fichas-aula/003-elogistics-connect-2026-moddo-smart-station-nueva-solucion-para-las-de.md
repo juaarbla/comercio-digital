@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La gestión de devoluciones y envíos (logística inversa) es crucial en el funcionamiento y la optimización de la tienda online (RA2).
+La noticia se centra en la gestión de devoluciones y envíos (logística inversa), que es un componente clave de la logística y los modelos de negocio online.
 
 ## Propuesta de dinámica
 

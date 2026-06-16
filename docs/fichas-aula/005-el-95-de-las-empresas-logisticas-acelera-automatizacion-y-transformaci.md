@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La noticia se centra en la automatización y la transformación digital de la logística, conceptos clave de la Cuarta Revolución Industrial y los sistemas ciber-físicos.
+La transformación del sector logístico mediante la automatización y el uso de tecnologías avanzadas (IoT, sistemas ciber-físicos) se relaciona con los entornos 4.0 y la digitalización industrial.
 
 ## Propuesta de dinámica
 

@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La iniciativa aborda cómo los negocios locales pueden digitalizarse y ampliar su alcance, cubriendo aspectos de modelos de negocio y captación de clientes online.
+El artículo aborda la implementación de grandes marketplaces (Amazon) en el comercio local, centrándose en cómo usar herramientas digitales (e-commerce) para ampliar la venta de pequeños negocios.
 
 ## Propuesta de dinámica
 

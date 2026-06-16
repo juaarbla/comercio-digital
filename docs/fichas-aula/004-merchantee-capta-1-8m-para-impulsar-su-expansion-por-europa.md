@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La gestión de grandes plataformas (marketplaces) requiere tecnologías de automatización e inteligencia artificial para optimizar la venta digital, en línea con el estudio de tecnologías habilitadoras.
+La noticia se centra en cómo la IA (herramientas de inteligencia artificial) impulsa la eficiencia operativa y la venta digital en los grandes marketplaces, un tema clave de las tecnologías habilitadoras digitales.
 
 ## Propuesta de dinámica
 

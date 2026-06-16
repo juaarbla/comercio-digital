@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 15 JUN 2026
+Fecha de generación: 16 JUN 2026
 
 ---
 
@@ -35,28 +35,28 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia aborda estrategias de marketing avanzado (IA y Social Commerce) y el análisis de tendencias, lo que se conecta con la aplicación de un plan de marketing digital.
+La noticia aborda la integración de IA y estrategias de contenido social para potenciar ventas online, lo cual es parte de las directrices de un plan de marketing digital (SEO/SEM, publicidad, tendencias).
 
 ---
 
-# 2. Merchantee capta 1,8M para impulsar su expansión por Europa
+# 2. Barcelona reunió a más de 30 profesionales en una nueva edición de Ecommerce Gourmeet
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 9 jun. 2026
-- **Enlace:** https://ecommerce-news.es/merchantee-capta-18m-para-impulsar-su-expansion-por-europa/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/002-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.html
-- **Ficha Markdown:** fichas-aula/002-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.md
+- **Fecha:** 15 jun. 2026
+- **Enlace:** https://ecommerce-news.es/barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-ecommerce-gourmeet/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/002-barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-eco.html
+- **Ficha Markdown:** fichas-aula/002-barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-eco.md
 
 ## Resumen
 
-La empresa Merchantee, especializada en herramientas de inteligencia artificial, ha conseguido una importante ronda de financiación de 1,8 millones de euros. Esto le permitirá acelerar su expansión y desarrollo de plataformas a nivel europeo. Para los vendedores de e-commerce, esta herramienta es clave porque gestiona la complejidad de operar en los grandes *marketplaces* (plataformas como Amazon). Este caso nos recuerda que el éxito en el comercio electrónico moderno depende cada vez más de las tecnologías que automatizan tareas y optimizan la venta digital.
+Se celebró un importante encuentro de profesionales en Barcelona enfocado en la evolución del comercio electrónico. El debate se centró en cómo el entorno digital se está volviendo más "agéntico", es decir, más automatizado y dependiente de asistentes inteligentes. Para los vendedores y responsables de tienda online, esto significa que el SEO tradicional está cambiando radicalmente, ya que la visibilidad debe adaptarse a las búsquedas por voz y la IA. Por lo tanto, es crucial entender estas nuevas tendencias de búsqueda y automatización para que vuestros proyectos de e-commerce sigan siendo visibles y funcionales.
 
 ## Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Cómo puede afectar esta noticia a una pequeña tienda online?
 
 ## Actividad breve
 
@@ -68,7 +68,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La gestión de grandes plataformas (marketplaces) requiere tecnologías de automatización e inteligencia artificial para optimizar la venta digital, en línea con el estudio de tecnologías habilitadoras.
+La necesidad de adaptar el SEO a búsquedas por voz y IA implica aplicar directamente las directrices de marketing digital, incluyendo posicionamiento y tendencias de búsqueda.
 
 ---
 
@@ -101,28 +101,28 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La gestión de devoluciones y envíos (logística inversa) es crucial en el funcionamiento y la optimización de la tienda online (RA2).
+La noticia se centra en la gestión de devoluciones y envíos (logística inversa), que es un componente clave de la logística y los modelos de negocio online.
 
 ---
 
-# 4. La era del recomendador en Amazon ha muerto: ya están aquí los agentes de IA
+# 4. Merchantee capta 1,8M para impulsar su expansión por Europa
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 8 jun. 2026
-- **Enlace:** https://ecommerce-news.es/la-era-del-recomendador-en-amazon-ha-muertoya-estan-aqui-los-agentes-de-ia/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
+- **Fecha:** 9 jun. 2026
+- **Enlace:** https://ecommerce-news.es/merchantee-capta-18m-para-impulsar-su-expansion-por-europa/
+- **Módulo:** Digitalización
+- **RA:** RA4
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/004-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.html
-- **Ficha Markdown:** fichas-aula/004-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.md
+- **Ficha HTML:** fichas-aula/004-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.html
+- **Ficha Markdown:** fichas-aula/004-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.md
 
 ## Resumen
 
-Las grandes plataformas como Amazon están evolucionando, pasando de los sencillos sistemas de recomendación ("clientes que compraron esto, también vieron...") a la integración de agentes de Inteligencia Artificial (IA). Estos agentes de IA, como Alexa Shopping, no solo sugieren productos, sino que están diseñados para actuar como asistentes inteligentes que guían al usuario a través de procesos de decisión complejos. Para vuestra formación en e-commerce, esto subraya que el futuro del comercio online va más allá de la mera personalización; requiere construir experiencias de usuario asistidas por IA para mejorar la tasa de conversión. Es fundamental comprender que la tecnología de *marketing* ahora debe centrarse en la automatización y la ayuda decisional.
+La empresa Merchantee, especializada en herramientas de inteligencia artificial, ha conseguido una importante ronda de financiación de 1,8 millones de euros. Esto le permitirá acelerar su expansión y desarrollo de plataformas a nivel europeo. Para los vendedores de e-commerce, esta herramienta es clave porque gestiona la complejidad de operar en los grandes *marketplaces* (plataformas como Amazon). Este caso nos recuerda que el éxito en el comercio electrónico moderno depende cada vez más de las tecnologías que automatizan tareas y optimizan la venta digital.
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
 
 ## Actividad breve
 
@@ -134,7 +134,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La evolución de los sistemas de recomendación a agentes de IA se alinea con la aplicación de estrategias de marketing digital avanzadas para mejorar la tasa de conversión.
+La noticia se centra en cómo la IA (herramientas de inteligencia artificial) impulsa la eficiencia operativa y la venta digital en los grandes marketplaces, un tema clave de las tecnologías habilitadoras digitales.
 
 ---
 
@@ -167,44 +167,11 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia se centra en la automatización y la transformación digital de la logística, conceptos clave de la Cuarta Revolución Industrial y los sistemas ciber-físicos.
+La transformación del sector logístico mediante la automatización y el uso de tecnologías avanzadas (IoT, sistemas ciber-físicos) se relaciona con los entornos 4.0 y la digitalización industrial.
 
 ---
 
-# 6. LiveRamp se convierte en el primer partner de OpenAI para medir conversiones con ChatGPT
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 11 jun. 2026
-- **Enlace:** https://ecommerce-news.es/liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conversiones-con-chatgpt/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conver.html
-- **Ficha Markdown:** fichas-aula/006-liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conver.md
-
-## Resumen
-
-Esta noticia es vital para comprender la importancia de la analítica y el seguimiento de campañas en comercio electrónico. Básicamente, OpenAI se ha asociado con LiveRamp para mejorar drásticamente cómo se miden las ventas (conversiones) que provienen de sus plataformas. Esto significa que los anunciantes ahora tienen herramientas más potentes para saber, con mucha precisión, el retorno comercial de sus esfuerzos de marketing. En términos prácticos, esta mejora en la medición de datos es crucial para demostrar el valor de las estrategias de venta digital y optimizar las inversiones en publicidad.
-
-## Pregunta detonadora
-
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
-
-## Actividad breve
-
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
-
-## Conceptos clave
-
--
-
-## Por qué encaja en este RA
-
-Mejorar la medición de conversiones y demostrar el retorno de las inversiones de marketing en comercio digital es fundamental para la planificación de campañas y el SEO/SEM.
-
----
-
-# 7. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
+# 6. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 10 jun. 2026
@@ -212,8 +179,8 @@ Mejorar la medición de conversiones y demostrar el retorno de las inversiones d
 - **Módulo:** Comercio Electrónico
 - **RA:** RA2
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
-- **Ficha Markdown:** fichas-aula/007-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
+- **Ficha HTML:** fichas-aula/006-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
+- **Ficha Markdown:** fichas-aula/006-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
 
 ## Resumen
 
@@ -233,7 +200,40 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La iniciativa aborda cómo los negocios locales pueden digitalizarse y ampliar su alcance, cubriendo aspectos de modelos de negocio y captación de clientes online.
+El artículo aborda la implementación de grandes marketplaces (Amazon) en el comercio local, centrándose en cómo usar herramientas digitales (e-commerce) para ampliar la venta de pequeños negocios.
+
+---
+
+# 7. La era del recomendador en Amazon ha muerto: ya están aquí los agentes de IA
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 8 jun. 2026
+- **Enlace:** https://ecommerce-news.es/la-era-del-recomendador-en-amazon-ha-muertoya-estan-aqui-los-agentes-de-ia/
+- **Módulo:** IA
+- **RA:** RA6
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/007-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.html
+- **Ficha Markdown:** fichas-aula/007-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.md
+
+## Resumen
+
+Las grandes plataformas como Amazon están evolucionando, pasando de los sencillos sistemas de recomendación ("clientes que compraron esto, también vieron...") a la integración de agentes de Inteligencia Artificial (IA). Estos agentes de IA, como Alexa Shopping, no solo sugieren productos, sino que están diseñados para actuar como asistentes inteligentes que guían al usuario a través de procesos de decisión complejos. Para vuestra formación en e-commerce, esto subraya que el futuro del comercio online va más allá de la mera personalización; requiere construir experiencias de usuario asistidas por IA para mejorar la tasa de conversión. Es fundamental comprender que la tecnología de *marketing* ahora debe centrarse en la automatización y la ayuda decisional.
+
+## Pregunta detonadora
+
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+
+## Actividad breve
+
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+
+## Conceptos clave
+
+-
+
+## Por qué encaja en este RA
+
+La evolución de la recomendación a agentes de IA es un caso directo de automatización avanzada y mejora de la ayuda decisional en la atención al cliente y ventas.
 
 ---
 
@@ -266,24 +266,24 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La inversión en robótica y automatización de almacenes aborda directamente el tema de la robótica colaborativa e infraestructura 4.0 en la cadena de suministro.
+La inversión en robótica y automatización en la logística de Amazon representa un claro ejemplo de tecnologías habilitadoras digitales (robótica, sistemas ciber-físicos) en acción.
 
 ---
 
-# 9. Ejecución remota de código en Backup & Replication de Veeam
+# 9. Dos nuevos avisos de seguridad
 
 - **Fuente:** incibe.es
-- **Fecha:** 10 jun. 2026
-- **Enlace:** https://www.incibe.es/node/630677
+- **Fecha:** 11 jun. 2026
+- **Enlace:** https://www.incibe.es/node/630917
 - **Módulo:** Digitalización
 - **RA:** RA5
-- **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/009-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.html
-- **Ficha Markdown:** fichas-aula/009-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.md
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/009-dos-nuevos-avisos-de-seguridad.html
+- **Ficha Markdown:** fichas-aula/009-dos-nuevos-avisos-de-seguridad.md
 
 ## Resumen
 
-Se ha detectado una vulnerabilidad de seguridad crítica en el software de copias de seguridad (backups) de Veeam, que podría permitir a un atacante con acceso limitado a la red tomar el control total del sistema. Este fallo es muy grave porque pone en riesgo la integridad de nuestros datos más vitales, como la información de clientes y los registros de ventas. Desde el punto de vista de la digitalización, este caso subraya que la continuidad del negocio depende directamente de la ciberseguridad y la correcta protección de nuestros activos digitales. Por ello, es fundamental que cualquier empresa implemente copias de seguridad robustas y mantenga sus sistemas constantemente actualizados para prevenir este tipo de ataques.
+Un proveedor de software ha detectado vulnerabilidades de seguridad críticas en varios productos, lo que significa que cualquier atacante puede acceder a los sistemas sin necesidad de contraseñas. Este aviso es un recordatorio clave de que, en la digitalización, la seguridad no es un complemento, sino una función vital para la continuidad del negocio. Por ello, las empresas deben priorizar la gestión de parches y la actualización inmediata de sus sistemas operativos para evitar ser víctimas de ataques que comprometan datos o paralicen la actividad.
 
 ## Pregunta detonadora
 
@@ -299,24 +299,24 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-El caso aborda directamente la necesidad de proteger activos digitales (datos de clientes, registros de ventas) mediante copias de seguridad y actualizar sistemas, lo cual se relaciona con la gestión de datos y ciberseguridad.
+La noticia trata sobre vulnerabilidades de seguridad y la necesidad de actualizar sistemas, lo cual se alinea directamente con el manejo de datos y ciberseguridad en la transformación digital.
 
 ---
 
-# 10. OpenAI sigue a Anthropic y prepara su salida a bolsa
+# 10. Anthropic lanza Claude Fable 5, la versión pública de su modelo de IA más avanzado
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 9 jun. 2026
-- **Enlace:** https://ecommerce-news.es/openai-sigue-a-anthropic-y-prepara-su-salida-a-bolsa/
+- **Fecha:** 11 jun. 2026
+- **Enlace:** https://ecommerce-news.es/anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-mas-avanzado/
 - **Módulo:** IA
 - **RA:** RA6
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-openai-sigue-a-anthropic-y-prepara-su-salida-a-bolsa.html
-- **Ficha Markdown:** fichas-aula/010-openai-sigue-a-anthropic-y-prepara-su-salida-a-bolsa.md
+- **Ficha HTML:** fichas-aula/010-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.html
+- **Ficha Markdown:** fichas-aula/010-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.md
 
 ## Resumen
 
-La empresa OpenAI, detrás de ChatGPT, está preparando su salida a bolsa, un proceso que indica el enorme crecimiento y la madurez del sector de la Inteligencia Artificial (IA). Este movimiento lo posiciona como un actor clave a nivel global, atrayendo grandes inversiones. Para el comercio electrónico, esto es crucial, ya que la IA es el motor que impulsa funcionalidades esenciales como los *chatbots* de atención al cliente, los sistemas de recomendación de productos y la personalización de la experiencia de usuario. Estar al tanto de estas grandes transacciones tecnológicas es vital, ya que las empresas de comercio online se basan directamente en el avance y la financiación de estas tecnologías.
+Anthropic ha lanzado Claude Fable 5, un modelo de Inteligencia Artificial (IA) muy avanzado que ahora está disponible para el público general. Esta noticia es clave para entender cómo va a evolucionar el comercio electrónico en los próximos años. Las tiendas online podrán integrar herramientas de IA potentes para mejorar drásticamente el servicio al cliente con *chatbots* más naturales. En marketing, esto significa que podremos generar textos, descripciones de productos y estrategias de contenido mucho más personalizadas y efectivas.
 
 ## Pregunta detonadora
 
@@ -332,6 +332,6 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia destaca la IA como motor de funcionalidades como chatbots y la atención al cliente, que se abordan en el RA6.
+El desarrollo de chatbots más naturales aborda directamente el manejo de la atención al cliente automatizada con IA generativa.
 
 ---

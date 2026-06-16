@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La inversión en robótica y automatización de almacenes aborda directamente el tema de la robótica colaborativa e infraestructura 4.0 en la cadena de suministro.
+La inversión en robótica y automatización en la logística de Amazon representa un claro ejemplo de tecnologías habilitadoras digitales (robótica, sistemas ciber-físicos) en acción.
 
 ## Propuesta de dinámica
 

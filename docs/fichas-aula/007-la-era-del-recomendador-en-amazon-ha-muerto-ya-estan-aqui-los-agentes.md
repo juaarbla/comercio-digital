@@ -5,8 +5,8 @@
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jun. 2026
 - **Enlace:** https://ecommerce-news.es/la-era-del-recomendador-en-amazon-ha-muertoya-estan-aqui-los-agentes-de-ia/
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA6
 - **Tipo de uso:** Caso de empresa
 
 ## Resumen
@@ -17,7 +17,7 @@ Las grandes plataformas como Amazon están evolucionando, pasando de los sencill
 
 ### Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
 
 ### Actividad breve
 
@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La evolución de los sistemas de recomendación a agentes de IA se alinea con la aplicación de estrategias de marketing digital avanzadas para mejorar la tasa de conversión.
+La evolución de la recomendación a agentes de IA es un caso directo de automatización avanzada y mejora de la ayuda decisional en la atención al cliente y ventas.
 
 ## Propuesta de dinámica
 

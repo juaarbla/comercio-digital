@@ -6,7 +6,7 @@
 - **Fecha:** 8 jun. 2026
 - **Enlace:** https://ecommerce-news.es/amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa/
 - **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
+- **Resultado de aprendizaje:** RA2
 - **Tipo de uso:** Caso de empresa
 
 ## Resumen
@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La inversión en robótica y automatización en la logística de Amazon representa un claro ejemplo de tecnologías habilitadoras digitales (robótica, sistemas ciber-físicos) en acción.
+La inversión en robótica y automatización en centros de distribución se relaciona con la 4ª Revolución Industrial y los sistemas ciber-físicos.
 
 ## Propuesta de dinámica
 

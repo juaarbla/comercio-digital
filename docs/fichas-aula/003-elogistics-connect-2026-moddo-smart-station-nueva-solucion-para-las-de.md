@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La noticia se centra en la gestión de devoluciones y envíos (logística inversa), que es un componente clave de la logística y los modelos de negocio online.
+La gestión de devoluciones y envíos (logística inversa) es un componente crucial de la logística online y la experiencia de usuario en el comercio electrónico.
 
 ## Propuesta de dinámica
 

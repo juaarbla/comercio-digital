@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La transformación del sector logístico mediante la automatización y el uso de tecnologías avanzadas (IoT, sistemas ciber-físicos) se relaciona con los entornos 4.0 y la digitalización industrial.
+La automatización y la gestión de la cadena de suministro avanzada (IoT, 4.0) son pilares de la transformación digital en logística.
 
 ## Propuesta de dinámica
 

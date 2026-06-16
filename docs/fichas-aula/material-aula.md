@@ -35,7 +35,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia aborda la integración de IA y estrategias de contenido social para potenciar ventas online, lo cual es parte de las directrices de un plan de marketing digital (SEO/SEM, publicidad, tendencias).
+La noticia aborda la necesidad de integrar IA y estrategias de contenido social para potenciar las ventas online, lo cual está directamente relacionado con la aplicación de directrices de marketing digital y tendencias.
 
 ---
 
@@ -68,7 +68,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La necesidad de adaptar el SEO a búsquedas por voz y IA implica aplicar directamente las directrices de marketing digital, incluyendo posicionamiento y tendencias de búsqueda.
+La noticia se centra en la evolución del SEO y la visibilidad online ante la automatización y la búsqueda por voz, lo cual es parte fundamental del plan de marketing digital.
 
 ---
 
@@ -101,11 +101,44 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia se centra en la gestión de devoluciones y envíos (logística inversa), que es un componente clave de la logística y los modelos de negocio online.
+La gestión de devoluciones y envíos (logística inversa) es un componente crucial de la logística online y la experiencia de usuario en el comercio electrónico.
 
 ---
 
-# 4. Merchantee capta 1,8M para impulsar su expansión por Europa
+# 4. LiveRamp se convierte en el primer partner de OpenAI para medir conversiones con ChatGPT
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 11 jun. 2026
+- **Enlace:** https://ecommerce-news.es/liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conversiones-con-chatgpt/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/004-liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conver.html
+- **Ficha Markdown:** fichas-aula/004-liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conver.md
+
+## Resumen
+
+Esta noticia es vital para comprender la importancia de la analítica y el seguimiento de campañas en comercio electrónico. Básicamente, OpenAI se ha asociado con LiveRamp para mejorar drásticamente cómo se miden las ventas (conversiones) que provienen de sus plataformas. Esto significa que los anunciantes ahora tienen herramientas más potentes para saber, con mucha precisión, el retorno comercial de sus esfuerzos de marketing. En términos prácticos, esta mejora en la medición de datos es crucial para demostrar el valor de las estrategias de venta digital y optimizar las inversiones en publicidad.
+
+## Pregunta detonadora
+
+¿Cómo puede afectar esta noticia a una pequeña tienda online?
+
+## Actividad breve
+
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+
+## Conceptos clave
+
+-
+
+## Por qué encaja en este RA
+
+La noticia trata sobre mejorar la medición de conversiones y el retorno de inversión (ROI) de las campañas de marketing digital, lo cual es un pilar del plan de marketing digital.
+
+---
+
+# 5. Merchantee capta 1,8M para impulsar su expansión por Europa
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 9 jun. 2026
@@ -113,8 +146,8 @@ La noticia se centra en la gestión de devoluciones y envíos (logística invers
 - **Módulo:** Digitalización
 - **RA:** RA4
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/004-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.html
-- **Ficha Markdown:** fichas-aula/004-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.md
+- **Ficha HTML:** fichas-aula/005-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.html
+- **Ficha Markdown:** fichas-aula/005-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.md
 
 ## Resumen
 
@@ -134,11 +167,11 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia se centra en cómo la IA (herramientas de inteligencia artificial) impulsa la eficiencia operativa y la venta digital en los grandes marketplaces, un tema clave de las tecnologías habilitadoras digitales.
+El caso trata el uso de herramientas de IA para gestionar la complejidad de múltiples marketplaces y automatizar tareas de e-commerce.
 
 ---
 
-# 5. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
+# 6. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jun. 2026
@@ -146,8 +179,8 @@ La noticia se centra en cómo la IA (herramientas de inteligencia artificial) im
 - **Módulo:** Digitalización
 - **RA:** RA2
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/005-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
-- **Ficha Markdown:** fichas-aula/005-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
+- **Ficha HTML:** fichas-aula/006-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
+- **Ficha Markdown:** fichas-aula/006-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
 
 ## Resumen
 
@@ -167,86 +200,20 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La transformación del sector logístico mediante la automatización y el uso de tecnologías avanzadas (IoT, sistemas ciber-físicos) se relaciona con los entornos 4.0 y la digitalización industrial.
+La automatización y la gestión de la cadena de suministro avanzada (IoT, 4.0) son pilares de la transformación digital en logística.
 
 ---
 
-# 6. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 10 jun. 2026
-- **Enlace:** https://ecommerce-news.es/amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-acercar-la-digitalizacion-a-las-pymes/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
-- **Ficha Markdown:** fichas-aula/006-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
-
-## Resumen
-
-Amazon ha lanzado una iniciativa llamada ‘Amazon Sellers en tu comunidad’ en Girona, buscando apoyar a los pequeños negocios locales con su presencia en la plataforma. Este proyecto sirve como un ejemplo de cómo grandes *marketplaces* como Amazon están facilitando la digitalización del comercio de proximidad. Para los alumnos, esto subraya que la clave del éxito en el *e-commerce* no solo es tener una tienda online, sino saber cómo conectar el comercio físico tradicional con las herramientas digitales. Así, las empresas pueden ampliar su alcance geográfico y llegar a más clientes sin perder la conexión con su comunidad local.
-
-## Pregunta detonadora
-
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
-
-## Actividad breve
-
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
-
-## Conceptos clave
-
--
-
-## Por qué encaja en este RA
-
-El artículo aborda la implementación de grandes marketplaces (Amazon) en el comercio local, centrándose en cómo usar herramientas digitales (e-commerce) para ampliar la venta de pequeños negocios.
-
----
-
-# 7. La era del recomendador en Amazon ha muerto: ya están aquí los agentes de IA
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 8 jun. 2026
-- **Enlace:** https://ecommerce-news.es/la-era-del-recomendador-en-amazon-ha-muertoya-estan-aqui-los-agentes-de-ia/
-- **Módulo:** IA
-- **RA:** RA6
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.html
-- **Ficha Markdown:** fichas-aula/007-la-era-del-recomendador-en-amazon-ha-muerto-ya-estan-aqui-los-agentes.md
-
-## Resumen
-
-Las grandes plataformas como Amazon están evolucionando, pasando de los sencillos sistemas de recomendación ("clientes que compraron esto, también vieron...") a la integración de agentes de Inteligencia Artificial (IA). Estos agentes de IA, como Alexa Shopping, no solo sugieren productos, sino que están diseñados para actuar como asistentes inteligentes que guían al usuario a través de procesos de decisión complejos. Para vuestra formación en e-commerce, esto subraya que el futuro del comercio online va más allá de la mera personalización; requiere construir experiencias de usuario asistidas por IA para mejorar la tasa de conversión. Es fundamental comprender que la tecnología de *marketing* ahora debe centrarse en la automatización y la ayuda decisional.
-
-## Pregunta detonadora
-
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
-
-## Actividad breve
-
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
-
-## Conceptos clave
-
--
-
-## Por qué encaja en este RA
-
-La evolución de la recomendación a agentes de IA es un caso directo de automatización avanzada y mejora de la ayuda decisional en la atención al cliente y ventas.
-
----
-
-# 8. Amazon invertirá 10.000 millones en robótica y logística en Europa
+# 7. Amazon invertirá 10.000 millones en robótica y logística en Europa
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jun. 2026
 - **Enlace:** https://ecommerce-news.es/amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa/
 - **Módulo:** Digitalización
-- **RA:** RA4
+- **RA:** RA2
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa.html
-- **Ficha Markdown:** fichas-aula/008-amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa.md
+- **Ficha HTML:** fichas-aula/007-amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa.html
+- **Ficha Markdown:** fichas-aula/007-amazon-invertira-10-000-millones-en-robotica-y-logistica-en-europa.md
 
 ## Resumen
 
@@ -266,44 +233,11 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La inversión en robótica y automatización en la logística de Amazon representa un claro ejemplo de tecnologías habilitadoras digitales (robótica, sistemas ciber-físicos) en acción.
+La inversión en robótica y automatización en centros de distribución se relaciona con la 4ª Revolución Industrial y los sistemas ciber-físicos.
 
 ---
 
-# 9. Dos nuevos avisos de seguridad
-
-- **Fuente:** incibe.es
-- **Fecha:** 11 jun. 2026
-- **Enlace:** https://www.incibe.es/node/630917
-- **Módulo:** Digitalización
-- **RA:** RA5
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-dos-nuevos-avisos-de-seguridad.html
-- **Ficha Markdown:** fichas-aula/009-dos-nuevos-avisos-de-seguridad.md
-
-## Resumen
-
-Un proveedor de software ha detectado vulnerabilidades de seguridad críticas en varios productos, lo que significa que cualquier atacante puede acceder a los sistemas sin necesidad de contraseñas. Este aviso es un recordatorio clave de que, en la digitalización, la seguridad no es un complemento, sino una función vital para la continuidad del negocio. Por ello, las empresas deben priorizar la gestión de parches y la actualización inmediata de sus sistemas operativos para evitar ser víctimas de ataques que comprometan datos o paralicen la actividad.
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
-
-## Actividad breve
-
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
-
-## Conceptos clave
-
--
-
-## Por qué encaja en este RA
-
-La noticia trata sobre vulnerabilidades de seguridad y la necesidad de actualizar sistemas, lo cual se alinea directamente con el manejo de datos y ciberseguridad en la transformación digital.
-
----
-
-# 10. Anthropic lanza Claude Fable 5, la versión pública de su modelo de IA más avanzado
+# 8. Anthropic lanza Claude Fable 5, la versión pública de su modelo de IA más avanzado
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 11 jun. 2026
@@ -311,8 +245,8 @@ La noticia trata sobre vulnerabilidades de seguridad y la necesidad de actualiza
 - **Módulo:** IA
 - **RA:** RA6
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.html
-- **Ficha Markdown:** fichas-aula/010-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.md
+- **Ficha HTML:** fichas-aula/008-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.html
+- **Ficha Markdown:** fichas-aula/008-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.md
 
 ## Resumen
 
@@ -332,6 +266,72 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-El desarrollo de chatbots más naturales aborda directamente el manejo de la atención al cliente automatizada con IA generativa.
+La mejora de chatbots en servicio al cliente y la automatización del soporte encaja directamente con la atención al cliente mediante IA generativa.
+
+---
+
+# 9. Investigación sobre una campaña de phishing dirigida a empleados de la NASA y otras organizaciones estadounidenses
+
+- **Fuente:** incibe.es
+- **Fecha:** 9 jun. 2026
+- **Enlace:** https://www.incibe.es/incibe-cert/publicaciones/bitacora-de-seguridad/investigacion-sobre-una-campana-de-phishing-dirigida-empleados-de-la
+- **Módulo:** Digitalización
+- **RA:** RA5
+- **Tipo de uso:** Debate
+- **Ficha HTML:** fichas-aula/009-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.html
+- **Ficha Markdown:** fichas-aula/009-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.md
+
+## Resumen
+
+Una investigación reciente revela una sofisticada campaña de engaño (spear phishing) dirigida a empleados de grandes organizaciones, como la NASA. En lugar de atacar directamente sistemas, los atacantes usaron la suplantación de identidad para generar confianza, haciéndose pasar por contactos legítimos y pidiendo información técnica sensible. Este caso es un ejemplo claro de cómo el factor humano es la mayor vulnerabilidad, ya que el engaño se basa en manipular la confianza y la colaboración. Para vosotros, en el mundo del marketing digital, esto subraya la importancia crítica de la concienciación sobre riesgos y la verificación de fuentes ante cualquier comunicación sospechosa.
+
+## Pregunta detonadora
+
+¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+
+## Actividad breve
+
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+
+## Conceptos clave
+
+-
+
+## Por qué encaja en este RA
+
+El contenido aborda la ciberseguridad y el factor humano en las vulnerabilidades de datos, lo cual se relaciona con el ciclo de vida del dato y la regulación de la seguridad de datos.
+
+---
+
+# 10. La UE endurece el control sobre Temu, Shein y AliExpress: las compras de bajo coste afrontan nuevos recargos desde 2026
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 11 jun. 2026
+- **Enlace:** https://ecommerce-news.es/la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de-bajo-coste-afrontan-nuevos-recargos-desde-2026/
+- **Módulo:** CDI
+- **RA:** RA5
+- **Tipo de uso:** Debate
+- **Ficha HTML:** fichas-aula/010-la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de.html
+- **Ficha Markdown:** fichas-aula/010-la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de.md
+
+## Resumen
+
+La Unión Europea está implementando un cambio importante en el comercio transfronterizo, endureciendo los controles aduaneros para paquetes provenientes de plataformas ultrabaratas como Temu o Shein. A partir de 2026, se introducirán nuevos recargos e impuestos sobre estos envíos, lo que afecta directamente a la logística y el coste final para el consumidor. Este cambio es crucial porque nos muestra cómo las regulaciones aduaneras y fiscales afectan la viabilidad y la estrategia de negocio en el Comercio Electrónico. Es vital para los futuros profesionales saber que el cumplimiento normativo (compliance) es un factor decisivo al gestionar ventas internacionales.
+
+## Pregunta detonadora
+
+¿Qué impacto podría tener esta noticia en una empresa que vende en mercados internacionales?
+
+## Actividad breve
+
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+
+## Conceptos clave
+
+-
+
+## Por qué encaja en este RA
+
+La noticia trata directamente sobre cambios en la normativa aduanera de la UE para el comercio transfronterizo, lo cual es un componente clave de la política y logística del e-commerce internacional.
 
 ---

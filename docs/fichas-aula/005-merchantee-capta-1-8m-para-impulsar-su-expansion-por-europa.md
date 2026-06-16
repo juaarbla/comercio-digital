@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-La noticia se centra en cómo la IA (herramientas de inteligencia artificial) impulsa la eficiencia operativa y la venta digital en los grandes marketplaces, un tema clave de las tecnologías habilitadoras digitales.
+El caso trata el uso de herramientas de IA para gestionar la complejidad de múltiples marketplaces y automatizar tareas de e-commerce.
 
 ## Propuesta de dinámica
 

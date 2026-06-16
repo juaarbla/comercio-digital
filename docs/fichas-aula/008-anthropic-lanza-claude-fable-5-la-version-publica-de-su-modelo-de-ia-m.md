@@ -29,7 +29,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Por qué encaja en este RA
 
-El desarrollo de chatbots más naturales aborda directamente el manejo de la atención al cliente automatizada con IA generativa.
+La mejora de chatbots en servicio al cliente y la automatización del soporte encaja directamente con la atención al cliente mediante IA generativa.
 
 ## Propuesta de dinámica
 

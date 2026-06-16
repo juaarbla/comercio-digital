@@ -15,7 +15,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-INPUT_FILE = Path("noticias_clasificadas.json")
+from paths import NOTICIAS_CLASIFICADAS
+
+INPUT_FILE = NOTICIAS_CLASIFICADAS
 
 def limpiar_texto(texto: str) -> str:
     import re as _re

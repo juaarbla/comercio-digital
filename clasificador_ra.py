@@ -19,9 +19,11 @@ CHAT_MODEL      = os.getenv("CHAT_MODEL", "gemma4:latest")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY", "")
 
-INPUT_FILE  = Path("noticias_resumidas.json")
-OUTPUT_FILE = Path("noticias_clasificadas.json")
-CACHE_FILE  = Path("cache_clasificacion.json")  # hash(titulo+resumen) -> clasificación (solo éxitos)
+from paths import NOTICIAS_RESUMIDAS, NOTICIAS_CLASIFICADAS, CACHE_CLASIFICACION
+
+INPUT_FILE = NOTICIAS_RESUMIDAS
+OUTPUT_FILE = NOTICIAS_CLASIFICADAS
+CACHE_FILE = CACHE_CLASIFICACION  # hash(titulo+resumen) -> clasificación (solo éxitos)
 
 # ─── CACHÉ DE CLASIFICACIÓN ────────────────────────────────────────────────
 

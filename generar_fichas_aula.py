@@ -19,6 +19,8 @@ import unicodedata
 from pathlib import Path
 from datetime import datetime
 
+from paths import NOTICIAS_CLASIFICADAS
+
 
 def fecha_corta():
     hoy = datetime.now()
@@ -388,7 +390,8 @@ def limpiar(salida):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--entrada", default="noticias_clasificadas.json")
+    #p.add_argument("--entrada", default="noticias_clasificadas.json")
+    p.add_argument("--entrada", default=str(NOTICIAS_CLASIFICADAS))
     p.add_argument("--salida", default="docs/fichas-aula")
     p.add_argument("--max-fichas", type=int, default=10)
     p.add_argument("--limpiar", action="store_true")

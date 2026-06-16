@@ -18,6 +18,9 @@ import json
 from pathlib import Path
 from datetime import datetime
 
+from paths import NOTICIAS_CLASIFICADAS
+
+
 
 MENU = [
     ("index.html", "Portada"),
@@ -436,7 +439,8 @@ def render_html(noticias, indice_fichas):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--entrada", default="noticias_clasificadas.json")
+    #parser.add_argument("--entrada", default="noticias_clasificadas.json")
+    parser.add_argument("--entrada", default=str(NOTICIAS_CLASIFICADAS))
     parser.add_argument("--salida", default="docs/aula.html")
     parser.add_argument("--max-noticias", type=int, default=25)
     args = parser.parse_args()

@@ -31,6 +31,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 from urllib.parse import urlparse
+from paths import NOTICIAS_CLASIFICADAS, BACKUPS_DIR
 
 
 PESOS_POSITIVOS = {
@@ -377,7 +378,8 @@ def insertar_lista(datos: Any, noticias: List[Dict[str, Any]], estructura: str) 
 
 def crear_backup(ruta: Path) -> Path:
     marca = datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup = ruta.with_name(f"{ruta.stem}.backup_{marca}{ruta.suffix}")
+    BACKUPS_DIR.mkdir(parents=True, exist_ok=True)
+    backup = BACKUPS_DIR / f"{ruta.stem}.backup_{marca}{ruta.suffix}"
     shutil.copy2(ruta, backup)
     return backup
 
@@ -393,6 +395,7 @@ def resolver_entrada(ruta: str | None) -> Path:
         return Path(ruta)
 
     for candidato in [
+        NOTICIAS_CLASIFICADAS,
         Path("noticias_clasificadas.json"),
         Path("data/noticias_clasificadas.json"),
         Path("datos/noticias_clasificadas.json"),
@@ -401,7 +404,7 @@ def resolver_entrada(ruta: str | None) -> Path:
         if candidato.exists():
             return candidato
 
-    return Path("noticias_clasificadas.json")
+    return NOTICIAS_CLASIFICADAS
 
 
 def imprimir_resumen(noticias: List[Dict[str, Any]]) -> None:

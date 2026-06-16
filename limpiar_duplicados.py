@@ -15,7 +15,9 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 
-ARCHIVOS = [Path("noticias_resumidas.json"), Path("noticias_clasificadas.json")]
+from paths import NOTICIAS_RESUMIDAS, NOTICIAS_CLASIFICADAS
+
+ARCHIVOS = [NOTICIAS_RESUMIDAS, NOTICIAS_CLASIFICADAS]
 
 
 def normalizar_url(url: str) -> str:

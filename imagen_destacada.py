@@ -19,9 +19,11 @@ OPENAI_API_KEY  = os.getenv("OPENAI_API_KEY", "")
 OPENAI_IMG_SIZE = os.getenv("OPENAI_IMG_SIZE", "1024x1024")    # 1024x1024 | 1792x1024
 OPENAI_IMG_MODEL = os.getenv("OPENAI_IMG_MODEL", "dall-e-3")
 
-INPUT_FILE  = Path("noticias_clasificadas.json")
-OUTPUT_FILE = Path("noticias_clasificadas.json")   # Actualiza el mismo archivo
-CACHE_FILE  = Path("cache_imagenes.json")          # url_noticia -> imagen_url (solo éxitos)
+from paths import NOTICIAS_CLASIFICADAS, CACHE_IMAGENES
+
+INPUT_FILE = NOTICIAS_CLASIFICADAS
+OUTPUT_FILE = NOTICIAS_CLASIFICADAS   # Actualiza el mismo archivo
+CACHE_FILE = CACHE_IMAGENES           # url_noticia -> imagen_url (solo éxitos)
 
 # ─── CACHÉ DE IMÁGENES ─────────────────────────────────────────────────────
 

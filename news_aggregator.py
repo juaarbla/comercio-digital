@@ -54,8 +54,9 @@ PALABRAS_DESCARTADAS = [
 ]
 
 # Archivos de datos
-HISTORIAL_FILE = Path("historial.json")
-OUTPUT_FILE    = Path("noticias_resumidas.json")
+from paths import FEEDS_FILE, HISTORIAL_FILE, NOTICIAS_RESUMIDAS
+
+OUTPUT_FILE = NOTICIAS_RESUMIDAS
 
 # ─── LLM: detección automática de proveedor ───────────────────────────────────
 

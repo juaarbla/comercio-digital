@@ -235,7 +235,7 @@ def render_html(n, md_file):
   <title>{titulo} · Ficha docente · Comercio Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ficha docente para trabajar una noticia de comercio digital en clase.">
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/style.css">\n  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">\n  <link rel="shortcut icon" href="../assets/favicon.svg">
 </head>
 <body class="ficha-page">
 
@@ -254,7 +254,7 @@ def render_html(n, md_file):
 
 <main class="container">
 
-  <article class="lead-story {'has-img' if img else ''}">
+  <article class="lead-story ficha-hero {'has-img' if img else ''}">
     {imagen_html}
     <div>
       <div class="meta">
@@ -267,7 +267,7 @@ def render_html(n, md_file):
     </div>
   </article>
 
-  <section class="autor-compact">
+  <section class="autor-compact ficha-datos">
     <div class="autor-compact-head">
       <div>
         <div class="autor-compact-kicker">Datos de la noticia</div>
@@ -279,15 +279,15 @@ def render_html(n, md_file):
           <strong>Tipo de uso:</strong> {h(tipo_uso(n))}
         </p>
       </div>
-      <a class="autor-compact-link" href="{h(md_file)}">Descargar Markdown →</a>
+      <a class="autor-compact-link ficha-download" href="{h(md_file)}">Descargar Markdown →</a>
     </div>
   </section>
 
   <section class="seccion-lista">
-    <article class="noticia-full">
+    <article class="noticia-full ficha-aula-card">
       <div>
-        <h2 class="n-title">Uso en el aula</h2>
-        <div class="docente-box">
+        <h2 class="n-title ficha-section-title">Uso en el aula</h2>
+        <div class="docente-box ficha-docente-box">
           <div class="docente-box-content">
             <p><strong>Pregunta detonadora:</strong><br>{h(n.get("pregunta_aula") or "")}</p>
             <p><strong>Actividad breve:</strong><br>{actividad}</p>
@@ -297,15 +297,19 @@ def render_html(n, md_file):
           </div>
         </div>
 
-        <h2 class="n-title">Propuesta de dinámica</h2>
-        <p class="n-summary">
-          <strong>Inicio:</strong> lectura breve de la noticia y contextualización.<br>
-          <strong>Desarrollo:</strong> análisis individual, por parejas o en pequeños grupos.<br>
-          <strong>Cierre:</strong> puesta en común y conexión con el módulo y el RA.
-        </p>
+        <h2 class="n-title ficha-section-title">Propuesta de dinámica</h2>
+        <div class="ficha-dinamica">
+          <p>
+            <strong>Inicio:</strong> lectura breve de la noticia y contextualización.<br>
+            <strong>Desarrollo:</strong> análisis individual, por parejas o en pequeños grupos.<br>
+            <strong>Cierre:</strong> puesta en común y conexión con el módulo y el RA.
+          </p>
+        </div>
 
-        <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia original →</a>
-        <a class="read-more" href="../aula.html">Volver a Aula →</a>
+        <div class="ficha-actions">
+          <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia original →</a>
+          <a class="read-more" href="../aula.html">Volver a Aula →</a>
+        </div>
       </div>
     </article>
   </section>

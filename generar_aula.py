@@ -372,7 +372,7 @@ def render_html(noticias, indice_fichas):
   <title>Noticias para trabajar en clase · Comercio Digital</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Selección de noticias de comercio digital para trabajar en clase con preguntas, actividades breves, conceptos clave y enfoque docente.">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css">\n  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n  <link rel="shortcut icon" href="assets/favicon.svg">
 </head>
 <body class="aula-page">
 

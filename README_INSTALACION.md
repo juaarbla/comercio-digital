@@ -1,71 +1,49 @@
-# Instalación y publicación rápida
+# Parche final: favicon y diseño de fichas
 
-## 1. Abrir proyecto
+Este parche no sustituye tus archivos completos. Aplica cambios puntuales sobre la versión actual del proyecto.
 
-```powershell
-cd "C:\Users\Juan\Google Drive\00_CDI_press"
-```
+## Qué hace
 
-## 2. Activar entorno
+- Crea `docs/assets/favicon.svg` si no existe.
+- Añade favicon a `generar_aula.py`.
+- Añade favicon a `generar_fichas_aula.py`.
+- Mejora el diseño visual de las fichas docentes.
+- Añade estilos nuevos a `docs/assets/style.css`.
 
-El entorno virtual se guarda fuera de Google Drive:
+## Instalar
 
-```text
-%LOCALAPPDATA%\PythonVenvs\comercio-digital
-```
-
-Desde VS Code debe seleccionarse:
-
-```text
-C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
-```
-
-## 3. Ejecutar panel
+Copia el script a la raíz del proyecto:
 
 ```powershell
-.\arrancar.bat
+copy aplicar_parche_final_fichas.py aplicar_parche_final_fichas.py
 ```
 
-Opción recomendada:
-
-```text
-2. Proceso completo + publicar SOLO web docs/
-```
-
-## 4. Ejecución manual equivalente
+Ejecuta:
 
 ```powershell
-python run_pipeline.py
-git add docs/
-git commit -m "Actualiza web"
+python aplicar_parche_final_fichas.py
+```
+
+Regenera:
+
+```powershell
+python generar_fichas_aula.py --max-fichas 10 --limpiar
+python generar_aula.py --max-noticias 25
+python generar_seo.py
+```
+
+Comprueba:
+
+```powershell
+Select-String -Path docs\aula.html -Pattern "favicon.svg"
+Select-String -Path docs\fichas-aula\*.html -Pattern "favicon.svg"
+Test-Path docs\assets\favicon.svg
+```
+
+Publica:
+
+```powershell
+git add docs/ generar_aula.py generar_fichas_aula.py aplicar_parche_final_fichas.py
+git commit -m "Mejora favicon y diseño de fichas docentes"
 git push
 ```
-
-## 5. Si también cambian scripts y documentación
-
-```powershell
-git add docs/ *.py *.md arrancar.bat
-git commit -m "Actualiza proyecto"
-git push
-```
-
-## 6. Comprobaciones tras publicar
-
-```text
-https://comerciodigital.net
-https://comerciodigital.net/aula.html
-https://comerciodigital.net/sitemap.xml
-https://comerciodigital.net/robots.txt
-```
-
-## 7. Comprobaciones locales útiles
-
-```powershell
-Select-String -Path docs\index.html -Pattern "aula.html"
-Select-String -Path docs\aula.html -Pattern "Descargar Markdown"
-Select-String -Path docs\aula.html -Pattern "Descargar material de aula MD"
-Select-String -Path docs\*.html -Pattern "autor.html"
-Test-Path docs\fichas-aula\material-aula.md
-```
-
-`autor.html` no debe aparecer. La página correcta es `del-autor.html`.

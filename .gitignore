@@ -41,6 +41,7 @@ _deprecated/
 # Windows
 Thumbs.db
 desktop.ini
+estructura_proyecto.txt
 
 # Lo que SÍ se sube:
 # - docs/                web generada para GitHub Pages

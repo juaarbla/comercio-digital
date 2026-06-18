@@ -12,6 +12,7 @@ BACKUPS_DIR = DATA_DIR / "backups"
 DOCS_DIR = BASE_DIR / "docs"
 LOGS_DIR = BASE_DIR / "logs"
 OUTPUTS_DIR = BASE_DIR / "outputs"
+AULA_OUTPUTS_DIR = OUTPUTS_DIR / "aula"
 
 # Archivos de datos
 FEEDS_FILE = BASE_DIR / "feeds.json"
@@ -23,3 +24,4 @@ NOTICIAS_CLASIFICADAS = PROCESSED_DIR / "noticias_clasificadas.json"
 # Cachés
 CACHE_CLASIFICACION = CACHE_DIR / "cache_clasificacion.json"
 CACHE_IMAGENES = CACHE_DIR / "cache_imagenes.json"
+

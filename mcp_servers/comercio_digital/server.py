@@ -4,13 +4,16 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
+import re
+from datetime import datetime
+
 
 mcp = FastMCP("comercio-digital")
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 JSON_PATH = BASE_DIR / "data" / "processed" / "noticias_clasificadas.json"
-
+AULA_OUTPUTS_DIR = BASE_DIR / "outputs" / "aula"
 
 def cargar_noticias() -> list[dict[str, Any]]:
     if not JSON_PATH.exists():
@@ -202,6 +205,121 @@ def ficha_aula_basica(url_o_titulo: str) -> dict[str, Any]:
         },
     }
 
+def slugify(texto: str, max_length: int = 80) -> str:
+    texto = texto.lower()
+    texto = re.sub(r"[áàäâ]", "a", texto)
+    texto = re.sub(r"[éèëê]", "e", texto)
+    texto = re.sub(r"[íìïî]", "i", texto)
+    texto = re.sub(r"[óòöô]", "o", texto)
+    texto = re.sub(r"[úùüû]", "u", texto)
+    texto = re.sub(r"ñ", "n", texto)
+    texto = re.sub(r"[^a-z0-9]+", "-", texto)
+    texto = texto.strip("-")
+    return texto[:max_length].strip("-") or "ficha-aula"
+
+
+def crear_markdown_ficha(n: dict[str, Any]) -> str:
+    fecha_generacion = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    return f"""# Ficha de aula: {n.get("titulo")}
+
+## Datos de la noticia
+
+- **Fuente:** {n.get("fuente") or "No indicada"}
+- **Fecha:** {n.get("fecha") or "No indicada"}
+- **URL:** {n.get("url") or "No indicada"}
+- **Módulo relacionado:** {n.get("modulo_relacionado") or "Pendiente de revisar"}
+- **RA relacionado:** {n.get("ra_relacionado") or "Pendiente de revisar"}
+- **CE relacionado:** {n.get("ce_relacionado") or "Pendiente de revisar"}
+- **Valor docente:** {n.get("valor_docente") or "Pendiente"}
+- **Tipo de uso:** {n.get("tipo_uso") or "Pendiente"}
+
+## Resumen
+
+{n.get("resumen") or "Resumen no disponible."}
+
+## Propuesta de actividad
+
+**Duración estimada:** 30-45 minutos.
+
+**Objetivo:**  
+Relacionar una noticia actual con los contenidos del módulo y extraer aprendizajes aplicables al comercio, el marketing digital o la transformación digital.
+
+## Tarea para el alumnado
+
+1. Lee la noticia.
+2. Identifica el problema, tendencia o caso empresarial que plantea.
+3. Relaciona la noticia con los contenidos trabajados en clase.
+4. Propón una aplicación práctica para una empresa real o simulada.
+5. Redacta una conclusión breve.
+
+## Preguntas guía
+
+- ¿Qué hecho o tendencia destaca la noticia?
+- ¿Qué relación tiene con el módulo?
+- ¿Qué impacto puede tener en una empresa?
+- ¿Qué decisiones debería tomar una empresa ante esta situación?
+- ¿Qué aprendizaje práctico podemos extraer?
+
+## Producto final
+
+Entrega breve en Aules, debate guiado o comentario individual.
+
+## Criterios de valoración
+
+- Comprende la noticia y resume sus ideas principales.
+- Relaciona la noticia con contenidos del módulo.
+- Propone una aplicación práctica.
+- Argumenta con claridad.
+- Presenta una conclusión razonada.
+
+---
+
+Ficha generada automáticamente por MCP Comercio Digital.  
+Fecha de generación: {fecha_generacion}
+"""
+@mcp.tool()
+def generar_ficha_md(url_o_titulo: str) -> dict[str, Any]:
+    """Genera una ficha de aula en Markdown y la guarda en outputs/aula/."""
+    noticias = cargar_noticias()
+    q = url_o_titulo.lower().strip()
+
+    encontrada = None
+
+    for noticia in noticias:
+        titulo = str(noticia.get("titulo") or noticia.get("title") or "").lower()
+        url = str(noticia.get("url") or noticia.get("link") or "").lower()
+
+        if q in titulo or q in url:
+            encontrada = noticia
+            break
+
+    if not encontrada:
+        return {
+            "creada": False,
+            "mensaje": "No se ha encontrado ninguna noticia con ese título o URL.",
+        }
+
+    n = simplificar_noticia(encontrada)
+
+    AULA_OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    titulo = n.get("titulo") or "ficha aula"
+    slug = slugify(titulo)
+    ruta = AULA_OUTPUTS_DIR / f"{slug}.md"
+
+    contenido = crear_markdown_ficha(n)
+
+    ruta.write_text(contenido, encoding="utf-8")
+
+    return {
+        "creada": True,
+        "archivo": str(ruta),
+        "titulo": titulo,
+        "url": n.get("url"),
+        "modulo_relacionado": n.get("modulo_relacionado"),
+        "valor_docente": n.get("valor_docente"),
+    }
 
 if __name__ == "__main__":
     mcp.run()

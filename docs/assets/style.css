@@ -1517,3 +1517,285 @@ body.aula-page .read-more + .read-more {
     border-top: 1px solid #d8c8bb;
   }
 }
+
+
+/* ==========================================================
+   Newsletter docente
+   ========================================================== */
+
+body.newsletter-body .container {
+  max-width: 1080px;
+}
+
+body.newsletter-body .newsletter-page {
+  padding-top: 1.3rem;
+  padding-bottom: 3rem;
+}
+
+.newsletter-back {
+  display: inline-block;
+  margin: 0.8rem 0 1.1rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.newsletter-hero {
+  border-top: 4px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+  padding: 1.55rem 0 1.45rem;
+  margin-bottom: 1.6rem;
+}
+
+.newsletter-kicker {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.newsletter-hero h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 4.2vw, 3.7rem);
+  font-weight: 900;
+  line-height: 1.02;
+  margin: 0 0 0.55rem;
+}
+
+.newsletter-subtitle {
+  max-width: 72ch;
+  color: var(--ink-light);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+.newsletter-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.newsletter-meta-badge,
+.newsletter-tag {
+  display: inline-block;
+  border: 1px solid #cdbfad;
+  background: var(--paper-dark);
+  color: var(--ink-light);
+  padding: 0.22rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.newsletter-meta-badge:first-child,
+.newsletter-tag.success {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
+.newsletter-intro {
+  margin: 1.2rem 0 1.8rem;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  border-top: 1px solid #d8c8bb;
+  border-bottom: 1px solid #d8c8bb;
+  background: transparent;
+  color: var(--ink-light);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.newsletter-section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 1.9rem 0 1rem;
+}
+
+.newsletter-section-title::before,
+.newsletter-section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.newsletter-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid #d2c8ba;
+}
+
+.newsletter-card {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #d2c8ba;
+}
+
+.newsletter-card-num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.newsletter-card h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.18;
+  margin-bottom: 0.65rem;
+}
+
+.newsletter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-card p {
+  color: var(--ink-light);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.newsletter-btn {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  padding: 0.48rem 0.72rem;
+  background: #fffaf3;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.newsletter-btn:hover {
+  background: var(--accent);
+  color: #fffaf3;
+}
+
+.newsletter-btn-secondary {
+  border-color: var(--rule);
+  color: var(--ink);
+}
+
+.newsletter-btn-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.newsletter-activity {
+  margin: 2rem 0 1.4rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--paper-dark);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid #d8c8bb;
+}
+
+.newsletter-activity h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-activity p,
+.newsletter-activity li {
+  color: var(--ink-light);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.newsletter-activity ul {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+.newsletter-quote {
+  margin-top: 1.4rem;
+  border-left: 4px solid var(--accent);
+  padding: 0.85rem 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.45;
+  background: #fffaf3;
+}
+
+.newsletter-footer-note {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.newsletter-index-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid #d2c8ba;
+}
+
+.newsletter-index-card {
+  padding: 1rem 0;
+  border-bottom: 1px solid #d2c8ba;
+}
+
+.newsletter-index-card a {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.newsletter-index-card p {
+  margin-top: 0.25rem;
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .newsletter-card {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .newsletter-card-num {
+    font-size: 1rem;
+  }
+
+  .newsletter-actions {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    text-align: center;
+  }
+}

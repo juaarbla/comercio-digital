@@ -47,9 +47,9 @@ La página se genera con:
 python generar_aula.py --max-noticias 25
 ```
 
-## Fichas docentes
+## Fichas docentes públicas
 
-Las fichas se generan antes que Aula:
+Las fichas públicas se generan antes que Aula:
 
 ```powershell
 python generar_fichas_aula.py --max-fichas 10 --limpiar
@@ -83,13 +83,63 @@ Uso previsto:
 - material para Tutor IA/RAG;
 - revisión semanal de actualidad.
 
+## Fichas generadas por MCP
+
+Además de las fichas públicas generadas por `generar_fichas_aula.py`, el servidor MCP puede generar fichas Markdown de trabajo mediante la herramienta:
+
+```text
+generar_ficha_md(url_o_titulo)
+```
+
+Estas fichas se guardan en:
+
+```text
+outputs/aula/
+```
+
+Diferencia importante:
+
+```text
+docs/fichas-aula/  → fichas públicas generadas por el pipeline
+outputs/aula/      → fichas locales de trabajo generadas desde MCP
+```
+
+Las fichas de `outputs/aula/` no se publican automáticamente.
+
 ## Orden correcto de generación
 
 ```powershell
 python generar_fichas_aula.py --max-fichas 10 --limpiar
 python generar_aula.py --max-noticias 25
+python generar_newsletter.py --periodicidad quincenal --force
 python generar_seo.py
 ```
+
+
+## Relación con la newsletter
+
+La newsletter es una salida complementaria a Aula y fichas docentes.
+
+```text
+Aula                 → banco de noticias útiles para clase
+Fichas docentes      → material individual reutilizable
+Newsletter           → selección periódica para compartir
+```
+
+`generar_newsletter.py` puede utilizar noticias marcadas con:
+
+```text
+seleccion_newsletter = true
+valor_docente = alto
+```
+
+La newsletter enlaza, cuando existe, con las fichas generadas en:
+
+```text
+docs/fichas-aula/
+```
+
+Por eso se recomienda generar primero las fichas y después la newsletter.
 
 ## Comprobaciones
 
@@ -109,10 +159,3 @@ Test-Path docs\fichas-aula\material-aula.md
 ```
 
 No debe tener un bloque `<style>` incrustado.
-
-Comprobación:
-
-```powershell
-Select-String -Path docs\aula.html -Pattern "assets/style.css"
-Select-String -Path docs\aula.html -Pattern "<style>"
-```

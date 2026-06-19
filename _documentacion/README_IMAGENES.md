@@ -14,7 +14,7 @@ Mejorar la presentación visual de:
 ## Archivo de entrada y salida
 
 ```text
-noticias_clasificadas.json
+data/processed/noticias_clasificadas.json
 ```
 
 El script actualiza el mismo archivo.
@@ -24,7 +24,7 @@ El script actualiza el mismo archivo.
 Para evitar repetir peticiones, usa:
 
 ```text
-cache_imagenes.json
+data/cache/cache_imagenes.json
 ```
 
 La caché guarda únicamente éxitos:
@@ -87,14 +87,15 @@ generar_web.py
 ## Archivos que no conviene subir
 
 ```text
-cache_imagenes.json
-noticias_clasificadas.json
+data/cache/cache_imagenes.json
+data/backups/
+.env
 ```
 
 ## Validación rápida
 
 ```powershell
-Select-String -Path noticias_clasificadas.json -Pattern "imagen_url"
+Select-String -Path data\processed\noticias_clasificadas.json -Pattern "imagen_url"
 ```
 
 También se puede revisar visualmente:

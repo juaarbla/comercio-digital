@@ -204,11 +204,11 @@ def nav_html():
         ("../internacional.html", "Internacional", "internacional.html"),
         ("../digitalizacion.html", "Digitalización", "digitalizacion.html"),
         ("../ia-marketing.html", "IA & Marketing", "ia-marketing.html"),
-        ("../marketing.html", "Marketing", "marketing.html"),
         ("../aula.html", "Aula", "aula.html"),
+        ("../newsletter/index.html", "Newsletter", "newsletter/index.html"),
         ("../del-autor.html", "Del autor", "del-autor.html"),
     ]
-    siempre = {"index.html", "aula.html", "del-autor.html"}
+    siempre = {"index.html", "aula.html", "newsletter/index.html", "del-autor.html"}
     items = []
     for href, txt, check in menu:
         if check not in siempre and not (docs / check).exists():

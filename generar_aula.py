@@ -15,6 +15,9 @@ en las noticias que tengan ficha generada.
 import argparse
 import html
 import json
+import re
+import unicodedata
+from collections import OrderedDict
 from pathlib import Path
 from datetime import datetime
 
@@ -28,8 +31,8 @@ MENU = [
     ("internacional.html", "Internacional"),
     ("digitalizacion.html", "Digitalización"),
     ("ia-marketing.html", "IA & Marketing"),
-    ("marketing.html", "Marketing"),
     ("aula.html", "Aula"),
+    ("newsletter/index.html", "Newsletter"),
     ("del-autor.html", "Del autor"),
 ]
 
@@ -131,7 +134,7 @@ def seleccionar_noticias(noticias, max_noticias):
     def orden(n):
         return (
             1 if n.get("seleccion_newsletter") else 0,
-            int(n.get("score_docente") or 0),
+            numero_seguro(n.get("score_docente")),
             1 if n.get("imagen_url") else 0,
             str(fecha(n)),
         )
@@ -140,13 +143,145 @@ def seleccionar_noticias(noticias, max_noticias):
     return candidatas[:max_noticias]
 
 
+MODULOS_PRIORIDAD = [
+    "Comercio Electrónico",
+    "Digitalización",
+    "IA",
+    "IA para Marketing y Comercio",
+    "CDI",
+    "Comercio Digital Internacional",
+    "Marketing",
+    "General",
+]
+
+
+def numero_seguro(valor, defecto=0):
+    try:
+        return int(valor or defecto)
+    except Exception:
+        return defecto
+
+
+def slug_id(texto):
+    texto = str(texto or "general").lower().strip()
+    texto = unicodedata.normalize("NFKD", texto)
+    texto = "".join(c for c in texto if not unicodedata.combining(c))
+    texto = re.sub(r"[^a-z0-9]+", "-", texto).strip("-")
+    return texto or "general"
+
+
+def ordenar_noticias_modulo(noticias):
+    def orden(n):
+        return (
+            1 if n.get("seleccion_newsletter") else 0,
+            1 if n.get("generar_ficha") else 0,
+            numero_seguro(n.get("score_docente")),
+            1 if n.get("imagen_url") else 0,
+            str(fecha(n)),
+        )
+
+    return sorted(noticias, key=orden, reverse=True)
+
+
+def agrupar_por_modulo(noticias):
+    grupos = {}
+    for noticia in noticias:
+        modulo = normalizar_modulo_visible(noticia)
+        grupos.setdefault(modulo, []).append(noticia)
+
+    def prioridad(nombre):
+        if nombre in MODULOS_PRIORIDAD:
+            return (MODULOS_PRIORIDAD.index(nombre), nombre)
+        return (len(MODULOS_PRIORIDAD), nombre)
+
+    ordenados = OrderedDict()
+    for modulo in sorted(grupos.keys(), key=prioridad):
+        ordenados[modulo] = ordenar_noticias_modulo(grupos[modulo])
+    return ordenados
+
+
+def contar_fichas_grupo(noticias, indice_fichas):
+    total = 0
+    for noticia in noticias:
+        clave = noticia.get("url") or noticia.get("titulo") or ""
+        if clave in indice_fichas:
+            total += 1
+    return total
+
+
+def render_resumen_modulos(grupos, indice_fichas):
+    if not grupos:
+        return ""
+
+    items = []
+    for modulo, noticias in grupos.items():
+        total = len(noticias)
+        fichas = contar_fichas_grupo(noticias, indice_fichas)
+        anchor = f"modulo-{slug_id(modulo)}"
+        texto_fichas = f" · {fichas} con ficha" if fichas else ""
+        items.append(
+            f'<a class="aula-module-chip" href="#{h(anchor)}">'
+            f'<strong>{h(modulo)}</strong><span>{total} noticias{h(texto_fichas)}</span></a>'
+        )
+
+    return f"""
+    <section class="aula-module-nav" aria-label="Resumen por módulos">
+      <div class="aula-module-nav-title">Bloques disponibles</div>
+      <div class="aula-module-chip-list">
+        {''.join(items)}
+      </div>
+    </section>
+    """
+
+
+def render_modulo_section(modulo, noticias, indice_fichas):
+    listado = "\n".join(render_noticia(n, indice_fichas) for n in noticias)
+    total = len(noticias)
+    fichas = contar_fichas_grupo(noticias, indice_fichas)
+    anchor = f"modulo-{slug_id(modulo)}"
+    plural = "noticia" if total == 1 else "noticias"
+    fichas_txt = f" · {fichas} con ficha docente" if fichas else ""
+
+    return f"""
+    <section class="aula-module-section" id="{h(anchor)}">
+      <header class="aula-module-header">
+        <div>
+          <p class="aula-module-kicker">Módulo</p>
+          <h2>{h(modulo)}</h2>
+        </div>
+        <p class="aula-module-count">{total} {plural}{h(fichas_txt)}</p>
+      </header>
+      <div class="seccion-lista aula-module-list">
+        {listado}
+      </div>
+    </section>
+    """
+
+
+def render_listado_por_modulos(noticias, indice_fichas):
+    if not noticias:
+        return """
+        <section class="seccion-lista">
+          <p>No hay noticias seleccionadas para trabajar en clase.</p>
+        </section>
+        """
+
+    grupos = agrupar_por_modulo(noticias)
+    resumen = render_resumen_modulos(grupos, indice_fichas)
+    secciones = "\n".join(
+        render_modulo_section(modulo, items, indice_fichas)
+        for modulo, items in grupos.items()
+    )
+    return resumen + secciones
+
+
 def render_nav(activa="aula.html"):
     docs = Path("docs")
     items = []
     for href, texto in MENU:
         # Portada, aula y del-autor se incluyen siempre
         # El resto solo si el archivo ya existe en docs/
-        if href not in ("index.html", "aula.html", "del-autor.html"):
+        if href not in ("index.html", "aula.html", "newsletter/index.html", "del-autor.html"):
             if not (docs / href).exists():
                 continue
         clase = "active" if href == activa else ""
@@ -269,7 +404,7 @@ def render_docente_box(noticia):
         """
 
     return f"""
-    <details class="docente-box" open>
+    <details class="docente-box">
       <summary class="docente-box-title">Ficha docente · {h(tipo_uso)}</summary>
       <div class="docente-box-content">
         {datos_html}
@@ -349,22 +484,17 @@ def render_noticia(noticia, indice_fichas):
         {fuente_html}
         {render_docente_box(noticia)}
 
-        {ficha_links_html(noticia, indice_fichas)}
-        <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
+        <div class="aula-card-actions">
+          {ficha_links_html(noticia, indice_fichas)}
+          <a class="read-more" href="{url}" target="_blank" rel="noopener">Leer noticia completa →</a>
+        </div>
       </div>
     </article>
     """
 
 
 def render_html(noticias, indice_fichas):
-    listado = "\n".join(render_noticia(n, indice_fichas) for n in noticias)
-
-    if not listado:
-        listado = """
-        <section class="seccion-lista">
-          <p>No hay noticias seleccionadas para trabajar en clase.</p>
-        </section>
-        """
+    listado = render_listado_por_modulos(noticias, indice_fichas)
 
     fecha_hoy = h(fecha_cabecera())
 
@@ -422,9 +552,7 @@ def render_html(noticias, indice_fichas):
       </div>
     </section>
 
-    <section class="seccion-lista">
-      {listado}
-    </section>
+    {listado}
   </main>
 
   <footer>

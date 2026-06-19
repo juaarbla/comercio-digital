@@ -80,7 +80,6 @@ SECCIONES = [
     {"id": "internacional", "modulos": ["Comercio Digital Internacional"], "label": "Internacional", "file": "internacional.html"},
     {"id": "digitalizacion", "modulos": ["Digitalización GM", "Digitalización GS"], "label": "Digitalización", "file": "digitalizacion.html"},
     {"id": "ia-marketing", "modulos": ["IA para Marketing y Comercio"], "label": "IA & Marketing", "file": "ia-marketing.html"},
-    {"id": "marketing", "modulos": ["Marketing Digital"], "label": "Marketing", "file": "marketing.html"},
     {"id": "del-autor", "modulos": ["Del Autor"], "label": "Del Autor", "file": "del-autor.html"},
     {"id": "otros", "modulos": [], "label": "Otros", "file": "otros.html"},
 ]
@@ -185,15 +184,17 @@ def formatear_fecha(s: str) -> str:
 
 
 def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
-    """Menú principal común.
+    """Menú principal común con soporte para hamburguesa en móvil.
 
     Aula se añade siempre porque no depende de SECCIONES:
     la página la genera generar_aula.py.
 
     Orden:
-    Portada → E-Commerce → Internacional → Digitalización → IA & Marketing → Marketing → Aula → Del Autor
+    Portada → E-Commerce → Internacional → Digitalización → IA & Marketing → Aula → Newsletter → Del Autor
     """
-    items = '<li><a href="index.html">Portada</a></li>\n'
+    salto = chr(10)
+    portada_cls = ' class="active"' if activa in ("", "portada", "index") else ""
+    items = f'<li><a href="index.html"{portada_cls}>Portada</a></li>' + salto
 
     for seccion in SECCIONES:
         sid = seccion["id"]
@@ -210,18 +211,32 @@ def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
             continue
 
         cls = ' class="active"' if sid == activa else ""
-        items += f'    <li><a href="{seccion["file"]}"{cls}>{seccion["label"]}</a></li>\n'
+        items += f'    <li><a href="{seccion["file"]}"{cls}>{seccion["label"]}</a></li>' + salto
 
     aula_cls = ' class="active"' if activa == "aula" else ""
-    items += f'    <li><a href="aula.html"{aula_cls}>Aula</a></li>\n'
+    items += f'    <li><a href="aula.html"{aula_cls}>Aula</a></li>' + salto
+
+    newsletter_cls = ' class="active"' if activa == "newsletter" else ""
+    items += f'    <li><a href="newsletter/index.html"{newsletter_cls}>Newsletter</a></li>' + salto
 
     del_autor = next((s for s in SECCIONES if s["id"] == "del-autor"), None)
     if del_autor:
         if secciones_con_noticias is None or "del-autor" in secciones_con_noticias:
             cls = ' class="active"' if activa == "del-autor" else ""
-            items += f'    <li><a href="{del_autor["file"]}"{cls}>{del_autor["label"]}</a></li>\n'
+            items += f'    <li><a href="{del_autor["file"]}"{cls}>{del_autor["label"]}</a></li>' + salto
 
-    return f'<nav><ul>{items}</ul></nav>'
+    return f"""
+  <nav class="site-nav" aria-label="Menú principal">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir o cerrar menú">
+      <span></span>
+      <span></span>
+      <span></span>
+      <strong>Menú</strong>
+    </label>
+    <ul class="nav-menu">
+      {items}    </ul>
+  </nav>"""
 
 
 def masthead_html(subtitulo: str = "") -> str:

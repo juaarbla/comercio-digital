@@ -50,13 +50,16 @@ echo    8. Solo generar web principal
 echo    9. Solo generar fichas de aula
 echo   10. Solo generar aula
 echo   11. Solo SEO tecnico
+echo   12. Generar newsletter semanal
+echo   13. Generar newsletter quincenal
 echo.
-echo   12. Abrir portada local
-echo   13. Abrir aula local
-echo   14. Estado de Git
+echo   14. Abrir portada local
+echo   15. Abrir aula local
+echo   16. Abrir newsletter local
+echo   17. Estado de Git
 echo.
-echo   15. Publicar SOLO web docs/
-echo   16. Publicar TODO el proyecto
+echo   18. Publicar SOLO web docs/
+echo   19. Publicar TODO el proyecto
 echo.
 echo    0. Salir
 echo.
@@ -73,11 +76,14 @@ if "%OPCION%"=="8" goto WEB
 if "%OPCION%"=="9" goto FICHAS
 if "%OPCION%"=="10" goto AULA
 if "%OPCION%"=="11" goto SEO
-if "%OPCION%"=="12" goto ABRIR_PORTADA
-if "%OPCION%"=="13" goto ABRIR_AULA
-if "%OPCION%"=="14" goto ESTADO_GIT
-if "%OPCION%"=="15" goto GIT_DOCS
-if "%OPCION%"=="16" goto GIT_PROYECTO
+if "%OPCION%"=="12" goto NEWSLETTER_SEMANAL
+if "%OPCION%"=="13" goto NEWSLETTER_QUINCENAL
+if "%OPCION%"=="14" goto ABRIR_PORTADA
+if "%OPCION%"=="15" goto ABRIR_AULA
+if "%OPCION%"=="16" goto ABRIR_NEWSLETTER
+if "%OPCION%"=="17" goto ESTADO_GIT
+if "%OPCION%"=="18" goto GIT_DOCS
+if "%OPCION%"=="19" goto GIT_PROYECTO
 if "%OPCION%"=="0" goto FIN
 goto MENU
 
@@ -121,12 +127,26 @@ python generar_seo.py
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
+:NEWSLETTER_SEMANAL
+python generar_newsletter.py --periodicidad semanal --force
+if errorlevel 1 goto ERROR_PROCESO
+goto PAUSA
+
+:NEWSLETTER_QUINCENAL
+python generar_newsletter.py --periodicidad quincenal --force
+if errorlevel 1 goto ERROR_PROCESO
+goto PAUSA
+
 :ABRIR_PORTADA
 start "" "docs\index.html"
 goto PAUSA
 
 :ABRIR_AULA
 start "" "docs\aula.html"
+goto PAUSA
+
+:ABRIR_NEWSLETTER
+start "" "docs\newsletter\index.html"
 goto PAUSA
 
 :ESTADO_GIT

@@ -54,16 +54,23 @@
     "url": "https://www.incibe.es/rss.xml",
     "modulo": "Digitalización GS",
     "tipo": "noticia",
-    "activo": true
+    "activo": false
   },
   {
-    "url": "https://developer.wordpress.org/news/",
+    "url": "https://es.wordpress.org/news/",
     "modulo": "WordPress",
     "tipo": "noticia",
     "activo": true
   },
   {
-    "url": "https://prestashop.com/versions/",
+    "url": "https://www.casares.blog/",
+    "modulo": "WordPress",
+    "tipo": "noticia",
+    "activo": true
+  },
+  
+  {
+    "url": "https://prestashop.es/blog",
     "modulo": "PrestaShop",
     "tipo": "noticia",
     "activo": true
@@ -71,6 +78,18 @@
   {
     "url": "https://prestotimes.com",
     "modulo": "IA para Marketing y Comercio",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://consultoresia.com/inteligencia-artificial/",
+    "modulo": "IA para Marketing y Comercio",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
+    "url": "https://www.cyberclick.es/numerical-blog",
+    "modulo": "",
     "tipo": "noticia",
     "activo": true
   }

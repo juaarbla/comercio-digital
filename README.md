@@ -1,6 +1,6 @@
 # Comercio Digital — Agregador de noticias para FP
 
-Proyecto en Python para recopilar noticias de actualidad, resumirlas con IA, clasificarlas por módulos y resultados de aprendizaje de Formación Profesional, enriquecerlas con una capa docente y generar una web estática publicable en GitHub Pages.
+Proyecto en Python para recopilar noticias de actualidad, resumirlas con IA, clasificarlas por módulos y resultados de aprendizaje de Formación Profesional, enriquecerlas con una capa docente, generar una web estática publicable en GitHub Pages y consultar/reutilizar el contenido mediante MCP.
 
 Web pública:
 
@@ -19,7 +19,9 @@ La idea es conectar noticias reales con:
 - tendencias del sector;
 - actividades de aula;
 - fichas docentes reutilizables;
-- materiales Markdown para Aules/Moodle.
+- materiales Markdown para Aules/Moodle;
+- newsletter docente en HTML/Markdown para distribución externa;
+- herramientas MCP para consultar y reutilizar el contenido desde IA.
 
 ## Estructura general del flujo
 
@@ -28,11 +30,11 @@ feeds.json
    ↓
 news_aggregator.py
    ↓
-noticias_resumidas.json
+data/processed/noticias_resumidas.json
    ↓
 clasificador_ra.py
    ↓
-noticias_clasificadas.json
+data/processed/noticias_clasificadas.json
    ↓
 enriquecer_docente.py
    ↓
@@ -44,11 +46,29 @@ generar_fichas_aula.py
    ↓
 generar_aula.py
    ↓
+generar_newsletter.py
+   ↓
 generar_seo.py
    ↓
 docs/
    ↓
 GitHub Pages
+```
+
+## Estructura actual de datos
+
+```text
+data/
+├─ processed/
+│  ├─ noticias_resumidas.json
+│  └─ noticias_clasificadas.json
+│
+├─ cache/
+│  ├─ cache_clasificacion.json
+│  └─ cache_imagenes.json
+│
+└─ backups/
+   └─ noticias_clasificadas.backup_*.json
 ```
 
 ## Ejecución recomendada
@@ -63,12 +83,6 @@ También puede ejecutarse desde el panel:
 .\arrancar.bat
 ```
 
-Opción habitual para actualizar la web pública:
-
-```text
-2. Proceso completo + publicar SOLO web docs/
-```
-
 ## Ejecución manual
 
 ```powershell
@@ -79,6 +93,7 @@ python imagen_destacada.py
 python generar_web.py
 python generar_fichas_aula.py --max-fichas 10 --limpiar
 python generar_aula.py --max-noticias 25
+python generar_newsletter.py --periodicidad quincenal --force
 python generar_seo.py
 ```
 
@@ -94,9 +109,12 @@ python generar_seo.py
 | `generar_web.py` | Genera portada y páginas de secciones en `docs/`. |
 | `generar_fichas_aula.py` | Genera fichas docentes HTML/Markdown y material conjunto. |
 | `generar_aula.py` | Genera `docs/aula.html`. |
+| `generar_newsletter.py` | Genera newsletter docente en HTML/Markdown en `docs/newsletter/`. |
 | `generar_seo.py` | Añade metadatos SEO, `sitemap.xml` y `robots.txt`. |
 | `run_pipeline.py` | Ejecuta el flujo completo. |
 | `arrancar.bat` | Panel de control en Windows. |
+| `paths.py` | Centraliza rutas del proyecto. |
+| `mcp_servers/comercio_digital/server.py` | Servidor MCP local del agregador. |
 | `DIARIO_PROYECTO.md` | Registro de cambios, incidencias y decisiones. |
 
 ## Salida pública
@@ -115,8 +133,9 @@ docs/comercio-electronico.html
 docs/internacional.html
 docs/digitalizacion.html
 docs/ia-marketing.html
-docs/marketing.html
 docs/aula.html
+docs/newsletter/index.html
+docs/newsletter/newsletter-AAAA-WSS.html
 docs/del-autor.html
 docs/fichas-aula/
 docs/sitemap.xml
@@ -142,7 +161,7 @@ Cada noticia puede mostrar:
 
 Los campos internos como `score_docente`, `valor_docente` y `seleccion_newsletter` se usan para ordenar y seleccionar, pero no deben mostrarse en la web pública.
 
-## Fichas docentes
+## Fichas docentes públicas
 
 `generar_fichas_aula.py` genera:
 
@@ -153,44 +172,109 @@ docs/fichas-aula/material-aula.md
 docs/fichas-aula/index_fichas.json
 ```
 
-Criterio para generar ficha:
+Estas fichas forman parte de la web pública generada en `docs/`.
+
+## Newsletter docente
+
+`generar_newsletter.py` crea una selección periódica de noticias para compartir como boletín docente.
+
+Genera:
 
 ```text
-generar_ficha = true
+docs/newsletter/newsletter-AAAA-WSS.html
+docs/newsletter/newsletter-AAAA-WSS.md
+docs/newsletter/index.html
 ```
 
-o bien:
+Uso recomendado:
+
+```powershell
+python generar_newsletter.py --periodicidad quincenal --force
+```
+
+o, si se quiere una edición semanal:
+
+```powershell
+python generar_newsletter.py --periodicidad semanal --force
+```
+
+La newsletter no se genera cada día de forma automática. Se crea únicamente cuando se ejecuta el script.
+
+El agregador no gestiona suscriptores ni realiza envíos de correo. La distribución debe hacerse mediante una herramienta externa o envío manual del enlace público:
 
 ```text
-valor_docente = alto
-score_docente >= 25
-tiene pregunta_aula
-tiene actividad_breve
-tiene ra_asignado
+https://comerciodigital.net/newsletter/
 ```
 
-Por defecto se limita a 10 fichas por ejecución.
+Procedimiento recomendado para distribuir por email:
+
+1. Generar la newsletter.
+2. Publicar los cambios en GitHub Pages.
+3. Comprobar que la edición se ve correctamente en la web.
+4. Enviar un correo breve desde Gmail, Brevo, Mailchimp, Substack, MailerLite u otra herramienta externa.
+5. Incluir el enlace a la edición o al índice de newsletters.
+
+## MCP Comercio Digital
+
+El proyecto incluye un servidor MCP local para consultar el agregador desde herramientas compatibles con Model Context Protocol.
+
+Ruta:
+
+```text
+mcp_servers/comercio_digital/
+```
+
+Archivos principales:
+
+```text
+mcp_servers/comercio_digital/server.py
+mcp_servers/comercio_digital/requirements.txt
+mcp_servers/comercio_digital/README.md
+```
+
+El MCP lee:
+
+```text
+data/processed/noticias_clasificadas.json
+```
+
+Herramientas disponibles:
+
+```text
+estado_agregador()
+buscar_noticias(texto, limite)
+noticias_por_modulo(modulo, limite)
+noticias_por_valor_docente(valor, limite)
+noticias_newsletter(limite)
+ficha_aula_basica(url_o_titulo)
+generar_ficha_md(url_o_titulo)
+```
+
+La herramienta `generar_ficha_md` guarda fichas Markdown de trabajo en:
+
+```text
+outputs/aula/
+```
+
+Diferencia importante:
+
+```text
+docs/fichas-aula/  → fichas públicas generadas por el pipeline
+outputs/aula/      → fichas locales de trabajo generadas desde MCP
+```
 
 ## Imágenes destacadas
 
-`imagen_destacada.py` intenta completar `imagen_url` en `noticias_clasificadas.json`.
+`imagen_destacada.py` intenta completar `imagen_url` en:
 
-Modos disponibles mediante `.env`:
-
-```env
-IMAGE_PROVIDER=rss
-IMAGE_PROVIDER=openai
-OPENAI_API_KEY=...
-OPENAI_IMG_SIZE=1024x1024
-OPENAI_IMG_MODEL=dall-e-3
+```text
+data/processed/noticias_clasificadas.json
 ```
-
-Con `rss`, intenta obtener `og:image` o `twitter:image` de la página original.
 
 Usa caché local:
 
 ```text
-cache_imagenes.json
+data/cache/cache_imagenes.json
 ```
 
 ## Archivos generados localmente
@@ -199,89 +283,42 @@ Normalmente no se suben a GitHub:
 
 ```text
 historial.json
-noticias_resumidas.json
-noticias_clasificadas.json
-noticias_clasificadas.backup_*.json
-cache_imagenes.json
+data/cache/
+data/backups/
+outputs/aula/
 deprecated/
 _deprecated/
+.env
 ```
 
-Sí se suben normalmente:
+La decisión actual sobre `data/processed/` es no ignorarla de momento, aunque sus archivos no se publican en GitHub Pages porque están fuera de `docs/`.
+
+## Probar MCP con Inspector
+
+```powershell
+mcp dev mcp_servers\comercio_digital\server.py
+```
+
+Si el Inspector intenta usar `uv` y falla, configurar manualmente:
 
 ```text
-*.py
-*.md
-arrancar.bat
-docs/
+Transport Type:
+STDIO
+
+Command:
+C:\Users\Juan\Google Drive\00_CDI_press\.venv\Scripts\python.exe
+
+Arguments:
+"C:/Users/Juan/Google Drive/00_CDI_press/mcp_servers/comercio_digital/server.py"
 ```
-
-## Comandos útiles
-
-### Ejecutar pipeline completo
-
-```powershell
-python run_pipeline.py
-```
-
-### Generar solo web principal
-
-```powershell
-python generar_web.py
-```
-
-### Generar fichas docentes
-
-```powershell
-python generar_fichas_aula.py --max-fichas 10 --limpiar
-```
-
-### Generar página Aula
-
-```powershell
-python generar_aula.py --max-noticias 25
-```
-
-### Ejecutar SEO técnico
-
-```powershell
-python generar_seo.py
-```
-
-### Comprobar enlaces de Aula
-
-```powershell
-Select-String -Path docs\index.html -Pattern "aula.html"
-Select-String -Path docs\aula.html -Pattern "Descargar Markdown"
-Select-String -Path docs\aula.html -Pattern "Descargar material de aula MD"
-```
-
-### Comprobar Del Autor
-
-```powershell
-Select-String -Path docs\*.html -Pattern "autor.html"
-Select-String -Path docs\*.html -Pattern "del-autor.html"
-```
-
-`autor.html` no debería aparecer. La ruta correcta es `del-autor.html`.
-
-## Checklist diaria
-
-1. Ejecutar `python run_pipeline.py`.
-2. Revisar `docs/index.html`.
-3. Revisar que la portada no se rompe en bloques de 3 noticias.
-4. Revisar `docs/aula.html`.
-5. Comprobar una ficha docente.
-6. Comprobar `docs/fichas-aula/material-aula.md`.
-7. Comprobar `docs/sitemap.xml` y `docs/robots.txt`.
-8. Publicar en GitHub.
-9. Revisar `https://comerciodigital.net`.
-10. Revisar `https://comerciodigital.net/aula.html`.
 
 ## Documentación complementaria
 
 - `README_AULA.md`: funcionamiento de Aula y fichas docentes.
+- `README_NEWSLETTER.md`: generación, publicación y distribución externa de la newsletter.
 - `README_IMAGENES.md`: funcionamiento de imágenes destacadas.
 - `README_PASO1_DOCENTE.md`: capa docente, score y criterios de selección.
 - `README_INSTALACION.md`: instalación rápida y publicación.
+- `mcp_servers/comercio_digital/README.md`: documentación específica del MCP.
+- `REESTRUCTURACION_Y_MCP_COMERCIO_DIGITAL.md`: reestructuración y MCP.
 - `DIARIO_PROYECTO.md`: histórico del proyecto.

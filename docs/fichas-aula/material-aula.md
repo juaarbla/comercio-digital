@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 18 JUN 2026
+Fecha de generación: 19 JUN 2026
 
 ---
 
@@ -237,7 +237,40 @@ La inversión en robótica y automatización en centros de distribución se rela
 
 ---
 
-# 8. Anthropic lanza Claude Fable 5, la versión pública de su modelo de IA más avanzado
+# 8. La era de la colaboración: el nuevo mapa de la transformación digital entre Europa e Iberoamérica
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 17 jun. 2026
+- **Enlace:** https://ecommerce-news.es/la-era-de-la-colaboracion-el-nuevo-mapa-de-la-transformacion-digital-entre-europa-e-iberoamerica/
+- **Módulo:** CDI
+- **RA:** RA1
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/008-la-era-de-la-colaboracion-el-nuevo-mapa-de-la-transformacion-digital-e.html
+- **Ficha Markdown:** fichas-aula/008-la-era-de-la-colaboracion-el-nuevo-mapa-de-la-transformacion-digital-e.md
+
+## Resumen
+
+Europa e Iberoamérica están iniciando una importante colaboración para afrontar la transformación digital global. Este esfuerzo busca aprovechar el avance de la inteligencia artificial y otras tecnologías para crear mercados más fuertes y sostenibles. Para el comercio, esto significa una oportunidad clave para que las empresas de e-commerce puedan ampliar sus fronteras internacionales. En resumen, la clave para crecer en el sector digital es la colaboración transnacional y la adopción de nuevas herramientas tecnológicas.
+
+## Pregunta detonadora
+
+¿Qué impacto podría tener esta noticia en una empresa que vende en mercados internacionales?
+
+## Actividad breve
+
+Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+
+## Conceptos clave
+
+-
+
+## Por qué encaja en este RA
+
+El foco en la colaboración transnacional y el crecimiento internacional implica planificar el marketing digital para nuevos mercados.
+
+---
+
+# 9. Anthropic lanza Claude Fable 5, la versión pública de su modelo de IA más avanzado
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 11 jun. 2026
@@ -245,8 +278,8 @@ La inversión en robótica y automatización en centros de distribución se rela
 - **Módulo:** IA
 - **RA:** RA6
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.html
-- **Ficha Markdown:** fichas-aula/008-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.md
+- **Ficha HTML:** fichas-aula/009-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.html
+- **Ficha Markdown:** fichas-aula/009-anthropic-lanza-claude-fable-5-la-version-publica-de-su-modelo-de-ia-m.md
 
 ## Resumen
 
@@ -270,7 +303,7 @@ La mejora de chatbots en servicio al cliente y la automatización del soporte en
 
 ---
 
-# 9. Investigación sobre una campaña de phishing dirigida a empleados de la NASA y otras organizaciones estadounidenses
+# 10. Investigación sobre una campaña de phishing dirigida a empleados de la NASA y otras organizaciones estadounidenses
 
 - **Fuente:** incibe.es
 - **Fecha:** 9 jun. 2026
@@ -278,8 +311,8 @@ La mejora de chatbots en servicio al cliente y la automatización del soporte en
 - **Módulo:** Digitalización
 - **RA:** RA5
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/009-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.html
-- **Ficha Markdown:** fichas-aula/009-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.md
+- **Ficha HTML:** fichas-aula/010-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.html
+- **Ficha Markdown:** fichas-aula/010-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.md
 
 ## Resumen
 
@@ -300,38 +333,5 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 ## Por qué encaja en este RA
 
 El contenido aborda la ciberseguridad y el factor humano en las vulnerabilidades de datos, lo cual se relaciona con el ciclo de vida del dato y la regulación de la seguridad de datos.
-
----
-
-# 10. La UE endurece el control sobre Temu, Shein y AliExpress: las compras de bajo coste afrontan nuevos recargos desde 2026
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 11 jun. 2026
-- **Enlace:** https://ecommerce-news.es/la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de-bajo-coste-afrontan-nuevos-recargos-desde-2026/
-- **Módulo:** CDI
-- **RA:** RA5
-- **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/010-la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de.html
-- **Ficha Markdown:** fichas-aula/010-la-ue-endurece-el-control-sobre-temu-shein-y-aliexpress-las-compras-de.md
-
-## Resumen
-
-La Unión Europea está implementando un cambio importante en el comercio transfronterizo, endureciendo los controles aduaneros para paquetes provenientes de plataformas ultrabaratas como Temu o Shein. A partir de 2026, se introducirán nuevos recargos e impuestos sobre estos envíos, lo que afecta directamente a la logística y el coste final para el consumidor. Este cambio es crucial porque nos muestra cómo las regulaciones aduaneras y fiscales afectan la viabilidad y la estrategia de negocio en el Comercio Electrónico. Es vital para los futuros profesionales saber que el cumplimiento normativo (compliance) es un factor decisivo al gestionar ventas internacionales.
-
-## Pregunta detonadora
-
-¿Qué impacto podría tener esta noticia en una empresa que vende en mercados internacionales?
-
-## Actividad breve
-
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
-
-## Conceptos clave
-
--
-
-## Por qué encaja en este RA
-
-La noticia trata directamente sobre cambios en la normativa aduanera de la UE para el comercio transfronterizo, lo cual es un componente clave de la política y logística del e-commerce internacional.
 
 ---

@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 19 JUN 2026
+Fecha de generación: 20 JUN 2026
 
 ---
 
@@ -39,20 +39,20 @@ La noticia aborda la necesidad de integrar IA y estrategias de contenido social 
 
 ---
 
-# 2. Barcelona reunió a más de 30 profesionales en una nueva edición de Ecommerce Gourmeet
+# 2. Profesiones incompletas: la campaña que muestra el desafío de adaptación a la Inteligencia Artificial
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 15 jun. 2026
-- **Enlace:** https://ecommerce-news.es/barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-ecommerce-gourmeet/
+- **Fecha:** 18 jun. 2026
+- **Enlace:** https://ecommerce-news.es/profesiones-incompletas-la-campana-que-muestra-el-desafio-de-adaptacion-a-la-inteligencia-artificial/
 - **Módulo:** Comercio Electrónico
 - **RA:** RA1
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/002-barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-eco.html
-- **Ficha Markdown:** fichas-aula/002-barcelona-reunio-a-mas-de-30-profesionales-en-una-nueva-edicion-de-eco.md
+- **Ficha HTML:** fichas-aula/002-profesiones-incompletas-la-campana-que-muestra-el-desafio-de-adaptacio.html
+- **Ficha Markdown:** fichas-aula/002-profesiones-incompletas-la-campana-que-muestra-el-desafio-de-adaptacio.md
 
 ## Resumen
 
-Se celebró un importante encuentro de profesionales en Barcelona enfocado en la evolución del comercio electrónico. El debate se centró en cómo el entorno digital se está volviendo más "agéntico", es decir, más automatizado y dependiente de asistentes inteligentes. Para los vendedores y responsables de tienda online, esto significa que el SEO tradicional está cambiando radicalmente, ya que la visibilidad debe adaptarse a las búsquedas por voz y la IA. Por lo tanto, es crucial entender estas nuevas tendencias de búsqueda y automatización para que vuestros proyectos de e-commerce sigan siendo visibles y funcionales.
+Esta noticia subraya que la Inteligencia Artificial no afectará solo ciertos sectores, sino que está transformando el perfil profesional de casi todas las áreas. La campaña nos alerta sobre la necesidad de una constante adaptación, un concepto clave en el mundo digital actual. Desde el e-commerce, esto significa que las habilidades tradicionales deben complementarse con el manejo de datos y herramientas de IA para optimizar la venta. En resumen, la adaptación continua de nuestros conocimientos y la digitalización de procesos son requisitos esenciales para cualquier futuro profesional del marketing y el comercio.
 
 ## Pregunta detonadora
 
@@ -68,7 +68,7 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ## Por qué encaja en este RA
 
-La noticia se centra en la evolución del SEO y la visibilidad online ante la automatización y la búsqueda por voz, lo cual es parte fundamental del plan de marketing digital.
+La necesidad de adaptar habilidades con manejo de datos y herramientas de IA para la optimización de ventas y marketing requiere la aplicación de las directrices de plan de marketing digital (SEO, publicidad y CRM).
 
 ---
 

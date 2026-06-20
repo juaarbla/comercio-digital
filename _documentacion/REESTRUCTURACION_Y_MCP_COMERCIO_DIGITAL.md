@@ -154,15 +154,141 @@ MCP Comercio Digital v0.2 operativo.
 
 ## 8. Configuración que funcionó en MCP Inspector
 
+Durante las pruebas se usaron dos formas de iniciar el MCP:
+
+1. Arrancar directamente el servidor MCP.
+2. Probarlo desde MCP Inspector.
+
+### 8.1. Inicio directo del servidor MCP
+
+Se creó un archivo BAT para iniciar el servidor MCP desde la raíz del proyecto:
+
+```text
+iniciar_mcp.bat
+```
+
+Este BAT usa el Python del entorno virtual externo, ubicado fuera de Google Drive:
+
+```text
+%LOCALAPPDATA%\PythonVenvs\comercio-digital\Scripts\python.exe
+```
+
+Ruta real en el equipo principal:
+
+```text
+C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
+```
+
+El servidor MCP que se ejecuta es:
+
+```text
+mcp_servers\comercio_digital\server.py
+```
+
+Resultado esperado al ejecutar:
+
+```powershell
+.\iniciar_mcp.bat
+```
+
+```text
+MCP Comercio Digital
+Iniciando servidor MCP...
+Para detenerlo: CTRL + C
+```
+
+Esto indica que el servidor MCP está arrancado y esperando conexiones.
+
+### 8.2. Prueba con MCP Inspector
+
+Se creó también:
+
+```text
+probar_mcp_inspector.bat
+```
+
+El objetivo de este BAT es abrir MCP Inspector y mostrar las rutas correctas que deben usarse si la conexión automática falla.
+
+Durante la prueba apareció el error:
+
+```text
+"mcp" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+```
+
+### 8.3. Causa del error
+
+El comando `mcp` no está disponible globalmente en Windows porque el entorno virtual del proyecto no está en el `PATH` global.
+
+El entorno correcto está en:
+
+```text
+%LOCALAPPDATA%\PythonVenvs\comercio-digital\
+```
+
+Por eso no conviene depender de:
+
+```text
+mcp dev ...
+```
+
+como comando global.
+
+### 8.4. Configuración manual correcta en MCP Inspector
+
+La solución aplicada fue configurar manualmente el transporte `STDIO` en MCP Inspector.
+
+Configuración correcta:
+
 ```text
 Transport Type:
 STDIO
+```
 
+```text
 Command:
-C:\Users\Juan\Google Drive\00_CDI_press\.venv\Scripts\python.exe
+C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
+```
 
+```text
 Arguments:
 "C:/Users/Juan/Google Drive/00_CDI_press/mcp_servers/comercio_digital/server.py"
+```
+
+Con esta configuración, MCP Inspector conecta correctamente con el servidor.
+
+### 8.5. Resultado de la prueba
+
+Se confirmó que:
+
+```text
+- el servidor MCP conecta desde Inspector;
+- aparecen las herramientas MCP;
+- se puede ejecutar buscar_noticias;
+- se puede ejecutar generar_ficha_md;
+- generar_ficha_md crea fichas Markdown en outputs/aula/.
+```
+
+### 8.6. Decisión
+
+No se añade por ahora `mcp` al `PATH` global de Windows.
+
+Motivo:
+
+```text
+Es más seguro y portable usar siempre el Python del entorno virtual específico del proyecto.
+```
+
+Riesgo:
+
+```text
+Hay que recordar configurar manualmente Command y Arguments en MCP Inspector si el acceso automático falla.
+```
+
+Siguiente paso:
+
+```text
+Mantener iniciar_mcp.bat y probar_mcp_inspector.bat como accesos rápidos documentados.
 ```
 
 ## 9. Seguridad

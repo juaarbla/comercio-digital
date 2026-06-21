@@ -109,6 +109,116 @@ def conceptos(n):
     return []
 
 
+
+
+def normalizar_ce_textos(n):
+    """
+    Devuelve una lista homogénea de CE para pintar en la ficha.
+
+    Espera preferentemente el formato generado por clasificador_ra_v2.py:
+    ce_textos = [{"codigo": "RA1b", "letra": "b", "texto": "..."}]
+
+    También tolera formatos antiguos o manuales:
+    ce_asignados = ["a", "b"]
+    """
+    ce_textos = n.get("ce_textos") or []
+    resultado = []
+
+    if isinstance(ce_textos, list):
+        for item in ce_textos:
+            if isinstance(item, dict):
+                codigo = str(item.get("codigo") or "").strip()
+                letra = str(item.get("letra") or "").strip()
+                texto = str(item.get("texto") or "").strip()
+                if texto:
+                    if not codigo:
+                        codigo = f"{n.get('ra_asignado') or 'RA'}{letra}" if letra else "CE"
+                    resultado.append({"codigo": codigo, "texto": texto})
+            elif isinstance(item, str) and item.strip():
+                resultado.append({"codigo": "CE", "texto": item.strip()})
+
+    # Fallback: si solo tenemos letras de CE, al menos las mostramos.
+    if not resultado:
+        ce_asignados = n.get("ce_asignados") or []
+        if isinstance(ce_asignados, str):
+            ce_asignados = [c.strip() for c in ce_asignados.split(",") if c.strip()]
+        if isinstance(ce_asignados, list):
+            for letra in ce_asignados:
+                letra = str(letra).strip()
+                if letra:
+                    codigo = f"{n.get('ra_asignado') or 'RA'}{letra}"
+                    resultado.append({"codigo": codigo, "texto": "Criterio de evaluación relacionado pendiente de texto oficial."})
+
+    return resultado
+
+
+def bloque_curricular_md(n):
+    ra = n.get("ra_asignado") or ""
+    ra_texto = n.get("ra_texto") or ""
+    ce_items = normalizar_ce_textos(n)
+
+    lineas = [
+        "## Vinculación curricular",
+        "",
+        f"- **Módulo:** {modulo(n)}",
+        f"- **Resultado de aprendizaje:** {ra}",
+    ]
+
+    if ra_texto:
+        lineas.extend(["", f"**{ra}.** {ra_texto}"])
+
+    lineas.extend(["", "### Criterios de evaluación relacionados", ""])
+
+    if ce_items:
+        for ce in ce_items:
+            lineas.append(f"- **{ce['codigo']}.** {ce['texto']}")
+    else:
+        lineas.append("- No se han indicado criterios de evaluación concretos.")
+
+    lineas.extend([
+        "",
+        "### Justificación docente",
+        "",
+        n.get("ra_justificacion") or "Pendiente de justificación curricular.",
+    ])
+
+    return "\n".join(lineas)
+
+
+def bloque_curricular_html(n):
+    ra = h(n.get("ra_asignado") or "")
+    ra_texto = h(n.get("ra_texto") or "")
+    ce_items = normalizar_ce_textos(n)
+
+    if ce_items:
+        ce_html = "\n".join(
+            f'<li><strong>{h(ce["codigo"])}.</strong> <span>{h(ce["texto"])}</span></li>'
+            for ce in ce_items
+        )
+    else:
+        ce_html = '<li class="ficha-vacio">No se han indicado criterios de evaluación concretos.</li>'
+
+    ra_texto_html = ""
+    if ra_texto:
+        ra_texto_html = f'<p class="ficha-ra-texto"><strong>{ra}.</strong> {ra_texto}</p>'
+
+    return f"""
+        <h2 class="n-title ficha-section-title">Vinculación curricular</h2>
+        <div class="ficha-curricular-box">
+          <p><strong>Módulo:</strong> {h(modulo(n))}</p>
+          <p><strong>Resultado de aprendizaje:</strong> {ra}</p>
+          {ra_texto_html}
+
+          <h3 class="ficha-mini-title">Criterios de evaluación relacionados</h3>
+          <ul class="ficha-ce-list">
+            {ce_html}
+          </ul>
+
+          <h3 class="ficha-mini-title">Justificación docente</h3>
+          <p class="ficha-justificacion">{h(n.get("ra_justificacion") or "Pendiente de justificación curricular.")}</p>
+        </div>
+"""
+
 def debe_generar_ficha(n):
     if n.get("generar_ficha") is True:
         return True
@@ -166,6 +276,8 @@ def render_md(n):
 
 {n.get("resumen") or ""}
 
+{bloque_curricular_md(n)}
+
 ## Uso en el aula
 
 ### Pregunta detonadora
@@ -180,21 +292,16 @@ def render_md(n):
 
 {lista_conceptos}
 
-### Por qué encaja en este RA
-
-{n.get("ra_justificacion") or ""}
-
 ## Propuesta de dinámica
 
 - **Inicio:** lectura breve de la noticia y contextualización.
 - **Desarrollo:** análisis individual, por parejas o en pequeños grupos.
-- **Cierre:** puesta en común y conexión con el módulo y el RA.
+- **Cierre:** puesta en común y conexión con el módulo, el RA y los criterios de evaluación.
 
 ---
 
 Ficha generada por Comercio Digital para uso educativo.
 """
-
 
 def nav_html():
     docs = Path("docs")
@@ -288,6 +395,8 @@ def render_html(n, md_file):
   <section class="seccion-lista">
     <article class="noticia-full ficha-aula-card">
       <div>
+        {bloque_curricular_html(n)}
+
         <h2 class="n-title ficha-section-title">Uso en el aula</h2>
         <div class="docente-box ficha-docente-box">
           <div class="docente-box-content">
@@ -295,7 +404,6 @@ def render_html(n, md_file):
             <p><strong>Actividad breve:</strong><br>{actividad}</p>
             <p><strong>Conceptos clave:</strong></p>
             <div class="conceptos-clave">{conceptos_html}</div>
-            <p><strong>Por qué encaja en este RA:</strong><br>{h(n.get("ra_justificacion") or "")}</p>
           </div>
         </div>
 
@@ -304,7 +412,7 @@ def render_html(n, md_file):
           <p>
             <strong>Inicio:</strong> lectura breve de la noticia y contextualización.<br>
             <strong>Desarrollo:</strong> análisis individual, por parejas o en pequeños grupos.<br>
-            <strong>Cierre:</strong> puesta en común y conexión con el módulo y el RA.
+            <strong>Cierre:</strong> puesta en común y conexión con el módulo, el RA y los criterios de evaluación.
           </p>
         </div>
 
@@ -348,6 +456,11 @@ def render_material_aula_md(seleccionadas, indice_archivos):
         partes.append(f"- **Enlace:** {n.get('url') or ''}")
         partes.append(f"- **Módulo:** {modulo(n)}")
         partes.append(f"- **RA:** {n.get('ra_asignado') or ''}")
+        if n.get("ra_texto"):
+            partes.append(f"- **Texto RA:** {n.get('ra_texto')}")
+        ce_items = normalizar_ce_textos(n)
+        if ce_items:
+            partes.append("- **CE relacionados:** " + ", ".join(ce["codigo"] for ce in ce_items))
         partes.append(f"- **Tipo de uso:** {tipo_uso(n)}")
         archivos = indice_archivos.get(n.get("url") or n.get("titulo") or "")
         if archivos:
@@ -357,6 +470,10 @@ def render_material_aula_md(seleccionadas, indice_archivos):
         partes.append("## Resumen")
         partes.append("")
         partes.append(n.get("resumen") or "")
+        partes.append("")
+        partes.append("## Vinculación curricular")
+        partes.append("")
+        partes.append(bloque_curricular_md(n).replace("## Vinculación curricular\n\n", ""))
         partes.append("")
         partes.append("## Pregunta detonadora")
         partes.append("")
@@ -370,10 +487,6 @@ def render_material_aula_md(seleccionadas, indice_archivos):
         partes.append("")
         cs = conceptos(n)
         partes.extend([f"- {c}" for c in cs] or ["-"])
-        partes.append("")
-        partes.append("## Por qué encaja en este RA")
-        partes.append("")
-        partes.append(n.get("ra_justificacion") or "")
         partes.append("")
         partes.append("---")
         partes.append("")

@@ -1,17 +1,17 @@
-# eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce
+# Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible
 
 ## Datos de la noticia
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 15 jun. 2026
-- **Enlace:** https://ecommerce-news.es/elogistics-connect-2026-moddo-smart-station/
+- **Fecha:** 10 jun. 2026
+- **Enlace:** https://ecommerce-news.es/locus-robotics-duplica-la-productividad-dedhl-y-makro-en-espana-con-robots-moviles-autonomos-y-automatizacion-flexible/
 - **Módulo:** Comercio Electrónico
 - **Resultado de aprendizaje:** RA2
-- **Tipo de uso:** Actividad de aula
+- **Tipo de uso:** Caso de empresa
 
 ## Resumen
 
-En la feria eLogistics Connect 2026 se presentaron avances clave en la gestión de la logística de e-commerce. Específicamente, la solución MODDO SMART STATION aborda el reto de las devoluciones y envíos de productos comprados por internet. Esta plataforma utiliza inteligencia artificial y tecnología de vídeo para optimizar el proceso logístico, haciéndolo más rápido y eficiente. Para futuros profesionales del comercio, esto demuestra cómo la automatización y la gestión inteligente de la "logística inversa" son cruciales para mejorar la experiencia del cliente y reducir costes en cualquier tienda online.
+Este caso demuestra cómo la tecnología está transformando la logística de grandes almacenes y centros de distribución. Locus Robotics ha implementado robots autónomos en el centro de DHL, logrando duplicar la productividad mediante la automatización inteligente. Para el módulo de Comercio Electrónico, esto es clave, ya que una gestión de inventario y un *fulfillment* (cumplimiento de pedidos) ultrarrápida es esencial para la satisfacción del cliente online. En resumen, la IA y la robótica son las herramientas del futuro para garantizar la eficiencia de la cadena de suministro y la rapidez en la entrega.
 
 ## Vinculación curricular
 
@@ -23,11 +23,11 @@ En la feria eLogistics Connect 2026 se presentaron avances clave en la gestión 
 ### Criterios de evaluación relacionados
 
 - **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
-- **RA2f.** Se han establecido los medios de pago que se van a utilizar.
+- **RA2a.** Se han establecido los parámetros necesarios para crear o adaptar un negocio online.
 
 ### Justificación docente
 
-La noticia aborda directamente el proceso logístico de devoluciones y envíos, que forma parte crucial de la planificación de la gestión de pedidos y el proceso logístico de un negocio online (logística inversa).
+El caso aborda directamente la planificación y gestión del proceso logístico (fulfillment) de pedidos online, fundamental para el éxito de cualquier negocio de comercio electrónico.
 
 ## Uso en el aula
 

@@ -1799,3 +1799,104 @@ body.newsletter-body .newsletter-page {
     text-align: center;
   }
 }
+
+
+/* ==========================================================
+   FICHAS DE AULA: vinculación curricular limpia
+   ========================================================== */
+
+body.ficha-page .ficha-curricular-box {
+  background: #f5eee4;
+  border-left: 4px solid var(--accent);
+  border-top: 1px solid #d8c8bb;
+  border-right: 1px solid #d8c8bb;
+  border-bottom: 1px solid #d8c8bb;
+  padding: 1.2rem 1.35rem;
+  margin: 0.75rem 0 1.6rem;
+  box-shadow: none;
+}
+
+body.ficha-page .ficha-curricular-box p {
+  margin: 0 0 0.85rem;
+  line-height: 1.65;
+}
+
+body.ficha-page .ficha-curricular-box p:last-child {
+  margin-bottom: 0;
+}
+
+body.ficha-page .ficha-curricular-box strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+body.ficha-page .ficha-ra-texto {
+  margin-top: 0.25rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(139, 26, 26, 0.18);
+}
+
+body.ficha-page .ficha-mini-title {
+  margin: 1.1rem 0 0.55rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+body.ficha-page .ficha-ce-list {
+  margin: 0.15rem 0 1.05rem 1.15rem;
+  padding-left: 0.9rem;
+  list-style-position: outside;
+}
+
+body.ficha-page .ficha-ce-list li {
+  margin: 0 0 0.58rem;
+  padding-left: 0.2rem;
+  line-height: 1.6;
+}
+
+body.ficha-page .ficha-ce-list li:last-child {
+  margin-bottom: 0;
+}
+
+body.ficha-page .ficha-ce-list li::marker {
+  color: var(--accent);
+  font-size: 0.85em;
+}
+
+body.ficha-page .ficha-ce-list span {
+  color: var(--ink);
+}
+
+body.ficha-page .ficha-justificacion {
+  margin-top: 0.15rem;
+}
+
+body.ficha-page .ficha-vacio {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+/* Evita que estilos genéricos de .docente-box afecten a la caja curricular */
+body.ficha-page .ficha-curricular-box .docente-box-content {
+  padding: 0;
+}
+
+/* Ajuste visual de la caja de uso en el aula para mantener coherencia */
+body.ficha-page .ficha-docente-box {
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  body.ficha-page .ficha-curricular-box {
+    padding: 1rem;
+  }
+
+  body.ficha-page .ficha-ce-list {
+    margin-left: 1rem;
+    padding-left: 0.75rem;
+  }
+}
+

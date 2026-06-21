@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 """
 Pipeline principal del agregador Comercio Digital.
+
+Orden general:
+1. Agrega y resume noticias.
+2. Limpia duplicados.
+3. Clasifica por módulo, RA y CE.
+4. Enriquece la utilidad docente.
+5. Añade conceptos clave desde los contenidos básicos curriculares.
+6. Genera imágenes, web, fichas, aula y SEO.
 """
 
 import subprocess
@@ -21,7 +29,7 @@ PASOS = [
         "obligatorio": False,
     },
     {
-        "nombre": "Clasificación por RA",
+        "nombre": "Clasificación curricular por RA y CE",
         "script": "clasificador_ra.py",
         "obligatorio": True,
     },
@@ -30,6 +38,12 @@ PASOS = [
         "script": "enriquecer_docente.py",
         "obligatorio": False,
         "args": ["--forzar"],
+    },
+    {
+        "nombre": "Enriquecimiento de conceptos curriculares",
+        "script": "enriquecer_conceptos.py",
+        "obligatorio": True,
+        "args": ["--sobrescribir"],
     },
     {
         "nombre": "Imágenes destacadas",

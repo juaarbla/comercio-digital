@@ -13,6 +13,22 @@
 
 El panorama del comercio electrónico está cambiando extremadamente rápido, y las marcas deben estar al tanto de estas nuevas tendencias. Los principales motores de cambio son la Inteligencia Artificial, que mejorará la personalización de la experiencia de compra, y el auge del *Social Commerce*, que permite vender directamente en plataformas como TikTok. Además, es crucial entender el *Retail Media*, que son los espacios publicitarios que las marcas pueden comprar dentro de los propios *marketplaces*, generando nuevas fuentes de ingresos para las plataformas. Esto significa que, como profesionales, debemos integrar la IA y la estrategia de contenido social para potenciar nuestras ventas online.
 
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se han examinado las características generales y particulares de un plan de marketing digital capaz de alcanzar los objetivos comerciales de la empresa.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+La noticia aborda la necesidad de comprender las nuevas tendencias del e-commerce (IA, Social Commerce, Retail Media) para alinear y potenciar un plan de marketing digital de la empresa.
+
 ## Uso en el aula
 
 ### Pregunta detonadora
@@ -25,17 +41,22 @@ Analiza la noticia, identifica el problema principal y explica cómo afecta a un
 
 ### Conceptos clave
 
--
-
-### Por qué encaja en este RA
-
-La noticia aborda la necesidad de integrar IA y estrategias de contenido social para potenciar las ventas online, lo cual está directamente relacionado con la aplicación de directrices de marketing digital y tendencias.
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
 
 ## Propuesta de dinámica
 
 - **Inicio:** lectura breve de la noticia y contextualización.
 - **Desarrollo:** análisis individual, por parejas o en pequeños grupos.
-- **Cierre:** puesta en común y conexión con el módulo y el RA.
+- **Cierre:** puesta en común y conexión con el módulo, el RA y los criterios de evaluación.
 
 ---
 

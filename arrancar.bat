@@ -45,21 +45,22 @@ echo.
 echo    4. Solo leer feeds
 echo    5. Solo clasificar
 echo    6. Solo enriquecimiento docente
-echo    7. Solo imagenes
-echo    8. Solo generar web principal
-echo    9. Solo generar fichas de aula
-echo   10. Solo generar aula
-echo   11. Solo SEO tecnico
-echo   12. Generar newsletter semanal
-echo   13. Generar newsletter quincenal
+echo    7. Solo enriquecer conceptos curriculares
+echo    8. Solo imagenes
+echo    9. Solo generar web principal
+echo   10. Solo generar fichas de aula
+echo   11. Solo generar aula
+echo   12. Solo SEO tecnico
+echo   13. Generar newsletter semanal
+echo   14. Generar newsletter quincenal
 echo.
-echo   14. Abrir portada local
-echo   15. Abrir aula local
-echo   16. Abrir newsletter local
-echo   17. Estado de Git
+echo   15. Abrir portada local
+echo   16. Abrir aula local
+echo   17. Abrir newsletter local
+echo   18. Estado de Git
 echo.
-echo   18. Publicar SOLO web docs/
-echo   19. Publicar TODO el proyecto
+echo   19. Publicar SOLO web docs/
+echo   20. Publicar TODO el proyecto
 echo.
 echo    0. Salir
 echo.
@@ -71,19 +72,20 @@ if "%OPCION%"=="3" goto COMPLETO_GIT_PROYECTO
 if "%OPCION%"=="4" goto FEEDS
 if "%OPCION%"=="5" goto CLASIFICAR
 if "%OPCION%"=="6" goto ENRIQUECER
-if "%OPCION%"=="7" goto IMAGENES
-if "%OPCION%"=="8" goto WEB
-if "%OPCION%"=="9" goto FICHAS
-if "%OPCION%"=="10" goto AULA
-if "%OPCION%"=="11" goto SEO
-if "%OPCION%"=="12" goto NEWSLETTER_SEMANAL
-if "%OPCION%"=="13" goto NEWSLETTER_QUINCENAL
-if "%OPCION%"=="14" goto ABRIR_PORTADA
-if "%OPCION%"=="15" goto ABRIR_AULA
-if "%OPCION%"=="16" goto ABRIR_NEWSLETTER
-if "%OPCION%"=="17" goto ESTADO_GIT
-if "%OPCION%"=="18" goto GIT_DOCS
-if "%OPCION%"=="19" goto GIT_PROYECTO
+if "%OPCION%"=="7" goto CONCEPTOS
+if "%OPCION%"=="8" goto IMAGENES
+if "%OPCION%"=="9" goto WEB
+if "%OPCION%"=="10" goto FICHAS
+if "%OPCION%"=="11" goto AULA
+if "%OPCION%"=="12" goto SEO
+if "%OPCION%"=="13" goto NEWSLETTER_SEMANAL
+if "%OPCION%"=="14" goto NEWSLETTER_QUINCENAL
+if "%OPCION%"=="15" goto ABRIR_PORTADA
+if "%OPCION%"=="16" goto ABRIR_AULA
+if "%OPCION%"=="17" goto ABRIR_NEWSLETTER
+if "%OPCION%"=="18" goto ESTADO_GIT
+if "%OPCION%"=="19" goto GIT_DOCS
+if "%OPCION%"=="20" goto GIT_PROYECTO
 if "%OPCION%"=="0" goto FIN
 goto MENU
 
@@ -99,6 +101,11 @@ goto PAUSA
 
 :ENRIQUECER
 python enriquecer_docente.py --forzar
+if errorlevel 1 goto ERROR_PROCESO
+goto PAUSA
+
+:CONCEPTOS
+python enriquecer_conceptos.py --sobrescribir
 if errorlevel 1 goto ERROR_PROCESO
 goto PAUSA
 
@@ -200,6 +207,7 @@ exit /b 0
 git pull --rebase --autostash origin main
 if errorlevel 1 exit /b 1
 git add docs/
+git add data/curriculo/
 git add *.py
 git add *.md
 git add arrancar.bat

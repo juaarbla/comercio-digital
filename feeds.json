@@ -57,6 +57,12 @@
     "activo": false
   },
   {
+    "url": "https://www.taric.es/noticias/",
+    "modulo": "",
+    "tipo": "noticia",
+    "activo": true
+  },
+  {
     "url": "https://es.wordpress.org/news/",
     "modulo": "WordPress",
     "tipo": "noticia",

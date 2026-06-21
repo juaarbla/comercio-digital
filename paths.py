@@ -5,6 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # Carpetas principales
 DATA_DIR = BASE_DIR / "data"
+CURRICULO_DIR = DATA_DIR / "curriculo"
 PROCESSED_DIR = DATA_DIR / "processed"
 CACHE_DIR = DATA_DIR / "cache"
 BACKUPS_DIR = DATA_DIR / "backups"

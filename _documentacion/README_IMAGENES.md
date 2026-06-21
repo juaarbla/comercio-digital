@@ -1,15 +1,16 @@
 # Imágenes destacadas
 
-`imagen_destacada.py` completa el campo `imagen_url` de las noticias clasificadas.
+`imagen_destacada.py` completa el campo `imagen_url` de las noticias clasificadas para mejorar la presentación visual de la web.
 
 ## Objetivo
 
-Mejorar la presentación visual de:
+Añadir imagen destacada a:
 
 - portada;
 - páginas de sección;
 - página Aula;
-- fichas docentes.
+- fichas docentes;
+- newsletter, si el diseño la utiliza.
 
 ## Archivo de entrada y salida
 
@@ -21,13 +22,13 @@ El script actualiza el mismo archivo.
 
 ## Caché
 
-Para evitar repetir peticiones, usa:
+Para evitar repetir peticiones usa:
 
 ```text
 data/cache/cache_imagenes.json
 ```
 
-La caché guarda únicamente éxitos:
+La caché guarda únicamente resultados válidos:
 
 ```text
 url_noticia → imagen_url
@@ -35,36 +36,30 @@ url_noticia → imagen_url
 
 ## Proveedores
 
-El proveedor se configura en `.env`:
+El proveedor se configura en `.env`.
+
+### Modo RSS/OG
 
 ```env
 IMAGE_PROVIDER=rss
 ```
 
-o:
-
-```env
-IMAGE_PROVIDER=openai
-```
-
-### Modo RSS
-
 Intenta obtener imagen desde la página original mediante:
 
 - `og:image`;
-- `twitter:image`.
+- `twitter:image`;
+- metadatos disponibles en la fuente.
 
 ### Modo OpenAI
 
-Usa generación de imagen mediante API.
-
-Variables:
-
 ```env
+IMAGE_PROVIDER=openai
 OPENAI_API_KEY=...
 OPENAI_IMG_MODEL=dall-e-3
 OPENAI_IMG_SIZE=1024x1024
 ```
+
+Este modo puede generar costes y debe usarse solo si interesa crear imágenes propias.
 
 ## Ejecución
 
@@ -74,7 +69,7 @@ python imagen_destacada.py
 
 ## Lugar en el pipeline
 
-Debe ejecutarse después de clasificar y enriquecer noticias, y antes de generar HTML:
+Debe ejecutarse después de clasificar/enriquecer y antes de generar HTML:
 
 ```text
 enriquecer_docente.py
@@ -82,6 +77,10 @@ enriquecer_docente.py
 imagen_destacada.py
    ↓
 generar_web.py
+   ↓
+generar_fichas_aula.py
+   ↓
+generar_aula.py
 ```
 
 ## Archivos que no conviene subir
@@ -98,9 +97,16 @@ data/backups/
 Select-String -Path data\processed\noticias_clasificadas.json -Pattern "imagen_url"
 ```
 
-También se puede revisar visualmente:
+Revisión visual:
 
 ```powershell
 start docs\index.html
 start docs\aula.html
+start docs\newsletter\index.html
 ```
+
+## Criterio actual
+
+El modo preferente es `rss`, porque aprovecha imágenes reales de las fuentes y evita costes.
+
+El modo `openai` queda como opción futura o puntual.

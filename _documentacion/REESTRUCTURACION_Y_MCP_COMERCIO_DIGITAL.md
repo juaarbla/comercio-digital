@@ -1,14 +1,18 @@
-# Reestructuración del agregador y creación del MCP Comercio Digital
+# Reestructuración del agregador y MCP Comercio Digital
+
+Este documento recoge la reestructuración interna del proyecto `00_CDI_press` y la creación del servidor MCP local para consultar y reutilizar noticias clasificadas.
 
 ## 1. Objetivo
 
-Preparar el proyecto `00_CDI_press` para futuras integraciones con IA mediante MCP, manteniendo el pipeline actual funcionando y evitando publicar datos internos.
+Preparar el agregador para futuras integraciones con IA mediante MCP, manteniendo el pipeline actual funcionando y evitando publicar datos internos.
 
 Trabajos realizados:
 
 1. Reorganizar archivos internos del agregador.
-2. Crear y probar un servidor MCP local para consultar noticias clasificadas.
-3. Añadir una herramienta MCP para generar fichas Markdown de trabajo en `outputs/aula/`.
+2. Centralizar rutas en `paths.py`.
+3. Crear y probar un servidor MCP local.
+4. Añadir generación de fichas Markdown de trabajo en `outputs/aula/`.
+5. Mantener separada la publicación web de las salidas locales de trabajo.
 
 ## 2. Estructura final
 
@@ -65,14 +69,17 @@ CACHE_IMAGENES = CACHE_DIR / "cache_imagenes.json"
 Scripts adaptados a la nueva estructura:
 
 ```text
+news_aggregator.py
 clasificador_ra.py
-generar_web.py
+enriquecer_docente.py
 imagen_destacada.py
+generar_web.py
 generar_aula.py
 generar_fichas_aula.py
+generar_newsletter.py
+generar_seo.py
 limpiar_duplicados.py
-news_aggregator.py
-enriquecer_docente.py
+run_pipeline.py
 ```
 
 Cambios principales:
@@ -81,7 +88,7 @@ Cambios principales:
 - `noticias_clasificadas.json` pasa a `data/processed/noticias_clasificadas.json`.
 - `cache_clasificacion.json` pasa a `data/cache/cache_clasificacion.json`.
 - `cache_imagenes.json` pasa a `data/cache/cache_imagenes.json`.
-- Los backups de `enriquecer_docente.py` pasan a `data/backups/`.
+- Los backups pasan a `data/backups/`.
 
 ## 5. Validación
 
@@ -91,7 +98,7 @@ Se ejecutó:
 python run_pipeline.py
 ```
 
-Resultado:
+Resultado esperado:
 
 ```text
 Pipeline completado correctamente.
@@ -152,22 +159,26 @@ Estado:
 MCP Comercio Digital v0.2 operativo.
 ```
 
-## 8. Configuración que funcionó en MCP Inspector
+## 8. Diferencia entre pipeline y MCP
 
-Durante las pruebas se usaron dos formas de iniciar el MCP:
+```text
+docs/fichas-aula/  → fichas públicas generadas por el pipeline
+outputs/aula/      → fichas locales generadas desde MCP
+```
 
-1. Arrancar directamente el servidor MCP.
-2. Probarlo desde MCP Inspector.
+El MCP se usa para consulta y trabajo local. El pipeline se usa para generar la web pública.
 
-### 8.1. Inicio directo del servidor MCP
+## 9. Configuración que funcionó en MCP Inspector
 
-Se creó un archivo BAT para iniciar el servidor MCP desde la raíz del proyecto:
+### Inicio directo del servidor MCP
+
+Archivo BAT:
 
 ```text
 iniciar_mcp.bat
 ```
 
-Este BAT usa el Python del entorno virtual externo, ubicado fuera de Google Drive:
+Python recomendado:
 
 ```text
 %LOCALAPPDATA%\PythonVenvs\comercio-digital\Scripts\python.exe
@@ -179,66 +190,36 @@ Ruta real en el equipo principal:
 C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
 ```
 
-El servidor MCP que se ejecuta es:
+Servidor:
 
 ```text
 mcp_servers\comercio_digital\server.py
 ```
 
-Resultado esperado al ejecutar:
+Ejecución:
 
 ```powershell
 .\iniciar_mcp.bat
 ```
 
-```text
-MCP Comercio Digital
-Iniciando servidor MCP...
-Para detenerlo: CTRL + C
-```
+### Prueba con MCP Inspector
 
-Esto indica que el servidor MCP está arrancado y esperando conexiones.
-
-### 8.2. Prueba con MCP Inspector
-
-Se creó también:
+Archivo BAT:
 
 ```text
 probar_mcp_inspector.bat
 ```
 
-El objetivo de este BAT es abrir MCP Inspector y mostrar las rutas correctas que deben usarse si la conexión automática falla.
-
-Durante la prueba apareció el error:
+Si aparece:
 
 ```text
 "mcp" no se reconoce como un comando interno o externo,
 programa o archivo por lotes ejecutable.
 ```
 
-### 8.3. Causa del error
+la causa es que `mcp` no está disponible globalmente en Windows.
 
-El comando `mcp` no está disponible globalmente en Windows porque el entorno virtual del proyecto no está en el `PATH` global.
-
-El entorno correcto está en:
-
-```text
-%LOCALAPPDATA%\PythonVenvs\comercio-digital\
-```
-
-Por eso no conviene depender de:
-
-```text
-mcp dev ...
-```
-
-como comando global.
-
-### 8.4. Configuración manual correcta en MCP Inspector
-
-La solución aplicada fue configurar manualmente el transporte `STDIO` en MCP Inspector.
-
-Configuración correcta:
+### Configuración manual correcta
 
 ```text
 Transport Type:
@@ -255,45 +236,11 @@ Arguments:
 "C:/Users/Juan/Google Drive/00_CDI_press/mcp_servers/comercio_digital/server.py"
 ```
 
-Con esta configuración, MCP Inspector conecta correctamente con el servidor.
+Con esta configuración, MCP Inspector conecta correctamente.
 
-### 8.5. Resultado de la prueba
+## 10. Seguridad
 
-Se confirmó que:
-
-```text
-- el servidor MCP conecta desde Inspector;
-- aparecen las herramientas MCP;
-- se puede ejecutar buscar_noticias;
-- se puede ejecutar generar_ficha_md;
-- generar_ficha_md crea fichas Markdown en outputs/aula/.
-```
-
-### 8.6. Decisión
-
-No se añade por ahora `mcp` al `PATH` global de Windows.
-
-Motivo:
-
-```text
-Es más seguro y portable usar siempre el Python del entorno virtual específico del proyecto.
-```
-
-Riesgo:
-
-```text
-Hay que recordar configurar manualmente Command y Arguments en MCP Inspector si el acceso automático falla.
-```
-
-Siguiente paso:
-
-```text
-Mantener iniciar_mcp.bat y probar_mcp_inspector.bat como accesos rápidos documentados.
-```
-
-## 9. Seguridad
-
-La versión actual:
+La versión actual del MCP:
 
 ```text
 - no publica en WordPress;
@@ -310,7 +257,7 @@ Sí puede crear archivos en:
 outputs/aula/
 ```
 
-## 10. Decisión sobre `outputs/aula/`
+## 11. Decisión sobre `outputs/aula/`
 
 `outputs/aula/` es una carpeta de salida local generada por MCP.
 
@@ -326,37 +273,42 @@ Añadir a `.gitignore`:
 outputs/aula/
 ```
 
-## 11. Próximos pasos
+## 12. Próximos pasos posibles
 
-### Newsletter docente
+### MCP v0.3 — Newsletter docente
 
-Se ha creado `generar_newsletter.py` como salida del pipeline, no como herramienta MCP.
-
-Genera:
-
-```text
-docs/newsletter/index.html
-docs/newsletter/newsletter-AAAA-WSS.html
-docs/newsletter/newsletter-AAAA-WSS.md
-```
-
-Decisión:
-
-```text
-El agregador genera la edición, pero no gestiona suscriptores ni envíos.
-```
-
-Posible evolución MCP futura:
+Posibles herramientas:
 
 ```text
 consultar_ultima_newsletter()
 proponer_newsletter_docente()
 ```
 
-### v0.4 — WordPress
+### MCP v0.4 — WordPress
 
-Crear borradores, sugerir categorías, etiquetas y enlaces internos. No publicar automáticamente.
+Objetivo futuro:
 
-### v0.5 — Tutor IA
+```text
+crear borradores, sugerir categorías, etiquetas y enlaces internos.
+```
 
-Relacionar noticias con módulos, RA, CE, unidades didácticas y actividades de aula.
+No publicar automáticamente.
+
+### MCP v0.5 — Tutor IA
+
+Relacionar noticias con:
+
+```text
+módulos
+RA
+CE
+unidades didácticas
+actividades de aula
+```
+
+## 13. Decisión actual
+
+```text
+MCP se mantiene como herramienta local de consulta y generación de materiales de trabajo.
+La publicación sigue dependiendo del pipeline y de GitHub Pages.
+```

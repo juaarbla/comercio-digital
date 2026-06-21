@@ -1,6 +1,6 @@
 # Capa docente
 
-La capa docente convierte cada noticia en un posible recurso de aula.
+La capa docente convierte cada noticia clasificada en un posible recurso de aula. Añade criterios didácticos, prioriza noticias útiles y prepara los datos que después usan Aula, fichas y newsletter.
 
 ## Script principal
 
@@ -8,13 +8,17 @@ La capa docente convierte cada noticia en un posible recurso de aula.
 enriquecer_docente.py
 ```
 
-## Archivo principal de trabajo
+## Archivo de trabajo
 
 ```text
 data/processed/noticias_clasificadas.json
 ```
 
+El script lee y actualiza este archivo.
+
 ## Campos añadidos
+
+Ejemplo de campos docentes añadidos a cada noticia:
 
 ```json
 {
@@ -35,27 +39,33 @@ data/processed/noticias_clasificadas.json
 python enriquecer_docente.py --forzar
 ```
 
+Para pruebas conservadoras:
+
+```powershell
+python enriquecer_docente.py --forzar --no-sobrescribir
+```
+
 ## Criterios de uso
 
 ### Aula
 
-Una noticia puede entrar en `aula.html` si:
+Una noticia puede aparecer en `docs/aula.html` si cumple alguno de estos criterios:
 
 ```text
 valor_docente = alto
-o generar_ficha = true
-o seleccion_newsletter = true
+generar_ficha = true
+seleccion_newsletter = true
 ```
 
 ### Ficha docente
 
-Una noticia genera ficha si:
+Una noticia puede generar ficha si:
 
 ```text
 generar_ficha = true
 ```
 
-o si cumple:
+o si cumple criterios de calidad didáctica suficientes:
 
 ```text
 valor_docente = alto
@@ -65,7 +75,17 @@ tiene actividad_breve
 tiene ra_asignado
 ```
 
-## Qué campos son internos
+### Newsletter
+
+Una noticia puede entrar en la newsletter si:
+
+```text
+seleccion_newsletter = true
+```
+
+También pueden priorizarse noticias con alto valor docente, buena actividad breve y relación clara con módulo/RA.
+
+## Campos internos
 
 No se deben mostrar en la web pública:
 
@@ -75,67 +95,51 @@ valor_docente
 seleccion_newsletter
 ```
 
-Sí se pueden usar para:
+Estos campos sirven para:
 
 - ordenar noticias;
 - limitar selección;
-- generar newsletter docente;
-- decidir qué fichas crear;
-- priorizar materiales de aula.
+- decidir fichas;
+- preparar newsletter;
+- priorizar recursos para clase.
 
+## Campos visibles recomendados
 
-## Newsletter docente
-
-La newsletter utiliza la capa docente como criterio de curación. Una noticia puede entrar en una edición si:
+Sí pueden mostrarse en Aula, fichas y newsletter:
 
 ```text
-seleccion_newsletter = true
+módulo relacionado
+resultado de aprendizaje
+tipo de uso
+pregunta_aula
+actividad_breve
+conceptos_clave
+justificación curricular
+resumen
+enlace original
 ```
 
-o si tiene alto valor docente y cumple los criterios internos definidos por `generar_newsletter.py`.
-
-La newsletter no muestra campos internos como `score_docente` o `seleccion_newsletter`; solo muestra información útil para el lector:
-
-- título;
-- resumen;
-- módulo relacionado;
-- tipo de uso;
-- enlace a la noticia;
-- enlace a ficha de aula si existe.
-
-La generación se realiza con:
-
-```powershell
-python generar_newsletter.py --periodicidad quincenal --force
-```
-
-## Ejecución de prueba
-
-```powershell
-python enriquecer_docente.py --forzar --no-sobrescribir
-python generar_aula.py --max-noticias 25
-```
-
-## Ejecución definitiva
+## Ejecución completa relacionada
 
 ```powershell
 python enriquecer_docente.py --forzar
+python imagen_destacada.py
 python generar_fichas_aula.py --max-fichas 10 --limpiar
 python generar_aula.py --max-noticias 25
+python generar_newsletter.py --periodicidad quincenal --force
+python generar_seo.py
 ```
 
 ## Nota sobre Git
 
-Los JSON de trabajo ya no están en la raíz del proyecto.
-
-Ubicación actual:
+Los datos procesados están en:
 
 ```text
 data/processed/noticias_resumidas.json
 data/processed/noticias_clasificadas.json
 ```
 
-Estos archivos son datos internos del agregador. No se publican en GitHub Pages porque la web pública se sirve desde:
+No se publican en GitHub Pages porque la web pública se sirve desde:
 
 ```text
 docs/
@@ -147,9 +151,7 @@ Decisión actual:
 data/processed/ no se ignora de momento.
 ```
 
-Esto permite conservar una fotografía del estado procesado del agregador si se decide versionarlo.
-
-Sí deben ignorarse:
+Sí conviene ignorar:
 
 ```text
 data/cache/

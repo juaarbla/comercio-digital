@@ -4,14 +4,15 @@ Este documento recoge el criterio actual de automatización del proyecto.
 
 ## Decisión actual
 
-El pipeline general puede ejecutarse de forma completa, pero la newsletter se mantiene como una acción manual o semimanual.
+El pipeline general puede ejecutarse completo, pero la newsletter se mantiene como acción manual o semimanual.
 
-Motivo:
+Motivos:
 
 - la newsletter no debe generarse todos los días;
-- debe funcionar como selección curada semanal o quincenal;
-- la distribución por correo se realizará con una herramienta externa;
-- el agregador no gestionará suscriptores ni envíos.
+- funciona mejor como selección curada semanal o quincenal;
+- la distribución por correo se realizará con herramienta externa;
+- el agregador no gestionará suscriptores ni envíos;
+- conviene revisar la edición antes de compartirla.
 
 ## Pipeline general
 
@@ -25,7 +26,17 @@ El pipeline genera la web pública en:
 docs/
 ```
 
-## Generación manual recomendada de newsletter
+## Ejecución desde panel
+
+También puede ejecutarse desde:
+
+```powershell
+.\arrancar.bat
+```
+
+El panel debe usar el entorno virtual externo del proyecto.
+
+## Generación manual de newsletter
 
 Quincenal:
 
@@ -39,19 +50,33 @@ Semanal:
 python generar_newsletter.py --periodicidad semanal --force
 ```
 
+## Orden recomendado cuando se quiere publicar newsletter
+
+```powershell
+python run_pipeline.py
+python generar_newsletter.py --periodicidad quincenal --force
+python generar_seo.py
+```
+
+Si `run_pipeline.py` ya incluye newsletter, revisar igualmente la edición antes de publicar.
+
 ## Publicación en GitHub Pages
 
 ```powershell
 git status
 git add docs/ generar_newsletter.py
-git commit -m "Publica newsletter docente"
+git commit -m "Publica actualización del agregador"
 git push
 ```
 
 ## Comprobaciones
 
 ```powershell
+Test-Path docs\index.html
+Test-Path docs\aula.html
 Test-Path docs\newsletter\index.html
+Test-Path docs\sitemap.xml
+Test-Path docs\robots.txt
 Select-String -Path docs\newsletter\*.html -Pattern "newsletter-card"
 Select-String -Path docs\*.html -Pattern "newsletter/index.html"
 ```
@@ -68,7 +93,7 @@ Procedimiento recomendado:
 4. Crear un correo breve en Gmail, Brevo, Mailchimp, Substack, MailerLite u otra herramienta.
 5. Incluir el enlace público.
 6. Enviar primero una prueba al propio correo.
-7. Enviar a la lista de destinatarios.
+7. Enviar al grupo reducido.
 
 ## Nota de codificación en Windows
 
@@ -79,3 +104,7 @@ chcp 65001 >nul
 set "PYTHONUTF8=1"
 set "PYTHONIOENCODING=utf-8"
 ```
+
+## Criterio futuro
+
+Automatizar más solo cuando el flujo manual esté validado. Primero interesa calidad de selección; después, automatización.

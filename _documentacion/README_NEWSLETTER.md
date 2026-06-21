@@ -1,8 +1,18 @@
 # Newsletter docente
 
-La newsletter es una salida periódica del agregador `Comercio Digital`.
+La newsletter es una salida periódica del agregador `Comercio Digital`. Convierte noticias clasificadas y enriquecidas en una selección breve para compartir con docentes, departamentos o grupos de prueba.
 
-Su objetivo es convertir la actualidad clasificada en una selección breve y útil para compartir con docentes o usar directamente en clase.
+## Objetivo
+
+La newsletter sirve para distribuir una selección curada de actualidad relacionada con:
+
+- comercio electrónico;
+- digitalización;
+- marketing digital;
+- inteligencia artificial aplicada al comercio;
+- casos reales útiles para clase.
+
+No sustituye a Aula. Aula es el banco de recursos; la newsletter es una selección periódica para compartir.
 
 ## Qué genera
 
@@ -23,23 +33,20 @@ docs/newsletter/newsletter-2026-W25.md
 
 ## Qué no hace
 
-La newsletter no envía correos.
-
-El agregador no gestiona:
+El agregador no envía correos y no gestiona:
 
 - suscriptores;
 - bajas;
 - listas de distribución;
 - campañas de email;
-- métricas de apertura.
+- métricas de apertura;
+- cumplimiento legal de campañas externas.
 
-La distribución se hace con una herramienta externa o de forma manual.
+La distribución se realiza con Gmail, Brevo, Mailchimp, MailerLite, Substack, Mailgun u otra herramienta externa.
 
-## Periodicidad
+## Periodicidad recomendada
 
-La newsletter no se genera cada día.
-
-Uso recomendado:
+La recomendación actual es empezar con periodicidad quincenal.
 
 ```powershell
 python generar_newsletter.py --periodicidad quincenal --force
@@ -51,6 +58,8 @@ También se puede generar semanalmente:
 python generar_newsletter.py --periodicidad semanal --force
 ```
 
+La newsletter no se genera todos los días. Solo se crea cuando se ejecuta el script.
+
 ## Criterios de selección
 
 El script prioriza noticias con:
@@ -60,7 +69,13 @@ seleccion_newsletter = true
 valor_docente = alto
 ```
 
-También tiene en cuenta el valor docente, el tipo de uso y la información disponible.
+También tiene en cuenta:
+
+- tipo de uso;
+- módulo relacionado;
+- existencia de ficha docente;
+- calidad del resumen;
+- utilidad para abrir debate o actividad.
 
 ## Relación con Aula y fichas
 
@@ -70,13 +85,13 @@ Fichas docentes → material individual HTML/Markdown
 Newsletter      → selección periódica para compartir
 ```
 
-Cuando existe ficha docente, la newsletter enlaza a:
+Cuando existe ficha docente, la newsletter puede enlazar a:
 
 ```text
 docs/fichas-aula/
 ```
 
-Por eso se recomienda generar primero las fichas:
+Por eso se recomienda este orden:
 
 ```powershell
 python generar_fichas_aula.py --max-fichas 10 --limpiar
@@ -87,7 +102,7 @@ python generar_seo.py
 
 ## Publicación
 
-Tras generar la newsletter:
+Después de generar la newsletter:
 
 ```powershell
 git status
@@ -102,6 +117,17 @@ Comprobar:
 https://comerciodigital.net/newsletter/
 ```
 
+## Distribución inicial recomendada
+
+Fase inicial:
+
+```text
+1. Enviar primero al propio correo.
+2. Enviar después a un grupo reducido de profesorado.
+3. Valorar claridad, utilidad y frecuencia.
+4. Decidir si se abre una lista más amplia.
+```
+
 ## Envío por Gmail
 
 1. Generar la newsletter.
@@ -111,7 +137,7 @@ https://comerciodigital.net/newsletter/
 5. Escribir un texto breve.
 6. Incluir el enlace.
 7. Enviar primero una prueba al propio correo.
-8. Enviar a destinatarios.
+8. Enviar al grupo reducido.
 
 Modelo de correo:
 
@@ -140,27 +166,33 @@ Herramientas posibles:
 - Mailchimp;
 - MailerLite;
 - Substack;
-- Buttondown.
-
-Procedimiento:
-
-1. Crear una lista o audiencia.
-2. Crear una campaña.
-3. Escribir una introducción breve.
-4. Añadir 3 titulares destacados si se desea.
-5. Incluir botón o enlace a la newsletter publicada.
-6. Enviar prueba.
-7. Enviar campaña.
+- Buttondown;
+- Mailgun si se integra desde scripts propios.
 
 Recomendación inicial:
 
 ```text
-No copiar todo el HTML de la newsletter en el email.
+No copiar todo el HTML de la newsletter dentro del email.
 Enviar un correo breve con enlace a la edición publicada.
 ```
 
-## Enfoque recomendado
+## Posible evolución con Mailgun
 
-Empezar con periodicidad quincenal y distribución manual o semimanual.
+Mailgun puede ser útil si se decide automatizar el envío desde scripts, pero no es necesario para la primera fase.
 
-Después de varias ediciones, valorar si merece la pena crear una lista pública de suscripción con una herramienta externa.
+Uso prudente:
+
+```text
+- empezar con cuenta propia;
+- hacer pruebas con pocos destinatarios;
+- no gestionar todavía una lista pública;
+- separar generación de newsletter y envío por correo.
+```
+
+## Decisión actual
+
+```text
+El agregador genera la newsletter, pero no envía correos.
+```
+
+La distribución seguirá siendo manual o externa hasta validar la utilidad del formato.

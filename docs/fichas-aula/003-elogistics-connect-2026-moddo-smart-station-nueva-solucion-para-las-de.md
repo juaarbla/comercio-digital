@@ -37,7 +37,7 @@ La noticia aborda directamente el proceso logístico de devoluciones y envíos, 
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
 
 ### Conceptos clave
 

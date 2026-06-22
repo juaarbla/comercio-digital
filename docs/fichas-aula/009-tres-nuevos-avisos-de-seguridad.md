@@ -37,7 +37,7 @@ La noticia subraya la importancia de la ciberseguridad en sistemas fundamentales
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Tres nuevos avisos de seguridad» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5g, RA5i.
 
 ### Conceptos clave
 

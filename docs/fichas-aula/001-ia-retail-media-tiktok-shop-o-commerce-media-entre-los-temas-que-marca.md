@@ -37,7 +37,7 @@ La noticia aborda la necesidad de comprender las nuevas tendencias del e-commerc
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ### Conceptos clave
 

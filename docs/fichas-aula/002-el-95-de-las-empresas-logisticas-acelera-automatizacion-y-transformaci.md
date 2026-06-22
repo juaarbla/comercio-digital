@@ -37,7 +37,7 @@ La automatización y la gestión de la cadena de suministro son cruciales en la 
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
 
 ### Conceptos clave
 

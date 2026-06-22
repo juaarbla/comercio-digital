@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 21 JUN 2026
+Fecha de generación: 22 JUN 2026
 
 ---
 
@@ -45,7 +45,7 @@ La noticia aborda la necesidad de comprender las nuevas tendencias del e-commerc
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 
@@ -101,7 +101,7 @@ La automatización y la gestión de la cadena de suministro son cruciales en la 
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
 
 ## Conceptos clave
 
@@ -157,7 +157,7 @@ La noticia aborda directamente el proceso logístico de devoluciones y envíos, 
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
 
 ## Conceptos clave
 
@@ -214,7 +214,7 @@ La iniciativa ataca directamente la captación de clientes (RA2b) y la necesidad
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2b, RA2c, RA2e.
 
 ## Conceptos clave
 
@@ -270,7 +270,7 @@ El caso aborda directamente la planificación y gestión del proceso logístico 
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2a.
 
 ## Conceptos clave
 
@@ -326,7 +326,7 @@ La noticia detalla cómo la necesidad de un alto poder de procesamiento para las
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4c.
 
 ## Conceptos clave
 
@@ -383,7 +383,7 @@ La noticia se centra en cómo TikTok genera tendencias y *buzz* (análisis de te
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «De #BookTok a la gran pantalla: así está cambiando TikTok el cine» como caso de contenido para redes sociales. Diseña una mini campaña de tres publicaciones indicando objetivo, formato, mensaje y métrica de seguimiento. Vincula la campaña con RA4a, RA4b, RA4c.
 
 ## Conceptos clave
 
@@ -438,7 +438,7 @@ La noticia subraya que la seguridad no es opcional, requiriendo que en cualquier
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Cuatro nuevos avisos de SCI» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i.
 
 ## Conceptos clave
 
@@ -494,7 +494,7 @@ La noticia subraya la importancia de la ciberseguridad en sistemas fundamentales
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Tres nuevos avisos de seguridad» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5g, RA5i.
 
 ## Conceptos clave
 
@@ -550,7 +550,7 @@ La noticia aborda una vulnerabilidad crítica en el manejo de datos de copias de
 
 ## Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Ejecución remota de código en Backup & Replication de Veeam» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i, RA5g.
 
 ## Conceptos clave
 

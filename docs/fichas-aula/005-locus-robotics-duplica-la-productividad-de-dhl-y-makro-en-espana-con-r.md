@@ -37,7 +37,7 @@ El caso aborda directamente la planificación y gestión del proceso logístico 
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2a.
 
 ### Conceptos clave
 

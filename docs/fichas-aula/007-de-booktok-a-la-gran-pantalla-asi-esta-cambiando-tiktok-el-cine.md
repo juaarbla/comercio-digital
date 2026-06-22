@@ -38,7 +38,7 @@ La noticia se centra en cómo TikTok genera tendencias y *buzz* (análisis de te
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Estudia la noticia «De #BookTok a la gran pantalla: así está cambiando TikTok el cine» como caso de contenido para redes sociales. Diseña una mini campaña de tres publicaciones indicando objetivo, formato, mensaje y métrica de seguimiento. Vincula la campaña con RA4a, RA4b, RA4c.
 
 ### Conceptos clave
 

@@ -36,7 +36,7 @@ La noticia subraya que la seguridad no es opcional, requiriendo que en cualquier
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Cuatro nuevos avisos de SCI» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i.
 
 ### Conceptos clave
 

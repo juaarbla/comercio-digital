@@ -37,7 +37,7 @@ La noticia detalla cómo la necesidad de un alto poder de procesamiento para las
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4c.
 
 ### Conceptos clave
 

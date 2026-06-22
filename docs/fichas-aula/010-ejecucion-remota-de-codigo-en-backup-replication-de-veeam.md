@@ -37,7 +37,7 @@ La noticia aborda una vulnerabilidad crítica en el manejo de datos de copias de
 
 ### Actividad breve
 
-Analiza la noticia, identifica el problema principal y explica cómo afecta a una empresa de comercio digital.
+Revisa la noticia «Ejecución remota de código en Backup & Replication de Veeam» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i, RA5g.
 
 ### Conceptos clave
 

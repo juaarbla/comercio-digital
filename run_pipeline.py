@@ -8,7 +8,8 @@ Orden general:
 3. Clasifica por módulo, RA y CE.
 4. Enriquece la utilidad docente.
 5. Añade conceptos clave desde los contenidos básicos curriculares.
-6. Genera imágenes, web, fichas, aula y SEO.
+6. Mejora las actividades breves vinculándolas a RA y CE.
+7. Genera imágenes, web, fichas, aula y SEO.
 """
 
 import subprocess
@@ -44,6 +45,12 @@ PASOS = [
         "script": "enriquecer_conceptos.py",
         "obligatorio": True,
         "args": ["--sobrescribir"],
+    },
+    {
+        "nombre": "Enriquecimiento de actividades de aula",
+        "script": "enriquecer_actividades.py",
+        "obligatorio": True,
+        "args": ["--sobrescribir", "--solo-generar-ficha"],
     },
     {
         "nombre": "Imágenes destacadas",

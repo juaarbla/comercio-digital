@@ -276,17 +276,44 @@ def render_listado_por_modulos(noticias, indice_fichas):
 
 
 def render_nav(activa="aula.html"):
+    """
+    Menú principal común con soporte para hamburguesa en móvil.
+
+    Mantiene la misma estructura que generar_web.py:
+    <nav class="site-nav">
+      <input class="nav-toggle">
+      <label class="nav-toggle-label">...</label>
+      <ul class="nav-menu">...</ul>
+    </nav>
+    """
     docs = Path("docs")
     items = []
+
     for href, texto in MENU:
-        # Portada, aula y del-autor se incluyen siempre
-        # El resto solo si el archivo ya existe en docs/
+        # Portada, aula, newsletter y del-autor se incluyen siempre.
+        # El resto solo si el archivo ya existe en docs/.
         if href not in ("index.html", "aula.html", "newsletter/index.html", "del-autor.html"):
             if not (docs / href).exists():
                 continue
-        clase = "active" if href == activa else ""
-        items.append(f'<li><a class="{clase}" href="{href}">{h(texto)}</a></li>')
-    return "\n".join(items)
+
+        clase = ' class="active"' if href == activa else ""
+        items.append(f'<li><a href="{href}"{clase}>{h(texto)}</a></li>')
+
+    items_html = "\n      ".join(items)
+
+    return f"""
+  <nav class="site-nav" aria-label="Menú principal">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir o cerrar menú">
+      <span></span>
+      <span></span>
+      <span></span>
+      <strong>Menú</strong>
+    </label>
+    <ul class="nav-menu">
+      {items_html}
+    </ul>
+  </nav>"""
 
 
 def conceptos_lista(conceptos):
@@ -525,11 +552,7 @@ def render_html(noticias, indice_fichas):
     </div>
   </header>
 
-  <nav>
-    <ul>
-      {render_nav("aula.html")}
-    </ul>
-  </nav>
+  {render_nav("aula.html")}
 
   <div class="subtitle-bar">
     <span>Aula · {len(noticias)} noticias seleccionadas</span>

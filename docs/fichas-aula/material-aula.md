@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 23 JUN 2026
+Fecha de generación: 24 JUN 2026
 
 ---
 
@@ -118,7 +118,63 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 
 ---
 
-# 3. eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce
+# 3. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 23 jun. 2026
+- **Enlace:** https://ecommerce-news.es/jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y-apuesta-por-reciclar-a-sus-empleados/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA2
+- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
+- **CE relacionados:** RA2e, RA2b
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html
+- **Ficha Markdown:** fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.md
+
+## Resumen
+
+La automatización mediante robots e inteligencia artificial está transformando radicalmente la logística y el reparto en el comercio electrónico, como ha demostrado JD.com. Este avance es un ejemplo clave de cómo la tecnología está redefiniendo la cadena de suministro en el *e-commerce*. Sin embargo, en lugar de simplemente despedir personal, la empresa apuesta por la reconversión de sus empleados. Esto subraya que, en el futuro, la clave del éxito no solo es la tecnología, sino también la capacidad de adaptar y formar a nuestro capital humano.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA2
+
+**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
+
+### Criterios de evaluación relacionados
+
+- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
+- **RA2b.** Se han definido acciones de captación de clientes enfocadas al comercio electrónico.
+
+### Justificación docente
+
+La noticia aborda la logística y el proceso de reparto en el e-commerce, vinculando directamente la necesidad de gestionar los pedidos y el proceso logístico (CE e) con las acciones de captación de clientes (CE b) en entornos automatizados.
+
+## Pregunta detonadora
+
+¿Cómo puede afectar esta noticia a una pequeña tienda online?
+
+## Actividad breve
+
+Estudia la noticia «JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2b.
+
+## Conceptos clave
+
+- Tienda virtual
+- Negocio online
+- Captación de clientes
+- Modelos de negocio digital
+- B2B
+- B2C
+- Portal horizontal
+- Catálogo de productos online
+- Escaparate web
+- Catálogo electrónico
+
+---
+
+# 4. eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 15 jun. 2026
@@ -128,8 +184,8 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 - **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
 - **CE relacionados:** RA2e, RA2f
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.html
-- **Ficha Markdown:** fichas-aula/003-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.md
+- **Ficha HTML:** fichas-aula/004-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.html
+- **Ficha Markdown:** fichas-aula/004-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.md
 
 ## Resumen
 
@@ -174,7 +230,7 @@ Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva soluci�
 
 ---
 
-# 4. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
+# 5. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 10 jun. 2026
@@ -184,8 +240,8 @@ Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva soluci�
 - **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
 - **CE relacionados:** RA2b, RA2c, RA2e
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/004-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
-- **Ficha Markdown:** fichas-aula/004-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
+- **Ficha HTML:** fichas-aula/005-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
+- **Ficha Markdown:** fichas-aula/005-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
 
 ## Resumen
 
@@ -215,62 +271,6 @@ La iniciativa ataca directamente la captación de clientes (RA2b) y la necesidad
 ## Actividad breve
 
 Estudia la noticia «‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2b, RA2c, RA2e.
-
-## Conceptos clave
-
-- Tienda virtual
-- Negocio online
-- Captación de clientes
-- Modelos de negocio digital
-- B2B
-- B2C
-- Portal horizontal
-- Catálogo de productos online
-- Escaparate web
-- Catálogo electrónico
-
----
-
-# 5. Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 10 jun. 2026
-- **Enlace:** https://ecommerce-news.es/locus-robotics-duplica-la-productividad-dedhl-y-makro-en-espana-con-robots-moviles-autonomos-y-automatizacion-flexible/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-- **CE relacionados:** RA2e, RA2a
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-locus-robotics-duplica-la-productividad-de-dhl-y-makro-en-espana-con-r.html
-- **Ficha Markdown:** fichas-aula/005-locus-robotics-duplica-la-productividad-de-dhl-y-makro-en-espana-con-r.md
-
-## Resumen
-
-Este caso demuestra cómo la tecnología está transformando la logística de grandes almacenes y centros de distribución. Locus Robotics ha implementado robots autónomos en el centro de DHL, logrando duplicar la productividad mediante la automatización inteligente. Para el módulo de Comercio Electrónico, esto es clave, ya que una gestión de inventario y un *fulfillment* (cumplimiento de pedidos) ultrarrápida es esencial para la satisfacción del cliente online. En resumen, la IA y la robótica son las herramientas del futuro para garantizar la eficiencia de la cadena de suministro y la rapidez en la entrega.
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA2
-
-**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-
-### Criterios de evaluación relacionados
-
-- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
-- **RA2a.** Se han establecido los parámetros necesarios para crear o adaptar un negocio online.
-
-### Justificación docente
-
-El caso aborda directamente la planificación y gestión del proceso logístico (fulfillment) de pedidos online, fundamental para el éxito de cualquier negocio de comercio electrónico.
-
-## Pregunta detonadora
-
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
-
-## Actividad breve
-
-Estudia la noticia «Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2a.
 
 ## Conceptos clave
 

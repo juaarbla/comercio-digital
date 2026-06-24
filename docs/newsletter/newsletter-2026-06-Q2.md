@@ -6,23 +6,25 @@ Periodicidad: quincenal
 
 Selección de noticias útiles para trabajar en clase contenidos de comercio electrónico, digitalización, marketing digital e inteligencia artificial aplicada al comercio.
 
-## Noticias destacadas
+## Noticia destacada
 
-### 1. La era de la colaboración: el nuevo mapa de la transformación digital entre Europa e Iberoamérica
+### ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
 
-**Módulo relacionado:** CDI
+**Módulo relacionado:** Comercio Electrónico
 
-**Uso propuesto:** actividad
+**Uso propuesto:** caso_empresa
 
 **Valor docente:** alto
 
-Europa e Iberoamérica están iniciando una importante colaboración para afrontar la transformación digital global. Este esfuerzo busca aprovechar el avance de la inteligencia artificial y otras tecnologías para crear mercados más fuertes y sostenibles. Para el comercio, esto significa una oportunidad clave para que las empresas de e-commerce puedan ampliar sus fronteras internacionales. En resumen, la clave para crecer en el sector digital es la colaboración transnacional y la adopción de nuevas herramientas tecnológicas.
+Amazon ha lanzado una iniciativa llamada ‘Amazon Sellers en tu comunidad’ en Girona, buscando apoyar a los pequeños negocios locales con su presencia en la plataforma. Este proyecto sirve como un ejemplo de cómo grandes *marketplaces* como Amazon están facilitando la digitalización del comercio de proximidad. Para los alumnos, esto subraya que la clave del éxito en el *e-commerce* no solo es tener una tienda online, sino saber cómo conectar el comercio físico tradicional con las herramientas digitales. Así, las empresas pueden ampliar su alcance geográfico y llegar a más clientes sin perder la conexión con su comunidad local.
 
-[Leer noticia original](https://ecommerce-news.es/la-era-de-la-colaboracion-el-nuevo-mapa-de-la-transformacion-digital-entre-europa-e-iberoamerica/)
+[Leer noticia original](https://ecommerce-news.es/amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-acercar-la-digitalizacion-a-las-pymes/)
 
-[Ver ficha de aula](../fichas-aula/008-la-era-de-la-colaboracion-el-nuevo-mapa-de-la-transformacion-digital-e.html)
+[Ver ficha de aula](../fichas-aula/004-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html)
 
-### 2. IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026
+## Selección docente de la quincena
+
+### 1. IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026
 
 **Módulo relacionado:** Comercio Electrónico
 
@@ -36,35 +38,7 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 [Ver ficha de aula](../fichas-aula/001-ia-retail-media-tiktok-shop-o-commerce-media-entre-los-temas-que-marca.html)
 
-### 3. Merchantee capta 1,8M para impulsar su expansión por Europa
-
-**Módulo relacionado:** Digitalización
-
-**Uso propuesto:** caso_empresa
-
-**Valor docente:** alto
-
-La empresa Merchantee, especializada en herramientas de inteligencia artificial, ha conseguido una importante ronda de financiación de 1,8 millones de euros. Esto le permitirá acelerar su expansión y desarrollo de plataformas a nivel europeo. Para los vendedores de e-commerce, esta herramienta es clave porque gestiona la complejidad de operar en los grandes *marketplaces* (plataformas como Amazon). Este caso nos recuerda que el éxito en el comercio electrónico moderno depende cada vez más de las tecnologías que automatizan tareas y optimizan la venta digital.
-
-[Leer noticia original](https://ecommerce-news.es/merchantee-capta-18m-para-impulsar-su-expansion-por-europa/)
-
-[Ver ficha de aula](../fichas-aula/005-merchantee-capta-1-8m-para-impulsar-su-expansion-por-europa.html)
-
-### 4. Investigación sobre una campaña de phishing dirigida a empleados de la NASA y otras organizaciones estadounidenses
-
-**Módulo relacionado:** Digitalización
-
-**Uso propuesto:** debate
-
-**Valor docente:** alto
-
-Una investigación reciente revela una sofisticada campaña de engaño (spear phishing) dirigida a empleados de grandes organizaciones, como la NASA. En lugar de atacar directamente sistemas, los atacantes usaron la suplantación de identidad para generar confianza, haciéndose pasar por contactos legítimos y pidiendo información técnica sensible. Este caso es un ejemplo claro de cómo el factor humano es la mayor vulnerabilidad, ya que el engaño se basa en manipular la confianza y la colaboración. Para vosotros, en el mundo del marketing digital, esto subraya la importancia crítica de la concienciación sobre riesgos y la verificación de fuentes ante cualquier comunicación sospechosa.
-
-[Leer noticia original](https://www.incibe.es/incibe-cert/publicaciones/bitacora-de-seguridad/investigacion-sobre-una-campana-de-phishing-dirigida-empleados-de-la)
-
-[Ver ficha de aula](../fichas-aula/010-investigacion-sobre-una-campana-de-phishing-dirigida-a-empleados-de-la.html)
-
-### 5. LiveRamp se convierte en el primer partner de OpenAI para medir conversiones con ChatGPT
+### 2. Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible
 
 **Módulo relacionado:** Comercio Electrónico
 
@@ -72,20 +46,39 @@ Una investigación reciente revela una sofisticada campaña de engaño (spear ph
 
 **Valor docente:** alto
 
-Esta noticia es vital para comprender la importancia de la analítica y el seguimiento de campañas en comercio electrónico. Básicamente, OpenAI se ha asociado con LiveRamp para mejorar drásticamente cómo se miden las ventas (conversiones) que provienen de sus plataformas. Esto significa que los anunciantes ahora tienen herramientas más potentes para saber, con mucha precisión, el retorno comercial de sus esfuerzos de marketing. En términos prácticos, esta mejora en la medición de datos es crucial para demostrar el valor de las estrategias de venta digital y optimizar las inversiones en publicidad.
+Este caso demuestra cómo la tecnología está transformando la logística de grandes almacenes y centros de distribución. Locus Robotics ha implementado robots autónomos en el centro de DHL, logrando duplicar la productividad mediante la automatización inteligente. Para el módulo de Comercio Electrónico, esto es clave, ya que una gestión de inventario y un *fulfillment* (cumplimiento de pedidos) ultrarrápida es esencial para la satisfacción del cliente online. En resumen, la IA y la robótica son las herramientas del futuro para garantizar la eficiencia de la cadena de suministro y la rapidez en la entrega.
 
-[Leer noticia original](https://ecommerce-news.es/liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conversiones-con-chatgpt/)
+[Leer noticia original](https://ecommerce-news.es/locus-robotics-duplica-la-productividad-dedhl-y-makro-en-espana-con-robots-moviles-autonomos-y-automatizacion-flexible/)
 
-[Ver ficha de aula](../fichas-aula/004-liveramp-se-convierte-en-el-primer-partner-de-openai-para-medir-conver.html)
+[Ver ficha de aula](../fichas-aula/005-locus-robotics-duplica-la-productividad-de-dhl-y-makro-en-espana-con-r.html)
+
+### 3. Tres nuevos avisos de seguridad
+
+**Módulo relacionado:** Digitalización
+
+**Uso propuesto:** debate
+
+**Valor docente:** alto
+
+La noticia nos alerta sobre vulnerabilidades críticas detectadas en sistemas fundamentales como FortiSandbox y Microsoft, demostrando que el riesgo de ciberseguridad es constante. En términos sencillos, estos avisos indican "vacíos" (fallos) que un atacante podría explotar para ejecutar comandos no autorizados en un sistema. Para un futuro profesional, esto subraya la importancia de la "higiene digital": mantener siempre actualizados los *parches* y sistemas operativos para sellar estas puertas de entrada. Comprender estos fallos nos ayuda a valorar la necesidad de protocolos de seguridad robustos en cualquier negocio, desde pequeñas tiendas hasta grandes empresas.
+
+[Leer noticia original](https://www.incibe.es/node/630678)
+
+[Ver ficha de aula](../fichas-aula/009-tres-nuevos-avisos-de-seguridad.html)
+
+## Breves para seguir la actualidad
+
+- **Digitalización:** [Ejecución remota de código en Backup & Replication de Veeam](https://www.incibe.es/node/630677)
+- **IA:** [De #BookTok a la gran pantalla: así está cambiando TikTok el cine](https://www.marketingdirecto.com/digital-general/digital/booktok-gran-pantalla-asi-esta-cambiando-tiktok-cine)
 
 ## Propuesta rápida para clase
 
-Elige una de las noticias destacadas y pide al alumnado que identifique:
+A partir de la noticia «‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes», plantea una caso_empresa en la que el alumnado relacione el caso con contenidos de Comercio Electrónico y proponga una decisión razonada para una pequeña empresa.
 
-- Qué cambio introduce en el comercio digital.
-- Qué impacto puede tener en consumidores, empresas o canales de venta.
-- Qué decisión tomaría una empresa pequeña ante esa situación.
+- Identificar el cambio o tendencia que aparece en la noticia.
+- Relacionarlo con contenidos del módulo.
+- Proponer una decisión empresarial justificada.
 
 ## Pregunta para debate
 
-> ¿Qué noticia muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?
+> ¿Qué noticia de esta edición muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?

@@ -10,6 +10,11 @@ Orden general:
 5. Añade conceptos clave desde los contenidos básicos curriculares.
 6. Mejora las actividades breves vinculándolas a RA y CE.
 7. Genera imágenes, web, fichas, aula y SEO.
+
+Nota:
+La newsletter no se genera dentro del pipeline principal.
+Se ejecuta manualmente con generar_newsletter.py cuando se quiera publicar
+una edición semanal o quincenal.
 """
 
 import subprocess
@@ -132,6 +137,7 @@ def main():
     print("🎉 Pipeline completado correctamente")
     print(f"Duración aproximada: {fin - inicio}")
     print("Revisa docs/index.html, docs/aula.html y docs/fichas-aula/.")
+    print("Newsletter: ejecutar generar_newsletter.py manualmente cuando toque publicar edición.")
     print("=" * 70)
 
 

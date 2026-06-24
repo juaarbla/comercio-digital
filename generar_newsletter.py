@@ -127,6 +127,21 @@ def select_news(all_news: list[dict[str, Any]], max_items: int) -> list[dict[str
     return candidates[:max_items]
 
 
+def split_newsletter_sections(noticias: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    """Divide la selección en bloques editoriales sencillos.
+
+    Mantiene una regla estable y fácil de revisar:
+    - 1 noticia destacada
+    - hasta 3 noticias para selección docente
+    - hasta 2 breves
+    """
+    return {
+        "destacada": noticias[:1],
+        "seleccion_docente": noticias[1:4],
+        "breves": noticias[4:6],
+    }
+
+
 def period_info(fecha: date, periodicidad: str) -> dict[str, str]:
     iso_year, iso_week, _ = fecha.isocalendar()
 
@@ -262,10 +277,101 @@ def render_card(n: dict[str, Any], number: int) -> str:
 """.strip()
 
 
+def render_featured_card(n: dict[str, Any]) -> str:
+    titulo = pick(n, "titulo", "title", default="Sin título")
+    url = pick(n, "url", "link", "enlace")
+    resumen = pick(
+        n,
+        "resumen_docente",
+        "resumen",
+        "summary",
+        "descripcion",
+        "description",
+        default="Sin resumen disponible.",
+    )
+    modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
+    uso = pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
+    valor = pick(n, "valor_docente", "valor", "nivel_docente", default="sin valorar")
+    ficha = ficha_url_for(n)
+
+    ficha_btn = ""
+    if ficha:
+        ficha_btn = f'<a class="newsletter-btn newsletter-btn-secondary" href="{e(ficha)}">Ver ficha de aula</a>'
+
+    return f"""
+<article class="newsletter-card newsletter-featured-card">
+  <div class="newsletter-card-num">★</div>
+  <div class="newsletter-card-content">
+    <div class="newsletter-kicker">Noticia destacada de la edición</div>
+    <h2>{e(titulo)}</h2>
+    <div class="newsletter-tags">
+      <span class="newsletter-tag">{e(modulo)}</span>
+      <span class="newsletter-tag secondary">{e(uso)}</span>
+      <span class="newsletter-tag success">Valor docente: {e(valor)}</span>
+    </div>
+    <p>{e(resumen)}</p>
+    <div class="newsletter-actions">
+      <a class="newsletter-btn" href="{e(url)}" target="_blank" rel="noopener">Leer noticia</a>
+      {ficha_btn}
+    </div>
+  </div>
+</article>
+""".strip()
+
+
+def render_brief_card(n: dict[str, Any]) -> str:
+    titulo = pick(n, "titulo", "title", default="Sin título")
+    url = pick(n, "url", "link", "enlace")
+    modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
+    resumen = pick(
+        n,
+        "resumen_docente",
+        "resumen",
+        "summary",
+        "descripcion",
+        "description",
+        default="",
+    )
+    resumen = resumen[:240].rstrip() + ("…" if len(resumen) > 240 else "")
+
+    return f"""
+<article class="newsletter-index-card">
+  <a href="{e(url)}" target="_blank" rel="noopener">{e(titulo)}</a>
+  <p><strong>{e(modulo)}</strong> · {e(resumen)}</p>
+</article>
+""".strip()
+
+
+def classroom_prompt(noticia: dict[str, Any] | None) -> str:
+    if not noticia:
+        return "Elige una noticia de la newsletter y relaciónala con una decisión real de una empresa."
+
+    titulo = pick(noticia, "titulo", "title", default="esta noticia")
+    modulo = pick(noticia, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="el módulo")
+    uso = pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="actividad")
+
+    return (
+        f"A partir de la noticia «{titulo}», plantea una {uso} en la que el alumnado "
+        f"relacione el caso con contenidos de {modulo} y proponga una decisión razonada "
+        "para una pequeña empresa."
+    )
+
+
 def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str) -> str:
     titulo = "Comercio Digital en el aula"
     descripcion = "Newsletter docente de Comercio Digital para trabajar noticias de comercio electrónico, digitalización e IA en el aula."
-    cards = "\n".join(render_card(n, i + 1) for i, n in enumerate(noticias))
+    sections = split_newsletter_sections(noticias)
+
+    destacada = sections["destacada"][0] if sections["destacada"] else None
+    featured_html = render_featured_card(destacada) if destacada else "<p>No hay noticia destacada disponible.</p>"
+    seleccion_html = "\n".join(render_card(n, i + 1) for i, n in enumerate(sections["seleccion_docente"]))
+    breves_html = "\n".join(render_brief_card(n) for n in sections["breves"])
+    propuesta = classroom_prompt(destacada)
+
+    if not seleccion_html:
+        seleccion_html = "<p>No hay más noticias docentes seleccionadas en esta edición.</p>"
+    if not breves_html:
+        breves_html = "<p>No hay breves adicionales en esta edición.</p>"
 
     return f"""<!doctype html>
 <html lang="es">
@@ -301,24 +407,33 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
       proponer una actividad breve o conectar contenidos del módulo con casos reales del sector.
     </div>
 
-    <h2 class="newsletter-section-title">Noticias destacadas</h2>
-
+    <h2 class="newsletter-section-title">Noticia destacada</h2>
     <section class="newsletter-list">
-      {cards}
+      {featured_html}
+    </section>
+
+    <h2 class="newsletter-section-title">Selección docente de la quincena</h2>
+    <section class="newsletter-list">
+      {seleccion_html}
+    </section>
+
+    <h2 class="newsletter-section-title">Breves para seguir la actualidad</h2>
+    <section class="newsletter-index-list">
+      {breves_html}
     </section>
 
     <section class="newsletter-activity">
       <h2>Propuesta rápida para clase</h2>
-      <p>Elige una de las noticias destacadas y pide al alumnado que identifique:</p>
+      <p>{e(propuesta)}</p>
       <ul>
-        <li>Qué cambio introduce en el comercio digital.</li>
-        <li>Qué impacto puede tener en consumidores, empresas o canales de venta.</li>
-        <li>Qué decisión tomaría una empresa pequeña ante esa situación.</li>
+        <li>Identificar el cambio o tendencia que aparece en la noticia.</li>
+        <li>Relacionarlo con contenidos del módulo.</li>
+        <li>Proponer una decisión empresarial justificada.</li>
       </ul>
     </section>
 
     <section class="newsletter-quote">
-      ¿Qué noticia muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?
+      ¿Qué noticia de esta edición muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?
     </section>
 
     <div class="newsletter-footer-note">
@@ -335,7 +450,38 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
 """
 
 
+def append_markdown_news(lines: list[str], noticia: dict[str, Any], heading: str) -> None:
+    titulo = pick(noticia, "titulo", "title", default="Sin título")
+    url = pick(noticia, "url", "link", "enlace")
+    resumen = pick(noticia, "resumen_docente", "resumen", "summary", "descripcion", "description", default="")
+    modulo = pick(noticia, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
+    uso = pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
+    valor = pick(noticia, "valor_docente", "valor", "nivel_docente", default="sin valorar")
+
+    lines.extend([
+        heading,
+        "",
+        f"**Módulo relacionado:** {modulo}",
+        "",
+        f"**Uso propuesto:** {uso}",
+        "",
+        f"**Valor docente:** {valor}",
+        "",
+        resumen,
+        "",
+        f"[Leer noticia original]({url})",
+        "",
+    ])
+
+    ficha = ficha_url_for(noticia)
+    if ficha:
+        lines.extend([f"[Ver ficha de aula]({ficha})", ""])
+
+
 def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str) -> str:
+    sections = split_newsletter_sections(noticias)
+    destacada = sections["destacada"][0] if sections["destacada"] else None
+
     lines = [
         "# Comercio Digital en el aula",
         "",
@@ -345,49 +491,42 @@ def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], per
         "",
         "Selección de noticias útiles para trabajar en clase contenidos de comercio electrónico, digitalización, marketing digital e inteligencia artificial aplicada al comercio.",
         "",
-        "## Noticias destacadas",
+        "## Noticia destacada",
         "",
     ]
 
-    for i, n in enumerate(noticias, 1):
+    if destacada:
+        append_markdown_news(lines, destacada, f"### {pick(destacada, 'titulo', 'title', default='Sin título')}")
+    else:
+        lines.extend(["No hay noticia destacada disponible.", ""])
+
+    lines.extend(["## Selección docente de la quincena", ""])
+    for i, n in enumerate(sections["seleccion_docente"], 1):
+        append_markdown_news(lines, n, f"### {i}. {pick(n, 'titulo', 'title', default='Sin título')}")
+
+    if not sections["seleccion_docente"]:
+        lines.extend(["No hay más noticias docentes seleccionadas en esta edición.", ""])
+
+    lines.extend(["## Breves para seguir la actualidad", ""])
+    for n in sections["breves"]:
         titulo = pick(n, "titulo", "title", default="Sin título")
         url = pick(n, "url", "link", "enlace")
-        resumen = pick(n, "resumen_docente", "resumen", "summary", "descripcion", "description", default="")
         modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
-        uso = pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
-        valor = pick(n, "valor_docente", "valor", "nivel_docente", default="sin valorar")
-
-        lines.extend([
-            f"### {i}. {titulo}",
-            "",
-            f"**Módulo relacionado:** {modulo}",
-            "",
-            f"**Uso propuesto:** {uso}",
-            "",
-            f"**Valor docente:** {valor}",
-            "",
-            resumen,
-            "",
-            f"[Leer noticia original]({url})",
-            "",
-        ])
-
-        ficha = ficha_url_for(n)
-        if ficha:
-            lines.extend([f"[Ver ficha de aula]({ficha})", ""])
+        lines.extend([f"- **{modulo}:** [{titulo}]({url})"])
+    lines.append("")
 
     lines.extend([
         "## Propuesta rápida para clase",
         "",
-        "Elige una de las noticias destacadas y pide al alumnado que identifique:",
+        classroom_prompt(destacada),
         "",
-        "- Qué cambio introduce en el comercio digital.",
-        "- Qué impacto puede tener en consumidores, empresas o canales de venta.",
-        "- Qué decisión tomaría una empresa pequeña ante esa situación.",
+        "- Identificar el cambio o tendencia que aparece en la noticia.",
+        "- Relacionarlo con contenidos del módulo.",
+        "- Proponer una decisión empresarial justificada.",
         "",
         "## Pregunta para debate",
         "",
-        "> ¿Qué noticia muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?",
+        "> ¿Qué noticia de esta edición muestra mejor cómo está cambiando la relación entre tecnología, comercio y cliente?",
         "",
     ])
 
@@ -446,8 +585,8 @@ def render_index() -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Genera una newsletter docente en Markdown y HTML.")
-    parser.add_argument("--periodicidad", choices=["semanal", "quincenal"], default="semanal")
-    parser.add_argument("--max", type=int, default=5, help="Número máximo de noticias.")
+    parser.add_argument("--periodicidad", choices=["semanal", "quincenal"], default="quincenal")
+    parser.add_argument("--max", type=int, default=6, help="Número máximo de noticias.")
     parser.add_argument("--fecha", default="", help="Fecha base en formato YYYY-MM-DD.")
     parser.add_argument("--force", action="store_true", help="Sobrescribe si la newsletter ya existe.")
     args = parser.parse_args()

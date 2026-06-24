@@ -77,54 +77,177 @@ def normalize_bool(value: Any) -> bool:
     return str(value).strip().lower() in {"1", "true", "sí", "si", "yes", "y"}
 
 
-def score_news(n: dict[str, Any]) -> tuple[int, str]:
+def numeric_score(value: Any) -> float:
+    """Convierte score_docente a número sin asumir una escala 0-100."""
+    try:
+        return float(value or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def editorial_score(n: dict[str, Any]) -> int:
+    """Puntuación editorial para ordenar noticias de newsletter.
+
+    Usa campos ya existentes en noticias_clasificadas.json. No crea una
+    estructura nueva; solo prioriza mejor las candidatas.
+    """
     valor = pick(n, "valor_docente", "valor", "nivel_docente").lower()
     seleccion = normalize_bool(n.get("seleccion_newsletter"))
+    generar_ficha = normalize_bool(n.get("generar_ficha"))
     uso = pick(n, "tipo_uso", "uso_propuesto", "uso").lower()
     modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria").lower()
+    pregunta = pick(n, "pregunta_aula", default="")
+    actividad = pick(n, "actividad_breve", default="")
+    conceptos = pick(n, "conceptos_clave", "conceptos_modulo", "conceptos_ra", default="")
+    ra = pick(n, "ra_asignado", "ra", default="")
 
     score = 0
     if seleccion:
         score += 100
     if valor == "alto":
-        score += 50
+        score += 40
     elif valor == "medio":
-        score += 20
-    if uso in {"actividad", "caso_empresa", "debate", "seguimiento"}:
+        score += 15
+    if generar_ficha:
+        score += 25
+    if actividad:
+        score += 15
+    if pregunta:
         score += 10
-    if modulo:
+    if conceptos:
+        score += 10
+    if ra:
         score += 5
+    if uso in {"caso_empresa", "actividad", "debate"}:
+        score += 8
+    elif uso == "seguimiento":
+        score += 4
+    if modulo:
+        score += 3
 
+    # score_docente ya existe, pero su escala real es baja; se suma sin
+    # convertirla artificialmente a 100.
+    score += int(numeric_score(n.get("score_docente")))
+    return score
+
+
+def score_news(n: dict[str, Any]) -> tuple[int, str]:
     fecha = pick(n, "fecha", "published", "fecha_publicacion", default="")
-    return score, fecha
+    return editorial_score(n), fecha
+
+
+def module_key(n: dict[str, Any]) -> str:
+    modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="")
+    modulo = modulo.strip().lower()
+
+    if "electr" in modulo:
+        return "comercio_electronico"
+    if "digital" in modulo:
+        return "digitalizacion"
+    if modulo in {"ia", "inteligencia artificial"} or "ia" == modulo:
+        return "ia"
+    if "internacional" in modulo or modulo == "cdi":
+        return "cdi"
+    if "marketing" in modulo:
+        return "marketing"
+    return modulo or "otros"
+
+
+def module_limit(modulo: str, max_items: int) -> int:
+    """Límites suaves para que la newsletter no sea repetitiva."""
+    limits = {
+        "comercio_electronico": 3,
+        "digitalizacion": 2,
+        "ia": 1,
+        "cdi": 1,
+        "marketing": 1,
+    }
+    return min(limits.get(modulo, 2), max_items)
+
+
+def valid_news(n: dict[str, Any]) -> bool:
+    titulo = pick(n, "titulo", "title")
+    url = pick(n, "url", "link", "enlace")
+    return bool(titulo and url)
+
+
+def append_unique(target: list[dict[str, Any]], items: list[dict[str, Any]], seen: set[str]) -> None:
+    for n in items:
+        url = pick(n, "url", "link", "enlace")
+        if url and url not in seen:
+            target.append(n)
+            seen.add(url)
+
+
+def select_with_module_balance(candidates: list[dict[str, Any]], max_items: int) -> list[dict[str, Any]]:
+    selected: list[dict[str, Any]] = []
+    selected_urls: set[str] = set()
+    module_counts: dict[str, int] = {}
+
+    # Primera pasada: respeta límites por módulo.
+    for n in candidates:
+        if len(selected) >= max_items:
+            break
+        url = pick(n, "url", "link", "enlace")
+        modulo = module_key(n)
+        if not url or url in selected_urls:
+            continue
+        if module_counts.get(modulo, 0) >= module_limit(modulo, max_items):
+            continue
+        selected.append(n)
+        selected_urls.add(url)
+        module_counts[modulo] = module_counts.get(modulo, 0) + 1
+
+    # Segunda pasada: si faltan noticias, rellena con las mejores restantes.
+    for n in candidates:
+        if len(selected) >= max_items:
+            break
+        url = pick(n, "url", "link", "enlace")
+        if url and url not in selected_urls:
+            selected.append(n)
+            selected_urls.add(url)
+
+    return selected[:max_items]
 
 
 def select_news(all_news: list[dict[str, Any]], max_items: int) -> list[dict[str, Any]]:
-    candidates = []
+    newsletter_candidates: list[dict[str, Any]] = []
+    high_value_candidates: list[dict[str, Any]] = []
+    fallback_candidates: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
     for n in all_news:
-        titulo = pick(n, "titulo", "title")
-        url = pick(n, "url", "link", "enlace")
-        if not titulo or not url:
+        if not valid_news(n):
             continue
+
+        url = pick(n, "url", "link", "enlace")
+        if not url or url in seen:
+            continue
+        seen.add(url)
 
         valor = pick(n, "valor_docente", "valor", "nivel_docente").lower()
         seleccion = normalize_bool(n.get("seleccion_newsletter"))
 
-        if seleccion or valor == "alto":
-            candidates.append(n)
+        if seleccion:
+            newsletter_candidates.append(n)
+        elif valor == "alto":
+            high_value_candidates.append(n)
+        else:
+            fallback_candidates.append(n)
+
+    newsletter_candidates.sort(key=score_news, reverse=True)
+    high_value_candidates.sort(key=score_news, reverse=True)
+    fallback_candidates.sort(key=score_news, reverse=True)
+
+    candidates: list[dict[str, Any]] = []
+    candidate_urls: set[str] = set()
+    append_unique(candidates, newsletter_candidates, candidate_urls)
+    append_unique(candidates, high_value_candidates, candidate_urls)
 
     if len(candidates) < max_items:
-        seen = {pick(x, "url", "link", "enlace") for x in candidates}
-        for n in all_news:
-            url = pick(n, "url", "link", "enlace")
-            if url and url not in seen:
-                candidates.append(n)
-                seen.add(url)
-            if len(candidates) >= max_items:
-                break
+        append_unique(candidates, fallback_candidates, candidate_urls)
 
-    candidates.sort(key=score_news, reverse=True)
-    return candidates[:max_items]
+    return select_with_module_balance(candidates, max_items)
 
 
 def split_newsletter_sections(noticias: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:

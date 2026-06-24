@@ -8,23 +8,7 @@ Selección de noticias útiles para trabajar en clase contenidos de comercio ele
 
 ## Noticia destacada
 
-### ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
-
-**Módulo relacionado:** Comercio Electrónico
-
-**Uso propuesto:** caso_empresa
-
-**Valor docente:** alto
-
-Amazon ha lanzado una iniciativa llamada ‘Amazon Sellers en tu comunidad’ en Girona, buscando apoyar a los pequeños negocios locales con su presencia en la plataforma. Este proyecto sirve como un ejemplo de cómo grandes *marketplaces* como Amazon están facilitando la digitalización del comercio de proximidad. Para los alumnos, esto subraya que la clave del éxito en el *e-commerce* no solo es tener una tienda online, sino saber cómo conectar el comercio físico tradicional con las herramientas digitales. Así, las empresas pueden ampliar su alcance geográfico y llegar a más clientes sin perder la conexión con su comunidad local.
-
-[Leer noticia original](https://ecommerce-news.es/amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-acercar-la-digitalizacion-a-las-pymes/)
-
-[Ver ficha de aula](../fichas-aula/004-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html)
-
-## Selección docente de la quincena
-
-### 1. IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026
+### IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026
 
 **Módulo relacionado:** Comercio Electrónico
 
@@ -38,42 +22,58 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 [Ver ficha de aula](../fichas-aula/001-ia-retail-media-tiktok-shop-o-commerce-media-entre-los-temas-que-marca.html)
 
-### 2. Locus Robotics duplica la productividad de DHL y Makro en España con robots móviles autónomos y automatización flexible
+## Selección docente de la quincena
+
+### 1. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 **Módulo relacionado:** Comercio Electrónico
+
+**Uso propuesto:** actividad
+
+**Valor docente:** alto
+
+El sector logístico está pasando por una enorme transformación, ya que la mayoría de las empresas están acelerando la automatización y la digitalización de sus procesos. Esto significa que la tecnología, como los robots y el software avanzado, está reemplazando tareas manuales en la gestión de almacenes y envíos. Para el comercio electrónico, este avance es crucial, ya que la eficiencia en la cadena de suministro es lo que garantiza la rapidez y fiabilidad de la entrega al cliente. Como futuros profesionales, deben entender que la gestión digital de inventario y la automatización son pilares fundamentales para ofrecer una experiencia de compra online exitosa.
+
+[Leer noticia original](https://ecommerce-news.es/el-95-de-las-empresa-logisticas-acelera-su-digitalizacion-en-2026/)
+
+[Ver ficha de aula](../fichas-aula/002-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html)
+
+### 2. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
+
+**Módulo relacionado:** Comercio Electrónico
+
+**Uso propuesto:** actividad
+
+**Valor docente:** alto
+
+La automatización mediante robots e inteligencia artificial está transformando radicalmente la logística y el reparto en el comercio electrónico, como ha demostrado JD.com. Este avance es un ejemplo clave de cómo la tecnología está redefiniendo la cadena de suministro en el *e-commerce*. Sin embargo, en lugar de simplemente despedir personal, la empresa apuesta por la reconversión de sus empleados. Esto subraya que, en el futuro, la clave del éxito no solo es la tecnología, sino también la capacidad de adaptar y formar a nuestro capital humano.
+
+[Leer noticia original](https://ecommerce-news.es/jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y-apuesta-por-reciclar-a-sus-empleados/)
+
+[Ver ficha de aula](../fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html)
+
+### 3. De #BookTok a la gran pantalla: así está cambiando TikTok el cine
+
+**Módulo relacionado:** IA
 
 **Uso propuesto:** caso_empresa
 
 **Valor docente:** alto
 
-Este caso demuestra cómo la tecnología está transformando la logística de grandes almacenes y centros de distribución. Locus Robotics ha implementado robots autónomos en el centro de DHL, logrando duplicar la productividad mediante la automatización inteligente. Para el módulo de Comercio Electrónico, esto es clave, ya que una gestión de inventario y un *fulfillment* (cumplimiento de pedidos) ultrarrápida es esencial para la satisfacción del cliente online. En resumen, la IA y la robótica son las herramientas del futuro para garantizar la eficiencia de la cadena de suministro y la rapidez en la entrega.
+TikTok está redefiniendo el proceso de marketing cinematográfico, convirtiéndose en un motor de descubrimiento y consumo para las grandes producciones. El rápido crecimiento de la tendencia #FilmTok demuestra que las redes sociales son plataformas clave para generar *fandom* y el *buzz* necesario antes de un estreno. Esto es un ejemplo perfecto de cómo la estrategia de contenido y la viralidad pueden potenciar el *Return on Investment* (ROI) de una campaña publicitaria. En resumen, aprenderemos que, hoy en día, la conexión emocional y la participación del usuario son más importantes que la publicidad tradicional.
 
-[Leer noticia original](https://ecommerce-news.es/locus-robotics-duplica-la-productividad-dedhl-y-makro-en-espana-con-robots-moviles-autonomos-y-automatizacion-flexible/)
+[Leer noticia original](https://www.marketingdirecto.com/digital-general/digital/booktok-gran-pantalla-asi-esta-cambiando-tiktok-cine)
 
-[Ver ficha de aula](../fichas-aula/005-locus-robotics-duplica-la-productividad-de-dhl-y-makro-en-espana-con-r.html)
-
-### 3. Tres nuevos avisos de seguridad
-
-**Módulo relacionado:** Digitalización
-
-**Uso propuesto:** debate
-
-**Valor docente:** alto
-
-La noticia nos alerta sobre vulnerabilidades críticas detectadas en sistemas fundamentales como FortiSandbox y Microsoft, demostrando que el riesgo de ciberseguridad es constante. En términos sencillos, estos avisos indican "vacíos" (fallos) que un atacante podría explotar para ejecutar comandos no autorizados en un sistema. Para un futuro profesional, esto subraya la importancia de la "higiene digital": mantener siempre actualizados los *parches* y sistemas operativos para sellar estas puertas de entrada. Comprender estos fallos nos ayuda a valorar la necesidad de protocolos de seguridad robustos en cualquier negocio, desde pequeñas tiendas hasta grandes empresas.
-
-[Leer noticia original](https://www.incibe.es/node/630678)
-
-[Ver ficha de aula](../fichas-aula/009-tres-nuevos-avisos-de-seguridad.html)
+[Ver ficha de aula](../fichas-aula/007-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html)
 
 ## Breves para seguir la actualidad
 
-- **Digitalización:** [Ejecución remota de código en Backup & Replication de Veeam](https://www.incibe.es/node/630677)
-- **IA:** [De #BookTok a la gran pantalla: así está cambiando TikTok el cine](https://www.marketingdirecto.com/digital-general/digital/booktok-gran-pantalla-asi-esta-cambiando-tiktok-cine)
+- **Digitalización:** [Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia](https://ecommerce-news.es/amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-directamente-con-nvidia/)
+- **Digitalización:** [Cuatro nuevos avisos de SCI](https://www.incibe.es/node/631135)
 
 ## Propuesta rápida para clase
 
-A partir de la noticia «‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes», plantea una caso_empresa en la que el alumnado relacione el caso con contenidos de Comercio Electrónico y proponga una decisión razonada para una pequeña empresa.
+A partir de la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026», plantea una caso_empresa en la que el alumnado relacione el caso con contenidos de Comercio Electrónico y proponga una decisión razonada para una pequeña empresa.
 
 - Identificar el cambio o tendencia que aparece en la noticia.
 - Relacionarlo con contenidos del módulo.

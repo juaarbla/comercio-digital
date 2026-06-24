@@ -1,5 +1,88 @@
 # Diario del Proyecto
 
+## 2026-06-24 — Fase v0.4: newsletter, selección docente y limpieza técnica controlada
+
+- Problema/objetivo:
+  - Iniciar la fase v0.4 del agregador `Comercio Digital` sin añadir complejidad innecesaria.
+  - Mejorar la newsletter docente, afinar la selección de noticias y realizar una limpieza técnica prudente.
+- Causa:
+  - La v0.3 estaba cerrada, etiquetada y subida a GitHub.
+  - El proyecto ya era estable: web publicada, Aula operativa, fichas docentes, SEO básico, documentación y pipeline funcionando.
+  - La newsletter existía, pero funcionaba todavía como una lista plana de noticias destacadas.
+- Cambios realizados:
+  - Se revisa la hoja de ruta de la v0.4 antes de tocar código.
+  - Se confirma que la newsletter debe seguir siendo una salida manual/quincenal y no una herramienta de envío de correos.
+  - Se mejora `generar_newsletter.py` para transformar la newsletter en una pieza editorial:
+    ```text
+    Noticia destacada
+    Selección docente de la quincena
+    Breves para seguir la actualidad
+    Propuesta rápida para clase
+    Pregunta para debate
+    ```
+  - Se cambia la periodicidad por defecto a quincenal.
+  - Se ajusta la selección a 6 noticias:
+    ```text
+    1 noticia destacada
+    3 noticias docentes
+    2 breves
+    ```
+  - Se mejora la selección docente de la newsletter usando campos ya existentes del JSON enriquecido:
+    ```text
+    seleccion_newsletter
+    valor_docente
+    generar_ficha
+    actividad_breve
+    pregunta_aula
+    conceptos_clave
+    ra_asignado
+    score_docente
+    tipo_uso
+    modulo_relacionado
+    ```
+  - Se añade equilibrio por módulos para evitar newsletters demasiado repetitivas.
+  - Se revisa el inventario inicial de scripts Python de la raíz.
+  - Se decide no mover scripts ni reestructurar carpetas en esta fase.
+  - Se documenta en `run_pipeline.py` que la newsletter queda fuera del pipeline principal y se genera manualmente cuando toque publicar edición.
+- Validación ejecutada:
+  - Se genera la newsletter quincenal en HTML y Markdown.
+  - Se revisa la estructura de `docs/newsletter/newsletter-2026-06-Q2.md`.
+  - Se confirma una selección equilibrada con comercio electrónico, digitalización, IA, logística, marketplaces y ciberseguridad.
+  - Se ejecuta el pipeline completo:
+    ```powershell
+    python .un_pipeline.py
+    ```
+  - Resultado de la prueba:
+    ```text
+    SEO aplicado a 29 páginas HTML.
+    Pipeline completado correctamente.
+    Duración aproximada: 0:02:43.
+    ```
+  - Se comprueba el estado de Git:
+    ```powershell
+    git status
+    git status --short
+    ```
+  - El repositorio queda limpio tras la prueba:
+    ```text
+    nothing to commit, working tree clean
+    ```
+- Decisiones tomadas:
+  - La newsletter se mantiene fuera del pipeline automático.
+  - `generar_newsletter.py` se ejecutará manualmente cuando toque publicar una edición semanal o quincenal.
+  - No se añaden campos nuevos al JSON en esta fase.
+  - No se mueve ningún script de la raíz durante la v0.4.4.
+  - La limpieza técnica se limita a documentación, validación y decisiones explícitas.
+- Resultado final:
+  - v0.4.1 cerrada: diseño funcional de newsletter.
+  - v0.4.2 cerrada: estructura editorial de newsletter.
+  - v0.4.3 cerrada: mejora de selección docente de newsletter.
+  - v0.4.4 validada: limpieza técnica controlada y pipeline probado.
+- Pendientes:
+  - Valorar si se añade en portada un bloque de “Última newsletter”.
+  - Revisar más adelante si conviene documentar un inventario completo de scripts.
+  - Mantener la distribución de la newsletter como envío manual o herramienta externa hasta validar su uso real.
+
 ## 2026-06-19 — Newsletter docente integrada en el agregador
 
 - Problema/objetivo:

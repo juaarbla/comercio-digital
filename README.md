@@ -60,6 +60,10 @@ data/processed/noticias_clasificadas.json
    ↓
 enriquecer_docente.py
    ↓
+enriquecer_conceptos.py
+   ↓
+enriquecer_actividades.py
+   ↓
 imagen_destacada.py
    ↓
 generar_web.py
@@ -68,13 +72,14 @@ generar_fichas_aula.py
    ↓
 generar_aula.py
    ↓
-generar_newsletter.py
-   ↓
 generar_seo.py
    ↓
 docs/
    ↓
 GitHub Pages
+
+Newsletter:
+generar_newsletter.py se ejecuta manualmente cuando toque publicar una edición.
 ```
 
 ---
@@ -113,6 +118,8 @@ Ejecutar el pipeline completo:
 python run_pipeline.py
 ```
 
+El pipeline principal genera web, aula, fichas e infraestructura SEO. La newsletter queda fuera del pipeline diario y se genera manualmente cuando toque publicar una edición.
+
 También puede usarse el panel de control en Windows:
 
 ```powershell
@@ -131,8 +138,10 @@ python imagen_destacada.py
 python generar_web.py
 python generar_fichas_aula.py --max-fichas 10 --limpiar
 python generar_aula.py --max-noticias 25
-python generar_newsletter.py --periodicidad quincenal --force
 python generar_seo.py
+
+# Newsletter, solo cuando toque publicar edición
+python generar_newsletter.py --periodicidad quincenal --force
 ```
 
 ---
@@ -260,11 +269,23 @@ La newsletter se genera en:
 docs/newsletter/
 ```
 
+Desde la v0.4, la newsletter tiene una estructura editorial pensada para uso docente:
+
+```text
+1 noticia destacada
+3 noticias de selección docente
+2 breves de actualidad
+propuesta rápida para clase
+pregunta para debate
+```
+
 Ejemplo de generación quincenal:
 
 ```powershell
 python generar_newsletter.py --periodicidad quincenal --force
 ```
+
+La newsletter no forma parte del pipeline principal diario. Se genera manualmente cuando toque publicar una edición.
 
 El agregador no gestiona suscriptores ni envía correos. Solo genera la edición HTML/Markdown. La distribución debe hacerse con una herramienta externa o mediante envío manual del enlace público:
 
@@ -371,6 +392,17 @@ _documentacion/REESTRUCTURACION_Y_MCP_COMERCIO_DIGITAL.md
 mcp_servers/comercio_digital/README.md
 DIARIO_PROYECTO.md
 ```
+
+---
+
+## Versiones
+
+```text
+v0.3 → versión estable inicial con web, Aula, fichas docentes, SEO básico, documentación y pipeline funcionando.
+v0.4 → mejora de newsletter docente, selección editorial de noticias y limpieza técnica controlada.
+```
+
+La newsletter queda como salida manual/quincenal y no se ejecuta dentro del pipeline principal.
 
 ---
 

@@ -62,6 +62,14 @@ if errorlevel 1 (
   exit /b 1
 )
 
+echo Generando informe post-pipeline...
+echo Generando informe post-pipeline...>> "%LOG_FILE%"
+"%VENV_PY%" generar_informe_pipeline.py >> "%LOG_FILE%" 2>&1
+if errorlevel 1 (
+  echo AVISO: generar_informe_pipeline.py fallo. Se continua con la publicacion.
+  echo AVISO: generar_informe_pipeline.py fallo. Se continua con la publicacion.>> "%LOG_FILE%"
+)
+
 echo Preparando cambios de docs...
 echo Preparando cambios de docs...>> "%LOG_FILE%"
 git add docs/ >> "%LOG_FILE%" 2>&1

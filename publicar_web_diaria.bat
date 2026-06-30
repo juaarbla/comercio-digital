@@ -74,6 +74,11 @@ echo Preparando cambios de docs...
 echo Preparando cambios de docs...>> "%LOG_FILE%"
 git add docs/ >> "%LOG_FILE%" 2>&1
 
+echo Resumen de cambios preparados:
+echo Resumen de cambios preparados:>> "%LOG_FILE%"
+git status --short >> "%LOG_FILE%" 2>&1
+git diff --cached --stat >> "%LOG_FILE%" 2>&1
+
 git diff --cached --quiet
 if not errorlevel 1 (
   echo No hay cambios en docs. No se crea commit.

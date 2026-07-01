@@ -391,6 +391,25 @@ def noticia_full_html(n: dict) -> str:
     </article>"""
 
 
+def bloque_ultima_newsletter_html() -> str:
+    """Bloque destacado para enlazar la última newsletter docente desde portada."""
+    newsletter_index = DOCS_DIR / "newsletter" / "index.html"
+
+    if not newsletter_index.exists():
+        return ""
+
+    return """
+    <section class="newsletter-home">
+      <div>
+        <span class="newsletter-home-kicker">Newsletter docente</span>
+        <h2>Última newsletter</h2>
+        <p>Consulta la última selección quincenal de noticias y recursos para trabajar en el aula.</p>
+      </div>
+      <a class="newsletter-home-link" href="newsletter/index.html">Leer newsletter &rarr;</a>
+    </section>
+    """
+
+
 # PORTADA
 
 def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
@@ -402,6 +421,7 @@ def generar_portada(noticias_por_seccion: dict, secciones_activas: set):
         if ns:
             bloques += card_lead(ns[0], primera_seccion)
 
+    bloques += bloque_ultima_newsletter_html()
 
     for seccion in SECCIONES:
         sid = seccion["id"]

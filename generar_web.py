@@ -16,6 +16,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from paths import NOTICIAS_CLASIFICADAS
+from web_ui_common import (
+    SITE_TITLE,
+    SITE_SUBTITLE,
+    SITE_URL,
+    fecha_hoy_larga,
+    head_html as common_head_html,
+    masthead_html as common_masthead_html,
+    nav_html as common_nav_html,
+    footer_html as common_footer_html,
+    subtitle_bar_html,
+)
 
 INPUT_FILE = NOTICIAS_CLASIFICADAS
 
@@ -68,9 +79,6 @@ def texto_plano(texto: str) -> str:
 
 DOCS_DIR = Path("docs")
 
-SITE_TITLE = "Comercio Digital"
-SITE_SUBTITLE = "La actualidad del sector para el aula de FP"
-SITE_URL = "https://comerciodigital.net"
 
 NOTICIAS_PORTADA_POR_SECCION = 3
 NOTICIAS_POR_PAGINA = 8
@@ -166,10 +174,7 @@ def fecha_orden(noticia: dict) -> float:
 
 
 def fecha_hoy() -> str:
-    hoy = datetime.now()
-    dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
-    meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-    return f"{dias[hoy.weekday()]}, {hoy.day} de {meses[hoy.month - 1]} de {hoy.year}"
+    return fecha_hoy_larga()
 
 
 def formatear_fecha(s: str) -> str:
@@ -184,95 +189,24 @@ def formatear_fecha(s: str) -> str:
 
 
 def nav_html(activa: str = "", secciones_con_noticias: set = None) -> str:
-    """Menú principal común con soporte para hamburguesa en móvil.
-
-    Aula se añade siempre porque no depende de SECCIONES:
-    la página la genera generar_aula.py.
-
-    Orden:
-    Portada → E-Commerce → Internacional → Digitalización → IA & Marketing → Aula → Newsletter → Del Autor
-    """
-    salto = chr(10)
-    portada_cls = ' class="active"' if activa in ("", "portada", "index") else ""
-    items = f'<li><a href="index.html"{portada_cls}>Portada</a></li>' + salto
-
-    for seccion in SECCIONES:
-        sid = seccion["id"]
-
-        # No mostrar Otros en el menú principal.
-        if sid == "otros":
-            continue
-
-        # Del Autor se añade al final, después de Aula.
-        if sid == "del-autor":
-            continue
-
-        if secciones_con_noticias is not None and sid not in secciones_con_noticias:
-            continue
-
-        cls = ' class="active"' if sid == activa else ""
-        items += f'    <li><a href="{seccion["file"]}"{cls}>{seccion["label"]}</a></li>' + salto
-
-    aula_cls = ' class="active"' if activa == "aula" else ""
-    items += f'    <li><a href="aula.html"{aula_cls}>Aula</a></li>' + salto
-
-    newsletter_cls = ' class="active"' if activa == "newsletter" else ""
-    items += f'    <li><a href="newsletter/index.html"{newsletter_cls}>Newsletter</a></li>' + salto
-
-    del_autor = next((s for s in SECCIONES if s["id"] == "del-autor"), None)
-    if del_autor:
-        if secciones_con_noticias is None or "del-autor" in secciones_con_noticias:
-            cls = ' class="active"' if activa == "del-autor" else ""
-            items += f'    <li><a href="{del_autor["file"]}"{cls}>{del_autor["label"]}</a></li>' + salto
-
-    return f"""
-  <nav class="site-nav" aria-label="Menú principal">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir o cerrar menú">
-      <span></span>
-      <span></span>
-      <span></span>
-      <strong>Menú</strong>
-    </label>
-    <ul class="nav-menu">
-      {items}    </ul>
-  </nav>"""
+    return common_nav_html(
+        activa,
+        base_prefix="",
+        secciones=SECCIONES,
+        secciones_con_noticias=secciones_con_noticias,
+    )
 
 
 def masthead_html(subtitulo: str = "") -> str:
-    return f"""
-  <header>
-    <div class="masthead">
-      <div class="masthead-side">Formaci&oacute;n Profesional<br>Comercio y Marketing</div>
-      <div class="site-title"><a href="index.html">{SITE_TITLE}</a></div>
-      <div class="masthead-side right">{fecha_hoy()}<br>{SITE_URL.replace("https://","")}</div>
-    </div>
-  </header>"""
+    return common_masthead_html(home_href="index.html")
 
 
 def footer_html() -> str:
-    return f"""
-  <footer>
-    <strong>{SITE_TITLE}</strong> &middot; Generado el {fecha_hoy()} &middot;
-    Res&uacute;menes generados con IA a partir de fuentes p&uacute;blicas &middot;
-    Uso educativo &mdash; FP Comercio y Marketing CV
-  </footer>"""
+    return common_footer_html()
 
 
 def head_html(titulo: str, canonical_path: str = "/") -> str:
-    canonical_url = f"{SITE_URL.rstrip('/')}/{canonical_path.lstrip('/')}" if canonical_path != "/" else f"{SITE_URL.rstrip('/')}/"
-    return f"""<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{titulo} &mdash; {SITE_TITLE}</title>
-  <meta name="description" content="{SITE_SUBTITLE}">
-  <link rel="canonical" href="{canonical_url}">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>"""
+    return common_head_html(titulo, canonical_path, assets_prefix="")
 
 
 def tipo_badge_html(tipo: str) -> str:

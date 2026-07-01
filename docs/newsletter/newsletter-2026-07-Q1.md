@@ -8,64 +8,72 @@ Selección de noticias útiles para trabajar en clase contenidos de comercio ele
 
 ## Noticia destacada
 
-### Este viernes 26 de junio conoceremos a los finalistas de Marketplace Night 2026
+### IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026
 
 **Módulo relacionado:** Comercio Electrónico
 
-**Uso propuesto:** uso docente
+**Uso propuesto:** caso_empresa
 
-**Valor docente:** sin valorar
+**Valor docente:** alto
 
-Esta noticia nos informa sobre la fase final del evento "Marketplace Night 2026", una cita importante en el ecosistema del comercio digital. Los organizadores están preparando un reconocimiento que premia a las mejores marcas y tiendas que operan en plataformas virtuales. En el módulo de Comercio Electrónico, es crucial entender que un *marketplace* (como Amazon o Etsy) es el lugar donde interactúan múltiples vendedores, y este evento destaca su dinamismo. En resumen, muestra que el éxito en el comercio actual no solo pasa por tener una web propia, sino por dominar también las grandes plataformas de venta.
+El panorama del comercio electrónico está cambiando extremadamente rápido, y las marcas deben estar al tanto de estas nuevas tendencias. Los principales motores de cambio son la Inteligencia Artificial, que mejorará la personalización de la experiencia de compra, y el auge del *Social Commerce*, que permite vender directamente en plataformas como TikTok. Además, es crucial entender el *Retail Media*, que son los espacios publicitarios que las marcas pueden comprar dentro de los propios *marketplaces*, generando nuevas fuentes de ingresos para las plataformas. Esto significa que, como profesionales, debemos integrar la IA y la estrategia de contenido social para potenciar nuestras ventas online.
 
-[Leer noticia original](https://ecommerce-news.es/este-viernes-26-de-junio-conoceremos-a-los-finalistas-de-marketplace-night-2026/)
+[Leer noticia original](https://ecommerce-news.es/ia-retail-media-tiktok-shop-o-commerce-media-entre-los-temas-que-marcaran-el-marketplace-summit-2026/)
+
+[Ver ficha de aula](../fichas-aula/001-ia-retail-media-tiktok-shop-o-commerce-media-entre-los-temas-que-marca.html)
 
 ## Selección docente de la quincena
 
-### 1. Omnicom Media y Netflix lanzan una solución basada en IA para integrar marcas en contenidos
+### 1. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 **Módulo relacionado:** Comercio Electrónico
 
-**Uso propuesto:** uso docente
+**Uso propuesto:** actividad
 
-**Valor docente:** sin valorar
+**Valor docente:** alto
 
-Netflix y Omnicom han lanzado una solución avanzada que utiliza Inteligencia Artificial para incorporar marcas de forma natural en sus series y películas. En esencia, se trata de llevar la publicidad más allá de los anuncios tradicionales, insertándola de manera contextual dentro del contenido que vemos. Este avance es crucial para el módulo de Comercio Electrónico porque muestra cómo las marcas están encontrando nuevas vías para generar visibilidad y conexión emocional, superando la publicidad invasiva. Esto representa una evolución del *marketing de contenidos*, donde la experiencia de usuario es la principal herramienta de venta.
+El sector logístico está pasando por una enorme transformación, ya que la mayoría de las empresas están acelerando la automatización y la digitalización de sus procesos. Esto significa que la tecnología, como los robots y el software avanzado, está reemplazando tareas manuales en la gestión de almacenes y envíos. Para el comercio electrónico, este avance es crucial, ya que la eficiencia en la cadena de suministro es lo que garantiza la rapidez y fiabilidad de la entrega al cliente. Como futuros profesionales, deben entender que la gestión digital de inventario y la automatización son pilares fundamentales para ofrecer una experiencia de compra online exitosa.
 
-[Leer noticia original](https://ecommerce-news.es/omnicom-media-y-netflix-lanzan-una-solucion-basada-en-ia-para-integrar-marcas-en-contenidos/)
+[Leer noticia original](https://ecommerce-news.es/el-95-de-las-empresa-logisticas-acelera-su-digitalizacion-en-2026/)
 
-### 2. Walmart refuerza su retail media con la compra de Vibe.co
+[Ver ficha de aula](../fichas-aula/002-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html)
+
+### 2. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
 
 **Módulo relacionado:** Comercio Electrónico
 
-**Uso propuesto:** uso docente
+**Uso propuesto:** actividad
 
-**Valor docente:** sin valorar
+**Valor docente:** alto
 
-Walmart está reforzando su estrategia digital comprando Vibe.co, una plataforma especializada en publicidad a través de la televisión conectada (CTV). Esta adquisición es un ejemplo de cómo los grandes minoristas están potenciando su "retail media," es decir, convirtiendo su base de clientes en una fuente de ingresos publicitarios. En términos de Comercio Electrónico, esto significa que las tiendas ya no solo venden productos, sino que también venden acceso a su audiencia, lo que eleva la rentabilidad de su canal digital. Es clave entender que las grandes plataformas están integrando publicidad avanzada para atraer tanto a marcas grandes como a las PYMES.
+La automatización mediante robots e inteligencia artificial está transformando radicalmente la logística y el reparto en el comercio electrónico, como ha demostrado JD.com. Este avance es un ejemplo clave de cómo la tecnología está redefiniendo la cadena de suministro en el *e-commerce*. Sin embargo, en lugar de simplemente despedir personal, la empresa apuesta por la reconversión de sus empleados. Esto subraya que, en el futuro, la clave del éxito no solo es la tecnología, sino también la capacidad de adaptar y formar a nuestro capital humano.
 
-[Leer noticia original](https://ecommerce-news.es/walmart-refuerza-su-retail-media-con-la-compra-de-vibe-co/)
+[Leer noticia original](https://ecommerce-news.es/jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y-apuesta-por-reciclar-a-sus-empleados/)
 
-### 3. Dos nuevos avisos de seguridad
+[Ver ficha de aula](../fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html)
 
-**Módulo relacionado:** Digitalización GS
+### 3. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
 
-**Uso propuesto:** uso docente
+**Módulo relacionado:** IA
 
-**Valor docente:** sin valorar
+**Uso propuesto:** caso_empresa
 
-Grandes empresas de software como Atlassian han publicado boletines de seguridad masivos, alertando sobre docenas de vulnerabilidades críticas en productos muy usados (como Jira y Confluence). Esto significa que las versiones actuales de su software presentan fallos de seguridad que podrían ser explotados por ciberatacantes para robar información sensible de la empresa. Para el módulo de Digitalización, este caso es vital porque nos enseña la importancia de la **gestión de riesgos digitales**, obligando a las pymes a realizar el *patching* (actualización de seguridad) constante. En resumen, las empresas deben vigilar sus herramientas digitales para asegurarse de que no haya brechas de seguridad que comprometan la confidencialidad y la continuidad del negocio.
+**Valor docente:** alto
 
-[Leer noticia original](https://www.incibe.es/node/632109)
+Google ha ampliado el acceso gratuito a la generación de imágenes personalizadas con su herramienta Gemini para usuarios en Estados Unidos. Esta función, antes solo disponible para suscriptores de planes avanzados, utiliza inteligencia artificial para crear imágenes únicas según las indicaciones del usuario. En comercio electrónico, esta tecnología puede mejorar la personalización de productos y campañas visuales, facilitando una mejor conexión con los clientes. Además, muestra cómo la IA está transformando la forma de crear contenido digital para marketing online.
+
+[Leer noticia original](https://ecommerce-news.es/google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemini-a-mas-usuarios-en-estados-unidos/)
+
+[Ver ficha de aula](../fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html)
 
 ## Breves para seguir la actualidad
 
-- **Digitalización GS:** [Tres nuevos avisos de SCI](https://www.incibe.es/node/632108)
-- **IA para Marketing y Comercio:** [Copywriting con IA: crear textos que venden](https://juanarmada.com/copywriting-con-ia-crear-textos-que-venden/)
+- **Digitalización:** [Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia](https://ecommerce-news.es/amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-directamente-con-nvidia/)
+- **Digitalización:** [Cuatro nuevos avisos de SCI](https://www.incibe.es/node/631135)
 
 ## Propuesta rápida para clase
 
-A partir de la noticia «Este viernes 26 de junio conoceremos a los finalistas de Marketplace Night 2026», plantea una actividad en la que el alumnado relacione el caso con contenidos de Comercio Electrónico y proponga una decisión razonada para una pequeña empresa.
+A partir de la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026», plantea una caso_empresa en la que el alumnado relacione el caso con contenidos de Comercio Electrónico y proponga una decisión razonada para una pequeña empresa.
 
 - Identificar el cambio o tendencia que aparece en la noticia.
 - Relacionarlo con contenidos del módulo.

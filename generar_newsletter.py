@@ -9,6 +9,14 @@ from pathlib import Path
 from typing import Any
 
 from paths import DOCS_DIR, NOTICIAS_CLASIFICADAS
+from web_ui_common import (
+    SITE_TITLE,
+    SITE_SUBTITLE,
+    fecha_hoy_larga,
+    masthead_html,
+    nav_html as common_nav_html,
+    footer_html,
+)
 
 
 NEWSLETTER_DIR = DOCS_DIR / "newsletter"
@@ -314,49 +322,16 @@ def ficha_url_for(noticia: dict[str, Any]) -> str:
 
 
 def render_nav(active: str = "newsletter") -> str:
-    """Menú principal de las páginas de newsletter.
-
-    Usa rutas relativas porque los HTML viven dentro de docs/newsletter/.
-    Debe mantenerse alineado con el menú generado por generar_web.py,
-    generar_aula.py y generar_fichas_aula.py.
-    """
-    def active_class(name: str) -> str:
-        return ' class="active"' if name == active else ""
-
-    return f"""
-<nav class="site-nav">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
-  <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
-    <span></span><span></span><span></span><strong>Menú</strong>
-  </label>
-  <ul class="nav-menu">
-    <li><a href="../index.html"{active_class("portada")}>Portada</a></li>
-    <li><a href="../comercio-electronico.html"{active_class("comercio-electronico")}>Comercio Electrónico</a></li>
-    <li><a href="../internacional.html"{active_class("internacional")}>Internacional</a></li>
-    <li><a href="../digitalizacion.html"{active_class("digitalizacion")}>Digitalización</a></li>
-    <li><a href="../ia-marketing.html"{active_class("ia-marketing")}>IA y Marketing</a></li>
-    <li><a href="../aula.html"{active_class("aula")}>Aula</a></li>
-    <li><a href="index.html"{active_class("newsletter")}>Newsletter</a></li>
-    <li><a href="../del-autor.html"{active_class("del-autor")}>Del Autor</a></li>
-  </ul>
-</nav>
-""".strip()
+    return common_nav_html(active, base_prefix="../")
 
 
 def render_masthead() -> str:
-    hoy = date.today().strftime("%d/%m/%Y")
-    return f"""
-<header class="masthead">
-  <div class="masthead-side">Noticias, aula y comercio digital</div>
-  <div class="site-title"><a href="../index.html">Comercio Digital</a></div>
-  <div class="masthead-side right">Newsletter docente<br>{hoy}</div>
-</header>
-{render_nav("newsletter")}
-<div class="subtitle-bar">
-  <span>Selección curada para Formación Profesional</span>
-  <span>Comercio, Marketing, Digitalización e IA</span>
-</div>
-""".strip()
+    return (
+        masthead_html(home_href="../index.html")
+        + render_nav("newsletter")
+        + "\n"
+        + '<div class="subtitle-bar"><span>Selección curada para Formación Profesional</span><span>Comercio, Marketing, Digitalización e IA</span></div>'
+    )
 
 
 def render_card(n: dict[str, Any], number: int) -> str:
@@ -566,9 +541,7 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
     </div>
   </main>
 
-  <footer>
-    <strong>Comercio Digital</strong> · Noticias y recursos docentes para Formación Profesional.
-  </footer>
+  {footer_html()}
 </body>
 </html>
 """
@@ -700,9 +673,7 @@ def render_index() -> str:
     </section>
   </main>
 
-  <footer>
-    <strong>Comercio Digital</strong> · Noticias y recursos docentes para Formación Profesional.
-  </footer>
+  {footer_html()}
 </body>
 </html>
 """

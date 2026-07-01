@@ -22,6 +22,12 @@ from pathlib import Path
 from datetime import datetime
 
 from paths import NOTICIAS_CLASIFICADAS
+from web_ui_common import (
+    fecha_hoy_larga,
+    masthead_html,
+    nav_html as common_nav_html,
+    footer_html,
+)
 
 
 
@@ -90,11 +96,8 @@ def fecha(noticia):
 
 
 def fecha_cabecera():
-    """Fecha compacta para la cabecera — igual que en generar_web.py."""
-    hoy = datetime.now()
-    meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
-             "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"]
-    return f"{hoy.day} {meses[hoy.month - 1]} {hoy.year}"
+    """Fecha larga común para la cabecera."""
+    return fecha_hoy_larga()
 
 
 def formatear_fecha_rss(s):
@@ -275,45 +278,8 @@ def render_listado_por_modulos(noticias, indice_fichas):
     return resumen + secciones
 
 
-def render_nav(activa="aula.html"):
-    """
-    Menú principal común con soporte para hamburguesa en móvil.
-
-    Mantiene la misma estructura que generar_web.py:
-    <nav class="site-nav">
-      <input class="nav-toggle">
-      <label class="nav-toggle-label">...</label>
-      <ul class="nav-menu">...</ul>
-    </nav>
-    """
-    docs = Path("docs")
-    items = []
-
-    for href, texto in MENU:
-        # Portada, aula, newsletter y del-autor se incluyen siempre.
-        # El resto solo si el archivo ya existe en docs/.
-        if href not in ("index.html", "aula.html", "newsletter/index.html", "del-autor.html"):
-            if not (docs / href).exists():
-                continue
-
-        clase = ' class="active"' if href == activa else ""
-        items.append(f'<li><a href="{href}"{clase}>{h(texto)}</a></li>')
-
-    items_html = "\n      ".join(items)
-
-    return f"""
-  <nav class="site-nav" aria-label="Menú principal">
-    <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir o cerrar menú">
-      <span></span>
-      <span></span>
-      <span></span>
-      <strong>Menú</strong>
-    </label>
-    <ul class="nav-menu">
-      {items_html}
-    </ul>
-  </nav>"""
+def render_nav(activa="aula"):
+    return common_nav_html("aula", base_prefix="")
 
 
 def conceptos_lista(conceptos):
@@ -536,23 +502,9 @@ def render_html(noticias, indice_fichas):
 </head>
 <body class="aula-page">
 
-  <header class="masthead">
-    <div class="masthead-side">
-      Formación Profesional<br>
-      Comercio y Marketing
-    </div>
+  {masthead_html(home_href="index.html")}
 
-    <div class="site-title">
-      <a href="index.html">Comercio Digital</a>
-    </div>
-
-    <div class="masthead-side right">
-      {fecha_hoy}<br>
-      comerciodigital.net
-    </div>
-  </header>
-
-  {render_nav("aula.html")}
+  {render_nav("aula")}
 
   <div class="subtitle-bar">
     <span>Aula · {len(noticias)} noticias seleccionadas</span>
@@ -578,10 +530,7 @@ def render_html(noticias, indice_fichas):
     {listado}
   </main>
 
-  <footer>
-    <strong>Comercio Digital</strong><br>
-    Selección editorial para uso educativo.
-  </footer>
+  {footer_html()}
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 30 JUN 2026
+Fecha de generación: 1 JUL 2026
 
 ---
 
@@ -230,60 +230,60 @@ Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva soluci�
 
 ---
 
-# 5. ‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes
+# 5. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
 
 - **Fuente:** ecommerce-news.es
-- **Fecha:** 10 jun. 2026
-- **Enlace:** https://ecommerce-news.es/amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-acercar-la-digitalizacion-a-las-pymes/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-- **CE relacionados:** RA2b, RA2c, RA2e
+- **Fecha:** 30 jun. 2026
+- **Enlace:** https://ecommerce-news.es/google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemini-a-mas-usuarios-en-estados-unidos/
+- **Módulo:** IA
+- **RA:** RA3
+- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
+- **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.html
-- **Ficha Markdown:** fichas-aula/005-amazon-sellers-en-tu-comunidad-arranca-en-girona-una-iniciativa-para-a.md
+- **Ficha HTML:** fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
+- **Ficha Markdown:** fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
 
 ## Resumen
 
-Amazon ha lanzado una iniciativa llamada ‘Amazon Sellers en tu comunidad’ en Girona, buscando apoyar a los pequeños negocios locales con su presencia en la plataforma. Este proyecto sirve como un ejemplo de cómo grandes *marketplaces* como Amazon están facilitando la digitalización del comercio de proximidad. Para los alumnos, esto subraya que la clave del éxito en el *e-commerce* no solo es tener una tienda online, sino saber cómo conectar el comercio físico tradicional con las herramientas digitales. Así, las empresas pueden ampliar su alcance geográfico y llegar a más clientes sin perder la conexión con su comunidad local.
+Google ha ampliado el acceso gratuito a la generación de imágenes personalizadas con su herramienta Gemini para usuarios en Estados Unidos. Esta función, antes solo disponible para suscriptores de planes avanzados, utiliza inteligencia artificial para crear imágenes únicas según las indicaciones del usuario. En comercio electrónico, esta tecnología puede mejorar la personalización de productos y campañas visuales, facilitando una mejor conexión con los clientes. Además, muestra cómo la IA está transformando la forma de crear contenido digital para marketing online.
 
 ## Vinculación curricular
 
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA2
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA3
 
-**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
+**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 
 ### Criterios de evaluación relacionados
 
-- **RA2b.** Se han definido acciones de captación de clientes enfocadas al comercio electrónico.
-- **RA2c.** Se han identificado los modelos de negocio convencionales y electrónicos existentes en la red.
-- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
+- **RA3a.** Se han identificado las herramientas adecuadas para el diseño.
+- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
+- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
 
 ### Justificación docente
 
-La iniciativa ataca directamente la captación de clientes (RA2b) y la necesidad de definir modelos de negocio (RA2c), poniendo el foco en el proceso logístico y la gestión de pedidos (RA2e) que conectan lo físico con lo digital.
+La noticia trata sobre la generación de imágenes personalizadas mediante IA generativa, vinculándose directamente con el uso de herramientas de IA para diseño y creatividad en marketing.
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
 
 ## Actividad breve
 
-Estudia la noticia «‘Amazon Sellers en tu comunidad’ arranca en Girona, una iniciativa para acercar la digitalización a las pymes» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2b, RA2c, RA2e.
+Analiza la noticia «Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3a, RA3b, RA3c.
 
 ## Conceptos clave
 
-- Tienda virtual
-- Negocio online
-- Captación de clientes
-- Modelos de negocio digital
-- B2B
-- B2C
-- Portal horizontal
-- Catálogo de productos online
-- Escaparate web
-- Catálogo electrónico
+- Branding
+- Diseño asistido por IA
+- Herramientas de IA para diseño
+- Herramientas de IA para branding
+- Identidad de marca
+- Creatividad visual
+- Generación de imágenes con IA
+- Diseño de recursos gráficos
+- Coherencia visual
+- Aplicaciones básicas de IA en diseño
 
 ---
 

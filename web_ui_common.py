@@ -17,6 +17,30 @@ SITE_TITLE = "Comercio Digital"
 SITE_SUBTITLE = "La actualidad del sector para el aula de FP"
 SITE_URL = "https://comerciodigital.net"
 
+MATOMO_TRACKING_CODE = """
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://a.manitasdigital.com/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '4']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript>
+    <img referrerpolicy="no-referrer-when-downgrade"
+         src="https://a.manitasdigital.com/matomo.php?idsite=4&amp;rec=1"
+         style="border:0"
+         alt="" />
+  </noscript>
+  <!-- End Matomo Code -->
+"""
+
 DEFAULT_SECTIONS = [
     {"id": "comercio-electronico", "label": "E-Commerce", "file": "comercio-electronico.html"},
     {"id": "internacional", "label": "Internacional", "file": "internacional.html"},
@@ -64,6 +88,7 @@ def head_html(
   <link rel="canonical" href="{esc_attr(canonical_url)}">
   <link rel="icon" type="image/svg+xml" href="{assets_prefix}assets/favicon.svg">
   <link rel="stylesheet" href="{assets_prefix}assets/style.css">
+{MATOMO_TRACKING_CODE}
 </head>
 <body{body_attr}>"""
 

@@ -69,12 +69,12 @@
     "activo": true
   },
   {
-    "url": "https://www.casares.blog/",
-    "modulo": "WordPress",
+    "url": "https://casares.blog/",
+    "modulo": "",
     "tipo": "noticia",
     "activo": true
   },
-  
+
   {
     "url": "https://prestashop.es/blog",
     "modulo": "PrestaShop",
@@ -92,6 +92,27 @@
     "modulo": "IA para Marketing y Comercio",
     "tipo": "noticia",
     "activo": true
+  },
+  {
+    "url": "https://blog.hubspot.es/marketing/rss.xml",
+    "modulo": "Marketing Digital",
+    "tipo": "articulo",
+    "activo": true,
+    "nota": "Fuente evergreen sobre inbound marketing, SEO, redes sociales, email marketing, CRM y tendencias digitales."
+  },
+  {
+    "url": "https://blog.hubspot.es/sales/rss.xml",
+    "modulo": "Comercio Electrónico",
+    "tipo": "articulo",
+    "activo": false,
+    "nota": "Ventas, CRM, social selling y procesos comerciales. Activar si aporta noticias útiles para CE/CDI."
+  },
+  {
+    "url": "https://blog.hubspot.es/service/rss.xml",
+    "modulo": "Marketing Digital",
+    "tipo": "articulo",
+    "activo": false,
+    "nota": "Atención al cliente, fidelización y experiencia de cliente. Útil pero menos prioritaria."
   },
   {
     "url": "https://www.cyberclick.es/numerical-blog",

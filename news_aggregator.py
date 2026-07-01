@@ -1,6 +1,6 @@
 """
 Agregador de noticias para FP Comercio
-Lee feeds RSS, resume con LLM (Ollama o Claude) y guarda en JSON
+Lee feeds RSS, resume con LLM (Ollama, Claude u OpenAI) y guarda en JSON
 """
 
 import os
@@ -60,10 +60,11 @@ OUTPUT_FILE = NOTICIAS_RESUMIDAS
 
 # ─── LLM: detección automática de proveedor ───────────────────────────────────
 
-LLM_PROVIDER    = os.getenv("LLM_PROVIDER", "ollama").lower()   # "ollama" | "anthropic"
+LLM_PROVIDER    = os.getenv("LLM_PROVIDER", "ollama").lower()   # "ollama" | "anthropic" | "openai"
 CHAT_MODEL      = os.getenv("CHAT_MODEL", "gemma4:latest")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY", "")
+OPENAI_KEY      = os.getenv("OPENAI_API_KEY", "")
 
 # ─── FUNCIONES DE HISTORIAL ───────────────────────────────────────────────────
 
@@ -273,7 +274,7 @@ def resumir_con_anthropic(noticia: dict) -> str:
         import anthropic
         client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=CHAT_MODEL,
             max_tokens=300,
             messages=[{"role": "user", "content": construir_prompt(noticia)}]
         )
@@ -283,20 +284,49 @@ def resumir_con_anthropic(noticia: dict) -> str:
         return ""
 
 
+def resumir_con_openai(noticia: dict) -> str:
+    url = "https://api.openai.com/v1/chat/completions"
+    payload = {
+        "model": CHAT_MODEL,
+        "messages": [{"role": "user", "content": construir_prompt(noticia)}],
+        "max_tokens": 350,
+        "temperature": 0.3,
+    }
+    headers = {
+        "Authorization": f"Bearer {OPENAI_KEY}",
+        "Content-Type": "application/json",
+    }
+    try:
+        r = requests.post(url, headers=headers, json=payload, timeout=60)
+        r.raise_for_status()
+        return r.json()["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        print(f"  ⚠️  Error OpenAI para '{noticia['titulo']}': {e}")
+        return ""
+
+
 def resumir(noticia: dict) -> str:
+    if LLM_PROVIDER == "openai":
+        return resumir_con_openai(noticia)
     if LLM_PROVIDER == "anthropic":
         return resumir_con_anthropic(noticia)
-    return resumir_con_ollama(noticia)
+    if LLM_PROVIDER == "ollama":
+        return resumir_con_ollama(noticia)
+    raise ValueError(f"LLM_PROVIDER no soportado: {LLM_PROVIDER}")
 
 # ─── FUNCIÓN PRINCIPAL ────────────────────────────────────────────────────────
 
 def procesar_noticias():
-    print(f"🧠 Proveedor LLM: {LLM_PROVIDER.upper()}"
-          + (f" → {OLLAMA_BASE_URL}" if LLM_PROVIDER == "ollama" else "")
-          + f"  |  Modelo: {CHAT_MODEL if LLM_PROVIDER == 'ollama' else 'claude-sonnet-4'}\n")
-
     if LLM_PROVIDER == "anthropic" and not ANTHROPIC_KEY:
         raise ValueError("LLM_PROVIDER=anthropic pero ANTHROPIC_API_KEY no está definida en .env")
+    if LLM_PROVIDER == "openai" and not OPENAI_KEY:
+        raise ValueError("LLM_PROVIDER=openai pero OPENAI_API_KEY no está definida en .env")
+    if LLM_PROVIDER not in {"ollama", "anthropic", "openai"}:
+        raise ValueError(f"LLM_PROVIDER no soportado: {LLM_PROVIDER}")
+
+    print(f"🧠 Proveedor LLM: {LLM_PROVIDER.upper()}"
+          + (f" → {OLLAMA_BASE_URL}" if LLM_PROVIDER == "ollama" else "")
+          + f"  |  Modelo: {CHAT_MODEL}\n")
 
     historial = cargar_historial()
     print(f"📚 Historial: {len(historial)} noticias ya procesadas\n")

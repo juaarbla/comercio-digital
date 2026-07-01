@@ -38,6 +38,7 @@ LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").lower()
 CHAT_MODEL = os.getenv("CHAT_MODEL", "gemma4:latest")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+OPENAI_KEY = os.getenv("OPENAI_API_KEY", "")
 
 from paths import NOTICIAS_RESUMIDAS, NOTICIAS_CLASIFICADAS, CACHE_CLASIFICACION
 
@@ -342,7 +343,7 @@ def clasificar_con_anthropic(noticia: dict[str, Any]) -> dict[str, Any] | None:
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
         response = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model=CHAT_MODEL,
             max_tokens=500,
             messages=[{"role": "user", "content": construir_prompt_clasificacion(noticia)}],
         )
@@ -353,10 +354,37 @@ def clasificar_con_anthropic(noticia: dict[str, Any]) -> dict[str, Any] | None:
         return None
 
 
+def clasificar_con_openai(noticia: dict[str, Any]) -> dict[str, Any] | None:
+    url = "https://api.openai.com/v1/chat/completions"
+    payload = {
+        "model": CHAT_MODEL,
+        "response_format": {"type": "json_object"},
+        "messages": [{"role": "user", "content": construir_prompt_clasificacion(noticia)}],
+        "max_tokens": 500,
+        "temperature": 0.2,
+    }
+    headers = {
+        "Authorization": f"Bearer {OPENAI_KEY}",
+        "Content-Type": "application/json",
+    }
+    try:
+        r = requests.post(url, headers=headers, json=payload, timeout=90)
+        r.raise_for_status()
+        texto = r.json()["choices"][0]["message"]["content"].strip()
+        return json.loads(texto)
+    except Exception as e:
+        print(f"  Error OpenAI: {e}")
+        return None
+
+
 def clasificar(noticia: dict[str, Any]) -> dict[str, Any] | None:
+    if LLM_PROVIDER == "openai":
+        return clasificar_con_openai(noticia)
     if LLM_PROVIDER == "anthropic":
         return clasificar_con_anthropic(noticia)
-    return clasificar_con_ollama(noticia)
+    if LLM_PROVIDER == "ollama":
+        return clasificar_con_ollama(noticia)
+    raise ValueError(f"LLM_PROVIDER no soportado: {LLM_PROVIDER}")
 
 
 # ─── APLICAR CLASIFICACIÓN A NOTICIA ──────────────────────────────────────────
@@ -400,7 +428,15 @@ def clasificar_noticias() -> None:
     pendientes = [n for n in noticias if "ra_asignado" not in n]
     ya_clasificadas = [n for n in noticias if "ra_asignado" in n]
 
-    print(f"Proveedor: {LLM_PROVIDER.upper()} | Modelo: {CHAT_MODEL}")
+    if LLM_PROVIDER == "anthropic" and not ANTHROPIC_KEY:
+        raise ValueError("LLM_PROVIDER=anthropic pero ANTHROPIC_API_KEY no está definida en .env")
+    if LLM_PROVIDER == "openai" and not OPENAI_KEY:
+        raise ValueError("LLM_PROVIDER=openai pero OPENAI_API_KEY no está definida en .env")
+    if LLM_PROVIDER not in {"ollama", "anthropic", "openai"}:
+        raise ValueError(f"LLM_PROVIDER no soportado: {LLM_PROVIDER}")
+
+    modelo_mostrado = "claude-sonnet-4-20250514" if LLM_PROVIDER == "anthropic" else CHAT_MODEL
+    print(f"Proveedor: {LLM_PROVIDER.upper()} | Modelo: {modelo_mostrado}")
     print(f"Total noticias: {len(noticias)}")
     print(f"Ya clasificadas: {len(ya_clasificadas)}")
     print(f"Pendientes: {len(pendientes)}\n")

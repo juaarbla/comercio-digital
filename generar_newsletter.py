@@ -503,6 +503,7 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{e(titulo)} - {e(periodo['label'])}</title>
   <meta name="description" content="{e(descripcion)}">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="newsletter-body">
@@ -677,6 +678,7 @@ def render_index() -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Newsletter | Comercio Digital</title>
   <meta name="description" content="Archivo de newsletters docentes de Comercio Digital.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="newsletter-body">

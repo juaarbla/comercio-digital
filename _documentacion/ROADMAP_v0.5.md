@@ -307,3 +307,135 @@ La versión v0.5 se considerará cerrada cuando:
 * La documentación esté actualizada.
 * El repositorio esté limpio.
 * La etiqueta `v0.5` esté creada y subida a GitHub.
+
+---
+
+## Avance ejecutado en v0.5
+
+Durante la fase v0.5 se han completado varias mejoras centradas en control de calidad, seguimiento, trazabilidad y coherencia visual.
+
+### 0.5.1 Informe post-pipeline
+
+Se ha creado `generar_informe_pipeline.py`, un script de solo lectura que genera un informe local en:
+
+```text
+logs/informe_pipeline_YYYY-MM-DD.md
+```
+
+El informe permite revisar:
+
+* Noticias resumidas y clasificadas.
+* Fichas de aula generadas.
+* Newsletters disponibles.
+* Distribución por módulo.
+* Distribución por fuente.
+* Valor docente.
+* Tipo de uso.
+* Alertas editoriales.
+
+### 0.5.2 Integración del informe en la publicación diaria
+
+El informe post-pipeline se ha integrado en `publicar_web_diaria.bat`.
+
+Si el informe falla, la publicación diaria no se bloquea. El error se registra como aviso y el proceso continúa.
+
+### 0.5.3 Resumen Git en el log diario
+
+Se ha añadido al BAT diario un resumen de cambios preparados antes del commit automático:
+
+```powershell
+git status --short
+git diff --cached --stat
+```
+
+Esto mejora la trazabilidad sin romper la automatización existente.
+
+### 0.5.4 Bloque “Última newsletter” en portada
+
+Se ha añadido en la portada un bloque visible y discreto para enlazar la newsletter docente:
+
+```text
+newsletter/index.html
+```
+
+El bloque solo aparece si existe el índice de newsletter.
+
+### 0.5.5 Favicon en newsletter
+
+Se ha corregido la ruta relativa del favicon en las páginas de newsletter:
+
+```html
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+```
+
+La corrección se aplica tanto al índice de newsletters como a las páginas HTML de cada edición.
+
+### 0.5.6 Revisión inicial de fuentes
+
+Se ha actualizado `feeds.json` con cambios orientados a reforzar Marketing Digital, incluyendo la fuente de HubSpot Marketing.
+
+Esta mejora se considera una primera intervención de equilibrio temático, pendiente de validación con ejecuciones posteriores del pipeline.
+
+### 0.5.7 Cabecera, navegación y footer comunes
+
+Se ha creado `web_ui_common.py` para centralizar elementos comunes de interfaz:
+
+* Fecha larga.
+* Cabecera.
+* Navegación.
+* Favicon.
+* Hoja de estilos.
+* Barra de subtítulo.
+* Footer.
+
+Se han adaptado los generadores:
+
+* `generar_web.py`
+* `generar_aula.py`
+* `generar_newsletter.py`
+
+Esto mejora la coherencia visual entre portada, secciones, Aula y Newsletter, y reduce duplicación de código.
+
+## Estado actual de la fase
+
+La fase v0.5 mantiene su objetivo original: mejorar control de calidad, seguimiento, trazabilidad y coherencia editorial sin cambiar la arquitectura principal del agregador.
+
+### Completado
+
+* Roadmap v0.5 creado.
+* Informe post-pipeline creado y probado.
+* Informe post-pipeline integrado en la publicación diaria.
+* Resumen Git de cambios añadido al log diario.
+* Bloque “Última newsletter” añadido a portada.
+* Favicon corregido en newsletter.
+* Fuente HubSpot añadida a `feeds.json`.
+* Cabecera, navegación y footer centralizados en `web_ui_common.py`.
+
+### Pendiente para cierre de v0.5
+
+Antes de etiquetar la versión conviene revisar:
+
+* Una ejecución completa del pipeline diario.
+* Que el informe se genera correctamente en `logs/`.
+* Que `publicacion_diaria.log` recoge el resumen de cambios.
+* Que portada, Aula y Newsletter se ven correctamente en GitHub Pages.
+* Que el repositorio queda limpio tras la ejecución.
+* Que no hay cambios inesperados fuera de `docs/`.
+
+## Decisión técnica
+
+Aunque se ha creado un módulo común de interfaz, esta mejora se considera alineada con v0.5 porque no cambia la arquitectura del agregador ni la lógica de clasificación. Su objetivo es reducir duplicación, mejorar mantenimiento y asegurar coherencia visual.
+
+## Exclusiones mantenidas
+
+Siguen fuera de v0.5:
+
+* Raspberry Pi.
+* Rediseño completo de la web.
+* Base de datos.
+* Panel web de administración.
+* Envío masivo de newsletter.
+* Integración MCP avanzada.
+* Reestructuración profunda del pipeline.
+* Cambios grandes en la arquitectura del proyecto.
+

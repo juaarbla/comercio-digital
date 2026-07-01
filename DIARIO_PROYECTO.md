@@ -1,5 +1,105 @@
 # Diario del Proyecto
 
+## 2026-07-01 — Fase v0.5: control de calidad, seguimiento y coherencia visual
+
+- Problema/objetivo:
+  - Avanzar en la fase v0.5 del agregador `Comercio Digital` sin cambiar su arquitectura principal.
+  - Mejorar el control de calidad, la trazabilidad del pipeline, la revisión editorial y la coherencia visual entre portada, Aula y Newsletter.
+- Causa:
+  - La publicación diaria ya estaba automatizada en Windows mediante el Programador de tareas.
+  - La newsletter quincenal ya funcionaba como salida editorial.
+  - La web había crecido con varias salidas (`index.html`, `aula.html`, `newsletter/`, fichas de aula), pero algunas partes tenían cabeceras y navegación ligeramente diferentes.
+  - La fase v0.5 debía centrarse en observabilidad y mantenimiento, no en rediseño completo.
+- Cambios realizados:
+  - Se crea `_documentacion/ROADMAP_v0.5.md` para definir el alcance de la fase antes de tocar código.
+  - Se crea `generar_informe_pipeline.py`, un script de solo lectura que genera:
+    ```text
+    logs/informe_pipeline_YYYY-MM-DD.md
+    ```
+  - El informe post-pipeline resume:
+    ```text
+    noticias resumidas
+    noticias clasificadas
+    fuentes configuradas
+    fichas HTML/MD generadas
+    newsletters disponibles
+    distribución por módulo
+    distribución por fuente
+    valor docente
+    tipo de uso
+    alertas editoriales
+    ```
+  - Se integra el informe post-pipeline en `publicar_web_diaria.bat`.
+  - Se decide que un fallo del informe no debe bloquear la publicación diaria.
+  - Se añade al BAT diario un resumen Git antes del commit automático:
+    ```powershell
+    git status --short
+    git diff --cached --stat
+    ```
+  - Se añade en portada un bloque “Última newsletter” enlazando a:
+    ```text
+    newsletter/index.html
+    ```
+  - Se corrige el favicon en las páginas de newsletter usando la ruta relativa correcta:
+    ```html
+    ../assets/favicon.svg
+    ```
+  - Se actualiza `feeds.json` para reforzar Marketing Digital, incluyendo HubSpot Marketing.
+  - Se crea `web_ui_common.py` para centralizar elementos comunes de interfaz:
+    ```text
+    fecha larga
+    head HTML
+    favicon
+    hoja de estilos
+    cabecera
+    navegación
+    barra de subtítulo
+    footer
+    ```
+  - Se adaptan `generar_web.py`, `generar_aula.py` y `generar_newsletter.py` para reutilizar los elementos comunes de interfaz.
+- Validación ejecutada:
+  - Se prueba manualmente `generar_informe_pipeline.py`.
+  - Se confirma la generación del informe diario en `logs/`.
+  - Se ejecutan los generadores principales:
+    ```powershell
+    python .\generar_web.py
+    python .\generar_aula.py
+    python .\generar_newsletter.py --force
+    ```
+  - Se revisan visualmente portada, Aula y Newsletter.
+  - Se corrige la diferencia visual en cabeceras y navegación mediante el módulo común.
+  - Se comprueba el estado de Git tras los cambios:
+    ```powershell
+    git status
+    git diff --stat
+    ```
+  - El repositorio queda limpio tras los commits realizados.
+- Decisiones tomadas:
+  - Mantener la automatización diaria actual sin convertirla en un flujo en dos pasos.
+  - Añadir trazabilidad al log diario sin romper el Programador de tareas.
+  - No abordar Raspberry Pi en v0.5.
+  - No crear panel de administración.
+  - No cambiar la arquitectura ni introducir base de datos.
+  - Unificar interfaz con un módulo común, pero sin rediseñar la web.
+- Resultado final:
+  - v0.5.0 cerrada: roadmap creado.
+  - v0.5.1 cerrada: informe post-pipeline creado y probado.
+  - v0.5.2 cerrada: informe integrado en publicación diaria.
+  - v0.5.3 cerrada: resumen Git de cambios añadido al log diario.
+  - v0.5.4 cerrada: bloque “Última newsletter” añadido en portada.
+  - v0.5.5 cerrada: favicon corregido en newsletter.
+  - v0.5.6 cerrada: revisión inicial de fuentes con incorporación de HubSpot Marketing.
+  - v0.5.7 cerrada: cabecera, navegación y footer centralizados en `web_ui_common.py`.
+- Pendientes:
+  - Revisar una ejecución completa del pipeline diario programado.
+  - Confirmar que el informe diario se genera correctamente en una ejecución automática real.
+  - Revisar visualmente la versión publicada en GitHub Pages.
+  - Si todo está correcto, cerrar la fase con etiqueta:
+    ```powershell
+    git tag v0.5
+    git push origin v0.5
+    ```
+
 ## 2026-06-24 — Fase v0.4: newsletter, selección docente y limpieza técnica controlada
 
 - Problema/objetivo:
@@ -50,7 +150,8 @@
   - Se confirma una selección equilibrada con comercio electrónico, digitalización, IA, logística, marketplaces y ciberseguridad.
   - Se ejecuta el pipeline completo:
     ```powershell
-    python .un_pipeline.py
+    python .
+un_pipeline.py
     ```
   - Resultado de la prueba:
     ```text

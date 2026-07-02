@@ -19,34 +19,34 @@
     "md": "fichas-aula/004-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.md",
     "titulo": "eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce"
   },
+  "https://ecommerce-news.es/no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia/": {
+    "html": "fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html",
+    "md": "fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md",
+    "titulo": "«No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»"
+  },
   "https://ecommerce-news.es/google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemini-a-mas-usuarios-en-estados-unidos/": {
-    "html": "fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html",
-    "md": "fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md",
+    "html": "fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html",
+    "md": "fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md",
     "titulo": "Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU."
   },
   "https://ecommerce-news.es/amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-directamente-con-nvidia/": {
-    "html": "fichas-aula/006-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html",
-    "md": "fichas-aula/006-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md",
+    "html": "fichas-aula/007-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html",
+    "md": "fichas-aula/007-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md",
     "titulo": "Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia"
   },
   "https://www.marketingdirecto.com/digital-general/digital/booktok-gran-pantalla-asi-esta-cambiando-tiktok-cine": {
-    "html": "fichas-aula/007-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html",
-    "md": "fichas-aula/007-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.md",
+    "html": "fichas-aula/008-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html",
+    "md": "fichas-aula/008-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.md",
     "titulo": "De #BookTok a la gran pantalla: así está cambiando TikTok el cine"
   },
   "https://www.incibe.es/node/631135": {
-    "html": "fichas-aula/008-cuatro-nuevos-avisos-de-sci.html",
-    "md": "fichas-aula/008-cuatro-nuevos-avisos-de-sci.md",
+    "html": "fichas-aula/009-cuatro-nuevos-avisos-de-sci.html",
+    "md": "fichas-aula/009-cuatro-nuevos-avisos-de-sci.md",
     "titulo": "Cuatro nuevos avisos de SCI"
   },
   "https://www.incibe.es/node/630678": {
-    "html": "fichas-aula/009-tres-nuevos-avisos-de-seguridad.html",
-    "md": "fichas-aula/009-tres-nuevos-avisos-de-seguridad.md",
+    "html": "fichas-aula/010-tres-nuevos-avisos-de-seguridad.html",
+    "md": "fichas-aula/010-tres-nuevos-avisos-de-seguridad.md",
     "titulo": "Tres nuevos avisos de seguridad"
-  },
-  "https://www.incibe.es/node/630677": {
-    "html": "fichas-aula/010-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.html",
-    "md": "fichas-aula/010-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.md",
-    "titulo": "Ejecución remota de código en Backup & Replication de Veeam"
   }
 }

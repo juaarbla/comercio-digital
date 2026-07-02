@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 1 JUL 2026
+Fecha de generación: 2 JUL 2026
 
 ---
 
@@ -230,7 +230,63 @@ Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva soluci�
 
 ---
 
-# 5. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
+# 5. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 1 jul. 2026
+- **Enlace:** https://ecommerce-news.es/no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia/
+- **Módulo:** IA
+- **RA:** RA6
+- **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+- **CE relacionados:** RA6a, RA6b
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
+- **Ficha Markdown:** fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+
+## Resumen
+
+Ferryhopper, una plataforma de reservas de ferries presente en 33 países, ha lanzado la primera app integrada con ChatGPT para facilitar las reservas a través de inteligencia artificial. Su CEO destaca que no buscan convertirse en un sistema que solo funcione como backend para agentes de IA, sino mantener un enfoque directo con el cliente. Esta innovación muestra cómo el comercio electrónico puede aprovechar la inteligencia artificial para mejorar la experiencia de compra y atención al cliente. Es un ejemplo práctico de integración tecnológica en plataformas digitales de venta online.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA6
+
+**RA6.** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+
+### Criterios de evaluación relacionados
+
+- **RA6a.** Se han implementado soluciones de inteligencia artificial para mejorar la experiencia del cliente.
+- **RA6b.** Se han utilizado chatbots para la atención al cliente online. (IA generativa.)
+
+### Justificación docente
+
+La noticia trata sobre la integración de IA generativa (ChatGPT) para mejorar la atención al cliente en comercio electrónico, vinculándose directamente con la implementación de soluciones IA para mejorar la experiencia y el uso de chatbots.
+
+## Pregunta detonadora
+
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+
+## Actividad breve
+
+Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»» como caso de atención al cliente con IA. Diseña un pequeño flujo de conversación: consulta inicial, respuesta del asistente, derivación y cierre. Relaciona el flujo con RA6a, RA6b.
+
+## Conceptos clave
+
+- Atención al cliente
+- Experiencia del cliente
+- IA aplicada a la atención al cliente
+- Chatbots
+- Bots
+- IA generativa
+- IA predictiva
+- Sistemas predictivos
+- Automatización de respuestas
+- Personalización de la atención
+
+---
+
+# 6. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 30 jun. 2026
@@ -240,8 +296,8 @@ Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva soluci�
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
-- **Ficha Markdown:** fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
+- **Ficha HTML:** fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
+- **Ficha Markdown:** fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
 
 ## Resumen
 
@@ -287,7 +343,7 @@ Analiza la noticia «Google ofrece gratis la generación de imágenes personaliz
 
 ---
 
-# 6. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
+# 7. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 19 jun. 2026
@@ -297,8 +353,8 @@ Analiza la noticia «Google ofrece gratis la generación de imágenes personaliz
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
-- **Ficha Markdown:** fichas-aula/006-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
+- **Ficha HTML:** fichas-aula/007-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
+- **Ficha Markdown:** fichas-aula/007-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
 
 ## Resumen
 
@@ -343,7 +399,7 @@ Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para compe
 
 ---
 
-# 7. De #BookTok a la gran pantalla: así está cambiando TikTok el cine
+# 8. De #BookTok a la gran pantalla: así está cambiando TikTok el cine
 
 - **Fuente:** marketingdirecto.com
 - **Fecha:** 6 jun. 2026
@@ -353,8 +409,8 @@ Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para compe
 - **Texto RA:** Gestiona diversos aspectos de las redes sociales con inteligencia artificial.
 - **CE relacionados:** RA4a, RA4b, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html
-- **Ficha Markdown:** fichas-aula/007-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.md
+- **Ficha HTML:** fichas-aula/008-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html
+- **Ficha Markdown:** fichas-aula/008-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.md
 
 ## Resumen
 
@@ -400,7 +456,7 @@ Estudia la noticia «De #BookTok a la gran pantalla: así está cambiando TikTok
 
 ---
 
-# 8. Cuatro nuevos avisos de SCI
+# 9. Cuatro nuevos avisos de SCI
 
 - **Fuente:** incibe.es
 - **Fecha:** 12 jun. 2026
@@ -410,8 +466,8 @@ Estudia la noticia «De #BookTok a la gran pantalla: así está cambiando TikTok
 - **Texto RA:** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
 - **CE relacionados:** RA5i
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/008-cuatro-nuevos-avisos-de-sci.html
-- **Ficha Markdown:** fichas-aula/008-cuatro-nuevos-avisos-de-sci.md
+- **Ficha HTML:** fichas-aula/009-cuatro-nuevos-avisos-de-sci.html
+- **Ficha Markdown:** fichas-aula/009-cuatro-nuevos-avisos-de-sci.md
 
 ## Resumen
 
@@ -455,7 +511,7 @@ Revisa la noticia «Cuatro nuevos avisos de SCI» desde la gestión del dato y l
 
 ---
 
-# 9. Tres nuevos avisos de seguridad
+# 10. Tres nuevos avisos de seguridad
 
 - **Fuente:** incibe.es
 - **Fecha:** 10 jun. 2026
@@ -465,8 +521,8 @@ Revisa la noticia «Cuatro nuevos avisos de SCI» desde la gestión del dato y l
 - **Texto RA:** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
 - **CE relacionados:** RA5g, RA5i
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/009-tres-nuevos-avisos-de-seguridad.html
-- **Ficha Markdown:** fichas-aula/009-tres-nuevos-avisos-de-seguridad.md
+- **Ficha HTML:** fichas-aula/010-tres-nuevos-avisos-de-seguridad.html
+- **Ficha Markdown:** fichas-aula/010-tres-nuevos-avisos-de-seguridad.md
 
 ## Resumen
 
@@ -495,62 +551,6 @@ La noticia subraya la importancia de la ciberseguridad en sistemas fundamentales
 ## Actividad breve
 
 Revisa la noticia «Tres nuevos avisos de seguridad» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5g, RA5i.
-
-## Conceptos clave
-
-- Dato
-- Información
-- Ciclo de vida del dato
-- Big Data
-- Análisis de datos
-- Machine learning
-- Deep learning
-- Inteligencia artificial
-- Almacenamiento de datos
-- Protección de datos
-
----
-
-# 10. Ejecución remota de código en Backup & Replication de Veeam
-
-- **Fuente:** incibe.es
-- **Fecha:** 10 jun. 2026
-- **Enlace:** https://www.incibe.es/node/630677
-- **Módulo:** Digitalización
-- **RA:** RA5
-- **Texto RA:** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
-- **CE relacionados:** RA5i, RA5g
-- **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/010-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.html
-- **Ficha Markdown:** fichas-aula/010-ejecucion-remota-de-codigo-en-backup-replication-de-veeam.md
-
-## Resumen
-
-Se ha detectado una vulnerabilidad de seguridad crítica en el software de copias de seguridad (backups) de Veeam, que podría permitir a un atacante con acceso limitado a la red tomar el control total del sistema. Este fallo es muy grave porque pone en riesgo la integridad de nuestros datos más vitales, como la información de clientes y los registros de ventas. Desde el punto de vista de la digitalización, este caso subraya que la continuidad del negocio depende directamente de la ciberseguridad y la correcta protección de nuestros activos digitales. Por ello, es fundamental que cualquier empresa implemente copias de seguridad robustas y mantenga sus sistemas constantemente actualizados para prevenir este tipo de ataques.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA5
-
-**RA5.** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
-
-### Criterios de evaluación relacionados
-
-- **RA5i.** Se ha valorado la importancia de la seguridad y su regulación en relación con los datos.
-- **RA5g.** Se ha descrito la importancia del cloud computing.
-
-### Justificación docente
-
-La noticia aborda una vulnerabilidad crítica en el manejo de datos de copias de seguridad, lo que obliga a revisar la importancia de la seguridad y la protección de la información en una economía digital.
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
-
-## Actividad breve
-
-Revisa la noticia «Ejecución remota de código en Backup & Replication de Veeam» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i, RA5g.
 
 ## Conceptos clave
 

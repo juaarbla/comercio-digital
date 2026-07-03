@@ -2,7 +2,7 @@
 """
 Genera un informe post-pipeline del agregador Comercio Digital.
 
-v0.5 — Control de calidad y seguimiento
+v0.6 — Observabilidad, diagnóstico de fuentes y preparación para despliegue permanente
 
 Este script no modifica noticias ni publica contenido.
 Solo lee los archivos generados por el pipeline y crea un informe local en logs/.
@@ -12,6 +12,7 @@ import json
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 
 from paths import (
     BASE_DIR,
@@ -24,7 +25,12 @@ from paths import (
 )
 
 
+# ----------------------------------------------------------------------
+# Utilidades generales
+# ----------------------------------------------------------------------
+
 def cargar_json(ruta: Path, valor_defecto):
+    """Carga un JSON. Si no existe o falla la lectura, devuelve valor_defecto."""
     if not ruta.exists():
         return valor_defecto
 
@@ -37,33 +43,185 @@ def cargar_json(ruta: Path, valor_defecto):
 
 
 def contar_por(lista, campo: str) -> Counter:
+    """Cuenta ocurrencias de un campo en una lista de diccionarios."""
     return Counter((item.get(campo) or "(vacío)") for item in lista)
 
 
 def contar_booleano(lista, campo: str) -> int:
+    """Cuenta elementos cuyo campo es exactamente True."""
     return sum(1 for item in lista if item.get(campo) is True)
 
 
 def contar_vacios(lista, campo: str) -> int:
+    """Cuenta elementos sin valor en un campo."""
     return sum(1 for item in lista if not item.get(campo))
 
 
 def contar_listas_vacias(lista, campo: str) -> int:
+    """Cuenta elementos cuyo campo lista está vacío o no existe."""
     return sum(1 for item in lista if not item.get(campo))
 
 
 def listar_ficheros(carpeta: Path, patron: str) -> list[Path]:
+    """Lista ficheros de una carpeta si existe."""
     if not carpeta.exists():
         return []
     return sorted(carpeta.glob(patron))
 
 
 def generar_lineas_counter(counter: Counter) -> list[str]:
+    """Convierte un Counter en líneas Markdown."""
     if not counter:
         return ["- Sin datos"]
 
     return [f"- {clave}: {valor}" for clave, valor in counter.most_common()]
 
+
+def relativo_o_absoluto(ruta: Path) -> str:
+    """Devuelve una ruta relativa a BASE_DIR si es posible."""
+    try:
+        return str(ruta.relative_to(BASE_DIR))
+    except ValueError:
+        return str(ruta)
+
+
+def nombre_fuente(feed: dict) -> str:
+    """
+    Devuelve un nombre legible para una fuente.
+
+    Si en el futuro se añade un campo 'nombre' a feeds.json, se usará.
+    Mientras tanto, se genera a partir de la URL.
+    """
+    if feed.get("nombre"):
+        return str(feed["nombre"])
+
+    url = feed.get("url", "")
+    if not url:
+        return "(sin URL)"
+
+    parsed = urlparse(url)
+    dominio = parsed.netloc.replace("www.", "")
+    path = parsed.path.strip("/")
+
+    if "wp-json" in url:
+        return f"{dominio} · WordPress API"
+
+    if path:
+        return f"{dominio}/{path}"
+
+    return dominio or url
+
+
+def normalizar_texto(valor) -> str:
+    """Normaliza valores vacíos para informes."""
+    if valor is None:
+        return "(vacío)"
+    valor = str(valor).strip()
+    return valor if valor else "(vacío)"
+
+
+# ----------------------------------------------------------------------
+# Diagnóstico de fuentes
+# ----------------------------------------------------------------------
+
+def diagnosticar_fuentes(feeds) -> dict:
+    """
+    Genera diagnóstico básico desde feeds.json.
+
+    No comprueba conexión externa.
+    Solo analiza la configuración declarada.
+    """
+    if not isinstance(feeds, list):
+        return {
+            "disponible": False,
+            "total": 0,
+            "activas": [],
+            "inactivas": [],
+            "activas_sin_modulo": [],
+            "por_tipo_activas": Counter(),
+            "por_modulo_activas": Counter(),
+            "con_nota": [],
+            "con_source": [],
+        }
+
+    activas = [feed for feed in feeds if feed.get("activo") is True]
+    inactivas = [feed for feed in feeds if feed.get("activo") is False]
+    activas_sin_modulo = [
+        feed for feed in activas
+        if not str(feed.get("modulo", "")).strip()
+    ]
+
+    por_tipo_activas = Counter(
+        normalizar_texto(feed.get("tipo"))
+        for feed in activas
+    )
+
+    por_modulo_activas = Counter(
+        normalizar_texto(feed.get("modulo"))
+        for feed in activas
+    )
+
+    con_nota = [feed for feed in feeds if feed.get("nota")]
+    con_source = [feed for feed in feeds if feed.get("source")]
+
+    return {
+        "disponible": True,
+        "total": len(feeds),
+        "activas": activas,
+        "inactivas": inactivas,
+        "activas_sin_modulo": activas_sin_modulo,
+        "por_tipo_activas": por_tipo_activas,
+        "por_modulo_activas": por_modulo_activas,
+        "con_nota": con_nota,
+        "con_source": con_source,
+    }
+
+
+# ----------------------------------------------------------------------
+# Comprobaciones de estado
+# ----------------------------------------------------------------------
+
+def comprobar_archivos_clave() -> dict:
+    """Comprueba la existencia de archivos clave de la web generada."""
+    archivos = {
+        "Portada": DOCS_DIR / "index.html",
+        "Aula": DOCS_DIR / "aula.html",
+        "Índice newsletter": DOCS_DIR / "newsletter" / "index.html",
+        "CSS principal": DOCS_DIR / "assets" / "style.css",
+    }
+
+    return {
+        nombre: {
+            "ruta": ruta,
+            "existe": ruta.exists(),
+        }
+        for nombre, ruta in archivos.items()
+    }
+
+
+def calcular_estado_general(alertas_criticas: list[str], avisos: list[str]) -> str:
+    """Calcula el semáforo general del sistema."""
+    if alertas_criticas:
+        return "ROJO"
+
+    if avisos:
+        return "AMARILLO"
+
+    return "VERDE"
+
+
+def descripcion_estado(estado: str) -> str:
+    """Devuelve una descripción breve del estado general."""
+    if estado == "ROJO":
+        return "Hay incidencias críticas. Conviene revisar antes de considerar correcta la publicación."
+    if estado == "AMARILLO":
+        return "El sistema funciona, pero hay avisos que conviene revisar."
+    return "No se han detectado incidencias relevantes."
+
+
+# ----------------------------------------------------------------------
+# Informe principal
+# ----------------------------------------------------------------------
 
 def generar_informe():
     ahora = datetime.now()
@@ -88,6 +246,10 @@ def generar_informe():
     newsletters_html = listar_ficheros(newsletter_dir, "newsletter-*.html")
     newsletters_md = listar_ficheros(newsletter_dir, "newsletter-*.md")
 
+    ultima_newsletter_html = newsletters_html[-1] if newsletters_html else None
+    ultima_newsletter_md = newsletters_md[-1] if newsletters_md else None
+    newsletter_index = newsletter_dir / "index.html"
+
     por_modulo_original = contar_por(noticias_clasificadas, "modulo")
     por_modulo_asignado = contar_por(noticias_clasificadas, "modulo_asignado")
     por_modulo_relacionado = contar_por(noticias_clasificadas, "modulo_relacionado")
@@ -100,26 +262,55 @@ def generar_informe():
     sin_ra = contar_vacios(noticias_clasificadas, "ra_asignado")
     sin_conceptos = contar_listas_vacias(noticias_clasificadas, "conceptos_clave")
     sin_actividad = contar_vacios(noticias_clasificadas, "actividad_breve")
+    sin_actividad_en_fichas = sum(
+        1 for item in noticias_clasificadas
+        if item.get("generar_ficha") is True and not item.get("actividad_breve")
+    )
 
     generar_ficha = contar_booleano(noticias_clasificadas, "generar_ficha")
     seleccion_newsletter = contar_booleano(noticias_clasificadas, "seleccion_newsletter")
 
-    alertas = []
+    diagnostico_fuentes = diagnosticar_fuentes(feeds)
+    archivos_clave = comprobar_archivos_clave()
+
+    alertas_criticas = []
+    avisos = []
+    recomendaciones = []
+
+    # ------------------------------------------------------------------
+    # Alertas críticas
+    # ------------------------------------------------------------------
 
     if not NOTICIAS_RESUMIDAS.exists():
-        alertas.append(f"No se encuentra {NOTICIAS_RESUMIDAS}")
+        alertas_criticas.append(f"No se encuentra {relativo_o_absoluto(NOTICIAS_RESUMIDAS)}.")
 
     if not NOTICIAS_CLASIFICADAS.exists():
-        alertas.append(f"No se encuentra {NOTICIAS_CLASIFICADAS}")
+        alertas_criticas.append(f"No se encuentra {relativo_o_absoluto(NOTICIAS_CLASIFICADAS)}.")
 
     if total_clasificadas == 0:
-        alertas.append("No hay noticias clasificadas.")
+        alertas_criticas.append("No hay noticias clasificadas.")
+
+    if not archivos_clave["Portada"]["existe"]:
+        alertas_criticas.append("No se encuentra docs/index.html.")
+
+    if not archivos_clave["Aula"]["existe"]:
+        alertas_criticas.append("No se encuentra docs/aula.html.")
+
+    # ------------------------------------------------------------------
+    # Avisos
+    # ------------------------------------------------------------------
 
     if sin_ra > 0:
-        alertas.append(f"Hay {sin_ra} noticia(s) sin RA asignado.")
+        avisos.append(f"Hay {sin_ra} noticia(s) sin RA asignado.")
 
     if sin_conceptos > 0:
-        alertas.append(f"Hay {sin_conceptos} noticia(s) sin conceptos clave.")
+        avisos.append(f"Hay {sin_conceptos} noticia(s) sin conceptos clave.")
+
+    if not archivos_clave["Índice newsletter"]["existe"]:
+        avisos.append("No se encuentra docs/newsletter/index.html.")
+
+    if not archivos_clave["CSS principal"]["existe"]:
+        avisos.append("No se encuentra docs/assets/style.css.")
 
     categorias_minimas = {
         "Comercio Electrónico": 1,
@@ -131,24 +322,45 @@ def generar_informe():
 
     for categoria, minimo in categorias_minimas.items():
         if por_modulo_relacionado.get(categoria, 0) < minimo:
-            alertas.append(f"La categoría {categoria} tiene presencia muy baja o nula.")
+            avisos.append(f"La categoría {categoria} tiene presencia muy baja o nula.")
 
     if por_modulo_relacionado.get("CDI", 0) <= 2:
-        alertas.append("CDI aparece con muy poca presencia. Conviene revisar fuentes específicas.")
+        avisos.append("CDI aparece con muy poca presencia.")
 
     if por_modulo_relacionado.get("Marketing Digital", 0) <= 2:
-        alertas.append("Marketing Digital aparece con muy poca presencia. Conviene revisar fuentes específicas.")
+        avisos.append("Marketing Digital aparece con muy poca presencia.")
 
     if por_fuente:
         fuente_principal, total_fuente_principal = por_fuente.most_common(1)[0]
         if total_clasificadas and total_fuente_principal / total_clasificadas > 0.60:
             porcentaje = round((total_fuente_principal / total_clasificadas) * 100, 1)
-            alertas.append(
+            avisos.append(
                 f"La fuente {fuente_principal} concentra el {porcentaje}% de las noticias."
             )
 
-    if not alertas:
-        alertas.append("No se han detectado alertas relevantes.")
+    # ------------------------------------------------------------------
+    # Recomendaciones
+    # ------------------------------------------------------------------
+
+    if por_modulo_relacionado.get("CDI", 0) <= 2:
+        recomendaciones.append("Revisar fuentes específicas de comercio internacional, aduanas o logística internacional.")
+
+    if por_modulo_relacionado.get("Marketing Digital", 0) <= 2:
+        recomendaciones.append("Revisar fuentes específicas de marketing digital si se mantiene baja presencia.")
+
+    if sin_actividad_en_fichas > 0:
+        recomendaciones.append(
+            f"Revisar {sin_actividad_en_fichas} noticia(s) marcadas para ficha sin actividad breve."
+        )
+
+    if not recomendaciones:
+        recomendaciones.append("No se proponen recomendaciones adicionales.")
+
+    estado_general = calcular_estado_general(alertas_criticas, avisos)
+
+    # ------------------------------------------------------------------
+    # Construcción del informe Markdown
+    # ------------------------------------------------------------------
 
     informe = []
 
@@ -156,16 +368,35 @@ def generar_informe():
     informe.append("")
     informe.append(f"Generado: {ahora.strftime('%Y-%m-%d %H:%M:%S')}")
     informe.append("")
+
+    informe.append("## Estado general del sistema")
+    informe.append("")
+    informe.append(f"- Estado: **{estado_general}**")
+    informe.append(f"- Lectura: {descripcion_estado(estado_general)}")
+    informe.append(f"- Alertas críticas: {len(alertas_criticas)}")
+    informe.append(f"- Avisos: {len(avisos)}")
+    informe.append(f"- Recomendaciones: {len(recomendaciones)}")
+    informe.append("")
+
     informe.append("## Resumen general")
     informe.append("")
     informe.append(f"- Noticias resumidas: {len(noticias_resumidas)}")
     informe.append(f"- Noticias clasificadas: {len(noticias_clasificadas)}")
-    informe.append(f"- Fuentes configuradas: {len(feeds) if isinstance(feeds, list) else 'No disponible'}")
+    informe.append(f"- Fuentes configuradas: {diagnostico_fuentes['total'] if diagnostico_fuentes['disponible'] else 'No disponible'}")
+    informe.append(f"- Fuentes activas: {len(diagnostico_fuentes['activas']) if diagnostico_fuentes['disponible'] else 'No disponible'}")
+    informe.append(f"- Fuentes inactivas: {len(diagnostico_fuentes['inactivas']) if diagnostico_fuentes['disponible'] else 'No disponible'}")
     informe.append(f"- Registros en historial: {len(historial) if hasattr(historial, '__len__') else 'No disponible'}")
     informe.append(f"- Fichas HTML generadas: {len(fichas_html)}")
     informe.append(f"- Fichas MD generadas: {len(fichas_md)}")
     informe.append(f"- Newsletters HTML disponibles: {len(newsletters_html)}")
     informe.append(f"- Newsletters MD disponibles: {len(newsletters_md)}")
+    informe.append("")
+
+    informe.append("## Archivos clave de la web")
+    informe.append("")
+    for nombre, datos in archivos_clave.items():
+        estado_archivo = "OK" if datos["existe"] else "NO ENCONTRADO"
+        informe.append(f"- {nombre}: {estado_archivo} — `{relativo_o_absoluto(datos['ruta'])}`")
     informe.append("")
 
     informe.append("## Calidad docente")
@@ -175,7 +406,55 @@ def generar_informe():
     informe.append(f"- Noticias sin RA asignado: {sin_ra}")
     informe.append(f"- Noticias sin conceptos clave: {sin_conceptos}")
     informe.append(f"- Noticias sin actividad breve: {sin_actividad}")
+    informe.append(f"- Noticias marcadas para ficha sin actividad breve: {sin_actividad_en_fichas}")
     informe.append("")
+
+    informe.append("## Diagnóstico de fuentes")
+    informe.append("")
+    if diagnostico_fuentes["disponible"]:
+        informe.append(f"- Fuentes configuradas: {diagnostico_fuentes['total']}")
+        informe.append(f"- Fuentes activas: {len(diagnostico_fuentes['activas'])}")
+        informe.append(f"- Fuentes inactivas: {len(diagnostico_fuentes['inactivas'])}")
+        informe.append(f"- Fuentes activas sin módulo declarado: {len(diagnostico_fuentes['activas_sin_modulo'])}")
+        informe.append(f"- Fuentes con nota: {len(diagnostico_fuentes['con_nota'])}")
+        informe.append(f"- Fuentes con configuración `source`: {len(diagnostico_fuentes['con_source'])}")
+        informe.append("")
+
+        informe.append("### Fuentes activas por tipo")
+        informe.append("")
+        informe.extend(generar_lineas_counter(diagnostico_fuentes["por_tipo_activas"]))
+        informe.append("")
+
+        informe.append("### Fuentes activas por módulo declarado")
+        informe.append("")
+        informe.extend(generar_lineas_counter(diagnostico_fuentes["por_modulo_activas"]))
+        informe.append("")
+
+        informe.append("### Fuentes activas sin módulo declarado")
+        informe.append("")
+        if diagnostico_fuentes["activas_sin_modulo"]:
+            informe.append("Estas fuentes se consideran transversales o pendientes de clasificación automática. No generan alerta por sí solas.")
+            informe.append("")
+            for feed in diagnostico_fuentes["activas_sin_modulo"]:
+                informe.append(f"- {nombre_fuente(feed)}")
+        else:
+            informe.append("- No hay fuentes activas sin módulo declarado.")
+        informe.append("")
+
+        informe.append("### Fuentes inactivas")
+        informe.append("")
+        if diagnostico_fuentes["inactivas"]:
+            for feed in diagnostico_fuentes["inactivas"]:
+                linea = f"- {nombre_fuente(feed)}"
+                if feed.get("nota"):
+                    linea += f" — {feed.get('nota')}"
+                informe.append(linea)
+        else:
+            informe.append("- No hay fuentes inactivas.")
+        informe.append("")
+    else:
+        informe.append("- No se ha podido analizar feeds.json.")
+        informe.append("")
 
     informe.append("## Distribución por módulo relacionado")
     informe.append("")
@@ -202,12 +481,27 @@ def generar_informe():
     informe.extend(generar_lineas_counter(por_tipo_uso))
     informe.append("")
 
-    informe.append("## Distribución por fuente")
+    informe.append("## Distribución por fuente detectada en noticias")
     informe.append("")
     informe.extend(generar_lineas_counter(por_fuente))
     informe.append("")
 
-    informe.append("## Últimas newsletters detectadas")
+    informe.append("## Última newsletter detectada")
+    informe.append("")
+    if ultima_newsletter_html:
+        informe.append(f"- Última newsletter HTML: `{ultima_newsletter_html.name}`")
+    else:
+        informe.append("- Última newsletter HTML: no detectada.")
+
+    if ultima_newsletter_md:
+        informe.append(f"- Última newsletter MD: `{ultima_newsletter_md.name}`")
+    else:
+        informe.append("- Última newsletter MD: no detectada.")
+
+    informe.append(f"- Índice newsletter: {'detectado' if newsletter_index.exists() else 'no detectado'}")
+    informe.append("")
+
+    informe.append("## Últimas newsletters HTML disponibles")
     informe.append("")
     if newsletters_html:
         for newsletter in newsletters_html[-5:]:
@@ -216,26 +510,48 @@ def generar_informe():
         informe.append("- No se han encontrado newsletters HTML.")
     informe.append("")
 
-    informe.append("## Alertas")
+    informe.append("## Alertas críticas")
     informe.append("")
-    for alerta in alertas:
-        informe.append(f"- {alerta}")
+    if alertas_criticas:
+        for alerta in alertas_criticas:
+            informe.append(f"- {alerta}")
+    else:
+        informe.append("- No se han detectado alertas críticas.")
+    informe.append("")
+
+    informe.append("## Avisos")
+    informe.append("")
+    if avisos:
+        for aviso in avisos:
+            informe.append(f"- {aviso}")
+    else:
+        informe.append("- No se han detectado avisos.")
+    informe.append("")
+
+    informe.append("## Recomendaciones")
+    informe.append("")
+    if recomendaciones:
+        for recomendacion in recomendaciones:
+            informe.append(f"- {recomendacion}")
+    else:
+        informe.append("- No se proponen recomendaciones adicionales.")
     informe.append("")
 
     informe.append("## Archivos revisados")
     informe.append("")
-    informe.append(f"- {NOTICIAS_RESUMIDAS.relative_to(BASE_DIR)}")
-    informe.append(f"- {NOTICIAS_CLASIFICADAS.relative_to(BASE_DIR)}")
-    informe.append(f"- {FEEDS_FILE.relative_to(BASE_DIR)}")
-    informe.append(f"- {HISTORIAL_FILE.relative_to(BASE_DIR)}")
-    informe.append(f"- {(DOCS_DIR / 'fichas-aula').relative_to(BASE_DIR)}")
-    informe.append(f"- {(DOCS_DIR / 'newsletter').relative_to(BASE_DIR)}")
+    informe.append(f"- {relativo_o_absoluto(NOTICIAS_RESUMIDAS)}")
+    informe.append(f"- {relativo_o_absoluto(NOTICIAS_CLASIFICADAS)}")
+    informe.append(f"- {relativo_o_absoluto(FEEDS_FILE)}")
+    informe.append(f"- {relativo_o_absoluto(HISTORIAL_FILE)}")
+    informe.append(f"- {relativo_o_absoluto(DOCS_DIR / 'fichas-aula')}")
+    informe.append(f"- {relativo_o_absoluto(DOCS_DIR / 'newsletter')}")
     informe.append("")
 
     ruta_informe = LOGS_DIR / f"informe_pipeline_{fecha_archivo}.md"
     ruta_informe.write_text("\n".join(informe), encoding="utf-8")
 
     print(f"Informe generado correctamente: {ruta_informe}")
+    print(f"Estado general del sistema: {estado_general}")
 
 
 if __name__ == "__main__":

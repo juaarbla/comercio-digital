@@ -317,7 +317,6 @@ def generar_informe():
         "Digitalización": 1,
         "IA": 1,
         "CDI": 1,
-        "Marketing Digital": 1,
     }
 
     for categoria, minimo in categorias_minimas.items():
@@ -327,15 +326,12 @@ def generar_informe():
     if por_modulo_relacionado.get("CDI", 0) <= 2:
         avisos.append("CDI aparece con muy poca presencia.")
 
-    if por_modulo_relacionado.get("Marketing Digital", 0) <= 2:
-        avisos.append("Marketing Digital aparece con muy poca presencia.")
-
     if por_fuente:
         fuente_principal, total_fuente_principal = por_fuente.most_common(1)[0]
         if total_clasificadas and total_fuente_principal / total_clasificadas > 0.60:
             porcentaje = round((total_fuente_principal / total_clasificadas) * 100, 1)
             avisos.append(
-                f"La fuente {fuente_principal} concentra el {porcentaje}% de las noticias."
+                f"La fuente {fuente_principal} concentra el {porcentaje}% del histórico clasificado."
             )
 
     # ------------------------------------------------------------------
@@ -344,9 +340,6 @@ def generar_informe():
 
     if por_modulo_relacionado.get("CDI", 0) <= 2:
         recomendaciones.append("Revisar fuentes específicas de comercio internacional, aduanas o logística internacional.")
-
-    if por_modulo_relacionado.get("Marketing Digital", 0) <= 2:
-        recomendaciones.append("Revisar fuentes específicas de marketing digital si se mantiene baja presencia.")
 
     if sin_actividad_en_fichas > 0:
         recomendaciones.append(
@@ -469,6 +462,16 @@ def generar_informe():
     informe.append("## Distribución por módulo original")
     informe.append("")
     informe.extend(generar_lineas_counter(por_modulo_original))
+    informe.append("")
+
+    informe.append("## Observación sobre Marketing Digital")
+    informe.append("")
+    marketing_original = por_modulo_original.get("Marketing Digital", 0)
+    marketing_relacionado = por_modulo_relacionado.get("Marketing Digital", 0)
+    informe.append(f"- Noticias con módulo original Marketing Digital: {marketing_original}")
+    informe.append(f"- Noticias con módulo relacionado Marketing Digital: {marketing_relacionado}")
+    informe.append("- Marketing Digital se usa como fuente temática de entrada, pero no como módulo curricular final independiente.")
+    informe.append("- Según las reglas actuales de clasificación, las noticias de origen Marketing Digital se reclasifican normalmente como Comercio Electrónico o IA para Marketing y Comercio.")
     informe.append("")
 
     informe.append("## Distribución por valor docente")

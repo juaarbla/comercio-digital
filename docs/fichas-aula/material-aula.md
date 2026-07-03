@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 2 JUL 2026
+Fecha de generación: 3 JUL 2026
 
 ---
 
@@ -62,7 +62,64 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 
 ---
 
-# 2. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
+# 2. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 2 jul. 2026
+- **Enlace:** https://ecommerce-news.es/marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-las-tendencias-que-transforman-el-ecommerce/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1a, RA1b, RA1g
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/002-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
+- **Ficha Markdown:** fichas-aula/002-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
+
+## Resumen
+
+El Marketplace Summit 2026 reunió a expertos, marcas y plataformas para analizar las tendencias que están transformando el comercio electrónico, como el social commerce y el retail media. Estos conceptos son clave en el módulo de Comercio Electrónico, ya que muestran cómo las redes sociales y la publicidad digital influyen en las ventas online. Además, el evento destacó la importancia de las plataformas digitales para mejorar la experiencia de compra y la visibilidad de los productos. Esto refleja la evolución constante del ecommerce y la necesidad de adaptarse a nuevas estrategias de marketing digital.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se han examinado las características generales y particulares de un plan de marketing digital capaz de alcanzar los objetivos comerciales de la empresa.
+- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+La noticia aborda tendencias de marketing digital como social commerce y retail media, que están transformando el marketing online y la comunicación con el cliente, vinculándose directamente con la planificación y ejecución del plan de marketing digital.
+
+## Pregunta detonadora
+
+¿Cómo puede afectar esta noticia a una pequeña tienda online?
+
+## Actividad breve
+
+Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+
+## Conceptos clave
+
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
+
+---
+
+# 3. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jun. 2026
@@ -72,8 +129,8 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 - **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
 - **CE relacionados:** RA2e, RA2f
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/002-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
-- **Ficha Markdown:** fichas-aula/002-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
+- **Ficha HTML:** fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
+- **Ficha Markdown:** fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
 
 ## Resumen
 
@@ -118,7 +175,7 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 
 ---
 
-# 3. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
+# 4. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 23 jun. 2026
@@ -128,8 +185,8 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 - **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
 - **CE relacionados:** RA2e, RA2b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html
-- **Ficha Markdown:** fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.md
+- **Ficha HTML:** fichas-aula/004-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html
+- **Ficha Markdown:** fichas-aula/004-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.md
 
 ## Resumen
 
@@ -158,62 +215,6 @@ La noticia aborda la logística y el proceso de reparto en el e-commerce, vincul
 ## Actividad breve
 
 Estudia la noticia «JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2b.
-
-## Conceptos clave
-
-- Tienda virtual
-- Negocio online
-- Captación de clientes
-- Modelos de negocio digital
-- B2B
-- B2C
-- Portal horizontal
-- Catálogo de productos online
-- Escaparate web
-- Catálogo electrónico
-
----
-
-# 4. eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 15 jun. 2026
-- **Enlace:** https://ecommerce-news.es/elogistics-connect-2026-moddo-smart-station/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-- **CE relacionados:** RA2e, RA2f
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/004-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.html
-- **Ficha Markdown:** fichas-aula/004-elogistics-connect-2026-moddo-smart-station-nueva-solucion-para-las-de.md
-
-## Resumen
-
-En la feria eLogistics Connect 2026 se presentaron avances clave en la gestión de la logística de e-commerce. Específicamente, la solución MODDO SMART STATION aborda el reto de las devoluciones y envíos de productos comprados por internet. Esta plataforma utiliza inteligencia artificial y tecnología de vídeo para optimizar el proceso logístico, haciéndolo más rápido y eficiente. Para futuros profesionales del comercio, esto demuestra cómo la automatización y la gestión inteligente de la "logística inversa" son cruciales para mejorar la experiencia del cliente y reducir costes en cualquier tienda online.
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA2
-
-**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-
-### Criterios de evaluación relacionados
-
-- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
-- **RA2f.** Se han establecido los medios de pago que se van a utilizar.
-
-### Justificación docente
-
-La noticia aborda directamente el proceso logístico de devoluciones y envíos, que forma parte crucial de la planificación de la gestión de pedidos y el proceso logístico de un negocio online (logística inversa).
-
-## Pregunta detonadora
-
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
-
-## Actividad breve
-
-Estudia la noticia «eLogistics Connect 2026: MODDO SMART STATION, nueva solución para las devoluciones y envíos de ecommerce» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
 
 ## Conceptos clave
 

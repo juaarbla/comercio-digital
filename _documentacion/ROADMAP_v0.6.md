@@ -470,3 +470,121 @@ Tras ejecutar:
 
 ```powershell
 python .\generar_informe_pipeline.py
+
+---
+
+## 18. Segunda mejora implementada: diagnóstico de equilibrio de fuentes y módulos
+
+Se revisa el aviso detectado en el informe post-pipeline sobre baja presencia de Marketing Digital y concentración de noticias procedentes de `ecommerce-news.es`.
+
+Esta mejora forma parte del segundo bloque de la v0.6, centrado en interpretar mejor los datos del informe antes de modificar clasificadores, fuentes o lógica del pipeline.
+
+### Diagnóstico realizado
+
+Se revisan los archivos:
+
+- `noticias_clasificadas.json`;
+- `clasificador_ra.py`;
+- `news_aggregator.py`;
+- `generar_informe_pipeline.py`.
+
+La revisión confirma que Marketing Digital aparece como módulo original en algunas fuentes, pero no funciona como módulo curricular final independiente.
+
+Según las reglas actuales de clasificación, las noticias de origen Marketing Digital se reclasifican normalmente como:
+
+- Comercio Electrónico;
+- IA para Marketing y Comercio.
+
+Por tanto, la baja presencia final de Marketing Digital no es un error técnico ni un problema de clasificación, sino una consecuencia esperada del diseño curricular actual.
+
+También se confirma que la concentración de `ecommerce-news.es` se calcula sobre el histórico clasificado acumulado, no solo sobre la ejecución diaria.
+
+### Interpretación de Marketing Digital
+
+Marketing Digital se mantiene como fuente temática de entrada.
+
+No se considera un módulo curricular final independiente dentro de la clasificación actual.
+
+El informe debe reflejar esta diferencia para evitar falsos avisos.
+
+La lectura correcta es:
+
+```text
+Marketing Digital aporta noticias al sistema.
+Después, esas noticias se asignan curricularmente a Comercio Electrónico o IA para Marketing y Comercio.
+```
+
+### Interpretación de la concentración de fuentes
+
+El aviso sobre `ecommerce-news.es` no indica necesariamente que la última ejecución haya estado desequilibrada.
+
+Indica que, en el histórico acumulado de noticias clasificadas, esa fuente tiene un peso elevado.
+
+Por tanto, el texto del informe debe aclarar que el porcentaje se calcula sobre el histórico clasificado.
+
+### Cambios realizados
+
+Se ajusta `generar_informe_pipeline.py` para:
+
+- eliminar el aviso automático sobre baja presencia de Marketing Digital;
+- eliminar la recomendación automática de revisar fuentes de Marketing Digital;
+- aclarar que la concentración de una fuente se mide sobre el histórico clasificado;
+- añadir una sección específica titulada `Observación sobre Marketing Digital`.
+
+### Criterio adoptado
+
+Marketing Digital se mantiene como fuente temática de entrada, pero no como módulo curricular final independiente.
+
+La baja presencia de Marketing Digital como módulo relacionado no debe generar aviso automático.
+
+La concentración de una fuente debe mantenerse como aviso, pero indicando que se refiere al histórico clasificado.
+
+### Archivos modificados
+
+Se modifica:
+
+- `generar_informe_pipeline.py`.
+
+No se modifican:
+
+- `clasificador_ra.py`;
+- `news_aggregator.py`;
+- `noticias_clasificadas.json`;
+- `feeds.json`.
+
+### Resultado esperado en el informe
+
+El informe post-pipeline debe incluir una sección específica:
+
+```md
+## Observación sobre Marketing Digital
+```
+
+Y debe dejar de mostrar como aviso o recomendación:
+
+```text
+Marketing Digital aparece con muy poca presencia.
+Revisar fuentes específicas de marketing digital si se mantiene baja presencia.
+```
+
+El aviso de concentración de fuente debe quedar formulado como:
+
+```text
+La fuente ecommerce-news.es concentra el 71.7% del histórico clasificado.
+```
+
+### Conclusión
+
+El bloque 2 de v0.6 queda orientado a mejorar la interpretación del informe, no a modificar el clasificador.
+
+La conclusión principal es que no hay fallo técnico:
+
+1. Marketing Digital actúa como fuente temática, no como módulo curricular final.
+2. La concentración de `ecommerce-news.es` afecta al histórico acumulado, no necesariamente a la última ejecución diaria.
+
+La siguiente línea de trabajo recomendada será decidir si conviene crear un diagnóstico temporal que separe:
+
+- histórico acumulado;
+- últimas noticias añadidas;
+- distribución por fuente en la última ejecución;
+- distribución por módulo en la última ejecución.

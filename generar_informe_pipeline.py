@@ -120,6 +120,31 @@ def normalizar_texto(valor) -> str:
     return valor if valor else "(vacío)"
 
 
+def fecha_procesado(item: dict) -> str:
+    """
+    Devuelve la fecha YYYY-MM-DD de procesado_en.
+
+    Se usa para separar el histórico acumulado de la última ejecución detectable.
+    """
+    valor = str(item.get("procesado_en", "")).strip()
+    if len(valor) >= 10:
+        return valor[:10]
+    return ""
+
+
+def obtener_ultima_fecha_procesado(lista: list[dict]) -> str:
+    """Obtiene la fecha más reciente disponible en procesado_en."""
+    fechas = sorted({fecha_procesado(item) for item in lista if fecha_procesado(item)})
+    return fechas[-1] if fechas else ""
+
+
+def filtrar_por_fecha_procesado(lista: list[dict], fecha: str) -> list[dict]:
+    """Filtra elementos cuya fecha procesado_en coincide con fecha."""
+    if not fecha:
+        return []
+    return [item for item in lista if fecha_procesado(item) == fecha]
+
+
 # ----------------------------------------------------------------------
 # Diagnóstico de fuentes
 # ----------------------------------------------------------------------
@@ -257,6 +282,16 @@ def generar_informe():
     por_valor_docente = contar_por(noticias_clasificadas, "valor_docente")
     por_tipo_uso = contar_por(noticias_clasificadas, "tipo_uso")
 
+    ultima_fecha_procesado = obtener_ultima_fecha_procesado(noticias_resumidas)
+    noticias_resumidas_ultima = filtrar_por_fecha_procesado(noticias_resumidas, ultima_fecha_procesado)
+    noticias_clasificadas_ultima = filtrar_por_fecha_procesado(noticias_clasificadas, ultima_fecha_procesado)
+
+    por_modulo_original_ultima = contar_por(noticias_clasificadas_ultima, "modulo")
+    por_modulo_relacionado_ultima = contar_por(noticias_clasificadas_ultima, "modulo_relacionado")
+    por_fuente_ultima = contar_por(noticias_clasificadas_ultima, "fuente_detectada")
+    por_valor_docente_ultima = contar_por(noticias_clasificadas_ultima, "valor_docente")
+    por_tipo_uso_ultima = contar_por(noticias_clasificadas_ultima, "tipo_uso")
+
     total_clasificadas = len(noticias_clasificadas)
 
     sin_ra = contar_vacios(noticias_clasificadas, "ra_asignado")
@@ -269,6 +304,9 @@ def generar_informe():
 
     generar_ficha = contar_booleano(noticias_clasificadas, "generar_ficha")
     seleccion_newsletter = contar_booleano(noticias_clasificadas, "seleccion_newsletter")
+
+    generar_ficha_ultima = contar_booleano(noticias_clasificadas_ultima, "generar_ficha")
+    seleccion_newsletter_ultima = contar_booleano(noticias_clasificadas_ultima, "seleccion_newsletter")
 
     diagnostico_fuentes = diagnosticar_fuentes(feeds)
     archivos_clave = comprobar_archivos_clave()
@@ -334,6 +372,15 @@ def generar_informe():
                 f"La fuente {fuente_principal} concentra el {porcentaje}% del histórico clasificado."
             )
 
+    if por_fuente_ultima:
+        fuente_principal_ultima, total_fuente_principal_ultima = por_fuente_ultima.most_common(1)[0]
+        total_ultima = len(noticias_clasificadas_ultima)
+        if total_ultima and total_fuente_principal_ultima / total_ultima > 0.80:
+            porcentaje_ultima = round((total_fuente_principal_ultima / total_ultima) * 100, 1)
+            avisos.append(
+                f"La fuente {fuente_principal_ultima} concentra el {porcentaje_ultima}% de la última ejecución detectada."
+            )
+
     # ------------------------------------------------------------------
     # Recomendaciones
     # ------------------------------------------------------------------
@@ -383,6 +430,34 @@ def generar_informe():
     informe.append(f"- Fichas MD generadas: {len(fichas_md)}")
     informe.append(f"- Newsletters HTML disponibles: {len(newsletters_html)}")
     informe.append(f"- Newsletters MD disponibles: {len(newsletters_md)}")
+    informe.append("")
+
+    informe.append("## Última ejecución detectada")
+    informe.append("")
+    if ultima_fecha_procesado:
+        informe.append(f"- Fecha detectada por `procesado_en`: {ultima_fecha_procesado}")
+        informe.append(f"- Noticias resumidas en esa fecha: {len(noticias_resumidas_ultima)}")
+        informe.append(f"- Noticias clasificadas en esa fecha: {len(noticias_clasificadas_ultima)}")
+        informe.append(f"- Noticias marcadas para ficha en esa fecha: {generar_ficha_ultima}")
+        informe.append(f"- Noticias marcadas para newsletter en esa fecha: {seleccion_newsletter_ultima}")
+        informe.append("")
+        informe.append("### Fuentes en la última ejecución")
+        informe.append("")
+        informe.extend(generar_lineas_counter(por_fuente_ultima))
+        informe.append("")
+        informe.append("### Módulo relacionado en la última ejecución")
+        informe.append("")
+        informe.extend(generar_lineas_counter(por_modulo_relacionado_ultima))
+        informe.append("")
+        informe.append("### Valor docente en la última ejecución")
+        informe.append("")
+        informe.extend(generar_lineas_counter(por_valor_docente_ultima))
+        informe.append("")
+        informe.append("### Tipo de uso en la última ejecución")
+        informe.append("")
+        informe.extend(generar_lineas_counter(por_tipo_uso_ultima))
+    else:
+        informe.append("- No se ha podido detectar una última ejecución mediante `procesado_en`.")
     informe.append("")
 
     informe.append("## Archivos clave de la web")

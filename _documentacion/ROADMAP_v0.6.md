@@ -588,3 +588,141 @@ La siguiente línea de trabajo recomendada será decidir si conviene crear un di
 - últimas noticias añadidas;
 - distribución por fuente en la última ejecución;
 - distribución por módulo en la última ejecución.
+
+---
+
+## 19. Tercera mejora implementada: separación entre histórico acumulado y última ejecución
+
+Se implementa una mejora en `generar_informe_pipeline.py` para diferenciar los datos acumulados del histórico completo y los datos correspondientes a la última ejecución detectada.
+
+Hasta este punto, el informe post-pipeline mostraba correctamente la distribución general de noticias, fuentes y módulos, pero todos los porcentajes se calculaban sobre el histórico completo de `noticias_clasificadas.json`.
+
+Esto podía generar una duda importante:
+
+```text
+¿La concentración de una fuente es un problema actual o solo arrastre histórico?
+```
+
+### Diagnóstico realizado
+
+Se revisan los archivos:
+
+- `noticias_resumidas.json`;
+- `noticias_clasificadas.json`;
+- `historial.json`;
+- `generar_informe_pipeline.py`.
+
+Los archivos de noticias incluyen el campo `procesado_en`, que permite identificar la fecha en la que una noticia fue resumida y clasificada.
+
+Ese campo se utiliza para detectar la última fecha de ejecución disponible y separar las noticias correspondientes a esa fecha.
+
+### Cambios realizados
+
+Se añaden funciones auxiliares a `generar_informe_pipeline.py`:
+
+```python
+fecha_procesado()
+obtener_ultima_fecha_procesado()
+filtrar_por_fecha_procesado()
+```
+
+Estas funciones permiten:
+
+- extraer la fecha `YYYY-MM-DD` del campo `procesado_en`;
+- detectar la fecha más reciente disponible;
+- filtrar noticias resumidas y clasificadas de esa última fecha.
+
+### Nueva sección del informe
+
+Se añade una nueva sección al informe:
+
+```md
+## Última ejecución detectada
+```
+
+Esta sección muestra:
+
+- fecha detectada mediante `procesado_en`;
+- noticias resumidas en esa fecha;
+- noticias clasificadas en esa fecha;
+- noticias marcadas para ficha en esa fecha;
+- noticias marcadas para newsletter en esa fecha;
+- fuentes presentes en la última ejecución;
+- módulos relacionados en la última ejecución;
+- valor docente de las noticias de la última ejecución;
+- tipo de uso de las noticias de la última ejecución.
+
+### Nuevo aviso de concentración reciente
+
+Además del aviso sobre concentración en el histórico acumulado, se añade un aviso específico para la última ejecución.
+
+Si una fuente concentra más del 80 % de las noticias de la última ejecución, el informe genera un aviso como:
+
+```text
+La fuente ecommerce-news.es concentra el 90.0% de la última ejecución detectada.
+```
+
+### Resultado observado
+
+En la prueba realizada, la última ejecución detectada corresponde a:
+
+```text
+2026-07-03
+```
+
+Resultado observado:
+
+- noticias resumidas en la última ejecución: 10;
+- noticias clasificadas en la última ejecución: 10;
+- fuente principal: `ecommerce-news.es`;
+- concentración de `ecommerce-news.es` en la última ejecución: 90 %;
+- segunda fuente detectada: `blog.hubspot.es`.
+
+### Interpretación
+
+La concentración de `ecommerce-news.es` no es solo un efecto del histórico acumulado.
+
+También aparece en la última ejecución detectada.
+
+Esto no implica necesariamente un fallo técnico, pero sí confirma que el sistema depende mucho de esa fuente para generar volumen diario de noticias.
+
+### Criterio adoptado
+
+Se mantiene el aviso de concentración histórica.
+
+Se añade un aviso separado de concentración en la última ejecución.
+
+De este modo el informe permite distinguir entre:
+
+- desequilibrio acumulado;
+- desequilibrio reciente;
+- funcionamiento técnico correcto.
+
+### Archivos modificados
+
+Se modifica:
+
+- `generar_informe_pipeline.py`.
+
+No se modifican:
+
+- `news_aggregator.py`;
+- `clasificador_ra.py`;
+- `noticias_resumidas.json`;
+- `noticias_clasificadas.json`;
+- `historial.json`;
+- `feeds.json`.
+
+### Conclusión
+
+El bloque 3 de v0.6 mejora la capacidad de diagnóstico temporal del sistema.
+
+A partir de ahora el informe permite saber no solo cómo está el histórico completo, sino también qué ha ocurrido en la última ejecución detectada.
+
+La siguiente línea de trabajo recomendada será revisar si conviene equilibrar las fuentes mediante:
+
+- nuevas fuentes activas;
+- revisión de fuentes inactivas;
+- límites por fuente;
+- diagnóstico diario de fuentes con cero noticias;
+- separación entre fuentes principales y fuentes complementarias.

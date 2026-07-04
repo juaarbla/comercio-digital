@@ -1,5 +1,196 @@
 # Diario del Proyecto
 
+## 2026-07-04 — Fase v0.6: observabilidad avanzada y diagnóstico de fuentes
+
+- Problema/objetivo:
+  - Avanzar en la fase v0.6 del agregador `Comercio Digital` sin cambiar la arquitectura principal.
+  - Mejorar la capacidad del sistema para explicar qué ocurre en cada ejecución.
+  - Diferenciar entre problemas reales del pipeline y avisos derivados de la interpretación de los datos.
+  - Preparar el proyecto para una futura ejecución permanente en Raspberry Pi o servidor, sin realizar todavía la migración.
+
+- Causa:
+  - La fase v0.5 dejó el sistema estable: pipeline diario, newsletter, informe post-pipeline, GitHub Pages y coherencia visual.
+  - El informe diario ya era útil, pero todavía mezclaba varios niveles de análisis:
+    ```text
+    histórico acumulado
+    última ejecución
+    fuentes configuradas
+    fuentes realmente aportadas
+    módulos de origen
+    módulos curriculares finales
+    ```
+  - Algunos avisos podían interpretarse de forma incorrecta, especialmente:
+    ```text
+    Marketing Digital aparece con muy poca presencia.
+    ecommerce-news.es concentra gran parte de las noticias.
+    ```
+  - Era necesario mejorar la observabilidad antes de tocar fuentes, clasificadores o arquitectura.
+
+- Cambios realizados:
+  - Se crea y actualiza `_documentacion/ROADMAP_v0.6.md` como hoja de ruta de la fase.
+  - Se consolida el enfoque de la v0.6:
+    ```text
+    Observabilidad + diagnóstico + preparación para despliegue permanente
+    ```
+  - Se mejora `generar_informe_pipeline.py` para ampliar el informe post-pipeline.
+
+  - Bloque 1: observabilidad inicial del pipeline:
+    - se refuerza el semáforo general:
+      ```text
+      VERDE
+      AMARILLO
+      ROJO
+      ```
+    - se separan:
+      ```text
+      alertas críticas
+      avisos
+      recomendaciones
+      ```
+    - se comprueban archivos clave:
+      ```text
+      docs/index.html
+      docs/aula.html
+      docs/newsletter/index.html
+      docs/assets/style.css
+      ```
+    - se añade diagnóstico básico de fuentes desde `feeds.json`.
+
+  - Bloque 2: diagnóstico de equilibrio de fuentes y módulos:
+    - se revisa la baja presencia de Marketing Digital.
+    - se confirma que Marketing Digital funciona como fuente temática de entrada, no como módulo curricular final independiente.
+    - se elimina el aviso automático sobre baja presencia de Marketing Digital.
+    - se elimina la recomendación automática de revisar fuentes de Marketing Digital.
+    - se añade una sección específica:
+      ```md
+      ## Observación sobre Marketing Digital
+      ```
+    - se aclara que la concentración de una fuente se calcula sobre el histórico clasificado:
+      ```text
+      La fuente ecommerce-news.es concentra el X% del histórico clasificado.
+      ```
+
+  - Bloque 3: separación entre histórico acumulado y última ejecución:
+    - se añaden funciones auxiliares:
+      ```python
+      fecha_procesado()
+      obtener_ultima_fecha_procesado()
+      filtrar_por_fecha_procesado()
+      ```
+    - se utiliza el campo `procesado_en` para detectar la última fecha de ejecución.
+    - se añade la sección:
+      ```md
+      ## Última ejecución detectada
+      ```
+    - el informe muestra ahora:
+      ```text
+      fecha detectada por procesado_en
+      noticias resumidas en esa fecha
+      noticias clasificadas en esa fecha
+      noticias marcadas para ficha
+      noticias marcadas para newsletter
+      fuentes en la última ejecución
+      módulo relacionado en la última ejecución
+      valor docente en la última ejecución
+      tipo de uso en la última ejecución
+      ```
+    - se añade un aviso específico cuando una fuente concentra más del 80 % de la última ejecución.
+
+  - Bloque 4: diagnóstico de aportación de fuentes activas:
+    - se añaden funciones auxiliares:
+      ```python
+      fuente_configurada()
+      diagnosticar_aportacion_fuentes()
+      ```
+    - se cruza la información de:
+      ```text
+      feeds.json
+      fuente_detectada en noticias_clasificadas.json
+      fuente_detectada en la última ejecución
+      ```
+    - se añade la sección:
+      ```md
+      ## Aportación de fuentes activas
+      ```
+    - el informe muestra una tabla con:
+      ```text
+      fuente activa
+      clave usada para el cruce
+      módulo declarado
+      aportación histórica
+      aportación en la última ejecución
+      ```
+    - se añaden indicadores:
+      ```text
+      Fuentes activas sin aportación histórica
+      Fuentes activas sin aportación en la última ejecución
+      ```
+    - se añaden avisos si varias fuentes activas no aportan en la última ejecución.
+    - se añade una recomendación si existen fuentes activas sin aportación histórica.
+
+- Validación ejecutada:
+  - Se revisan los archivos:
+    ```text
+    noticias_resumidas.json
+    noticias_clasificadas.json
+    historial.json
+    generar_informe_pipeline.py
+    ROADMAP_v0.6.md
+    ```
+  - Se confirma que `noticias_resumidas.json` y `noticias_clasificadas.json` contienen el campo `procesado_en`.
+  - Se detecta la última ejecución disponible:
+    ```text
+    2026-07-03
+    ```
+  - Resultado observado en esa última ejecución:
+    ```text
+    noticias resumidas: 10
+    noticias clasificadas: 10
+    ecommerce-news.es: 9
+    blog.hubspot.es: 1
+    ```
+  - Se confirma que la concentración de `ecommerce-news.es` no es solo histórica, sino también reciente.
+  - Se revisa el estado de Git tras los cambios:
+    ```powershell
+    git status
+    ```
+  - El repositorio queda limpio tras los commits realizados.
+
+- Decisiones tomadas:
+  - No modificar `clasificador_ra.py` en esta fase.
+  - No modificar `news_aggregator.py`.
+  - No modificar `noticias_resumidas.json`, `noticias_clasificadas.json` ni `historial.json`.
+  - No modificar todavía `feeds.json`.
+  - Mantener Marketing Digital como fuente temática de entrada, no como módulo curricular final independiente.
+  - Mantener el aviso de concentración histórica de fuentes.
+  - Añadir un aviso separado para concentración en la última ejecución.
+  - Considerar las fuentes activas sin aportación reciente como un aviso, no como un error crítico.
+  - Considerar las fuentes activas sin aportación histórica como candidatas a revisión.
+  - No abordar todavía el despliegue real en Raspberry Pi.
+
+- Resultado final:
+  - v0.6 bloque 1 cerrado: informe post-pipeline con semáforo, avisos, recomendaciones y diagnóstico básico de fuentes.
+  - v0.6 bloque 2 cerrado: diagnóstico de Marketing Digital y concentración histórica de fuentes.
+  - v0.6 bloque 3 cerrado: separación entre histórico acumulado y última ejecución detectada.
+  - v0.6 bloque 4 cerrado: diagnóstico de aportación de fuentes activas.
+  - `_documentacion/ROADMAP_v0.6.md` actualizado hasta la sección 20.
+  - `generar_informe_pipeline.py` ampliado como herramienta principal de observabilidad.
+  - Repositorio limpio tras los commits.
+
+- Pendientes:
+  - Ejecutar el pipeline completo con el informe actualizado.
+  - Revisar el nuevo bloque `Aportación de fuentes activas` en un informe real.
+  - Decidir si se interviene sobre `feeds.json` para:
+    ```text
+    añadir nuevas fuentes
+    reactivar fuentes inactivas
+    corregir claves source
+    aceptar fuentes complementarias
+    equilibrar mejor el origen de noticias
+    ```
+  - Valorar si la v0.6 necesita un último bloque de cierre o si conviene preparar ya la v0.7.
+  - Mantener pendiente la migración real a Raspberry Pi o servidor permanente para una fase posterior.
+
 ## 2026-07-01 — Fase v0.5: control de calidad, seguimiento y coherencia visual
 
 - Problema/objetivo:

@@ -112,6 +112,26 @@ def nombre_fuente(feed: dict) -> str:
     return dominio or url
 
 
+def fuente_configurada(feed: dict) -> str:
+    """
+    Devuelve la clave de fuente esperada para cruzar feeds.json con fuente_detectada.
+
+    Prioriza el campo source si existe. Si no, usa el dominio de la URL.
+    """
+    source = str(feed.get("source", "")).strip()
+    if source:
+        return source.replace("www.", "")
+
+    url = feed.get("url", "")
+    if not url:
+        return "(sin URL)"
+
+    parsed = urlparse(url)
+    dominio = parsed.netloc.replace("www.", "").strip()
+
+    return dominio or url
+
+
 def normalizar_texto(valor) -> str:
     """Normaliza valores vacíos para informes."""
     if valor is None:
@@ -199,6 +219,50 @@ def diagnosticar_fuentes(feeds) -> dict:
         "por_modulo_activas": por_modulo_activas,
         "con_nota": con_nota,
         "con_source": con_source,
+    }
+
+
+def diagnosticar_aportacion_fuentes(feeds, por_fuente: Counter, por_fuente_ultima: Counter) -> dict:
+    """
+    Cruza fuentes activas declaradas en feeds.json con las fuentes detectadas en noticias.
+
+    Sirve para detectar fuentes activas sin aportación histórica o sin aportación reciente.
+    """
+    if not isinstance(feeds, list):
+        return {
+            "disponible": False,
+            "filas": [],
+            "activas_sin_historico": [],
+            "activas_sin_ultima": [],
+        }
+
+    activas = [feed for feed in feeds if feed.get("activo") is True]
+    filas = []
+
+    for feed in activas:
+        clave = fuente_configurada(feed)
+        historico = por_fuente.get(clave, 0)
+        ultima = por_fuente_ultima.get(clave, 0)
+
+        filas.append({
+            "nombre": nombre_fuente(feed),
+            "clave": clave,
+            "modulo": normalizar_texto(feed.get("modulo")),
+            "tipo": normalizar_texto(feed.get("tipo")),
+            "historico": historico,
+            "ultima": ultima,
+        })
+
+    filas.sort(key=lambda item: (item["historico"], item["ultima"], item["nombre"]), reverse=True)
+
+    activas_sin_historico = [fila for fila in filas if fila["historico"] == 0]
+    activas_sin_ultima = [fila for fila in filas if fila["ultima"] == 0]
+
+    return {
+        "disponible": True,
+        "filas": filas,
+        "activas_sin_historico": activas_sin_historico,
+        "activas_sin_ultima": activas_sin_ultima,
     }
 
 
@@ -309,6 +373,11 @@ def generar_informe():
     seleccion_newsletter_ultima = contar_booleano(noticias_clasificadas_ultima, "seleccion_newsletter")
 
     diagnostico_fuentes = diagnosticar_fuentes(feeds)
+    diagnostico_aportacion_fuentes = diagnosticar_aportacion_fuentes(
+        feeds,
+        por_fuente,
+        por_fuente_ultima,
+    )
     archivos_clave = comprobar_archivos_clave()
 
     alertas_criticas = []
@@ -381,6 +450,16 @@ def generar_informe():
                 f"La fuente {fuente_principal_ultima} concentra el {porcentaje_ultima}% de la última ejecución detectada."
             )
 
+    if diagnostico_aportacion_fuentes["disponible"]:
+        total_activas_sin_ultima = len(diagnostico_aportacion_fuentes["activas_sin_ultima"])
+        total_activas = len(diagnostico_aportacion_fuentes["filas"])
+        if total_activas and total_activas_sin_ultima == total_activas:
+            avisos.append("Ninguna fuente activa aparece en la última ejecución detectada.")
+        elif total_activas_sin_ultima >= 3:
+            avisos.append(
+                f"Hay {total_activas_sin_ultima} fuente(s) activa(s) sin aportación en la última ejecución detectada."
+            )
+
     # ------------------------------------------------------------------
     # Recomendaciones
     # ------------------------------------------------------------------
@@ -391,6 +470,11 @@ def generar_informe():
     if sin_actividad_en_fichas > 0:
         recomendaciones.append(
             f"Revisar {sin_actividad_en_fichas} noticia(s) marcadas para ficha sin actividad breve."
+        )
+
+    if diagnostico_aportacion_fuentes["disponible"] and diagnostico_aportacion_fuentes["activas_sin_historico"]:
+        recomendaciones.append(
+            "Revisar fuentes activas sin aportación histórica: pueden estar mal configuradas, ser transversales o no haber generado noticias útiles todavía."
         )
 
     if not recomendaciones:
@@ -523,6 +607,42 @@ def generar_informe():
     else:
         informe.append("- No se ha podido analizar feeds.json.")
         informe.append("")
+
+    informe.append("## Aportación de fuentes activas")
+    informe.append("")
+    if diagnostico_aportacion_fuentes["disponible"]:
+        informe.append("Cruce entre fuentes activas declaradas en `feeds.json` y noticias detectadas en el histórico y en la última ejecución.")
+        informe.append("")
+        informe.append("| Fuente activa | Clave | Módulo | Histórico | Última ejecución |")
+        informe.append("|---|---|---|---:|---:|")
+        for fila in diagnostico_aportacion_fuentes["filas"]:
+            informe.append(
+                f"| {fila['nombre']} | `{fila['clave']}` | {fila['modulo']} | {fila['historico']} | {fila['ultima']} |"
+            )
+        informe.append("")
+        informe.append(f"- Fuentes activas sin aportación histórica: {len(diagnostico_aportacion_fuentes['activas_sin_historico'])}")
+        informe.append(f"- Fuentes activas sin aportación en la última ejecución: {len(diagnostico_aportacion_fuentes['activas_sin_ultima'])}")
+        informe.append("")
+
+        informe.append("### Fuentes activas sin aportación histórica")
+        informe.append("")
+        if diagnostico_aportacion_fuentes["activas_sin_historico"]:
+            for fila in diagnostico_aportacion_fuentes["activas_sin_historico"]:
+                informe.append(f"- {fila['nombre']} — clave `{fila['clave']}`")
+        else:
+            informe.append("- No hay fuentes activas sin aportación histórica.")
+        informe.append("")
+
+        informe.append("### Fuentes activas sin aportación en la última ejecución")
+        informe.append("")
+        if diagnostico_aportacion_fuentes["activas_sin_ultima"]:
+            for fila in diagnostico_aportacion_fuentes["activas_sin_ultima"]:
+                informe.append(f"- {fila['nombre']} — clave `{fila['clave']}`")
+        else:
+            informe.append("- Todas las fuentes activas aportaron noticias en la última ejecución detectada.")
+    else:
+        informe.append("- No se ha podido cruzar la aportación de fuentes activas.")
+    informe.append("")
 
     informe.append("## Distribución por módulo relacionado")
     informe.append("")

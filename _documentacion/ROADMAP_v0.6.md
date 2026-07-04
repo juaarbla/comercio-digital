@@ -726,3 +726,165 @@ La siguiente línea de trabajo recomendada será revisar si conviene equilibrar 
 - límites por fuente;
 - diagnóstico diario de fuentes con cero noticias;
 - separación entre fuentes principales y fuentes complementarias.
+
+---
+
+## 20. Cuarta mejora implementada: diagnóstico de aportación de fuentes activas
+
+Se implementa una mejora en `generar_informe_pipeline.py` para analizar la aportación real de las fuentes activas configuradas en `feeds.json`.
+
+Hasta este punto, el informe permitía saber qué fuente concentraba más noticias en el histórico y en la última ejecución detectada.
+
+Sin embargo, todavía faltaba responder una pregunta importante:
+
+```text
+¿Qué fuentes activas están aportando noticias y cuáles no?
+```
+
+Esta mejora cruza la configuración de fuentes activas con las noticias realmente detectadas.
+
+### Diagnóstico realizado
+
+Se revisan los archivos:
+
+- `feeds.json`;
+- `noticias_clasificadas.json`;
+- `generar_informe_pipeline.py`.
+
+La revisión confirma que el informe ya podía contar noticias por `fuente_detectada`, pero no cruzaba esa información con las fuentes declaradas como activas en `feeds.json`.
+
+Por tanto, una fuente podía estar activa en configuración pero no aparecer en el histórico ni en la última ejecución.
+
+### Cambios realizados
+
+Se añaden nuevas funciones auxiliares a `generar_informe_pipeline.py`:
+
+```python
+fuente_configurada()
+diagnosticar_aportacion_fuentes()
+```
+
+La función `fuente_configurada()` obtiene una clave de fuente esperada a partir de:
+
+1. el campo `source`, si existe;
+2. el dominio de la URL, si no existe `source`.
+
+La función `diagnosticar_aportacion_fuentes()` cruza:
+
+- fuentes activas declaradas en `feeds.json`;
+- noticias detectadas en el histórico;
+- noticias detectadas en la última ejecución.
+
+### Nueva sección del informe
+
+Se añade una nueva sección:
+
+```md
+## Aportación de fuentes activas
+```
+
+Esta sección muestra una tabla con:
+
+- fuente activa;
+- clave utilizada para el cruce;
+- módulo declarado;
+- número de noticias aportadas al histórico;
+- número de noticias aportadas en la última ejecución detectada.
+
+Ejemplo de lectura esperada:
+
+```md
+| Fuente activa | Clave | Módulo | Histórico | Última ejecución |
+|---|---|---|---:|---:|
+| ecommerce-news.es/... | ecommerce-news.es | Comercio Electrónico | 177 | 9 |
+| blog.hubspot.es/... | blog.hubspot.es | Marketing Digital | 4 | 1 |
+```
+
+### Nuevos indicadores
+
+El informe añade dos indicadores:
+
+```text
+Fuentes activas sin aportación histórica
+Fuentes activas sin aportación en la última ejecución
+```
+
+Estos indicadores permiten diferenciar entre:
+
+- fuentes que no han aportado nunca;
+- fuentes que sí han aportado históricamente, pero no en la última ejecución;
+- fuentes que aportan de forma regular;
+- fuentes activas configuradas pero posiblemente mal enlazadas.
+
+### Nuevos avisos
+
+Si varias fuentes activas no aportan noticias en la última ejecución, el informe genera un aviso:
+
+```text
+Hay X fuente(s) activa(s) sin aportación en la última ejecución detectada.
+```
+
+Si ninguna fuente activa aparece en la última ejecución detectada, el informe genera un aviso más fuerte:
+
+```text
+Ninguna fuente activa aparece en la última ejecución detectada.
+```
+
+### Nueva recomendación
+
+Si existen fuentes activas sin aportación histórica, el informe añade una recomendación:
+
+```text
+Revisar fuentes activas sin aportación histórica: pueden estar mal configuradas, ser transversales o no haber generado noticias útiles todavía.
+```
+
+### Criterio adoptado
+
+Una fuente activa sin aportación en una ejecución concreta no se considera automáticamente un error.
+
+Puede deberse a:
+
+- ausencia de novedades;
+- poca frecuencia de publicación;
+- fuente transversal;
+- feed activo pero sin entradas recientes;
+- configuración pendiente de ajuste.
+
+Una fuente activa sin aportación histórica sí merece revisión, porque puede indicar:
+
+- problema de configuración;
+- clave `source` no alineada con `fuente_detectada`;
+- feed inactivo aunque esté marcado como activo;
+- fuente poco útil para el objetivo docente.
+
+### Archivos modificados
+
+Se modifica:
+
+- `generar_informe_pipeline.py`.
+
+No se modifican:
+
+- `feeds.json`;
+- `news_aggregator.py`;
+- `clasificador_ra.py`;
+- `noticias_resumidas.json`;
+- `noticias_clasificadas.json`;
+- `historial.json`.
+
+### Conclusión
+
+El bloque 4 de v0.6 mejora el diagnóstico de fuentes.
+
+A partir de ahora el informe no solo indica qué fuente domina el histórico o la última ejecución, sino también qué fuentes activas están aportando realmente noticias al sistema.
+
+Esto permitirá decidir con más criterio si conviene:
+
+- añadir nuevas fuentes;
+- reactivar fuentes inactivas;
+- corregir fuentes activas sin aportación;
+- ajustar claves `source`;
+- aceptar que algunas fuentes sean complementarias;
+- equilibrar mejor el origen de las noticias.
+
+La siguiente línea de trabajo recomendada será revisar el resultado del informe tras ejecutar el pipeline y decidir si se interviene sobre `feeds.json` o si se mantiene la configuración actual.

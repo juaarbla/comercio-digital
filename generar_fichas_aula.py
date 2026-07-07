@@ -20,6 +20,7 @@ from pathlib import Path
 from datetime import datetime
 
 from paths import NOTICIAS_CLASIFICADAS
+from schema_utils import insertar_jsonld, schema_ficha_aula_basico
 
 
 def fecha_corta():
@@ -325,7 +326,7 @@ def nav_html():
     return "\n".join(items)
 
 
-def render_html(n, md_file):
+def render_html(n, md_file, html_file=None):
     titulo = h(n.get("titulo") or "Sin título")
     url = h(n.get("url") or "#")
     resumen = h(n.get("resumen") or "")
@@ -337,7 +338,7 @@ def render_html(n, md_file):
     if img:
         imagen_html = f'<div class="lead-img"><img src="{img}" alt=""></div>'
 
-    return f"""<!doctype html>
+    html_doc = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -434,6 +435,14 @@ def render_html(n, md_file):
 </body>
 </html>
 """
+    if html_file:
+        schema_url = f"fichas-aula/{html_file}"
+        html_doc = insertar_jsonld(
+            html_doc,
+            schema_ficha_aula_basico(n, schema_url),
+            reemplazar_existente=True,
+        )
+    return html_doc
 
 
 def render_material_aula_md(seleccionadas, indice_archivos):
@@ -527,7 +536,7 @@ def main():
         md_file = f"{base}.md"
 
         (salida / md_file).write_text(render_md(n), encoding="utf-8")
-        (salida / html_file).write_text(render_html(n, md_file), encoding="utf-8")
+        (salida / html_file).write_text(render_html(n, md_file, html_file), encoding="utf-8")
 
         clave = n.get("url") or n.get("titulo") or base
         indice[clave] = {

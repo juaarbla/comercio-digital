@@ -1,173 +1,126 @@
-# Actualización ROADMAP v0.7 · Bloque 4b
+# ROADMAP v0.7 · Actualización Bloque 6
 
-## Bloque 4b · Schema básico en páginas principales
+## Decisión previa · Article / NewsArticle
+
+Estado: documentado.
+
+Se decide no implementar `Article` ni `NewsArticle` sobre las noticias externas enlazadas por el agregador.
+
+Motivo:
+
+```text
+Comercio Digital no es la fuente original de esas noticias.
+El sitio actúa como agregador educativo, curador y generador de materiales docentes.
+```
+
+En su lugar, se prioriza:
+
+```text
+CollectionPage para páginas de listado
+ItemList si más adelante se enriquecen listados
+LearningResource para fichas de aula
+```
+
+---
+
+## Bloque 6 · Schema educativo para fichas de aula
 
 Estado: preparado para implementación.
 
 ### Objetivo
 
-Extender la integración de datos estructurados JSON-LD, iniciada en la portada, a las páginas principales de primer nivel del agregador.
-
-Esta ampliación mantiene el enfoque controlado de la v0.7:
+Añadir datos estructurados JSON-LD a las fichas docentes generadas en:
 
 ```text
-no modifica la arquitectura del pipeline
-no rediseña la web
-no cambia feeds.json
-no toca clasificación RA/CE
-no procesa todavía subcarpetas
+docs/fichas-aula/*.html
 ```
 
-### Páginas incluidas
+### Tipo Schema principal
 
 ```text
-docs/index.html
-docs/comercio-electronico.html
-docs/internacional.html
-docs/digitalizacion.html
-docs/ia-marketing.html
-docs/aula.html
-docs/del-autor.html
-docs/otros.html si existe
-docs/marketing.html si existe
+LearningResource
 ```
 
-### Páginas excluidas en este bloque
+### Justificación
 
-```text
-docs/comercio-electronico-p*.html
-docs/digitalizacion-p*.html
-docs/ia-marketing-p*.html
-docs/newsletter/
-docs/fichas-aula/
-```
+Las fichas de aula sí son contenido educativo propio generado por el proyecto. Por tanto, es más adecuado describirlas como recursos de aprendizaje que marcar las noticias externas como artículos propios.
 
-Motivo:
-
-```text
-las páginas paginadas, newsletter y fichas requieren decisiones específicas sobre canonical, sitemap, rutas relativas y tipo de schema.
-```
-
-### Schemas aplicados
-
-En portada:
-
-```text
-Organization
-WebSite
-CollectionPage
-```
-
-En páginas principales de sección y Aula:
-
-```text
-Organization
-WebSite
-CollectionPage
-```
-
-En Del Autor:
-
-```text
-Organization
-WebSite
-WebPage
-```
-
-### Archivos modificados
+### Archivos implicados
 
 ```text
 schema_utils.py
-generar_seo.py
+generar_fichas_aula.py
+docs/fichas-aula/*.html
 ```
 
-### Cambios previstos en schema_utils.py
+### Cambios previstos
 
-Se añade la función:
-
-```python
-def schema_pagina_principal_basico(title, description, url, page_type="CollectionPage"):
-    ...
-```
-
-Esta función devuelve un conjunto de schemas compuesto por:
+En `schema_utils.py`:
 
 ```text
-Organization
-WebSite
-WebPage o CollectionPage
+- Añadir schema_learning_resource()
+- Añadir schema_ficha_aula_basico()
 ```
 
-### Cambios previstos en generar_seo.py
+En `generar_fichas_aula.py`:
 
-Se añade un conjunto controlado de páginas principales:
-
-```python
-PAGINAS_SCHEMA_PRINCIPALES = {
-    "index.html": "CollectionPage",
-    "comercio-electronico.html": "CollectionPage",
-    "internacional.html": "CollectionPage",
-    "digitalizacion.html": "CollectionPage",
-    "ia-marketing.html": "CollectionPage",
-    "marketing.html": "CollectionPage",
-    "aula.html": "CollectionPage",
-    "del-autor.html": "WebPage",
-    "otros.html": "CollectionPage",
-}
+```text
+- Importar insertar_jsonld y schema_ficha_aula_basico
+- Pasar el nombre del HTML generado a render_html()
+- Insertar JSON-LD antes de </head> en cada ficha
 ```
 
-También se añade una función auxiliar:
+### Datos usados en LearningResource
 
-```python
-def schema_para_html(nombre, title, description, canonical):
-    ...
+```text
+titulo
+resumen
+url de ficha
+módulo relacionado
+RA asignado
+RA texto si existe
+tipo de uso
+actividad breve
+pregunta detonadora
+conceptos clave
+fuente original como isBasedOn
+nivel educativo: Formación Profesional
 ```
 
-### Validación prevista
+### Fuera de alcance en este bloque
+
+```text
+newsletter
+sitemap recursivo
+canonical en subcarpetas
+Open Graph en fichas
+NewsArticle
+Article para noticias externas
+```
+
+### Validación
 
 Ejecutar:
 
 ```powershell
-python .\generar_seo.py
+python .\generar_fichas_aula.py
 ```
 
-Verificar JSON-LD en portada:
+Comprobar:
 
 ```powershell
-Select-String -Path .\docs\index.html -Pattern "application/ld+json","Organization","WebSite","CollectionPage"
+Select-String -Path .\docs\fichas-aula\*.html -Pattern "application/ld+json","LearningResource"
 ```
 
-Verificar JSON-LD en páginas principales:
+Comprobar una ficha concreta:
 
 ```powershell
-Select-String -Path .\docs\comercio-electronico.html -Pattern "application/ld+json","CollectionPage"
-Select-String -Path .\docs\internacional.html -Pattern "application/ld+json","CollectionPage"
-Select-String -Path .\docs\digitalizacion.html -Pattern "application/ld+json","CollectionPage"
-Select-String -Path .\docs\ia-marketing.html -Pattern "application/ld+json","CollectionPage"
-Select-String -Path .\docs\aula.html -Pattern "application/ld+json","CollectionPage"
-Select-String -Path .\docs\del-autor.html -Pattern "application/ld+json","WebPage"
-```
-
-Comprobar que no se ha aplicado a paginadas:
-
-```powershell
-Select-String -Path .\docs\comercio-electronico-p2.html -Pattern "application/ld+json"
+Select-String -Path .\docs\fichas-aula\001*.html -Pattern "LearningResource","educationalLevel","learningResourceType","isBasedOn"
 ```
 
 Resultado esperado:
 
 ```text
-sin resultados en páginas paginadas
-```
-
-### Criterios de cierre del bloque
-
-```text
-- generar_seo.py ejecuta sin errores.
-- docs/index.html mantiene Organization, WebSite y CollectionPage.
-- páginas principales contienen JSON-LD básico.
-- páginas paginadas no reciben JSON-LD todavía.
-- newsletter y fichas quedan fuera del bloque.
-- pipeline sigue ejecutable.
-- repositorio queda limpio tras commit.
+Cada ficha HTML contiene un bloque JSON-LD con LearningResource.
+No se modifican newsletter ni páginas paginadas.
 ```

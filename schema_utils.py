@@ -18,6 +18,7 @@ Incluye:
 - CollectionPage
 - ItemList
 - conjuntos básicos para portada y páginas principales
+- LearningResource para fichas de aula
 """
 
 from __future__ import annotations
@@ -302,6 +303,113 @@ def schema_pagina_principal_basico(
         schema_organization(),
         schema_website(),
         pagina,
+    ]
+
+
+def _conceptos_desde_valor(value: Any) -> list[str]:
+    """Normaliza conceptos/keywords desde lista o cadena."""
+    if isinstance(value, list):
+        return [str(v).strip() for v in value if str(v).strip()]
+    if isinstance(value, str):
+        return [v.strip() for v in value.split(",") if v.strip()]
+    return []
+
+
+def schema_learning_resource(
+    ficha: dict[str, Any],
+    url: str,
+    *,
+    html_file: str | None = None,
+) -> dict[str, Any]:
+    """Schema LearningResource para una ficha de aula.
+
+    Describe contenido educativo propio generado por Comercio Digital.
+    No marca la noticia original como NewsArticle.
+    """
+    titulo = ficha.get("titulo") or ficha.get("title") or "Ficha docente"
+    resumen = ficha.get("resumen") or ficha.get("resumen_docente") or ""
+    modulo = (
+        ficha.get("modulo_relacionado")
+        or ficha.get("modulo_asignado")
+        or ficha.get("modulo")
+        or "Formación Profesional"
+    )
+    ra = ficha.get("ra_asignado") or ""
+    ra_texto = ficha.get("ra_texto") or ""
+    tipo = ficha.get("tipo_uso") or "Ficha docente"
+    actividad = ficha.get("actividad_breve") or ""
+    pregunta = ficha.get("pregunta_aula") or ""
+    conceptos = _conceptos_desde_valor(ficha.get("conceptos_clave"))
+    keywords = [modulo, ra, tipo] + conceptos
+
+    is_based_on = ficha.get("url") or ficha.get("link") or ficha.get("enlace") or ""
+
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "LearningResource",
+        "@id": f"{absolute_url(url)}#learningresource",
+        "name": titulo,
+        "headline": titulo,
+        "description": resumen,
+        "url": absolute_url(url),
+        "inLanguage": "es",
+        "isAccessibleForFree": True,
+        "learningResourceType": tipo,
+        "educationalLevel": "Formación Profesional",
+        "educationalUse": "Uso en el aula",
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student",
+        },
+        "creator": {
+            "@id": absolute_url("/#organization"),
+        },
+        "publisher": {
+            "@id": absolute_url("/#organization"),
+        },
+        "isPartOf": {
+            "@id": absolute_url("/aula.html#webpage"),
+        },
+        "about": conceptos[:10],
+        "keywords": ", ".join([k for k in keywords if k]),
+        "teaches": [x for x in [modulo, ra, ra_texto] if x],
+        "abstract": resumen,
+        "text": actividad,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": f"{absolute_url(url)}#webpage",
+        },
+        "isBasedOn": is_based_on,
+    }
+
+    if pregunta:
+        schema["educationalAlignment"] = {
+            "@type": "AlignmentObject",
+            "alignmentType": "educationalSubject",
+            "targetName": pregunta,
+        }
+
+    return limpiar_schema(schema)
+
+
+def schema_ficha_aula_basico(
+    ficha: dict[str, Any],
+    url: str,
+) -> list[dict[str, Any]]:
+    """Conjunto básico para una ficha de aula."""
+    titulo = ficha.get("titulo") or ficha.get("title") or "Ficha docente"
+    resumen = ficha.get("resumen") or ficha.get("resumen_docente") or "Ficha docente para trabajar una noticia de comercio digital en clase."
+
+    return [
+        schema_organization(),
+        schema_website(),
+        schema_webpage(
+            f"{titulo} · Ficha docente · Comercio Digital",
+            resumen,
+            url,
+            page_type="WebPage",
+        ),
+        schema_learning_resource(ficha, url),
     ]
 
 

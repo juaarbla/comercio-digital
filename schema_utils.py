@@ -19,6 +19,7 @@ Incluye:
 - ItemList
 - conjuntos básicos para portada y páginas principales
 - LearningResource para fichas de aula
+- CollectionPage e ItemList para newsletter
 """
 
 from __future__ import annotations
@@ -410,6 +411,109 @@ def schema_ficha_aula_basico(
             page_type="WebPage",
         ),
         schema_learning_resource(ficha, url),
+    ]
+
+
+
+def _newsletter_item(noticia: dict[str, Any], position: int) -> dict[str, Any]:
+    """Elemento de listado para una noticia enlazada desde newsletter.
+
+    No declara la noticia como Article/NewsArticle propio.
+    """
+    titulo = noticia.get("titulo") or noticia.get("title") or "Noticia seleccionada"
+    url = noticia.get("url") or noticia.get("link") or noticia.get("enlace") or ""
+    resumen = (
+        noticia.get("resumen_docente")
+        or noticia.get("resumen")
+        or noticia.get("summary")
+        or noticia.get("descripcion")
+        or noticia.get("description")
+        or ""
+    )
+    modulo = (
+        noticia.get("modulo_relacionado")
+        or noticia.get("módulo_relacionado")
+        or noticia.get("modulo")
+        or noticia.get("categoria")
+        or ""
+    )
+
+    return limpiar_schema({
+        "@type": "ListItem",
+        "position": position,
+        "name": titulo,
+        "url": url,
+        "description": resumen,
+        "about": modulo,
+    })
+
+
+def schema_newsletter_index(ediciones: list[dict[str, Any]], url: str = "/newsletter/") -> list[dict[str, Any]]:
+    """Schema básico para el índice de newsletters."""
+    items = []
+    for i, edicion in enumerate(ediciones, 1):
+        name = edicion.get("name") or edicion.get("title") or "Newsletter"
+        href = edicion.get("url") or edicion.get("href") or ""
+        description = edicion.get("description") or "Edición de la newsletter docente de Comercio Digital."
+        items.append(limpiar_schema({
+            "@type": "ListItem",
+            "position": i,
+            "name": name,
+            "url": absolute_url(href),
+            "description": description,
+        }))
+
+    page_url = absolute_url(url)
+
+    return [
+        schema_organization(),
+        schema_website(),
+        schema_collection_page(
+            "Newsletter · Comercio Digital",
+            "Archivo de newsletters docentes de Comercio Digital.",
+            page_url,
+            items=items,
+        ),
+    ]
+
+
+def schema_newsletter_issue(
+    noticias: list[dict[str, Any]],
+    periodo: dict[str, str],
+    periodicidad: str,
+    url: str,
+) -> list[dict[str, Any]]:
+    """Schema CollectionPage + ItemList para una edición de newsletter.
+
+    La edición se describe como colección de enlaces seleccionados.
+    Las noticias externas se describen como ListItem, no como NewsArticle propio.
+    """
+    label = periodo.get("label") or "Newsletter"
+    title = f"Comercio Digital en el aula · {label}"
+    description = (
+        "Newsletter docente de Comercio Digital con noticias seleccionadas "
+        "para trabajar comercio electrónico, digitalización, marketing e inteligencia artificial en FP."
+    )
+    page_url = absolute_url(url)
+
+    items = [_newsletter_item(noticia, i) for i, noticia in enumerate(noticias, 1)]
+
+    collection = schema_collection_page(title, description, page_url, items=items)
+    collection["isPartOf"] = {"@id": absolute_url("/newsletter/#webpage")}
+    collection["additionalProperty"] = [
+        {"@type": "PropertyValue", "name": "Periodicidad", "value": periodicidad},
+        {"@type": "PropertyValue", "name": "Periodo", "value": label},
+    ]
+
+    item_list = schema_item_list(items)
+    item_list["@id"] = f"{page_url}#itemlist"
+    item_list["name"] = f"Noticias seleccionadas · {label}"
+
+    return [
+        schema_organization(),
+        schema_website(),
+        limpiar_schema(collection),
+        limpiar_schema(item_list),
     ]
 
 

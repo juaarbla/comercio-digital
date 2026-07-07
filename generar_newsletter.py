@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from paths import DOCS_DIR, NOTICIAS_CLASIFICADAS
+from schema_utils import insertar_jsonld, schema_newsletter_index, schema_newsletter_issue
 from web_ui_common import (
     SITE_TITLE,
     SITE_SUBTITLE,
@@ -471,7 +472,7 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
     if not breves_html:
         breves_html = "<p>No hay breves adicionales en esta edición.</p>"
 
-    return f"""<!doctype html>
+    html_doc = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -545,6 +546,13 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
 </body>
 </html>
 """
+    issue_url = f"newsletter/newsletter-{periodo['slug']}.html"
+    html_doc = insertar_jsonld(
+        html_doc,
+        schema_newsletter_issue(noticias, periodo, periodicidad, issue_url),
+        reemplazar_existente=True,
+    )
+    return html_doc
 
 
 def append_markdown_news(lines: list[str], noticia: dict[str, Any], heading: str) -> None:
@@ -632,9 +640,15 @@ def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], per
 
 def render_index() -> str:
     files = sorted(NEWSLETTER_DIR.glob("newsletter-*.html"), reverse=True)
+    ediciones = []
     cards = []
     for f in files:
         title = f.stem.replace("newsletter-", "Newsletter ")
+        ediciones.append({
+            "name": title,
+            "url": f"newsletter/{f.name}",
+            "description": "Edición publicada en formato HTML dentro del archivo de newsletters docentes.",
+        })
         cards.append(f"""
 <article class="newsletter-index-card">
   <a href="{e(f.name)}">{e(title)}</a>
@@ -644,7 +658,7 @@ def render_index() -> str:
 
     cards_html = "\n".join(cards) if cards else "<p>Todavía no hay newsletters generadas.</p>"
 
-    return f"""<!doctype html>
+    html_doc = f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
@@ -677,6 +691,12 @@ def render_index() -> str:
 </body>
 </html>
 """
+    html_doc = insertar_jsonld(
+        html_doc,
+        schema_newsletter_index(ediciones, "newsletter/"),
+        reemplazar_existente=True,
+    )
+    return html_doc
 
 
 def main() -> None:

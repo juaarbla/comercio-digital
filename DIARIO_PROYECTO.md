@@ -1,16 +1,26 @@
-## v0.7 · Bloque 6 · Schema educativo para fichas de aula
+## v0.7 · Alta en buscadores y Bloque 7 · Schema para newsletter
 
-Se documenta la decisión de no usar `Article` ni `NewsArticle` para las noticias externas enlazadas por el agregador.
+Se confirma el alta de `comerciodigital.net` en herramientas de seguimiento de indexación:
 
-El motivo es que `Comercio Digital` no publica la noticia original completa, sino que actúa como agregador educativo: selecciona, resume, clasifica y propone usos docentes a partir de fuentes externas.
+- Google Search Console.
+- Bing Webmaster Tools.
 
-Se prioriza el schema educativo `LearningResource` para las fichas de aula, ya que estas sí son contenido propio del proyecto y tienen una finalidad didáctica clara.
+El objetivo es empezar a recoger datos reales de rastreo, indexación, cobertura y rendimiento orgánico tras la incorporación progresiva de datos estructurados Schema.org.
 
-Cambios preparados:
+Sitemap principal:
 
-- ampliación de `schema_utils.py` con funciones para `LearningResource`;
-- integración prevista en `generar_fichas_aula.py`;
-- inserción de JSON-LD en `docs/fichas-aula/*.html`;
-- validación mediante búsqueda de `application/ld+json` y `LearningResource`.
+```text
+https://comerciodigital.net/sitemap.xml
+```
 
-Queda fuera de este bloque la newsletter, el sitemap recursivo y el marcado de noticias externas como artículos propios.
+Además, se prepara el Bloque 7 de la v0.7: añadir Schema.org a la newsletter.
+
+El enfoque elegido es describir la newsletter como colección editorial mediante:
+
+- `CollectionPage`;
+- `ItemList`;
+- `ListItem`.
+
+Se mantiene la decisión de no usar `Article` ni `NewsArticle` para noticias externas. Las noticias enlazadas se tratan como elementos de una lista curada, no como artículos propios publicados por Comercio Digital.
+
+Queda fuera de este bloque el sitemap recursivo, canonical en subcarpetas y Open Graph específico para newsletter.

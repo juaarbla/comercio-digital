@@ -24,7 +24,21 @@ El panorama del comercio electrónico está cambiando extremadamente rápido, y 
 
 ## Selección docente de la quincena
 
-### 1. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
+### 1. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+
+**Módulo relacionado:** Comercio Electrónico
+
+**Uso propuesto:** actividad
+
+**Valor docente:** alto
+
+El Marketplace Summit 2026 reunió a expertos, marcas y plataformas para analizar las tendencias que están transformando el comercio electrónico, como el social commerce y el retail media. Estos conceptos son clave en el módulo de Comercio Electrónico, ya que muestran cómo las redes sociales y la publicidad digital influyen en las ventas online. Además, el evento destacó la importancia de las plataformas digitales para mejorar la experiencia de compra y la visibilidad de los productos. Esto refleja la evolución constante del ecommerce y la necesidad de adaptarse a nuevas estrategias de marketing digital.
+
+[Leer noticia original](https://ecommerce-news.es/marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-las-tendencias-que-transforman-el-ecommerce/)
+
+[Ver ficha de aula](../fichas-aula/002-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html)
+
+### 2. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 **Módulo relacionado:** Comercio Electrónico
 
@@ -36,35 +50,21 @@ El sector logístico está pasando por una enorme transformación, ya que la may
 
 [Leer noticia original](https://ecommerce-news.es/el-95-de-las-empresa-logisticas-acelera-su-digitalizacion-en-2026/)
 
-[Ver ficha de aula](../fichas-aula/002-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html)
+[Ver ficha de aula](../fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html)
 
-### 2. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
+### 3. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
 
-**Módulo relacionado:** Comercio Electrónico
+**Módulo relacionado:** IA
 
 **Uso propuesto:** actividad
 
 **Valor docente:** alto
 
-La automatización mediante robots e inteligencia artificial está transformando radicalmente la logística y el reparto en el comercio electrónico, como ha demostrado JD.com. Este avance es un ejemplo clave de cómo la tecnología está redefiniendo la cadena de suministro en el *e-commerce*. Sin embargo, en lugar de simplemente despedir personal, la empresa apuesta por la reconversión de sus empleados. Esto subraya que, en el futuro, la clave del éxito no solo es la tecnología, sino también la capacidad de adaptar y formar a nuestro capital humano.
+Ferryhopper, una plataforma de reservas de ferries presente en 33 países, ha lanzado la primera app integrada con ChatGPT para facilitar las reservas a través de inteligencia artificial. Su CEO destaca que no buscan convertirse en un sistema que solo funcione como backend para agentes de IA, sino mantener un enfoque directo con el cliente. Esta innovación muestra cómo el comercio electrónico puede aprovechar la inteligencia artificial para mejorar la experiencia de compra y atención al cliente. Es un ejemplo práctico de integración tecnológica en plataformas digitales de venta online.
 
-[Leer noticia original](https://ecommerce-news.es/jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y-apuesta-por-reciclar-a-sus-empleados/)
+[Leer noticia original](https://ecommerce-news.es/no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia/)
 
-[Ver ficha de aula](../fichas-aula/003-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html)
-
-### 3. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
-
-**Módulo relacionado:** IA
-
-**Uso propuesto:** caso_empresa
-
-**Valor docente:** alto
-
-Google ha ampliado el acceso gratuito a la generación de imágenes personalizadas con su herramienta Gemini para usuarios en Estados Unidos. Esta función, antes solo disponible para suscriptores de planes avanzados, utiliza inteligencia artificial para crear imágenes únicas según las indicaciones del usuario. En comercio electrónico, esta tecnología puede mejorar la personalización de productos y campañas visuales, facilitando una mejor conexión con los clientes. Además, muestra cómo la IA está transformando la forma de crear contenido digital para marketing online.
-
-[Leer noticia original](https://ecommerce-news.es/google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemini-a-mas-usuarios-en-estados-unidos/)
-
-[Ver ficha de aula](../fichas-aula/005-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html)
+[Ver ficha de aula](../fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html)
 
 ## Breves para seguir la actualidad
 

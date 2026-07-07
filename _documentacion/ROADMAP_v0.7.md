@@ -1,101 +1,113 @@
-# ROADMAP v0.7 · Actualización Bloque 6
+# ROADMAP v0.7 · Actualización Bloque 7
 
-## Decisión previa · Article / NewsArticle
+## Tarea complementaria · Alta en buscadores
 
-Estado: documentado.
+Estado: completado.
 
-Se decide no implementar `Article` ni `NewsArticle` sobre las noticias externas enlazadas por el agregador.
-
-Motivo:
+Acciones realizadas:
 
 ```text
-Comercio Digital no es la fuente original de esas noticias.
-El sitio actúa como agregador educativo, curador y generador de materiales docentes.
+- Sitio dado de alta en Google Search Console.
+- Sitio dado de alta en Bing Webmaster Tools.
+- Sitemap disponible para rastreo:
+  https://comerciodigital.net/sitemap.xml
 ```
 
-En su lugar, se prioriza:
+Objetivo:
 
 ```text
-CollectionPage para páginas de listado
-ItemList si más adelante se enriquecen listados
-LearningResource para fichas de aula
+Empezar a recoger datos reales de rastreo, indexación, cobertura y rendimiento orgánico tras la incorporación progresiva de datos estructurados Schema.org.
+```
+
+Queda para una fase posterior:
+
+```text
+- Revisar cobertura de indexación.
+- Revisar páginas descubiertas/no indexadas.
+- Revisar errores de sitemap si aparecen.
+- Valorar IndexNow para Bing si aporta valor.
 ```
 
 ---
 
-## Bloque 6 · Schema educativo para fichas de aula
+## Bloque 7 · Schema para newsletter
 
 Estado: preparado para implementación.
 
 ### Objetivo
 
-Añadir datos estructurados JSON-LD a las fichas docentes generadas en:
+Añadir datos estructurados JSON-LD a la newsletter generada en:
 
 ```text
-docs/fichas-aula/*.html
+docs/newsletter/index.html
+docs/newsletter/newsletter-AAAA-MM-QX.html
 ```
 
-### Tipo Schema principal
+### Enfoque
+
+La newsletter se describe como una colección editorial de enlaces seleccionados, no como un conjunto de noticias propias.
+
+Schemas previstos:
 
 ```text
-LearningResource
+CollectionPage
+ItemList
+ListItem
 ```
 
-### Justificación
+### Criterio editorial
 
-Las fichas de aula sí son contenido educativo propio generado por el proyecto. Por tanto, es más adecuado describirlas como recursos de aprendizaje que marcar las noticias externas como artículos propios.
+Se mantiene la decisión tomada en el Bloque 6:
+
+```text
+No usar Article ni NewsArticle para noticias externas.
+```
+
+Motivo:
+
+```text
+Las noticias proceden de fuentes externas. Comercio Digital actúa como agregador educativo, curador y generador de contexto docente.
+```
 
 ### Archivos implicados
 
 ```text
 schema_utils.py
-generar_fichas_aula.py
-docs/fichas-aula/*.html
+generar_newsletter.py
+docs/newsletter/index.html
+docs/newsletter/newsletter-*.html
 ```
 
-### Cambios previstos
+### Cambios previstos en schema_utils.py
 
-En `schema_utils.py`:
+Añadir:
 
 ```text
-- Añadir schema_learning_resource()
-- Añadir schema_ficha_aula_basico()
+- schema_newsletter_index()
+- schema_newsletter_issue()
+- _newsletter_item()
 ```
 
-En `generar_fichas_aula.py`:
+### Cambios previstos en generar_newsletter.py
+
+Añadir:
 
 ```text
-- Importar insertar_jsonld y schema_ficha_aula_basico
-- Pasar el nombre del HTML generado a render_html()
-- Insertar JSON-LD antes de </head> en cada ficha
+- import de insertar_jsonld
+- import de schema_newsletter_index
+- import de schema_newsletter_issue
+- inserción de JSON-LD en render_index()
+- inserción de JSON-LD en render_html()
 ```
 
-### Datos usados en LearningResource
+### Fuera de alcance
 
 ```text
-titulo
-resumen
-url de ficha
-módulo relacionado
-RA asignado
-RA texto si existe
-tipo de uso
-actividad breve
-pregunta detonadora
-conceptos clave
-fuente original como isBasedOn
-nivel educativo: Formación Profesional
-```
-
-### Fuera de alcance en este bloque
-
-```text
-newsletter
-sitemap recursivo
-canonical en subcarpetas
-Open Graph en fichas
-NewsArticle
-Article para noticias externas
+- No tocar sitemap recursivo.
+- No tocar canonical en subcarpetas.
+- No añadir Open Graph a newsletter.
+- No marcar noticias externas como Article/NewsArticle.
+- No modificar la selección editorial de newsletter.
 ```
 
 ### Validación
@@ -103,24 +115,25 @@ Article para noticias externas
 Ejecutar:
 
 ```powershell
-python .\generar_fichas_aula.py
+python .\generar_newsletter.py
 ```
 
-Comprobar:
+Comprobar índice:
 
 ```powershell
-Select-String -Path .\docs\fichas-aula\*.html -Pattern "application/ld+json","LearningResource"
+Select-String -Path .\docs\newsletter\index.html -Pattern "application/ld+json","CollectionPage","ItemList"
 ```
 
-Comprobar una ficha concreta:
+Comprobar edición:
 
 ```powershell
-Select-String -Path .\docs\fichas-aula\001*.html -Pattern "LearningResource","educationalLevel","learningResourceType","isBasedOn"
+Select-String -Path .\docs\newsletter\newsletter-*.html -Pattern "application/ld+json","CollectionPage","ItemList","ListItem"
 ```
 
 Resultado esperado:
 
 ```text
-Cada ficha HTML contiene un bloque JSON-LD con LearningResource.
-No se modifican newsletter ni páginas paginadas.
+El índice de newsletter contiene CollectionPage.
+Las ediciones individuales contienen CollectionPage e ItemList.
+Las noticias incluidas se describen como ListItem, no como NewsArticle.
 ```

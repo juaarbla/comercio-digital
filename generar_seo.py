@@ -10,6 +10,7 @@ Procesa los HTML ya generados en docs/ y añade o actualiza:
 - Twitter Card
 - sitemap.xml
 - robots.txt
+- JSON-LD Schema.org básico en portada
 
 Uso:
     python generar_seo.py
@@ -20,6 +21,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
+
+from schema_utils import insertar_jsonld, schema_portada_basico
 
 DOCS_DIR = Path("docs")
 SITE_URL = "https://comerciodigital.net"
@@ -195,6 +198,15 @@ def actualizar_html(ruta: Path) -> None:
 
     for patron, etiqueta in etiquetas:
         texto = reemplazar_o_insertar(texto, patron, etiqueta)
+
+    # v0.7 · Schema.org básico global
+    # Primera integración controlada: solo portada.
+    if ruta.name == "index.html":
+        texto = insertar_jsonld(
+            texto,
+            schema_portada_basico(),
+            reemplazar_existente=True,
+        )
 
     ruta.write_text(texto, encoding="utf-8-sig")
 

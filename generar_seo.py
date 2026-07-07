@@ -10,7 +10,7 @@ Procesa los HTML ya generados en docs/ y añade o actualiza:
 - Twitter Card
 - sitemap.xml
 - robots.txt
-- JSON-LD Schema.org básico en portada
+- JSON-LD Schema.org básico en portada y páginas principales
 
 Uso:
     python generar_seo.py
@@ -22,7 +22,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
-from schema_utils import insertar_jsonld, schema_portada_basico
+from schema_utils import (
+    insertar_jsonld,
+    schema_pagina_principal_basico,
+    schema_portada_basico,
+)
 
 DOCS_DIR = Path("docs")
 SITE_URL = "https://comerciodigital.net"
@@ -75,6 +79,13 @@ SEO_SECCIONES = {
             "digital seleccionadas para su uso educativo en Formación Profesional."
         ),
     },
+    "aula.html": {
+        "title": "Aula | Comercio Digital",
+        "description": (
+            "Noticias seleccionadas para conectar la actualidad del comercio digital "
+            "con módulos, resultados de aprendizaje, actividades y conceptos clave."
+        ),
+    },
     "del-autor.html": {
         "title": "Artículos de Juan Armada | Comercio Digital",
         "description": (
@@ -89,6 +100,23 @@ SEO_SECCIONES = {
             "tecnología, comercio y marketing para el aula de Formación Profesional."
         ),
     },
+}
+
+# v0.7 · Bloque 4b
+# Solo páginas principales de primer nivel. No se aplican schemas todavía a:
+# - páginas paginadas -pN.html
+# - docs/newsletter/
+# - docs/fichas-aula/
+PAGINAS_SCHEMA_PRINCIPALES = {
+    "index.html": "CollectionPage",
+    "comercio-electronico.html": "CollectionPage",
+    "internacional.html": "CollectionPage",
+    "digitalizacion.html": "CollectionPage",
+    "ia-marketing.html": "CollectionPage",
+    "marketing.html": "CollectionPage",
+    "aula.html": "CollectionPage",
+    "del-autor.html": "WebPage",
+    "otros.html": "CollectionPage",
 }
 
 
@@ -133,6 +161,23 @@ def reemplazar_o_insertar(texto: str, patron: str, etiqueta: str) -> str:
             flags=re.IGNORECASE | re.DOTALL,
         )
     return texto.replace("</head>", f"  {etiqueta}\n</head>", 1)
+
+
+def schema_para_html(nombre: str, title: str, description: str, canonical: str):
+    """Devuelve el schema correspondiente para una página principal o None."""
+    if nombre == "index.html":
+        return schema_portada_basico()
+
+    page_type = PAGINAS_SCHEMA_PRINCIPALES.get(nombre)
+    if not page_type:
+        return None
+
+    return schema_pagina_principal_basico(
+        title,
+        description,
+        canonical,
+        page_type=page_type,
+    )
 
 
 def actualizar_html(ruta: Path) -> None:
@@ -200,11 +245,12 @@ def actualizar_html(ruta: Path) -> None:
         texto = reemplazar_o_insertar(texto, patron, etiqueta)
 
     # v0.7 · Schema.org básico global
-    # Primera integración controlada: solo portada.
-    if ruta.name == "index.html":
+    # Bloque 4b: portada y páginas principales de primer nivel.
+    schema = schema_para_html(ruta.name, title, description, canonical)
+    if schema:
         texto = insertar_jsonld(
             texto,
-            schema_portada_basico(),
+            schema,
             reemplazar_existente=True,
         )
 

@@ -7,7 +7,7 @@ v0.7 · SEO semántico y datos estructurados
 Este módulo centraliza la generación de JSON-LD para evitar duplicar
 schemas en los distintos generadores HTML del proyecto.
 
-Primera versión mínima:
+Incluye:
 - limpieza de schemas
 - generación de script JSON-LD
 - inserción segura antes de </head>
@@ -17,8 +17,7 @@ Primera versión mínima:
 - WebPage
 - CollectionPage
 - ItemList
-
-Todavía no se conecta al pipeline en esta primera entrega.
+- conjuntos básicos para portada y páginas principales
 """
 
 from __future__ import annotations
@@ -176,7 +175,7 @@ def schema_person() -> dict[str, Any]:
 
 
 def schema_website() -> dict[str, Any]:
-    """Schema WebSite para la portada del agregador."""
+    """Schema WebSite para el agregador."""
     return limpiar_schema(
         {
             "@context": "https://schema.org",
@@ -201,14 +200,15 @@ def schema_webpage(
     page_type: str = "WebPage",
 ) -> dict[str, Any]:
     """Schema WebPage genérico para una página concreta."""
+    url_abs = absolute_url(url)
     return limpiar_schema(
         {
             "@context": "https://schema.org",
             "@type": page_type,
-            "@id": f"{absolute_url(url)}#webpage",
+            "@id": f"{url_abs}#webpage",
             "name": title,
             "description": description,
-            "url": absolute_url(url),
+            "url": url_abs,
             "isPartOf": {
                 "@id": absolute_url("/#website"),
             },
@@ -269,7 +269,7 @@ def schema_item_list(items: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def schema_portada_basico() -> list[dict[str, Any]]:
-    """Primer conjunto recomendado para probar en docs/index.html."""
+    """Conjunto Schema.org básico para docs/index.html."""
     return [
         schema_organization(),
         schema_website(),
@@ -278,6 +278,30 @@ def schema_portada_basico() -> list[dict[str, Any]]:
             "Noticias de comercio electrónico, marketing, digitalización e inteligencia artificial clasificadas por resultados de aprendizaje y preparadas para FP.",
             "/",
         ),
+    ]
+
+
+def schema_pagina_principal_basico(
+    title: str,
+    description: str,
+    url: str,
+    *,
+    page_type: str = "CollectionPage",
+) -> list[dict[str, Any]]:
+    """Conjunto Schema.org básico para páginas principales del agregador.
+
+    Mantiene Organization y WebSite como entidades de referencia y añade
+    la página concreta como WebPage o CollectionPage.
+    """
+    if page_type == "CollectionPage":
+        pagina = schema_collection_page(title, description, url)
+    else:
+        pagina = schema_webpage(title, description, url, page_type=page_type)
+
+    return [
+        schema_organization(),
+        schema_website(),
+        pagina,
     ]
 
 

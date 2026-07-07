@@ -40,6 +40,7 @@ El agregador ya permite:
 - generar una página `aula.html`;
 - generar newsletters docentes;
 - aplicar SEO técnico básico;
+- añadir datos estructurados Schema.org en portada, páginas principales, fichas de aula y newsletter;
 - publicar la web en GitHub Pages;
 - consultar el contenido desde un servidor MCP local.
 
@@ -295,6 +296,49 @@ https://comerciodigital.net/newsletter/
 
 ---
 
+## SEO semántico y datos estructurados
+
+Desde la v0.7 el proyecto incorpora datos estructurados Schema.org mediante JSON-LD.
+
+Implementación principal:
+
+```text
+schema_utils.py
+generar_seo.py
+generar_fichas_aula.py
+generar_newsletter.py
+```
+
+Schemas utilizados:
+
+```text
+Organization
+WebSite
+WebPage
+CollectionPage
+ItemList
+ListItem
+LearningResource
+```
+
+Criterio editorial:
+
+```text
+Las noticias externas no se marcan como Article ni NewsArticle propio.
+El agregador las trata como elementos de colecciones y listados.
+Las fichas de aula sí se marcan como LearningResource porque son contenido educativo propio.
+```
+
+Alta en buscadores:
+
+```text
+Google Search Console
+Bing Webmaster Tools
+Sitemap: https://comerciodigital.net/sitemap.xml
+```
+
+---
+
 ## MCP Comercio Digital
 
 El proyecto incluye un servidor MCP local para consultar y reutilizar el contenido del agregador desde herramientas compatibles con Model Context Protocol.
@@ -400,6 +444,9 @@ DIARIO_PROYECTO.md
 ```text
 v0.3 → versión estable inicial con web, Aula, fichas docentes, SEO básico, documentación y pipeline funcionando.
 v0.4 → mejora de newsletter docente, selección editorial de noticias y limpieza técnica controlada.
+v0.5 → consistencia visual, mejoras de estructura y evolución del pipeline.
+v0.6 → observabilidad inicial, diagnóstico de fuentes, separación histórico/última ejecución e informe post-pipeline.
+v0.7 → SEO semántico y datos estructurados Schema.org: portada, páginas principales, fichas de aula, newsletter y alta en buscadores.
 ```
 
 La newsletter queda como salida manual/quincenal y no se ejecuta dentro del pipeline principal.

@@ -1,108 +1,144 @@
-# Auditoría inicial de fuentes v0.8
+# Auditoria de fuentes v0.8
 
 ## Base de trabajo
+
+Fecha de revision: 2026-07-08
 
 Archivos revisados:
 
 ```text
-informe_pipeline_2026-07-08.md
 feeds.json
 historial.json
+data/processed/noticias_resumidas.json
+data/processed/noticias_clasificadas.json
+logs/informe_pipeline_2026-07-08.md
+news_aggregator.py
 ```
 
-## Resumen de feeds.json
+Comprobaciones realizadas:
+
+```text
+- cruce entre fuentes activas de feeds.json y fuente_detectada en noticias_clasificadas.json;
+- revision del informe post-pipeline de 2026-07-08;
+- comprobacion tecnica de URLs activas: estado HTTP, tipo de contenido y muestra inicial;
+- busqueda de feeds alternativos comunes para fuentes configuradas como paginas HTML.
+```
+
+No se ha modificado `feeds.json` en este bloque.
+
+## Resumen operativo
 
 ```text
 Fuentes configuradas: 19
 Fuentes activas: 14
 Fuentes inactivas: 5
-Fuentes activas sin módulo declarado: 4
+Noticias clasificadas: 282
+Ultima ejecucion detectada: 2026-07-07
+Noticias clasificadas en la ultima ejecucion: 23
 ```
 
-## Fuentes activas por módulo declarado
+Distribucion por fuente detectada en el historico:
 
-| Módulo | Fuentes activas |
+| Fuente detectada | Noticias |
 |---|---:|
-| Del Autor | 1 |
-| (vacío) | 4 |
-| Comercio Electrónico | 2 |
-| Marketing Digital | 2 |
-| Digitalización GS | 1 |
-| WordPress | 1 |
-| PrestaShop | 1 |
-| IA para Marketing y Comercio | 2 |
+| ecommerce-news.es | 208 |
+| incibe.es | 39 |
+| marketingdirecto.com | 22 |
+| juanarmada.com | 8 |
+| blog.hubspot.es | 5 |
 
-## Fuentes activas por tipo
+La concentracion de `ecommerce-news.es` es real: aporta el 73,8% del historico clasificado y 21 de las 23 noticias de la ultima ejecucion.
 
-| Tipo | Fuentes activas |
-|---|---:|
-| podcast | 1 |
-| articulo | 2 |
-| noticia | 11 |
+## Criterios de clasificacion
 
-## Fuentes activas
+| Codigo | Significado |
+|---|---|
+| A | Mantener sin cambios |
+| B | Mantener pero corregir configuracion |
+| C | Mantener como fuente transversal/de observacion |
+| D | Desactivar temporalmente |
+| E | Sustituir por una fuente mejor |
 
-| URL | Módulo | Tipo | Decisión inicial |
-|---|---|---|---|
-| https://juanarmada.com/podcast/feed/ | Del Autor | podcast | Pendiente de revisar |
-| https://juanarmada.com/wp-json/wp/v2/posts?per_page=20&orderby=date&order=desc&_fields=id,link,date,date_gmt,title,excerpt,content,categories | (vacío) | articulo | Pendiente de revisar |
-| https://ecommerce-news.es/feed/ | Comercio Electrónico | noticia | Pendiente de revisar |
-| https://marketing4ecommerce.net/ecommerce/feed | Comercio Electrónico | noticia | Pendiente de revisar |
-| https://www.marketingdirecto.com/feed | Marketing Digital | noticia | Pendiente de revisar |
-| https://www.ontsi.es/es/rss.xml | Digitalización GS | noticia | Pendiente de revisar |
-| https://www.taric.es/noticias/ | (vacío) | noticia | Pendiente de revisar |
-| https://es.wordpress.org/news/ | WordPress | noticia | Pendiente de revisar |
-| https://casares.blog/ | (vacío) | noticia | Pendiente de revisar |
-| https://prestashop.es/blog | PrestaShop | noticia | Pendiente de revisar |
-| https://prestotimes.com | IA para Marketing y Comercio | noticia | Pendiente de revisar |
-| https://consultoresia.com/inteligencia-artificial/ | IA para Marketing y Comercio | noticia | Pendiente de revisar |
-| https://blog.hubspot.es/marketing/rss.xml | Marketing Digital | articulo | Pendiente de revisar |
-| https://www.cyberclick.es/numerical-blog | (vacío) | noticia | Pendiente de revisar |
+## Auditoria de fuentes activas
 
-## Fuentes inactivas
+| Fuente activa | Tipo tecnico comprobado | Aportacion historica | Ultima ejecucion | Decision | Motivo |
+|---|---|---:|---:|---|---|
+| `https://juanarmada.com/podcast/feed/` | RSS valido | 8* | 2* | A | Fuente propia, estable y con RSS correcto. Aporta contenido editorial de autor. |
+| `https://juanarmada.com/wp-json/wp/v2/posts?...` | JSON API valida | 0 segun clave `wordpress_api` | 0 segun clave `wordpress_api` | B | La API responde y contiene posts recientes, pero el informe no la cruza con `fuente_detectada` porque las noticias quedan como `juanarmada.com`. Requiere ajustar trazabilidad, no desactivar. |
+| `https://ecommerce-news.es/feed/` | RSS valido | 208 | 21 | A | Fuente principal y funcional. Debe mantenerse, aunque conviene equilibrar su peso con otras fuentes. |
+| `https://marketing4ecommerce.net/ecommerce/feed` | HTML anti-bot / captcha, no RSS efectivo | 0 | 0 | D | Devuelve `202 text/html` con redireccion a captcha. El pipeline no puede procesarla de forma fiable como RSS. |
+| `https://www.marketingdirecto.com/feed` | HTML anti-bot en comprobacion viva | 22 | 0 | C | Tiene aportacion historica, pero en la comprobacion actual devuelve pantalla anti-bot. Mantener en observacion antes de desactivar. |
+| `https://www.ontsi.es/es/rss.xml` | RSS valido | 0 | 0 | C | RSS correcto con entradas, algunas recientes. Puede aportar informes e indicadores de baja frecuencia; no parece mal configurada. |
+| `https://www.taric.es/noticias/` | HTML, no RSS | 0 | 0 | E | Pagina de noticias, no feed. No se ha localizado RSS alternativo claro. Requiere sustitucion o parser especifico. |
+| `https://es.wordpress.org/news/` | HTML, no RSS | 0 | 0 | B | La fuente correcta parece `https://es.wordpress.org/news/feed/`, RSS valido con entradas recientes. |
+| `https://casares.blog/` | HTML, no RSS | 0 | 0 | B | La fuente correcta parece `https://casares.blog/feed/`, RSS valido y con alta frecuencia. |
+| `https://prestashop.es/blog` | HTML, no RSS | 0 | 0 | B | La fuente correcta parece `https://prestashop.es/blog/feed.xml`, XML valido con entradas recientes. |
+| `https://prestotimes.com` | HTML anti-bot / captcha | 0 | 0 | D | Devuelve `202 text/html` con captcha. No es fiable para el pipeline actual. |
+| `https://consultoresia.com/inteligencia-artificial/` | HTML, no RSS | 0 | 0 | B | La fuente correcta parece `https://consultoresia.com/inteligencia-artificial/feed/`, RSS valido con entradas recientes. |
+| `https://blog.hubspot.es/marketing/rss.xml` | RSS valido | 5 | 0 | A | RSS correcto y con contenido evergreen. Baja aportacion reciente, pero no hay indicio de fallo tecnico. |
+| `https://www.cyberclick.es/numerical-blog` | HTML, no RSS | 0 | 0 | B | La fuente correcta parece `https://www.cyberclick.es/numerical-blog/rss.xml`, RSS valido con entradas recientes. |
 
-| URL | Módulo | Tipo | Nota |
-|---|---|---|---|
-| https://juanarmada.com/inteligencia-artificial/feed/ | Del Autor | articulo | Desactivado para evitar duplicados con WordPress API. |
-| https://juanarmada.com/marketing-digital/feed/ | Del Autor | articulo | Desactivado para evitar duplicados con WordPress API. |
-| https://www.incibe.es/rss.xml | Digitalización GS | noticia |  |
-| https://blog.hubspot.es/sales/rss.xml | Comercio Electrónico | articulo | Ventas, CRM, social selling y procesos comerciales. Activar si aporta noticias útiles para CE/CDI. |
-| https://blog.hubspot.es/service/rss.xml | Marketing Digital | articulo | Atención al cliente, fidelización y experiencia de cliente. Útil pero menos prioritaria. |
+`*` Nota sobre `juanarmada.com`: el procesado actual detecta la fuente por dominio. Por eso podcast y WordPress API pueden mezclarse en metricas basadas solo en `fuente_detectada`.
 
-## Fuentes activas sin módulo declarado
+## Hallazgos tecnicos
 
-| URL | Tipo | Propuesta inicial |
-|---|---|---|
-| https://juanarmada.com/wp-json/wp/v2/posts?per_page=20&orderby=date&order=desc&_fields=id,link,date,date_gmt,title,excerpt,content,categories | articulo | Revisar si debe seguir como transversal o asignar módulo |
-| https://www.taric.es/noticias/ | noticia | Revisar si debe seguir como transversal o asignar módulo |
-| https://casares.blog/ | noticia | Revisar si debe seguir como transversal o asignar módulo |
-| https://www.cyberclick.es/numerical-blog | noticia | Revisar si debe seguir como transversal o asignar módulo |
-
-## Fuentes activas sin aportación histórica
-
-| Fuente | Clave | Módulo | Propuesta inicial |
-|---|---|---|---|
-| taric.es/noticias | `taric.es` | (vacío) | Revisar configuración y utilidad editorial |
-| prestotimes.com | `prestotimes.com` | IA para Marketing y Comercio | Revisar configuración y utilidad editorial |
-| prestashop.es/blog | `prestashop.es` | PrestaShop | Revisar configuración y utilidad editorial |
-| ontsi.es/es/rss.xml | `ontsi.es` | Digitalización GS | Revisar configuración y utilidad editorial |
-| marketing4ecommerce.net/ecommerce/feed | `marketing4ecommerce.net` | Comercio Electrónico | Revisar configuración y utilidad editorial |
-| juanarmada.com · WordPress API | `wordpress_api` | (vacío) | Revisar configuración y utilidad editorial |
-| es.wordpress.org/news | `es.wordpress.org` | WordPress | Revisar configuración y utilidad editorial |
-| cyberclick.es/numerical-blog | `cyberclick.es` | (vacío) | Revisar configuración y utilidad editorial |
-| consultoresia.com/inteligencia-artificial | `consultoresia.com` | IA para Marketing y Comercio | Revisar configuración y utilidad editorial |
-| casares.blog | `casares.blog` | (vacío) | Revisar configuración y utilidad editorial |
-
-## Lectura inicial
-
-La fuente `ecommerce-news.es` aporta gran parte del histórico y de la última ejecución. No conviene penalizarla, porque funciona y aporta noticias útiles, pero sí conviene equilibrar el sistema.
-
-La revisión debe priorizar:
+Fuentes activas con configuracion correcta:
 
 ```text
-- fuentes activas que realmente no son RSS;
-- fuentes activas que requieren parser específico;
-- fuentes transversales sin módulo declarado;
-- fuentes que podrían mantenerse desactivadas con nota;
-- posibles sustituciones de fuentes con mayor aportación educativa.
+juanarmada.com/podcast/feed
+juanarmada.com/wp-json/wp/v2/posts
+ecommerce-news.es/feed
+ontsi.es/es/rss.xml
+blog.hubspot.es/marketing/rss.xml
+```
+
+Fuentes activas que son HTML y deberian cambiar a feed real:
+
+```text
+es.wordpress.org/news -> es.wordpress.org/news/feed/
+casares.blog -> casares.blog/feed/
+prestashop.es/blog -> prestashop.es/blog/feed.xml
+consultoresia.com/inteligencia-artificial/ -> consultoresia.com/inteligencia-artificial/feed/
+www.cyberclick.es/numerical-blog -> www.cyberclick.es/numerical-blog/rss.xml
+```
+
+Fuentes activas bloqueadas o no fiables para RSS:
+
+```text
+marketing4ecommerce.net/ecommerce/feed
+prestotimes.com
+```
+
+Fuente activa sin RSS alternativo claro:
+
+```text
+taric.es/noticias/
+```
+
+Fuente activa con comportamiento mixto:
+
+```text
+marketingdirecto.com/feed
+```
+
+Aunque tiene aportacion historica, la comprobacion viva devolvio una respuesta anti-bot. Conviene observarla antes de decidir su desactivacion.
+
+## Lectura editorial
+
+`ecommerce-news.es` no debe penalizarse: funciona y aporta volumen util. El problema no es su calidad, sino la dependencia excesiva del sistema respecto a una sola fuente.
+
+La prioridad de v0.8 deberia ser recuperar diversidad mediante correcciones de configuracion de fuentes ya existentes antes de buscar sustituciones externas. Hay cinco fuentes activas con feed alternativo claro y contenido reciente; corregirlas probablemente reducira avisos sin tocar el pipeline principal.
+
+## Recomendacion para el siguiente bloque
+
+No modificar todavia `feeds.json` sin aprobacion expresa.
+
+Cambios candidatos, cuando se autorice el bloque de ajustes:
+
+```text
+1. Corregir URLs HTML con feed alternativo confirmado.
+2. Anadir notas a fuentes transversales.
+3. Desactivar temporalmente fuentes con captcha o sin RSS claro.
+4. Revisar el cruce de WordPress API para que no aparezca como fuente sin aportacion.
+5. Ejecutar pipeline e informe post-ajustes.
 ```

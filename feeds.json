@@ -46,6 +46,13 @@
     "activo": true
   },
   {
+    "url": "https://www.thinkwithgoogle.com/intl/es-es/rss.xml",
+    "modulo": "Marketing Digital",
+    "tipo": "articulo",
+    "activo": true,
+    "nota": "Aceptada con filtros en v0.8: RSS válido con tendencias de marketing digital, analítica, consumidor e IA aplicada; revisar por posible sesgo de plataforma."
+  },
+  {
     "url": "https://www.ontsi.es/es/rss.xml",
     "modulo": "Digitalización GS",
     "tipo": "noticia",
@@ -55,7 +62,15 @@
     "url": "https://www.incibe.es/rss.xml",
     "modulo": "Digitalización GS",
     "tipo": "noticia",
-    "activo": false
+    "activo": false,
+    "nota": "Revisado en v0.8: RSS válido, pero se mantiene inactivo por prudencia al concentrarse en avisos técnicos, boletines de vulnerabilidades y alertas de seguridad con posible ruido docente."
+  },
+  {
+    "url": "https://www.camara.es/rss.xml",
+    "modulo": "Comercio Digital Internacional",
+    "tipo": "noticia",
+    "activo": true,
+    "nota": "Aceptada con filtros en v0.8: RSS institucional útil para internacionalización, pymes, emprendimiento, digitalización y programas de apoyo empresarial."
   },
   {
     "url": "https://www.taric.es/noticias/",
@@ -105,6 +120,13 @@
     "tipo": "articulo",
     "activo": true,
     "nota": "Fuente evergreen sobre inbound marketing, SEO, redes sociales, email marketing, CRM y tendencias digitales."
+  },
+  {
+    "url": "https://es.semrush.com/blog/feed/",
+    "modulo": "Marketing Digital",
+    "tipo": "articulo",
+    "activo": true,
+    "nota": "Aceptada con filtros en v0.8: RSS válido sobre SEO, SEM, analítica, contenidos y redes sociales; fuente comercial y evergreen, no priorizar automáticamente newsletter."
   },
   {
     "url": "https://blog.hubspot.es/sales/rss.xml",

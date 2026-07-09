@@ -185,3 +185,128 @@ Emprendedores.es es una fuente interesante para contenidos de emprendimiento, py
 Sin embargo, al no disponer de un RSS valido aprovechable, no se incorpora al pipeline automatico del agregador. No se recomienda implementar scraping HTML en esta fase para evitar complejidad, fragilidad y ruido editorial.
 
 La fuente queda documentada como candidata para revision manual o para una posible reevaluacion futura si publica un feed RSS valido.
+
+## ICEX
+
+- URL: https://www.icex.es/
+- Area: Comercio Digital Internacional
+- Tipo: institucional
+- Estado: pendiente / no incorporada
+- Decision: no incorporar al pipeline por ahora
+- Motivo: no se ha encontrado RSS valido aprovechable
+- Valor editorial: alto para internacionalizacion, exportacion, mercados exteriores, ayudas, financiacion y programas de apoyo a empresas espanolas
+- Valor docente: alto para Comercio Digital Internacional y casos de aula
+- Riesgo: ausencia de RSS y exceso de contenido institucional o agenda
+- Newsletter: no automatizar; solo uso manual si procede
+
+### Comprobacion tecnica
+
+Se revisaron las paginas principales de sala de prensa, notas de prensa y Radar ICEX, junto con rutas RSS habituales:
+
+```text
+https://www.icex.es/es/sala-prensa
+https://www.icex.es/es/sala-prensa/notas-de-prensa
+https://www.icex.es/es/radar-icex/todo-en-el-radar-icex
+https://www.icex.es/feed/
+https://www.icex.es/rss.xml
+https://www.icex.es/es/rss.xml
+https://www.icex.es/es/sala-prensa/rss.xml
+https://www.icex.es/es/sala-prensa/notas-de-prensa/rss.xml
+https://www.icex.es/es/radar-icex/rss.xml
+```
+
+Las paginas editoriales devuelven HTML y no declaran RSS/Atom detectable. Las rutas RSS comprobadas devuelven 404.
+
+### Justificacion
+
+ICEX es una fuente oficial muy relevante para internacionalizacion, exportacion, mercados exteriores y programas de apoyo a empresas espanolas. Encaja especialmente con el modulo de Comercio Digital Internacional.
+
+Sin embargo, al no disponer de un RSS valido aprovechable, no se incorpora al pipeline automatico del agregador. No se recomienda implementar scraping HTML en esta fase para evitar complejidad, fragilidad y ruido institucional.
+
+La fuente queda documentada como candidata para revision manual o para reevaluacion futura si ICEX publica un feed RSS valido.
+
+## Auditoria rapida de fuentes v0.8
+
+### INCIBE
+
+- URL principal: https://www.incibe.es/
+- RSS evaluado: https://www.incibe.es/rss.xml
+- Estado: Inactiva por prudencia
+- Decision: mantener en `feeds.json` como inactiva con nota
+- Modulo sugerido: Digitalizacion GS
+- Valor docente: medio-alto si se seleccionan casos aplicados a pymes, fraude online, phishing o comercio electronico seguro
+- Riesgo: avisos tecnicos, boletines de vulnerabilidades y alertas demasiado especificas
+- Motivo: el RSS es valido y reciente, pero los titulos revisados se concentran en vulnerabilidades, SCI y avisos de seguridad. Puede generar ruido si se activa sin filtros mas finos.
+- Newsletter: no automatizar; solo uso manual o si pasa filtro docente
+
+### Red.es
+
+- URL principal: https://www.red.es/
+- RSS evaluado: https://www.red.es/rss.xml
+- Estado: Rechazada para pipeline
+- Decision: no incorporar
+- Modulo sugerido: Digitalizacion GS
+- Valor docente: medio potencial para digitalizacion de pymes y programas publicos
+- Riesgo: RSS no util para automatizacion
+- Motivo: existe RSS, pero solo devuelve un item antiguo/de prueba de 2021 y no representa la actualidad util de Red.es.
+- Newsletter: no automatizar
+
+### Camara de Comercio de Espana
+
+- URL principal: https://www.camara.es/
+- RSS evaluado: https://www.camara.es/rss.xml
+- Estado: Aceptada con filtros
+- Decision: incorporar a `feeds.json`
+- Modulo sugerido: Comercio Digital Internacional
+- Valor docente: alto
+- Riesgo: contenido institucional, agenda o notas corporativas con valor docente desigual
+- Motivo: RSS valido y reciente, con contenidos sobre internacionalizacion, pymes, emprendimiento, oficinas Acelera pyme y programas empresariales.
+- Newsletter: solo si pasa filtro docente
+
+### Think with Google Espana
+
+- URL principal: https://www.thinkwithgoogle.com/intl/es-es/
+- RSS evaluado: https://www.thinkwithgoogle.com/intl/es-es/rss.xml
+- Estado: Aceptada con filtros
+- Decision: incorporar a `feeds.json`
+- Modulo sugerido: Marketing Digital
+- Valor docente: alto
+- Riesgo: sesgo de plataforma y contenido de tendencia no siempre aplicable al aula
+- Motivo: RSS valido con articulos recientes sobre marketing digital, IA, analitica, comportamiento del consumidor y tendencias.
+- Newsletter: solo si pasa filtro docente
+
+### Semrush Blog Espana
+
+- URL principal: https://es.semrush.com/blog/
+- RSS evaluado: https://es.semrush.com/blog/feed/
+- Estado: Aceptada con filtros
+- Decision: incorporar a `feeds.json`
+- Modulo sugerido: Marketing Digital
+- Valor docente: medio-alto
+- Riesgo: fuente comercial, contenido evergreen y posible promocion de herramienta
+- Motivo: RSS valido sobre SEO, SEM, analitica, contenidos, redes sociales y busqueda local. Aporta utilidad docente si se filtra por aplicacion practica.
+- Newsletter: solo si pasa filtro docente
+
+### Shopify Blog Espana
+
+- URL principal: https://www.shopify.com/es/blog
+- RSS evaluado: https://www.shopify.com/es/blog.atom, https://www.shopify.com/es/blog/rss.xml, https://www.shopify.com/es/blog/feed
+- Estado: Pendiente por falta de RSS
+- Decision: no incorporar
+- Modulo sugerido: Comercio Electronico
+- Valor docente: alto potencial
+- Riesgo: contenido comercial de plataforma
+- Motivo: la pagina principal responde como HTML y las rutas RSS/Atom evaluadas devuelven 404. No se crea scraping HTML.
+- Newsletter: no automatizar
+
+### Doofinder Blog
+
+- URL principal: https://www.doofinder.com/es/blog
+- RSS evaluado: https://www.doofinder.com/es/blog/feed, https://www.doofinder.com/es/blog/rss.xml
+- Estado: Rechazada para pipeline
+- Decision: no incorporar
+- Modulo sugerido: Comercio Electronico
+- Valor docente: medio potencial para buscador interno, conversion y UX ecommerce
+- Riesgo: fuente comercial y bloqueo tecnico
+- Motivo: la pagina principal devuelve 403, `/feed` devuelve HTML y `/rss.xml` no ofrece un RSS valido estable. No se crea scraping HTML.
+- Newsletter: no automatizar

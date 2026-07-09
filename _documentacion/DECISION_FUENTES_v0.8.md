@@ -151,3 +151,62 @@ Emprendedores.es es una fuente interesante para contenidos de emprendimiento, py
 Sin embargo, al no disponer de un RSS valido aprovechable, no se incorpora al pipeline automatico del agregador. No se recomienda implementar scraping HTML en esta fase para evitar complejidad, fragilidad y ruido editorial.
 
 La fuente queda documentada como candidata para revision manual o para una posible reevaluacion futura si publica un feed RSS valido.
+
+## ICEX
+
+- URL: https://www.icex.es/
+- Area: Comercio Digital Internacional
+- Tipo: institucional
+- Estado: pendiente / no incorporada
+- Decision: no incorporar al pipeline por ahora
+- Motivo: no se ha encontrado RSS valido aprovechable
+- Valor editorial: alto para internacionalizacion, exportacion, mercados exteriores, ayudas, financiacion y programas de apoyo a empresas espanolas
+- Valor docente: alto para Comercio Digital Internacional y casos de aula
+- Riesgo: ausencia de RSS y exceso de contenido institucional o agenda
+- Newsletter: no automatizar; solo uso manual si procede
+
+### Justificacion
+
+ICEX es una fuente oficial sobre internacionalizacion, exportacion, mercados exteriores y apoyo a empresas espanolas. Tiene alto valor docente para Comercio Digital Internacional.
+
+La evaluacion tecnica no ha localizado RSS valido aprovechable. Las paginas revisadas responden como HTML y las rutas RSS habituales devuelven 404. Por tanto, no se incorpora a `feeds.json` y no se implementa scraping HTML en esta fase.
+
+Queda como fuente candidata para revision manual o para una posible reevaluacion futura si publica un feed RSS valido.
+
+## Auditoria rapida de fuentes v0.8
+
+| Fuente | RSS evaluado | Estado | Decision | Motivo |
+|---|---|---|---|---|
+| INCIBE | `https://www.incibe.es/rss.xml` | Inactiva por prudencia | Mantener inactiva con nota en `feeds.json` | RSS valido y reciente, pero muy centrado en vulnerabilidades, SCI y avisos tecnicos. |
+| Red.es | `https://www.red.es/rss.xml` | Rechazada para pipeline | No incorporar | RSS existente pero no util: devuelve solo un item antiguo/de prueba de 2021. |
+| Camara de Comercio de Espana | `https://www.camara.es/rss.xml` | Aceptada con filtros | Incorporar a `feeds.json` | RSS valido y reciente sobre internacionalizacion, pymes, emprendimiento y programas empresariales. |
+| Think with Google Espana | `https://www.thinkwithgoogle.com/intl/es-es/rss.xml` | Aceptada con filtros | Incorporar a `feeds.json` | RSS valido sobre marketing digital, IA, analitica, consumidor y tendencias. |
+| Semrush Blog Espana | `https://es.semrush.com/blog/feed/` | Aceptada con filtros | Incorporar a `feeds.json` | RSS valido sobre SEO, SEM, contenidos, analitica y redes sociales; fuente comercial/evergreen. |
+| Shopify Blog Espana | rutas `/blog.atom`, `/blog/rss.xml`, `/blog/feed` | Pendiente por falta de RSS | No incorporar | La pagina es HTML y las rutas RSS/Atom evaluadas devuelven 404. |
+| Doofinder Blog | `/es/blog/feed`, `/es/blog/rss.xml` | Rechazada para pipeline | No incorporar | La pagina principal devuelve 403 y no hay RSS valido estable. |
+
+### Decisiones aplicadas
+
+Se incorporan a `feeds.json`:
+
+```text
+https://www.camara.es/rss.xml
+https://www.thinkwithgoogle.com/intl/es-es/rss.xml
+https://es.semrush.com/blog/feed/
+```
+
+Se mantiene en `feeds.json` pero inactiva:
+
+```text
+https://www.incibe.es/rss.xml
+```
+
+No se incorporan por falta de RSS util o estable:
+
+```text
+https://www.red.es/
+https://www.shopify.com/es/blog
+https://www.doofinder.com/es/blog
+```
+
+No se crea scraping HTML para ninguna fuente de este lote.

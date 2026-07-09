@@ -36,7 +36,8 @@
     "url": "https://marketing4ecommerce.net/ecommerce/feed",
     "modulo": "Comercio Electrónico",
     "tipo": "noticia",
-    "activo": true
+    "activo": false,
+    "nota": "Desactivado temporalmente en v0.8: comprobación técnica detectó HTML anti-bot/captcha; no es fiable para el pipeline como RSS."
   },
   {
     "url": "https://www.marketingdirecto.com/feed",
@@ -58,40 +59,45 @@
   },
   {
     "url": "https://www.taric.es/noticias/",
-    "modulo": "",
+    "modulo": "Comercio Digital Internacional",
     "tipo": "noticia",
-    "activo": true
+    "activo": false,
+    "nota": "Desactivado temporalmente en v0.8: la URL es una página HTML y no se localizó RSS alternativo claro. Requiere sustitución o parser específico si compensa."
   },
   {
-    "url": "https://es.wordpress.org/news/",
+    "url": "https://es.wordpress.org/news/feed/",
     "modulo": "WordPress",
     "tipo": "noticia",
-    "activo": true
+    "activo": true,
+    "nota": "Corregido en v0.8: la URL anterior era HTML; se usa RSS oficial."
   },
   {
-    "url": "https://casares.blog/",
-    "modulo": "",
+    "url": "https://casares.blog/feed/",
+    "modulo": "WordPress",
     "tipo": "noticia",
-    "activo": true
+    "activo": true,
+    "nota": "Corregido en v0.8: la URL anterior era HTML; se usa RSS. Fuente técnica de observación sobre WordPress, hosting y servidor."
   },
-
   {
-    "url": "https://prestashop.es/blog",
+    "url": "https://prestashop.es/blog/feed.xml",
     "modulo": "PrestaShop",
     "tipo": "noticia",
-    "activo": true
+    "activo": true,
+    "nota": "Corregido en v0.8: la URL anterior era HTML; se usa feed XML del blog."
   },
   {
     "url": "https://prestotimes.com",
     "modulo": "IA para Marketing y Comercio",
     "tipo": "noticia",
-    "activo": true
+    "activo": false,
+    "nota": "Desactivado temporalmente en v0.8: comprobación técnica detectó HTML anti-bot/captcha; no es fiable para el pipeline actual."
   },
   {
-    "url": "https://consultoresia.com/inteligencia-artificial/",
+    "url": "https://consultoresia.com/inteligencia-artificial/feed/",
     "modulo": "IA para Marketing y Comercio",
     "tipo": "noticia",
-    "activo": true
+    "activo": true,
+    "nota": "Corregido en v0.8: la URL anterior era HTML; se usa RSS de la categoría."
   },
   {
     "url": "https://blog.hubspot.es/marketing/rss.xml",
@@ -115,9 +121,10 @@
     "nota": "Atención al cliente, fidelización y experiencia de cliente. Útil pero menos prioritaria."
   },
   {
-    "url": "https://www.cyberclick.es/numerical-blog",
-    "modulo": "",
+    "url": "https://www.cyberclick.es/numerical-blog/rss.xml",
+    "modulo": "Marketing Digital",
     "tipo": "noticia",
-    "activo": true
+    "activo": true,
+    "nota": "Corregido en v0.8: la URL anterior era HTML; se usa RSS. Fuente de marketing digital y analítica."
   }
 ]

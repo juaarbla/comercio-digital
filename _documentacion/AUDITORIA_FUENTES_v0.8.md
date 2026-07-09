@@ -129,16 +129,59 @@ Aunque tiene aportacion historica, la comprobacion viva devolvio una respuesta a
 
 La prioridad de v0.8 deberia ser recuperar diversidad mediante correcciones de configuracion de fuentes ya existentes antes de buscar sustituciones externas. Hay cinco fuentes activas con feed alternativo claro y contenido reciente; corregirlas probablemente reducira avisos sin tocar el pipeline principal.
 
-## Recomendacion para el siguiente bloque
+## Recomendacion documentada en el bloque 1
 
-No modificar todavia `feeds.json` sin aprobacion expresa.
+En el bloque 1 se recomendo no modificar `feeds.json` sin aprobacion expresa.
 
-Cambios candidatos, cuando se autorice el bloque de ajustes:
+Cambios candidatos documentados entonces y aplicados de forma controlada en el bloque 2:
 
 ```text
 1. Corregir URLs HTML con feed alternativo confirmado.
 2. Anadir notas a fuentes transversales.
 3. Desactivar temporalmente fuentes con captcha o sin RSS claro.
 4. Revisar el cruce de WordPress API para que no aparezca como fuente sin aportacion.
-5. Ejecutar pipeline e informe post-ajustes.
+5. Ejecutar pipeline e informe post-ajustes en el bloque 3.
 ```
+
+## Bloque 2 · Aplicación controlada de ajustes
+
+Estado: aplicado en feeds.json.
+
+Se han corregido URLs HTML a feeds RSS/XML cuando existia alternativa clara y se han desactivado temporalmente fuentes no fiables para el pipeline actual.
+
+Correcciones aplicadas:
+
+| Fuente anterior | Fuente nueva | Estado |
+|---|---|---|
+| `https://es.wordpress.org/news/` | `https://es.wordpress.org/news/feed/` | Activa |
+| `https://casares.blog/` | `https://casares.blog/feed/` | Activa |
+| `https://prestashop.es/blog` | `https://prestashop.es/blog/feed.xml` | Activa |
+| `https://consultoresia.com/inteligencia-artificial/` | `https://consultoresia.com/inteligencia-artificial/feed/` | Activa |
+| `https://www.cyberclick.es/numerical-blog` | `https://www.cyberclick.es/numerical-blog/rss.xml` | Activa |
+
+Desactivaciones temporales aplicadas:
+
+| Fuente | Estado | Motivo |
+|---|---|---|
+| `https://marketing4ecommerce.net/ecommerce/feed` | Inactiva | HTML anti-bot/captcha. |
+| `https://prestotimes.com` | Inactiva | HTML anti-bot/captcha. |
+| `https://www.taric.es/noticias/` | Inactiva | Pagina HTML sin RSS alternativo claro. |
+
+## Emprendedores.es
+
+- URL: https://emprendedores.es/
+- Estado: pendiente / no incorporada
+- Decision: no incorporar al pipeline por ahora
+- Motivo: no se ha encontrado RSS valido aprovechable
+- Valor editorial: alto para emprendimiento, pymes, marketing, ventas, franquicias, startups y casos de empresa
+- Valor docente: alto como fuente manual o inspiracion para actividades de aula
+- Riesgo: contenido patrocinado, branded content y ruido comercial
+- Newsletter: no automatizar; solo uso manual si procede
+
+### Justificacion
+
+Emprendedores.es es una fuente interesante para contenidos de emprendimiento, pymes, ventas, marketing, franquicias y casos de empresa. Puede aportar ejemplos utiles para Formacion Profesional de Comercio y Marketing.
+
+Sin embargo, al no disponer de un RSS valido aprovechable, no se incorpora al pipeline automatico del agregador. No se recomienda implementar scraping HTML en esta fase para evitar complejidad, fragilidad y ruido editorial.
+
+La fuente queda documentada como candidata para revision manual o para una posible reevaluacion futura si publica un feed RSS valido.

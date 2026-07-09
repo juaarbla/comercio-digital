@@ -45,9 +45,9 @@ Antes de cambiar configuracion, se documenta cada decision. Las fuentes que no a
 
 ## Cambios candidatos para feeds.json
 
-No aplicados todavia.
+Aplicados en el bloque 2.
 
-Cuando se autorice modificar `feeds.json`, se recomienda:
+Cambios aplicados en este bloque:
 
 ```text
 - es.wordpress.org/news/ -> es.wordpress.org/news/feed/
@@ -89,16 +89,33 @@ Decision editorial:
 - El cruce de WordPress API en el informe puede seguir dando falso cero si no se ajusta la clave de fuente.
 ```
 
+## Bloque 2 · Ajustes aplicados en feeds.json
+
+Estado: aplicado.
+
+Cambios realizados:
+
+| Fuente | Acción | Motivo |
+|---|---|---|
+| `https://es.wordpress.org/news/` | Corregida a `https://es.wordpress.org/news/feed/` y se mantiene activa. | La URL anterior era HTML; se usa RSS oficial. |
+| `https://casares.blog/` | Corregida a `https://casares.blog/feed/`, modulo `WordPress`, y se mantiene activa. | La URL anterior era HTML; se usa RSS. Fuente tecnica de observacion sobre WordPress, hosting y servidor. |
+| `https://prestashop.es/blog` | Corregida a `https://prestashop.es/blog/feed.xml` y se mantiene activa. | La URL anterior era HTML; se usa feed XML del blog. |
+| `https://consultoresia.com/inteligencia-artificial/` | Corregida a `https://consultoresia.com/inteligencia-artificial/feed/` y se mantiene activa. | La URL anterior era HTML; se usa RSS de la categoria. |
+| `https://www.cyberclick.es/numerical-blog` | Corregida a `https://www.cyberclick.es/numerical-blog/rss.xml`, modulo `Marketing Digital`, y se mantiene activa. | La URL anterior era HTML; se usa RSS. Fuente de marketing digital y analitica. |
+| `https://marketing4ecommerce.net/ecommerce/feed` | Desactivada temporalmente con `activo:false`. | La comprobacion tecnica detecto HTML anti-bot/captcha; no es fiable para el pipeline como RSS. |
+| `https://prestotimes.com` | Desactivada temporalmente con `activo:false`. | La comprobacion tecnica detecto HTML anti-bot/captcha; no es fiable para el pipeline actual. |
+| `https://www.taric.es/noticias/` | Modulo asignado `Comercio Digital Internacional` y desactivada temporalmente con `activo:false`. | La URL es una pagina HTML y no se localizo RSS alternativo claro. Requiere sustitucion o parser especifico si compensa. |
+
 ## Validacion requerida antes de commit
 
-Cuando se apliquen cambios de configuracion:
+En el bloque 2 solo se valida estructura y alcance. El pipeline completo queda para el bloque 3.
 
 ```powershell
-python .\run_pipeline.py
-python .\generar_informe_pipeline.py
+python -m json.tool .\feeds.json > $null
+git status
 ```
 
-Indicadores a comparar:
+Cuando se ejecute el bloque 3, comparar:
 
 ```text
 - fuentes activas;
@@ -115,3 +132,22 @@ Indicadores a comparar:
 El bloque 1 queda documentado como auditoria y decision previa. La conclusion principal es que la baja diversidad no se debe solo a falta de fuentes, sino a varias fuentes activas configuradas como paginas HTML o bloqueadas por anti-bot.
 
 La accion siguiente natural es pedir autorizacion para aplicar un ajuste controlado en `feeds.json`.
+
+## Emprendedores.es
+
+- URL: https://emprendedores.es/
+- Estado: pendiente / no incorporada
+- Decision: no incorporar al pipeline por ahora
+- Motivo: no se ha encontrado RSS valido aprovechable
+- Valor editorial: alto para emprendimiento, pymes, marketing, ventas, franquicias, startups y casos de empresa
+- Valor docente: alto como fuente manual o inspiracion para actividades de aula
+- Riesgo: contenido patrocinado, branded content y ruido comercial
+- Newsletter: no automatizar; solo uso manual si procede
+
+### Justificacion
+
+Emprendedores.es es una fuente interesante para contenidos de emprendimiento, pymes, ventas, marketing, franquicias y casos de empresa. Puede aportar ejemplos utiles para Formacion Profesional de Comercio y Marketing.
+
+Sin embargo, al no disponer de un RSS valido aprovechable, no se incorpora al pipeline automatico del agregador. No se recomienda implementar scraping HTML en esta fase para evitar complejidad, fragilidad y ruido editorial.
+
+La fuente queda documentada como candidata para revision manual o para una posible reevaluacion futura si publica un feed RSS valido.

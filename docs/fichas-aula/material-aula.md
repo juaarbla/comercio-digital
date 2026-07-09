@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 8 JUL 2026
+Fecha de generación: 9 JUL 2026
 
 ---
 
@@ -231,7 +231,64 @@ Estudia la noticia «JD.com asume que los robots acabarán sustituyendo parte de
 
 ---
 
-# 5. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+# 5. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 8 jul. 2026
+- **Enlace:** https://ecommerce-news.es/meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-instagram-y-whatsapp/
+- **Módulo:** IA
+- **RA:** RA3
+- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
+- **CE relacionados:** RA3a, RA3b, RA3c
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/005-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
+- **Ficha Markdown:** fichas-aula/005-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
+
+## Resumen
+
+Meta ha lanzado Muse Image, un nuevo generador de imágenes basado en inteligencia artificial que permite crear y editar imágenes usando texto, fotos o dibujos. Esta herramienta está integrada en Instagram y WhatsApp, facilitando la creación de contenido visual atractivo para redes sociales. En el contexto del comercio electrónico, Muse Image puede ayudar a las empresas a mejorar su marketing digital y la presentación de productos de forma rápida y personalizada. Así, se potencia la comunicación visual, clave para captar la atención de los clientes online.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA3
+
+**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
+
+### Criterios de evaluación relacionados
+
+- **RA3a.** Se han identificado las herramientas adecuadas para el diseño.
+- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
+- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
+
+### Justificación docente
+
+Muse Image es una herramienta de IA generativa para diseño y creatividad, que permite crear imágenes para marketing digital, alineándose con el uso de IA en diseño y branding.
+
+## Pregunta detonadora
+
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+
+## Actividad breve
+
+Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3a, RA3b, RA3c.
+
+## Conceptos clave
+
+- Branding
+- Diseño asistido por IA
+- Herramientas de IA para diseño
+- Herramientas de IA para branding
+- Identidad de marca
+- Creatividad visual
+- Generación de imágenes con IA
+- Diseño de recursos gráficos
+- Coherencia visual
+- Aplicaciones básicas de IA en diseño
+
+---
+
+# 6. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 1 jul. 2026
@@ -241,8 +298,8 @@ Estudia la noticia «JD.com asume que los robots acabarán sustituyendo parte de
 - **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
 - **CE relacionados:** RA6a, RA6b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
-- **Ficha Markdown:** fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+- **Ficha HTML:** fichas-aula/006-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
+- **Ficha Markdown:** fichas-aula/006-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
 
 ## Resumen
 
@@ -287,7 +344,7 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 
 ---
 
-# 6. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
+# 7. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 30 jun. 2026
@@ -297,8 +354,8 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
-- **Ficha Markdown:** fichas-aula/006-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
+- **Ficha HTML:** fichas-aula/007-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
+- **Ficha Markdown:** fichas-aula/007-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
 
 ## Resumen
 
@@ -341,61 +398,6 @@ Analiza la noticia «Google ofrece gratis la generación de imágenes personaliz
 - Diseño de recursos gráficos
 - Coherencia visual
 - Aplicaciones básicas de IA en diseño
-
----
-
-# 7. La logística, no el precio, decide la rentabilidad de las marcas españolas que venden fuera en marketplaces
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 3 jul. 2026
-- **Enlace:** https://ecommerce-news.es/la-logistica-no-el-precio-decide-la-rentabilidad-de-las-marcas-espanolas-que-venden-fuera-en-marketplaces/
-- **Módulo:** CDI
-- **RA:** RA4
-- **Texto RA:** Define la politica de comercio electronico de la empresa, estableciendo las acciones necesarias para efectuar ventas internacionales on-line.
-- **CE relacionados:** RA4e
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/007-la-logistica-no-el-precio-decide-la-rentabilidad-de-las-marcas-espanol.html
-- **Ficha Markdown:** fichas-aula/007-la-logistica-no-el-precio-decide-la-rentabilidad-de-las-marcas-espanol.md
-
-## Resumen
-
-Un estudio reciente muestra que para las marcas españolas que venden en marketplaces internacionales, la clave para ser rentables no es bajar precios, sino gestionar bien la logística. Esto significa que el coste y la eficiencia en el transporte, almacenamiento y entrega de productos afectan más las ganancias que el precio de venta. En comercio electrónico, entender y optimizar la logística es fundamental para competir y crecer en mercados extranjeros. Por tanto, no solo es importante tener un buen producto o precio, sino también una cadena de suministro eficiente.
-
-## Vinculación curricular
-
-- **Módulo:** CDI
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Define la politica de comercio electronico de la empresa, estableciendo las acciones necesarias para efectuar ventas internacionales on-line.
-
-### Criterios de evaluación relacionados
-
-- **RA4e.** Se ha planificado la gestion de los pedidos recibidos y todo el proceso logistico.
-
-### Justificación docente
-
-La noticia destaca la importancia de la logística en la rentabilidad de las ventas internacionales online, vinculándose directamente con la planificación y gestión del proceso logístico en comercio electrónico internacional.
-
-## Pregunta detonadora
-
-¿Qué impacto podría tener esta noticia en una empresa que vende en mercados internacionales?
-
-## Actividad breve
-
-Analiza la noticia «La logística, no el precio, decide la rentabilidad de las marcas españolas que venden fuera en marketplaces» desde una política de comercio electrónico internacional. Identifica decisiones sobre plataforma, logística, pagos, cliente o normativa. Propón una acción concreta y vincúlala con RA4e.
-
-## Conceptos clave
-
-- Comercio electrónico internacional
-- Tienda virtual internacional
-- Modelos de negocio digital
-- Portales horizontales
-- B2B
-- B2C
-- Dominio
-- Registro de dominio
-- Escaparate web
-- Catálogo electrónico
 
 ---
 

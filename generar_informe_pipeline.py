@@ -77,6 +77,15 @@ def generar_lineas_counter(counter: Counter) -> list[str]:
     return [f"- {clave}: {valor}" for clave, valor in counter.most_common()]
 
 
+def clave_visible_fila(fila: dict) -> str:
+    """Devuelve la clave de una fila de aportacion incluyendo alias."""
+    clave = str(fila.get("clave", ""))
+    aliases = [item for item in fila.get("aliases", []) if item]
+    if aliases:
+        clave += " / " + " / ".join(aliases)
+    return clave
+
+
 def relativo_o_absoluto(ruta: Path) -> str:
     """Devuelve una ruta relativa a BASE_DIR si es posible."""
     try:
@@ -130,6 +139,27 @@ def fuente_configurada(feed: dict) -> str:
     dominio = parsed.netloc.replace("www.", "").strip()
 
     return dominio or url
+
+
+def claves_fuente_configurada(feed: dict) -> list[str]:
+    """
+    Devuelve claves posibles para cruzar feeds.json con fuente_detectada.
+
+    Algunas fuentes con `source`, como WordPress API, se normalizan en la
+    noticia por dominio. Mantener el alias evita falsos ceros en el informe.
+    """
+    claves = []
+    primaria = fuente_configurada(feed)
+    if primaria:
+        claves.append(primaria)
+
+    url = feed.get("url", "")
+    if url:
+        dominio = urlparse(url).netloc.replace("www.", "").strip()
+        if dominio and dominio not in claves:
+            claves.append(dominio)
+
+    return claves
 
 
 def normalizar_texto(valor) -> str:
@@ -240,13 +270,15 @@ def diagnosticar_aportacion_fuentes(feeds, por_fuente: Counter, por_fuente_ultim
     filas = []
 
     for feed in activas:
-        clave = fuente_configurada(feed)
-        historico = por_fuente.get(clave, 0)
-        ultima = por_fuente_ultima.get(clave, 0)
+        claves = claves_fuente_configurada(feed)
+        clave = claves[0] if claves else "(sin clave)"
+        historico = max((por_fuente.get(item, 0) for item in claves), default=0)
+        ultima = max((por_fuente_ultima.get(item, 0) for item in claves), default=0)
 
         filas.append({
             "nombre": nombre_fuente(feed),
             "clave": clave,
+            "aliases": [item for item in claves[1:] if item],
             "modulo": normalizar_texto(feed.get("modulo")),
             "tipo": normalizar_texto(feed.get("tipo")),
             "historico": historico,
@@ -617,7 +649,7 @@ def generar_informe():
         informe.append("|---|---|---|---:|---:|")
         for fila in diagnostico_aportacion_fuentes["filas"]:
             informe.append(
-                f"| {fila['nombre']} | `{fila['clave']}` | {fila['modulo']} | {fila['historico']} | {fila['ultima']} |"
+                f"| {fila['nombre']} | `{clave_visible_fila(fila)}` | {fila['modulo']} | {fila['historico']} | {fila['ultima']} |"
             )
         informe.append("")
         informe.append(f"- Fuentes activas sin aportación histórica: {len(diagnostico_aportacion_fuentes['activas_sin_historico'])}")

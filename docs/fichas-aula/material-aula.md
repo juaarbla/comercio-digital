@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 9 JUL 2026
+Fecha de generación: 10 JUL 2026
 
 ---
 
@@ -288,7 +288,119 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 
 ---
 
-# 6. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+# 6. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
+
+- **Fuente:** cyberclick.es
+- **Fecha:** 9 jul. 2026
+- **Enlace:** https://www.cyberclick.es/numerical-blog/skills-vs-gpts-vs-gems-cuales-son-las-diferencias
+- **Módulo:** IA
+- **RA:** RA1
+- **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
+- **CE relacionados:** RA1a, RA1b
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/006-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
+- **Ficha Markdown:** fichas-aula/006-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
+
+## Resumen
+
+La inteligencia artificial está evolucionando hacia una mayor personalización, adaptando los asistentes digitales a tareas específicas de cada equipo o empresa. Por ejemplo, ChatGPT ofrece los GPTs, Google tiene los Gems y Claude presenta las Skills, que son herramientas diseñadas para funciones concretas. Esto es importante en marketing digital porque permite crear experiencias más personalizadas para los clientes y optimizar procesos de comunicación y análisis. Así, se mejora la eficacia de las campañas y la gestión de datos en las empresas.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se ha identificado e informado sobre las opciones de herramientas de inteligencia artificial adecuadas a emplear.
+- **RA1b.** Se ha relacionado la tarea a desempeñar con la herramienta a utilizar.
+
+### Justificación docente
+
+La noticia trata sobre herramientas de IA generativa específicas para marketing digital, por lo que encaja en el reconocimiento y uso de herramientas de IA adecuadas para tareas empresariales y de marketing.
+
+## Pregunta detonadora
+
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+
+## Actividad breve
+
+Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» para identificar qué herramienta o uso de IA aparece. Explica qué tarea mejora, qué datos necesita y qué limitaciones tendría en una empresa real. Relaciona el análisis con RA1a, RA1b.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Historia de la inteligencia artificial
+- Evolución de la inteligencia artificial
+- Inteligencia artificial actual
+- Herramientas de inteligencia artificial
+- IA aplicada a la empresa
+- IA aplicada al marketing
+- IA aplicada al comercio
+- Selección de herramientas de IA
+- Relación entre tarea y herramienta
+
+---
+
+# 7. OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales
+
+- **Fuente:** ecommerce-news.es
+- **Fecha:** 9 jul. 2026
+- **Enlace:** https://ecommerce-news.es/openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las-conversaciones-mas-naturales/
+- **Módulo:** IA
+- **RA:** RA6
+- **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+- **CE relacionados:** RA6a, RA6b
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/007-openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las.html
+- **Ficha Markdown:** fichas-aula/007-openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las.md
+
+## Resumen
+
+OpenAI ha lanzado GPT-Live, una nueva función de voz para ChatGPT que permite mantener conversaciones más naturales y fluidas, ya que la inteligencia artificial puede escuchar y hablar al mismo tiempo. Esto mejora la interacción en tiempo real, con pausas e interrupciones como en una conversación normal. En comercio electrónico, esta tecnología puede usarse para mejorar la atención al cliente mediante chatbots más humanos y eficientes. Así, las empresas pueden ofrecer un servicio más cercano y rápido a sus usuarios.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA6
+
+**RA6.** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+
+### Criterios de evaluación relacionados
+
+- **RA6a.** Se han implementado soluciones de inteligencia artificial para mejorar la experiencia del cliente.
+- **RA6b.** Se han utilizado chatbots para la atención al cliente online. (IA generativa.)
+
+### Justificación docente
+
+La noticia trata sobre GPT-Live, una herramienta de IA generativa que mejora la atención al cliente mediante chatbots más naturales, vinculándose directamente con la gestión de atención al cliente potenciada por IA.
+
+## Pregunta detonadora
+
+¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+
+## Actividad breve
+
+Revisa la noticia «OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales» como caso de atención al cliente con IA. Diseña un pequeño flujo de conversación: consulta inicial, respuesta del asistente, derivación y cierre. Relaciona el flujo con RA6a, RA6b.
+
+## Conceptos clave
+
+- Atención al cliente
+- Experiencia del cliente
+- IA aplicada a la atención al cliente
+- Chatbots
+- Bots
+- IA generativa
+- IA predictiva
+- Sistemas predictivos
+- Automatización de respuestas
+- Personalización de la atención
+
+---
+
+# 8. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 1 jul. 2026
@@ -298,8 +410,8 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 - **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
 - **CE relacionados:** RA6a, RA6b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/006-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
-- **Ficha Markdown:** fichas-aula/006-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+- **Ficha HTML:** fichas-aula/008-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
+- **Ficha Markdown:** fichas-aula/008-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
 
 ## Resumen
 
@@ -344,64 +456,7 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 
 ---
 
-# 7. Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU.
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 30 jun. 2026
-- **Enlace:** https://ecommerce-news.es/google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemini-a-mas-usuarios-en-estados-unidos/
-- **Módulo:** IA
-- **RA:** RA3
-- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-- **CE relacionados:** RA3a, RA3b, RA3c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.html
-- **Ficha Markdown:** fichas-aula/007-google-ofrece-gratis-la-generacion-de-imagenes-personalizadas-con-gemi.md
-
-## Resumen
-
-Google ha ampliado el acceso gratuito a la generación de imágenes personalizadas con su herramienta Gemini para usuarios en Estados Unidos. Esta función, antes solo disponible para suscriptores de planes avanzados, utiliza inteligencia artificial para crear imágenes únicas según las indicaciones del usuario. En comercio electrónico, esta tecnología puede mejorar la personalización de productos y campañas visuales, facilitando una mejor conexión con los clientes. Además, muestra cómo la IA está transformando la forma de crear contenido digital para marketing online.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA3
-
-**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-
-### Criterios de evaluación relacionados
-
-- **RA3a.** Se han identificado las herramientas adecuadas para el diseño.
-- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
-- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
-
-### Justificación docente
-
-La noticia trata sobre la generación de imágenes personalizadas mediante IA generativa, vinculándose directamente con el uso de herramientas de IA para diseño y creatividad en marketing.
-
-## Pregunta detonadora
-
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
-
-## Actividad breve
-
-Analiza la noticia «Google ofrece gratis la generación de imágenes personalizadas con Gemini a usuarios en EE.UU» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3a, RA3b, RA3c.
-
-## Conceptos clave
-
-- Branding
-- Diseño asistido por IA
-- Herramientas de IA para diseño
-- Herramientas de IA para branding
-- Identidad de marca
-- Creatividad visual
-- Generación de imágenes con IA
-- Diseño de recursos gráficos
-- Coherencia visual
-- Aplicaciones básicas de IA en diseño
-
----
-
-# 8. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
+# 9. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 19 jun. 2026
@@ -411,8 +466,8 @@ Analiza la noticia «Google ofrece gratis la generación de imágenes personaliz
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
-- **Ficha Markdown:** fichas-aula/008-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
+- **Ficha HTML:** fichas-aula/009-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
+- **Ficha Markdown:** fichas-aula/009-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
 
 ## Resumen
 
@@ -454,63 +509,6 @@ Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para compe
 - Lenguajes de programación en IA
 - Aplicaciones sectoriales de la IA
 - Mejora de procesos de trabajo
-
----
-
-# 9. De #BookTok a la gran pantalla: así está cambiando TikTok el cine
-
-- **Fuente:** marketingdirecto.com
-- **Fecha:** 6 jun. 2026
-- **Enlace:** https://www.marketingdirecto.com/digital-general/digital/booktok-gran-pantalla-asi-esta-cambiando-tiktok-cine
-- **Módulo:** IA
-- **RA:** RA4
-- **Texto RA:** Gestiona diversos aspectos de las redes sociales con inteligencia artificial.
-- **CE relacionados:** RA4a, RA4b, RA4c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.html
-- **Ficha Markdown:** fichas-aula/009-de-booktok-a-la-gran-pantalla-asi-esta-cambiando-tiktok-el-cine.md
-
-## Resumen
-
-TikTok está redefiniendo el proceso de marketing cinematográfico, convirtiéndose en un motor de descubrimiento y consumo para las grandes producciones. El rápido crecimiento de la tendencia #FilmTok demuestra que las redes sociales son plataformas clave para generar *fandom* y el *buzz* necesario antes de un estreno. Esto es un ejemplo perfecto de cómo la estrategia de contenido y la viralidad pueden potenciar el *Return on Investment* (ROI) de una campaña publicitaria. En resumen, aprenderemos que, hoy en día, la conexión emocional y la participación del usuario son más importantes que la publicidad tradicional.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Gestiona diversos aspectos de las redes sociales con inteligencia artificial.
-
-### Criterios de evaluación relacionados
-
-- **RA4a.** Se ha utilizado la inteligencia artificial para analizar tendencias.
-- **RA4b.** Se ha utilizado la inteligencia artificial para diseñar publicaciones.
-- **RA4c.** Se ha utilizado la inteligencia artificial para automatizar publicaciones y personalizar la interacción con la audiencia en plataformas sociales.
-
-### Justificación docente
-
-La noticia se centra en cómo TikTok genera tendencias y *buzz* (análisis de tendencias) y cómo esto requiere una estrategia de publicación optimizada (diseño y automatización de publicaciones) en plataformas sociales.
-
-## Pregunta detonadora
-
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
-
-## Actividad breve
-
-Estudia la noticia «De #BookTok a la gran pantalla: así está cambiando TikTok el cine» como caso de contenido para redes sociales. Diseña una mini campaña de tres publicaciones indicando objetivo, formato, mensaje y métrica de seguimiento. Vincula la campaña con RA4a, RA4b, RA4c.
-
-## Conceptos clave
-
-- Redes sociales
-- Gestión de redes sociales con IA
-- Análisis de tendencias
-- Diseño de publicaciones
-- Audiencias
-- Personalización de contenidos
-- Automatización de publicaciones
-- Automatización de interacciones
-- Plataformas sociales
-- Calendario de publicaciones
 
 ---
 

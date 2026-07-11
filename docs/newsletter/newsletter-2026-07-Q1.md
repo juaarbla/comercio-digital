@@ -52,19 +52,19 @@ El sector logístico está pasando por una enorme transformación, ya que la may
 
 [Ver ficha de aula](../fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html)
 
-### 3. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+### 3. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
 
 **Módulo relacionado:** IA
 
-**Uso propuesto:** actividad
+**Uso propuesto:** caso_empresa
 
 **Valor docente:** alto
 
-Ferryhopper, una plataforma de reservas de ferries presente en 33 países, ha lanzado la primera app integrada con ChatGPT para facilitar las reservas a través de inteligencia artificial. Su CEO destaca que no buscan convertirse en un sistema que solo funcione como backend para agentes de IA, sino mantener un enfoque directo con el cliente. Esta innovación muestra cómo el comercio electrónico puede aprovechar la inteligencia artificial para mejorar la experiencia de compra y atención al cliente. Es un ejemplo práctico de integración tecnológica en plataformas digitales de venta online.
+Meta ha lanzado Muse Image, un nuevo generador de imágenes basado en inteligencia artificial que permite crear y editar imágenes usando texto, fotos o dibujos. Esta herramienta está integrada en Instagram y WhatsApp, facilitando la creación de contenido visual atractivo para redes sociales. En el contexto del comercio electrónico, Muse Image puede ayudar a las empresas a mejorar su marketing digital y la presentación de productos de forma rápida y personalizada. Así, se potencia la comunicación visual, clave para captar la atención de los clientes online.
 
-[Leer noticia original](https://ecommerce-news.es/no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia/)
+[Leer noticia original](https://ecommerce-news.es/meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-instagram-y-whatsapp/)
 
-[Ver ficha de aula](../fichas-aula/005-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html)
+[Ver ficha de aula](../fichas-aula/005-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html)
 
 ## Breves para seguir la actualidad
 

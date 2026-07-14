@@ -151,3 +151,70 @@ Desactivar temporalmente:
 - falla tecnicamente;
 - devuelve HTML, captcha o contenido no procesable.
 ```
+
+## Evaluacion rapida de nuevas candidatas v0.9
+
+Decision operativa de este lote: no incorporar nuevas fuentes a `feeds.json` por ahora. Todas las candidatas tienen algun RSS valido, pero v0.9 esta en fase de estabilizacion y conviene observar primero las fuentes incorporadas en v0.8.
+
+| Fuente | RSS evaluado | Estado | Decision | Accion |
+|---|---|---|---|---|
+| IAB Spain | `https://iabspain.es/feed/` | RSS valido | ACEPTAR CON FILTROS | Documentar como candidata; no incorporar todavia |
+| IncoDocs Blog | `https://incodocs.com/blog/feed/` | RSS valido | ACEPTAR CON FILTROS | Documentar como candidata CDI; no incorporar todavia |
+| AI Weekly | `https://aiweekly.co/feed/` / `https://aiweekly.co/rss.xml` | RSS valido | ACEPTAR CON FILTROS | Documentar como candidata IA; no incorporar todavia |
+| LliureX / PortalEdu | `https://portal.edu.gva.es/blogs/s1/lliurex/es/feed/` | RSS valido | MANTENER COMO FUENTE MANUAL | Documentar para uso manual o baja prioridad |
+| Lodgify Blog ES | `https://www.lodgify.com/blog/es/feed/` | RSS valido | ACEPTAR CON FILTROS | Documentar como candidata sectorial; no incorporar todavia |
+
+### IAB Spain
+
+- URL principal: https://iabspain.es/
+- RSS valido localizado: https://iabspain.es/feed/
+- Rutas probadas: `/feed/`, `/rss.xml`, `/category/noticias/feed/`, `/category/blog/feed/`, `/actualidad/feed/`
+- Modulo sugerido: Marketing Digital
+- Valor docente: alto para publicidad digital, medicion, retail media, redes sociales, IA aplicada al marketing y estudios sectoriales
+- Riesgo: contenido corporativo, premios, eventos, comisiones y actualidad sectorial no siempre aplicable al aula
+- Motivo de la decision: RSS valido y reciente, pero conviene filtrar para evitar agenda institucional o noticias internas
+- Newsletter: solo si pasa filtro docente
+
+### IncoDocs Blog
+
+- URL principal: https://incodocs.com/blog/
+- RSS valido localizado: https://incodocs.com/blog/feed/
+- Rutas probadas: `/blog/feed/`, `/blog/rss.xml`, `/blog/atom.xml`, `/feed/`, `/rss.xml`
+- Modulo sugerido: Comercio Digital Internacional
+- Valor docente: medio-alto para documentacion comercial, exportacion, importacion, logistica, shipping e Incoterms
+- Riesgo: contenido en ingles, enfoque de producto y articulos evergreen
+- Motivo de la decision: RSS valido y muy alineado con CDI, pero se recomienda observar antes de incorporarlo porque puede requerir filtro idiomatico y editorial
+- Newsletter: solo si pasa filtro docente y aporta aplicacion clara al aula
+
+### AI Weekly
+
+- URL principal: https://aiweekly.co/
+- RSS valido localizado: https://aiweekly.co/feed/ y https://aiweekly.co/rss.xml
+- Rutas probadas: `/feed/`, `/rss.xml`, `/atom.xml`, `/issues/feed/`, `/newsletter/feed/`
+- Modulo sugerido: IA para Marketing y Comercio
+- Valor docente: medio para tendencias de IA, automatizacion y aplicaciones empresariales
+- Riesgo: exceso de contenido tecnico, investigacion, robotics, modelos, chips, benchmarks o financiacion poco conectada con Comercio y Marketing
+- Motivo de la decision: RSS valido, pero requiere filtros fuertes para no introducir ruido tecnico
+- Newsletter: no automatizar; solo uso manual o seleccion muy filtrada
+
+### LliureX / PortalEdu
+
+- URL principal: https://portal.edu.gva.es/blogs/s1/lliurex/es/
+- RSS valido localizado: https://portal.edu.gva.es/blogs/s1/lliurex/es/feed/
+- Rutas probadas: `/es/feed/`, `/feed/`, `/es/rss.xml`, `/rss.xml`
+- Modulo sugerido: Digitalizacion GS o Digitalizacion GM
+- Valor docente: medio para competencia digital, software libre, Linux educativo y herramientas publicas
+- Riesgo: baja relacion directa con Comercio y Marketing; contenidos mas centrados en entorno educativo que en empresa
+- Motivo de la decision: RSS valido, pero prioridad baja-media para el agregador principal; mejor como fuente manual o para actividades puntuales
+- Newsletter: no automatizar
+
+### Lodgify Blog ES
+
+- URL principal: https://www.lodgify.com/blog/es/
+- RSS valido localizado: https://www.lodgify.com/blog/es/feed/
+- Rutas probadas: `/blog/es/feed/`, `/blog/es/rss.xml`, `/blog/es/atom.xml`, `/blog/es/feed.xml`, `/blog/feed/`
+- Modulo sugerido: Comercio Electronico
+- Valor docente: medio para ecommerce, webs de reserva, SEO local, canales de venta online y negocio digital turistico
+- Riesgo: fuente comercial, nicho de alquiler vacacional, contenidos legales/fiscales o sectoriales demasiado estrechos
+- Motivo de la decision: RSS valido y reciente, pero se recomienda no incorporarlo todavia por prioridad baja-media y riesgo de ruido sectorial
+- Newsletter: solo si pasa filtro docente y no es contenido promocional

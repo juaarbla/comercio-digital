@@ -85,6 +85,24 @@ Fichas docentes → material individual HTML/Markdown
 Newsletter      → selección periódica para compartir
 ```
 
+## Relación con podcast
+
+La newsletter puede actuar como selección editorial base para otros formatos, incluido el podcast `comercIAaliza.online`.
+
+Para evitar acoplar proyectos, el agregador no genera audio. Genera un brief Markdown reutilizable:
+
+```powershell
+python .\generar_brief_newsletter.py --periodicidad quincenal
+```
+
+Salida esperada:
+
+```text
+outputs/podcast/podcast-brief-AAAA-MM-QN.md
+```
+
+Ese archivo puede revisarse manualmente y usarse como entrada en el proyecto de podcast. La idea es que ComercioDigital.net seleccione y contextualice noticias; el proyecto de podcast decide tono, guion final, locución y audio.
+
 Cuando existe ficha docente, la newsletter puede enlazar a:
 
 ```text

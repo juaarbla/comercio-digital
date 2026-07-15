@@ -247,6 +247,14 @@ generar_newsletter_quincenal.bat
 
 Usarlo cuando proceda generar la newsletter quincenal.
 
+Salida complementaria para podcast:
+
+```powershell
+python .\generar_brief_newsletter.py --periodicidad quincenal
+```
+
+Este comando genera un brief Markdown en `outputs/podcast/` a partir de la misma seleccion editorial de la newsletter. No genera audio, no publica nada y debe revisarse manualmente antes de usarlo como entrada para `comercIAaliza.online`.
+
 ## 14. Fichas de aula
 
 Las fichas deben tener utilidad docente clara.

@@ -110,6 +110,7 @@ python generar_seo.py
 | `generar_fichas_aula.py` | Genera fichas docentes HTML/Markdown y material conjunto. |
 | `generar_aula.py` | Genera `docs/aula.html`. |
 | `generar_newsletter.py` | Genera newsletter docente en HTML/Markdown en `docs/newsletter/`. |
+| `generar_brief_newsletter.py` | Genera un brief Markdown para podcast a partir de la selección de newsletter. |
 | `generar_seo.py` | Añade metadatos SEO, `sitemap.xml` y `robots.txt`. |
 | `run_pipeline.py` | Ejecuta el flujo completo. |
 | `arrancar.bat` | Panel de control en Windows. |
@@ -199,6 +200,20 @@ python generar_newsletter.py --periodicidad semanal --force
 ```
 
 La newsletter no se genera cada día de forma automática. Se crea únicamente cuando se ejecuta el script.
+
+Como salida complementaria, puede generarse un brief Markdown para podcast:
+
+```powershell
+python generar_brief_newsletter.py --periodicidad quincenal
+```
+
+El brief se guarda en:
+
+```text
+outputs/podcast/
+```
+
+Este archivo sirve como base revisable para `comercIAaliza.online`. El agregador no genera audio ni publica el podcast.
 
 El agregador no gestiona suscriptores ni realiza envíos de correo. La distribución debe hacerse mediante una herramienta externa o envío manual del enlace público:
 

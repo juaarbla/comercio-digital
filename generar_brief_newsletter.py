@@ -17,10 +17,42 @@ from paths import BASE_DIR, NOTICIAS_CLASIFICADAS
 
 
 OUTPUT_DIR = BASE_DIR / "outputs" / "podcast"
+MONTH_NAMES = {
+    "01": "enero",
+    "02": "febrero",
+    "03": "marzo",
+    "04": "abril",
+    "05": "mayo",
+    "06": "junio",
+    "07": "julio",
+    "08": "agosto",
+    "09": "septiembre",
+    "10": "octubre",
+    "11": "noviembre",
+    "12": "diciembre",
+}
 
 
 def clean_text(value: Any) -> str:
     return str(value or "").replace("\n", " ").strip()
+
+
+def plural(count: int, singular: str, plural_text: str | None = None) -> str:
+    text = singular if count == 1 else (plural_text or f"{singular}s")
+    return f"{count} {text}"
+
+
+def friendly_period_label(periodo: dict[str, str]) -> str:
+    slug = periodo.get("slug", "")
+    if "-Q" in slug:
+        try:
+            year, month, quarter = slug.split("-")
+            quincena = quarter.replace("Q", "")
+            month_name = MONTH_NAMES.get(month, month)
+            return f"Quincena {quincena} de {month_name} de {year}"
+        except ValueError:
+            return periodo["label"]
+    return periodo["label"]
 
 
 def list_values(value: Any, max_items: int = 6) -> list[str]:
@@ -40,132 +72,382 @@ def list_values(value: Any, max_items: int = 6) -> list[str]:
     return [text] if text else []
 
 
+def title_for(noticia: dict[str, Any]) -> str:
+    return pick(noticia, "titulo", "title", default="Sin titulo")
+
+
+def url_for(noticia: dict[str, Any]) -> str:
+    return pick(noticia, "url", "link", "enlace", default="")
+
+
+def module_for(noticia: dict[str, Any]) -> str:
+    return pick(noticia, "modulo_relacionado", "modulo_asignado", "modulo", default="Sin módulo")
+
+
+def summary_for(noticia: dict[str, Any]) -> str:
+    return pick(noticia, "resumen_docente", "resumen", "summary", default="")
+
+
+def question_for(noticia: dict[str, Any]) -> str:
+    return pick(
+        noticia,
+        "pregunta_aula",
+        default="¿Qué decisión podría tomar una pequeña empresa a partir de esta noticia?",
+    )
+
+
+def activity_for(noticia: dict[str, Any]) -> str:
+    return pick(noticia, "actividad_breve", default="")
+
+
 def source_for(noticia: dict[str, Any]) -> str:
     fuente = pick(noticia, "fuente_detectada", default="")
     if fuente:
         return fuente
-    url = pick(noticia, "url", "link", "enlace", default="")
+    url = url_for(noticia)
     if "://" in url:
         return url.split("://", 1)[1].split("/", 1)[0].replace("www.", "")
     return "fuente no detectada"
 
 
-def episode_theme(noticias: list[dict[str, Any]]) -> str:
-    modulos = [
-        pick(n, "modulo_relacionado", "modulo_asignado", "modulo", default="")
-        for n in noticias
-    ]
-    modulos = [m for m in modulos if m]
-    if not modulos:
-        return "Actualidad de comercio digital para llevar al aula"
-
-    counts: dict[str, int] = {}
-    for modulo in modulos:
-        counts[modulo] = counts.get(modulo, 0) + 1
-    principal = sorted(counts.items(), key=lambda item: item[1], reverse=True)[0][0]
-    return f"Actualidad de {principal} aplicada a empresa, aula y decisiones digitales"
+def is_security_news(noticia: dict[str, Any]) -> bool:
+    text = f"{source_for(noticia)} {title_for(noticia)} {module_for(noticia)}".lower()
+    terms = ("incibe", "ciber", "seguridad", "vulnerabilidad", "vulnerabilidades", "sci")
+    return any(term in text for term in terms)
 
 
-def render_news_block(noticia: dict[str, Any], index: int) -> list[str]:
-    titulo = pick(noticia, "titulo", "title", default="Sin titulo")
-    url = pick(noticia, "url", "link", "enlace", default="")
-    resumen = pick(noticia, "resumen_docente", "resumen", "summary", default="")
-    modulo = pick(noticia, "modulo_relacionado", "modulo_asignado", "modulo", default="Sin modulo")
-    uso = pick(noticia, "tipo_uso", default="lectura")
-    valor = pick(noticia, "valor_docente", default="sin valorar")
-    pregunta = pick(noticia, "pregunta_aula", default="")
-    actividad = pick(noticia, "actividad_breve", default="")
-    conceptos = list_values(noticia.get("conceptos_clave"), max_items=5)
+def group_key(noticia: dict[str, Any]) -> str:
+    title = title_for(noticia).lower()
+    if "marketplace summit" in title:
+        return "marketplace-summit"
+    if "logístic" in title or "logistic" in title or "entrega" in title:
+        return "logistica"
+    if "muse image" in title or "imagen" in title or "instagram" in title or "whatsapp" in title:
+        return "ia-visual"
+    return title[:72]
 
+
+def split_episode_items(
+    noticias: list[dict[str, Any]],
+) -> tuple[list[list[dict[str, Any]]], list[dict[str, Any]], list[dict[str, Any]]]:
+    security: list[dict[str, Any]] = []
+    normal: list[dict[str, Any]] = []
+    for noticia in noticias:
+        if is_security_news(noticia):
+            security.append(noticia)
+        else:
+            normal.append(noticia)
+
+    grouped: list[list[dict[str, Any]]] = []
+    seen: dict[str, int] = {}
+    for noticia in normal:
+        key = group_key(noticia)
+        if key in seen:
+            grouped[seen[key]].append(noticia)
+            continue
+        seen[key] = len(grouped)
+        grouped.append([noticia])
+
+    main_groups = grouped[:3]
+    reserved = [news for group in grouped[3:] for news in group]
+    return main_groups, security[:1], reserved + security[1:]
+
+
+def block_title(group: list[dict[str, Any]]) -> str:
+    key = group_key(group[0])
+    if key == "marketplace-summit":
+        return "Vender dentro de plataformas y redes sociales"
+    if key == "logistica":
+        return "La compra no termina al pulsar el botón"
+    if key == "ia-visual":
+        return "Crear más rápido no significa crear mejor"
+    return title_for(group[0])
+
+
+def block_focus(group: list[dict[str, Any]]) -> str:
+    key = group_key(group[0])
+    if len(group) > 1:
+        return (
+            "Estas noticias tratan una tendencia similar. Conviene trabajarlas como un "
+            "único bloque para evitar repeticiones y extraer una decisión práctica."
+        )
+    if key == "logistica":
+        return "La noticia recuerda que una venta online también se decide en inventario, entrega y devoluciones."
+    if key == "ia-visual":
+        return "La noticia conecta creación visual con identidad de marca, no solo con rapidez de producción."
+    return "La noticia sirve para traducir una tendencia digital en una decisión concreta de negocio."
+
+
+def practical_decision(group: list[dict[str, Any]]) -> str:
+    key = group_key(group[0])
+    if key == "marketplace-summit":
+        return (
+            "Elegir un único canal para realizar una prueba pequeña y medible, "
+            "en lugar de intentar estar en todas las plataformas al mismo tiempo."
+        )
+    if key == "logistica":
+        return (
+            "Revisar el recorrido completo de un pedido y automatizar primero el punto "
+            "en el que se repiten más errores o tareas manuales."
+        )
+    if key == "ia-visual":
+        return "Crear una pequeña guía visual de marca antes de utilizar herramientas de generación de imágenes con IA."
+    if is_security_news(group[0]):
+        return "Comprobar qué aplicaciones, dispositivos y cuentas siguen usando credenciales débiles o compartidas."
+    return "Definir una prueba concreta, un indicador de resultado y un riesgo que conviene controlar."
+
+
+def episode_theme(groups: list[list[dict[str, Any]]]) -> str:
+    keys = {group_key(group[0]) for group in groups}
+    if {"marketplace-summit", "logistica", "ia-visual"}.issubset(keys):
+        return "Social commerce, logística e imágenes con IA: qué está cambiando en el comercio digital"
+    if groups:
+        return "Actualidad de comercio digital: decisiones prácticas para pymes y aula"
+    return "Actualidad de comercio digital para llevar al aula"
+
+
+def proposed_title(groups: list[list[dict[str, Any]]]) -> str:
+    theme = episode_theme(groups)
+    if ":" in theme:
+        theme = theme.split(":", 1)[0]
+    return f"[Actualidad] {theme}"
+
+
+def render_news_reference(noticia: dict[str, Any]) -> list[str]:
     lines = [
-        f"### {index}. {titulo}",
+        f"### {title_for(noticia)}",
         "",
         f"- Fuente: {source_for(noticia)}",
-        f"- Módulo relacionado: {modulo}",
-        f"- Uso docente: {uso}",
-        f"- Valor docente: {valor}",
     ]
-    if conceptos:
-        lines.append(f"- Conceptos clave: {', '.join(conceptos)}")
+    url = url_for(noticia)
     if url:
         lines.append(f"- Enlace: {url}")
-    lines.extend([
+    return lines
+
+
+def render_episode_block(group: list[dict[str, Any]], index: int) -> list[str]:
+    first = group[0]
+    resumen = summary_for(first)
+    pregunta = question_for(first)
+    actividad = activity_for(first)
+    concepts = list_values(first.get("conceptos_clave"), max_items=5)
+
+    lines = [
+        f"# Bloque {index} - {block_title(group)}",
         "",
-        "**Resumen para locución**",
+        "## Noticias fusionadas" if len(group) > 1 else "## Noticia",
         "",
-        resumen or "Pendiente de redactar resumen para locución.",
-        "",
-        "**Por qué importa**",
-        "",
-        "Conecta una noticia reciente con decisiones reales de empresas, clientes o docentes.",
-        "",
-    ])
-    if pregunta:
-        lines.extend(["**Pregunta para el aula**", "", pregunta, ""])
+    ]
+    for noticia in group:
+        lines.extend(render_news_reference(noticia))
+        lines.append("")
+
+    lines.extend(
+        [
+            "## Enfoque editorial",
+            "",
+            block_focus(group),
+            "",
+            "## Resumen para locución",
+            "",
+            resumen or "Pendiente de redactar resumen para locución.",
+            "",
+            "## Por qué importa",
+            "",
+            "La noticia ayuda a pasar del titular a una decisión concreta para una pyme, una tienda online o una actividad de aula.",
+            "",
+            "## Pregunta para el aula",
+            "",
+            f"**{pregunta}**",
+            "",
+        ]
+    )
     if actividad:
-        lines.extend(["**Actividad breve**", "", actividad, ""])
+        lines.extend(["## Actividad breve", "", actividad, ""])
+    if concepts:
+        lines.extend(["## Conceptos útiles", "", ", ".join(concepts), ""])
+    lines.extend(
+        [
+            "## Decisión práctica para una pyme",
+            "",
+            practical_decision(group),
+            "",
+            "---",
+            "",
+        ]
+    )
+    return lines
+
+
+def render_security_notice(noticia: dict[str, Any]) -> list[str]:
+    return [
+        "# Aviso breve de ciberseguridad",
+        "",
+        "## Noticia",
+        "",
+        f"### {title_for(noticia)}",
+        "",
+        f"- Fuente: {source_for(noticia)}",
+        f"- Enlace: {url_for(noticia)}",
+        "",
+        "## Enfoque editorial",
+        "",
+        "No conviene desarrollar esta noticia como un bloque completo si el episodio ya tiene tres ideas principales. Puede funcionar como sección breve y recurrente.",
+        "",
+        "## Resumen para locución",
+        "",
+        summary_for(noticia) or "Recordatorio breve sobre seguridad, credenciales, actualizaciones y permisos.",
+        "",
+        "## Decisión práctica para una pyme",
+        "",
+        practical_decision([noticia]),
+        "",
+        "---",
+        "",
+    ]
+
+
+def render_reserved_news(noticias: list[dict[str, Any]]) -> list[str]:
+    if not noticias:
+        return []
+    lines = ["# Noticias reservadas", ""]
+    for noticia in noticias:
+        lines.extend(
+            [
+                f"## {title_for(noticia)}",
+                "",
+                f"- Fuente: {source_for(noticia)}",
+                "- Motivo para reservarla: relevante, pero menos conectada con la idea central del episodio.",
+                "- Posible uso futuro: mención secundaria, episodio monográfico o pieza de contexto.",
+                "",
+            ]
+        )
+    lines.extend(["---", ""])
     return lines
 
 
 def render_brief(noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str) -> str:
-    destacada = noticias[0] if noticias else {}
-    tema = episode_theme(noticias)
-    titulo_destacado = pick(destacada, "titulo", "title", default="la noticia principal")
+    main_groups, security, reserved = split_episode_items(noticias)
+    tema = episode_theme(main_groups)
 
     lines = [
-        f"# Brief podcast - comercIAaliza.online",
+        "# Brief de podcast - ComercIAliza Online",
         "",
-        f"Periodo base: {periodo['label']}",
-        f"Periodicidad editorial: {periodicidad}",
-        f"Noticias seleccionadas: {len(noticias)}",
+        "## Periodo base",
+        "",
+        f"**{friendly_period_label(periodo)}**",
+        "",
+        "## Línea editorial",
+        "",
+        "**[Actualidad]**",
         "",
         "## Tema del episodio",
         "",
-        tema,
+        f"**{tema}**",
+        "",
+        "## Idea central",
+        "",
+        (
+            "El objetivo del episodio no es resumir titulares, sino traducir tendencias "
+            "recientes en decisiones concretas para una pyme, una tienda online y el aula."
+        ),
+        "",
+        "## Título propuesto",
+        "",
+        f"**{proposed_title(main_groups)}**",
+        "",
+        "## Título visual",
+        "",
+        "**Qué está cambiando en el comercio digital**",
+        "",
+        "## Duración objetivo",
+        "",
+        "**10-13 minutos**",
+        "",
+        "## Noticias seleccionadas",
+        "",
+        f"- {plural(len(main_groups), 'bloque principal', 'bloques principales')}.",
+        f"- {plural(len(security), 'aviso breve de ciberseguridad')}.",
+        f"- {plural(len(reserved), 'noticia reservada')} para futuros episodios o menciones secundarias.",
+        f"- Periodicidad editorial: {periodicidad}.",
+        "",
+        "---",
         "",
         "## Apertura sugerida",
         "",
         (
-            "En este episodio revisamos varias noticias recientes de comercio digital "
-            "y las traducimos a decisiones concretas para el aula, la pyme y el negocio online."
+            "Esta quincena revisamos varios cambios que merece la pena seguir de cerca: "
+            "dónde se descubre el producto, cómo se entrega y qué papel empiezan a tener "
+            "las herramientas de inteligencia artificial en la comunicación comercial."
         ),
         "",
-        "## Noticia de apertura",
+        "Hoy no vamos a limitarnos a repasar titulares.",
         "",
-        f"Abrir con: {titulo_destacado}",
+        "Vamos a intentar responder una pregunta más útil:",
         "",
-        "## Bloque de noticias",
+        "**¿Qué decisiones podría tomar una pequeña empresa a partir de estas noticias?**",
+        "",
+        "---",
         "",
     ]
 
-    for index, noticia in enumerate(noticias, 1):
-        lines.extend(render_news_block(noticia, index))
+    for index, group in enumerate(main_groups, 1):
+        lines.extend(render_episode_block(group, index))
 
-    lines.extend([
-        "## Bloque docente",
-        "",
-        "Ideas para convertir el episodio en actividad:",
-        "",
-        "1. Elegir una noticia y resumir el problema empresarial.",
-        "2. Relacionarla con un módulo o resultado de aprendizaje.",
-        "3. Proponer una decisión concreta para una pequeña empresa.",
-        "4. Debatir riesgos, oportunidades y datos que faltarían antes de decidir.",
-        "",
-        "## Cierre sugerido",
-        "",
-        (
-            "La tecnología cambia deprisa, pero lo importante para aprender comercio digital "
-            "es convertir cada noticia en una pregunta: ¿qué decisión tomaría una empresa real?"
-        ),
-        "",
-        "## Nota editorial",
-        "",
-        (
-            "Este documento es un brief de trabajo. Conviene revisarlo y ajustar tono, "
-            "duración y enfoque antes de convertirlo en guion final o audio."
-        ),
-        "",
-    ])
+    if security:
+        lines.extend(render_security_notice(security[0]))
+
+    lines.extend(render_reserved_news(reserved))
+
+    lines.extend(
+        [
+            "# Bloque docente final",
+            "",
+            "## Actividad transversal",
+            "",
+            "Elige una de las noticias del episodio y responde:",
+            "",
+            "1. ¿Qué problema empresarial aparece?",
+            "2. ¿Qué tecnología o tendencia está implicada?",
+            "3. ¿Qué decisión podría tomar una pequeña empresa?",
+            "4. ¿Qué beneficio se espera?",
+            "5. ¿Qué riesgo habría que controlar?",
+            "6. ¿Qué dato faltaría antes de decidir?",
+            "",
+            "## Propuesta de debate",
+            "",
+            "**¿Una pequeña empresa debe adoptar rápido las nuevas herramientas digitales o esperar hasta comprobar que realmente aportan valor?**",
+            "",
+            "---",
+            "",
+            "# Cierre sugerido",
+            "",
+            (
+                "La tecnología cambia deprisa, pero no todas las novedades exigen una reacción inmediata. "
+                "La pregunta útil no es si una pequeña empresa debe utilizar cada nueva plataforma, "
+                "automatización o herramienta de inteligencia artificial. La pregunta es otra: "
+                "¿qué problema concreto me ayuda a resolver y cómo voy a comprobar si ha funcionado?"
+            ),
+            "",
+            "---",
+            "",
+            "# CTA sugerida",
+            "",
+            "Entra en ComercioDigital.net, elige una noticia de esta quincena y anota una única decisión que podría tomar una pequeña empresa a partir de ella.",
+            "",
+            "---",
+            "",
+            "# Notas de producción",
+            "",
+            "- No enviar este brief directamente a ElevenLabs.",
+            "- Transformarlo primero en un guion conversacional.",
+            "- Revisar fusiones, noticias reservadas y enfoque editorial antes de grabar.",
+            "- Evitar leer actividades completas durante la locución; pueden quedar desarrolladas en WordPress.",
+            "- Comprobar cifras, nombres de herramientas y afirmaciones antes de publicar.",
+            "- Presentar el episodio como selección e interpretación de actualidad, no como lectura de newsletter.",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 

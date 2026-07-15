@@ -218,3 +218,47 @@ Decision operativa de este lote: no incorporar nuevas fuentes a `feeds.json` por
 - Riesgo: fuente comercial, nicho de alquiler vacacional, contenidos legales/fiscales o sectoriales demasiado estrechos
 - Motivo de la decision: RSS valido y reciente, pero se recomienda no incorporarlo todavia por prioridad baja-media y riesgo de ruido sectorial
 - Newsletter: solo si pasa filtro docente y no es contenido promocional
+
+## Observacion de ejecuciones post-v0.8
+
+Periodo revisado: 2026-07-09 a 2026-07-14.
+
+| Informe | Noticias ultima ejecucion | Fuentes en ultima ejecucion | Fuentes activas sin historico | Fuentes activas sin ultima ejecucion | Lectura |
+|---|---:|---|---:|---:|---|
+| 2026-07-09 | 13 | ecommerce-news.es: 9; cyberclick.es: 3; camara.es: 1 | 7 | 11 | Primeras senales positivas de Cyberclick y Camara. |
+| 2026-07-10 | 15 | ecommerce-news.es: 10; consultoresia.com: 2; cyberclick.es: 2; casares.blog: 1 | 5 | 10 | Mejor diversidad: aparecen Consultores IA y Casares. |
+| 2026-07-11 | 11 | ecommerce-news.es: 9; casares.blog: 1; cyberclick.es: 1 | 5 | 11 | Ecommerce-news vuelve a concentrar la ultima ejecucion. |
+| 2026-07-13 | 1 | casares.blog: 1 | 5 | 13 | Ejecucion de muy bajo volumen; no tomar decisiones con este dato aislado. |
+| 2026-07-14 | 21 | ecommerce-news.es: 17; cyberclick.es: 4 | 5 | 12 | Buen volumen, pero ecommerce-news concentra el 81,0% de la ultima ejecucion. |
+
+### Lectura editorial
+
+La v0.8 empieza a dar senales utiles:
+
+```text
+- cyberclick.es aporta de forma recurrente;
+- camara.es ya aporto contenido CDI;
+- casares.blog y consultoresia.com han empezado a aportar historico;
+- WordPress API queda trazada con alias wordpress_api / juanarmada.com.
+```
+
+La concentracion de `ecommerce-news.es` sigue siendo el principal punto de observacion:
+
+```text
+- 73,8% del historico clasificado en 2026-07-14;
+- 81,0% de la ultima ejecucion detectada en 2026-07-14.
+```
+
+### Decision temporal
+
+No anadir nuevas fuentes todavia. Mantener la observacion durante 2 o 3 ejecuciones mas antes de activar candidatas documentadas como IAB Spain, IncoDocs o AI Weekly.
+
+Prioridad de observacion:
+
+```text
+1. Confirmar si cyberclick.es mantiene aportacion util.
+2. Comprobar si camara.es vuelve a aportar CDI.
+3. Esperar senales de thinkwithgoogle.com y es.semrush.com.
+4. Vigilar si ecommerce-news.es sigue por encima del 80% en varias ultimas ejecuciones.
+5. Mantener sin cambios fuentes de baja frecuencia si el RSS sigue siendo valido.
+```

@@ -114,6 +114,7 @@ python generar_seo.py
 | `generar_seo.py` | Añade metadatos SEO, `sitemap.xml` y `robots.txt`. |
 | `run_pipeline.py` | Ejecuta el flujo completo. |
 | `arrancar.bat` | Panel de control en Windows. |
+| `generar_brief_podcast.bat` | Lanza la generación del brief de podcast con log local. |
 | `paths.py` | Centraliza rutas del proyecto. |
 | `mcp_servers/comercio_digital/server.py` | Servidor MCP local del agregador. |
 | `DIARIO_PROYECTO.md` | Registro de cambios, incidencias y decisiones. |
@@ -205,6 +206,12 @@ Como salida complementaria, puede generarse un brief Markdown para podcast:
 
 ```powershell
 python generar_brief_newsletter.py --periodicidad quincenal
+```
+
+Tambien puede lanzarse con:
+
+```powershell
+generar_brief_podcast.bat
 ```
 
 El brief se guarda en:

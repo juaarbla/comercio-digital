@@ -95,6 +95,12 @@ Para evitar acoplar proyectos, el agregador no genera audio. Genera un brief Mar
 python .\generar_brief_newsletter.py --periodicidad quincenal
 ```
 
+Tambien existe un lanzador para uso manual o Programador de tareas:
+
+```powershell
+generar_brief_podcast.bat
+```
+
 Salida esperada:
 
 ```text

@@ -53,6 +53,7 @@ Tambien existen scripts `.bat` en la raiz del proyecto:
 arrancar.bat
 publicar_web_diaria.bat
 generar_newsletter_quincenal.bat
+generar_brief_podcast.bat
 ```
 
 Usarlos solo cuando encajen con la tarea concreta. Para diagnostico fino, los comandos Python permiten ver mejor que ha ocurrido.
@@ -251,6 +252,12 @@ Salida complementaria para podcast:
 
 ```powershell
 python .\generar_brief_newsletter.py --periodicidad quincenal
+```
+
+Tambien puede lanzarse con:
+
+```powershell
+generar_brief_podcast.bat
 ```
 
 Este comando genera un brief Markdown en `outputs/podcast/` a partir de la misma seleccion editorial de la newsletter. No genera audio, no publica nada y debe revisarse manualmente antes de usarlo como entrada para `comercIAaliza.online`.

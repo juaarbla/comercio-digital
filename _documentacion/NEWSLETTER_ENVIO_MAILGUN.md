@@ -98,6 +98,12 @@ Reglas:
 
 ## Prueba sin envío
 
+Revisar la lista de destinatarios sin preparar envío:
+
+```powershell
+python .\enviar_newsletter_mailgun.py --list
+```
+
 ```powershell
 python .\enviar_newsletter_mailgun.py --test tu-correo@example.com
 ```

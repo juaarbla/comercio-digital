@@ -151,6 +151,13 @@ def load_subscribers(path: Path) -> list[Subscriber]:
     return subscribers
 
 
+def print_subscribers(subscribers: list[Subscriber]) -> None:
+    print(f"Destinatarios válidos: {len(subscribers)}")
+    for index, subscriber in enumerate(subscribers, 1):
+        name = f" ({subscriber.name})" if subscriber.name else ""
+        print(f"{index:03d}. {subscriber.email}{name}")
+
+
 def mail_subject(newsletter_path: Path, custom_subject: str = "") -> str:
     if custom_subject:
         return custom_subject
@@ -293,12 +300,17 @@ def main() -> None:
     parser.add_argument("--test", default="", help="Enviar/validar solo a este email.")
     parser.add_argument("--diagnose", action="store_true", help="Muestra configuración Mailgun sin enviar ni revelar la API key.")
     parser.add_argument("--preview", action="store_true", help="Muestra el email renderizado sin enviar.")
+    parser.add_argument("--list", action="store_true", help="Lista destinatarios válidos del CSV sin preparar ni enviar email.")
     parser.add_argument("--send", action="store_true", help="Envía realmente por Mailgun.")
     parser.add_argument("--yes", action="store_true", help="Confirmación explícita para envío real.")
     args = parser.parse_args()
 
     if args.diagnose:
         print_diagnostics()
+        return
+
+    if args.list:
+        print_subscribers(load_subscribers(Path(args.subscribers)))
         return
 
     newsletter_path = latest_newsletter(args.newsletter)

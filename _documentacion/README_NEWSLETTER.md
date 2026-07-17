@@ -246,6 +246,7 @@ _documentacion/NEWSLETTER_ENVIO_MAILGUN.md
 Prueba sin envío real:
 
 ```powershell
+python .\enviar_newsletter_mailgun.py --list
 python .\enviar_newsletter_mailgun.py --test tu-correo@example.com
 ```
 

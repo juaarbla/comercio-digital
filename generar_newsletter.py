@@ -3,12 +3,13 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import os
 import re
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
-from paths import DOCS_DIR, NOTICIAS_CLASIFICADAS
+from paths import BASE_DIR, DOCS_DIR, NOTICIAS_CLASIFICADAS
 from schema_utils import insertar_jsonld, schema_newsletter_index, schema_newsletter_issue
 from web_ui_common import (
     SITE_TITLE,
@@ -22,6 +23,7 @@ from web_ui_common import (
 
 NEWSLETTER_DIR = DOCS_DIR / "newsletter"
 FICHAS_DIR = DOCS_DIR / "fichas-aula"
+SUBSCRIPTION_URL_ENV = "NEWSLETTER_SUBSCRIPTION_URL"
 
 
 def e(value: Any) -> str:
@@ -50,6 +52,24 @@ def load_json(path: Path) -> Any:
     if not path.exists():
         raise FileNotFoundError(f"No existe el archivo de noticias: {path}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_env_file(path: Path = BASE_DIR / ".env") -> None:
+    if not path.exists():
+        return
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+def subscription_url() -> str:
+    return os.getenv(SUBSCRIPTION_URL_ENV, "").strip()
 
 
 def flatten_news(data: Any) -> list[dict[str, Any]]:
@@ -335,6 +355,22 @@ def render_masthead() -> str:
     )
 
 
+def subscription_cta_html() -> str:
+    url = subscription_url()
+    if not url:
+        return ""
+    return f"""
+    <section class="newsletter-subscribe">
+      <div class="newsletter-subscribe-icon" aria-hidden="true">&#9993;</div>
+      <div class="newsletter-subscribe-copy">
+        <h2>Recibe la newsletter</h2>
+        <p>Apúntate para recibir por correo las próximas selecciones docentes de Comercio Digital.</p>
+      </div>
+      <a class="newsletter-subscribe-link" href="{e(url)}" target="_blank" rel="noopener">Apúntate</a>
+    </section>
+""".rstrip()
+
+
 def render_card(n: dict[str, Any], number: int) -> str:
     titulo = pick(n, "titulo", "title", default="Sin título")
     url = pick(n, "url", "link", "enlace")
@@ -506,6 +542,8 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
       Esta edición resume noticias con posible uso didáctico para abrir una clase, plantear un debate,
       proponer una actividad breve o conectar contenidos del módulo con casos reales del sector.
     </div>
+
+{subscription_cta_html()}
 
     <h2 class="newsletter-section-title">Noticia destacada</h2>
     <section class="newsletter-list">
@@ -681,6 +719,8 @@ def render_index() -> str:
       </p>
     </section>
 
+{subscription_cta_html()}
+
     <h2 class="newsletter-section-title">Ediciones disponibles</h2>
     <section class="newsletter-index-list">
       {cards_html}
@@ -700,6 +740,8 @@ def render_index() -> str:
 
 
 def main() -> None:
+    load_env_file()
+
     parser = argparse.ArgumentParser(description="Genera una newsletter docente en Markdown y HTML.")
     parser.add_argument("--periodicidad", choices=["semanal", "quincenal"], default="quincenal")
     parser.add_argument("--max", type=int, default=6, help="Número máximo de noticias.")

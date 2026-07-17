@@ -152,6 +152,30 @@ Fase inicial:
 4. Decidir si se abre una lista más amplia.
 ```
 
+## Formulario de suscripción
+
+En la fase actual, la captación de inscritos se realiza mediante Google Forms.
+
+La URL del formulario se configura en `.env`:
+
+```text
+NEWSLETTER_SUBSCRIPTION_URL=https://forms.gle/...
+```
+
+El formulario puede enlazar a la política de privacidad pública:
+
+```text
+https://comerciodigital.net/privacidad.html
+```
+
+Si esa variable existe, el índice de newsletters y cada edición generada muestran un bloque breve con icono de sobre y enlace `Apúntate`.
+
+El formulario debe volcar respuestas a Google Sheets. Cuando se vaya a enviar una campaña, exportar la hoja a CSV y guardarla fuera de Git:
+
+```text
+data/private/suscriptores_newsletter.csv
+```
+
 ## Envío por Gmail
 
 1. Generar la newsletter.

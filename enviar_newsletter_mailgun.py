@@ -5,6 +5,7 @@ import csv
 import os
 import re
 import sys
+import unicodedata
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -86,18 +87,22 @@ def issue_url(newsletter_path: Path) -> str:
 
 
 def normalize_header(name: str) -> str:
-    return name.strip().lower().replace(" ", "_")
+    text = unicodedata.normalize("NFKD", name.strip().lower())
+    text = "".join(char for char in text if not unicodedata.combining(char))
+    return re.sub(r"[^a-z0-9]+", "_", text).strip("_")
 
 
-def truthy(value: str, default: bool = True) -> bool:
+def truthy(value: str, default: bool = True, *, consent: bool = False) -> bool:
     text = (value or "").strip().lower()
     if not text:
         return default
+    if consent and "acepto" in text:
+        return True
     return text not in {"0", "no", "false", "falso", "baja", "inactivo", "inactive"}
 
 
 def row_email(row: dict[str, Any]) -> str:
-    for key in ("email", "correo", "correo_electronico", "e-mail", "mail"):
+    for key in ("email", "correo", "correo_electronico", "e_mail", "mail"):
         value = row.get(key, "")
         if value:
             return str(value).strip().lower()
@@ -134,7 +139,7 @@ def load_subscribers(path: Path) -> list[Subscriber]:
                 continue
             if not truthy(str(normalized.get("activo", "")), default=True):
                 continue
-            if not truthy(str(normalized.get("consentimiento", "")), default=True):
+            if not truthy(str(normalized.get("consentimiento", "")), default=True, consent=True):
                 continue
             if email in seen:
                 continue

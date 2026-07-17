@@ -50,6 +50,7 @@ MAILGUN_DOMAIN=mg.comerciodigital.net
 MAILGUN_FROM="ComercioDigital.net <newsletter@mg.comerciodigital.net>"
 MAILGUN_REPLY_TO=
 NEWSLETTER_BASE_URL=https://comerciodigital.net/newsletter/
+NEWSLETTER_SUBSCRIPTION_URL=
 NEWSLETTER_UNSUBSCRIBE_TEXT=
 ```
 
@@ -58,6 +59,20 @@ No guardar nunca `MAILGUN_API_KEY` en Git.
 El dominio de Mailgun debe ser el subdominio `mg.comerciodigital.net`, no el dominio raíz `comerciodigital.net`.
 
 ## CSV de suscriptores
+
+La captación inicial se realiza con Google Forms enlazado desde la zona de newsletter de la web.
+
+La URL pública del formulario se configura en `.env`:
+
+```text
+NEWSLETTER_SUBSCRIPTION_URL=https://forms.gle/...
+```
+
+El formulario debe enlazar a:
+
+```text
+https://comerciodigital.net/privacidad.html
+```
 
 Ruta recomendada:
 

@@ -171,5 +171,6 @@ def footer_html() -> str:
   <footer>
     <strong>{SITE_TITLE}</strong> &middot; Generado el {fecha_hoy_larga()} &middot;
     Res&uacute;menes generados con IA a partir de fuentes p&uacute;blicas &middot;
-    Uso educativo &mdash; FP Comercio y Marketing CV
+    Uso educativo &mdash; FP Comercio y Marketing CV &middot;
+    <a href="/privacidad.html">Privacidad</a>
   </footer>"""

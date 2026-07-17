@@ -21,6 +21,7 @@ logs/
 # Datos internos del agregador
 data/cache/
 data/backups/
+data/private/
 
 # Backups sueltos
 *.backup.json

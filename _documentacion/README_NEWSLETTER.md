@@ -202,21 +202,40 @@ Enviar un correo breve con enlace a la edición publicada.
 
 ## Posible evolución con Mailgun
 
-Mailgun puede ser útil si se decide automatizar el envío desde scripts, pero no es necesario para la primera fase.
+Mailgun se usa como canal de distribución desde scripts propios. La integración queda separada de la generación de la newsletter.
 
 Uso prudente:
 
 ```text
 - empezar con cuenta propia;
 - hacer pruebas con pocos destinatarios;
-- no gestionar todavía una lista pública;
+- gestionar la lista desde CSV privado exportado desde Google Forms o Google Sheets;
 - separar generación de newsletter y envío por correo.
+```
+
+Documento específico:
+
+```text
+_documentacion/NEWSLETTER_ENVIO_MAILGUN.md
+```
+
+Prueba sin envío real:
+
+```powershell
+python .\enviar_newsletter_mailgun.py --test tu-correo@example.com
+```
+
+Estado:
+
+```text
+Validado envío real individual con Mailgun EU y mg.comerciodigital.net.
 ```
 
 ## Decisión actual
 
 ```text
-El agregador genera la newsletter, pero no envía correos.
+El agregador genera la newsletter y puede preparar el envío por Mailgun.
+El envío real requiere confirmación explícita con --send --yes.
 ```
 
-La distribución seguirá siendo manual o externa hasta validar la utilidad del formato.
+La lista de inscritos se mantiene fuera de Git y debe revisarse antes de cada envío.

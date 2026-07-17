@@ -54,6 +54,7 @@ arrancar.bat
 publicar_web_diaria.bat
 generar_newsletter_quincenal.bat
 generar_brief_podcast.bat
+enviar_newsletter_mailgun.bat
 ```
 
 Usarlos solo cuando encajen con la tarea concreta. Para diagnostico fino, los comandos Python permiten ver mejor que ha ocurrido.
@@ -247,6 +248,16 @@ generar_newsletter_quincenal.bat
 ```
 
 Usarlo cuando proceda generar la newsletter quincenal.
+
+Envio por Mailgun:
+
+```powershell
+python .\enviar_newsletter_mailgun.py --test tu-correo@example.com
+```
+
+El envio real requiere `--send --yes`. Revisar primero `_documentacion/NEWSLETTER_ENVIO_MAILGUN.md`, la URL publicada de la newsletter y el CSV privado de suscriptores.
+
+Estado actual: Mailgun EU validado con el subdominio `mg.comerciodigital.net` y envio real individual correcto. Mantener envios a lista completa como accion manual y revisada.
 
 Salida complementaria para podcast:
 

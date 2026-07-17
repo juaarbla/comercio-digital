@@ -35,6 +35,8 @@ enviar_newsletter_mailgun.py
 enviar_newsletter_mailgun.bat
 data/private/suscriptores_newsletter.csv
 logs/newsletter_mailgun.log
+templates/email/newsletter_mailgun.txt
+templates/email/newsletter_mailgun.html
 ```
 
 `data/private/` está excluido de Git.
@@ -51,6 +53,7 @@ MAILGUN_FROM="ComercioDigital.net <newsletter@mg.comerciodigital.net>"
 MAILGUN_REPLY_TO=
 NEWSLETTER_BASE_URL=https://comerciodigital.net/newsletter/
 NEWSLETTER_SUBSCRIPTION_URL=
+NEWSLETTER_SITE_NAME=Comercio Digital
 NEWSLETTER_UNSUBSCRIBE_TEXT=
 ```
 
@@ -106,6 +109,29 @@ enviar_newsletter_mailgun.bat --test tu-correo@example.com
 ```
 
 Esto valida la última newsletter publicada y prepara el envío, pero no envía nada.
+
+## Contenido del email
+
+El cuerpo del correo se edita en plantillas:
+
+```text
+templates/email/newsletter_mailgun.txt
+templates/email/newsletter_mailgun.html
+```
+
+Variables disponibles:
+
+```text
+{{site_name}}
+{{url}}
+{{unsubscribe}}
+```
+
+Previsualizar sin enviar:
+
+```powershell
+python .\enviar_newsletter_mailgun.py --preview
+```
 
 ## Envío real de prueba
 

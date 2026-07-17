@@ -1,0 +1,13 @@
+Hola,
+
+Ya está disponible una nueva selección de noticias de {{site_name}} para trabajar en clase.
+
+Puedes verla aquí:
+{{url}}
+
+Incluye actualidad de comercio electrónico, digitalización, marketing digital e inteligencia artificial aplicada al comercio.
+
+{{unsubscribe}}
+
+Un saludo,
+Juan

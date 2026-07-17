@@ -249,6 +249,19 @@ Prueba sin envío real:
 python .\enviar_newsletter_mailgun.py --test tu-correo@example.com
 ```
 
+El contenido del email se edita en:
+
+```text
+templates/email/newsletter_mailgun.txt
+templates/email/newsletter_mailgun.html
+```
+
+Puede previsualizarse sin enviar:
+
+```powershell
+python .\enviar_newsletter_mailgun.py --preview
+```
+
 Estado:
 
 ```text

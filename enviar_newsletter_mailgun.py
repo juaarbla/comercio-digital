@@ -23,6 +23,9 @@ from paths import BASE_DIR, DOCS_DIR, LOGS_DIR
 NEWSLETTER_DIR = DOCS_DIR / "newsletter"
 DEFAULT_SUBSCRIBERS = BASE_DIR / "data" / "private" / "suscriptores_newsletter.csv"
 LOG_FILE = LOGS_DIR / "newsletter_mailgun.log"
+EMAIL_TEMPLATE_DIR = BASE_DIR / "templates" / "email"
+TEXT_TEMPLATE = EMAIL_TEMPLATE_DIR / "newsletter_mailgun.txt"
+HTML_TEMPLATE = EMAIL_TEMPLATE_DIR / "newsletter_mailgun.html"
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
@@ -155,38 +158,63 @@ def mail_subject(newsletter_path: Path, custom_subject: str = "") -> str:
     return f"Comercio Digital en el aula - Selección {stem}"
 
 
-def text_body(url: str) -> str:
-    unsubscribe = env(
-        "NEWSLETTER_UNSUBSCRIBE_TEXT",
-        "Para dejar de recibir esta newsletter, responde a este correo con BAJA.",
-    )
+def template_context(url: str) -> dict[str, str]:
+    return {
+        "site_name": env("NEWSLETTER_SITE_NAME", "Comercio Digital"),
+        "url": url,
+        "unsubscribe": env(
+            "NEWSLETTER_UNSUBSCRIBE_TEXT",
+            "Para dejar de recibir esta newsletter, responde a este correo con BAJA.",
+        ),
+    }
+
+
+def render_template(path: Path, context: dict[str, str], fallback: str) -> str:
+    template = path.read_text(encoding="utf-8") if path.exists() else fallback
+    for key, value in context.items():
+        template = template.replace("{{" + key + "}}", value)
+    return template
+
+
+def fallback_text_template() -> str:
     return (
         "Hola,\n\n"
-        "Ya está disponible una nueva selección de noticias de Comercio Digital para trabajar en clase.\n\n"
-        f"Puedes verla aquí:\n{url}\n\n"
+        "Ya está disponible una nueva selección de noticias de {{site_name}} para trabajar en clase.\n\n"
+        "Puedes verla aquí:\n{{url}}\n\n"
         "Incluye actualidad de comercio electrónico, digitalización, marketing digital e inteligencia artificial aplicada al comercio.\n\n"
-        f"{unsubscribe}\n\n"
+        "{{unsubscribe}}\n\n"
         "Un saludo,\n"
         "Juan\n"
     )
 
 
-def html_body(url: str) -> str:
-    unsubscribe = env(
-        "NEWSLETTER_UNSUBSCRIBE_TEXT",
-        "Para dejar de recibir esta newsletter, responde a este correo con BAJA.",
-    )
-    return f"""<!doctype html>
+def fallback_html_template() -> str:
+    return """<!doctype html>
 <html lang="es">
 <body>
   <p>Hola,</p>
-  <p>Ya está disponible una nueva selección de noticias de <strong>Comercio Digital</strong> para trabajar en clase.</p>
-  <p><a href="{url}">Leer la newsletter publicada</a></p>
+  <p>Ya está disponible una nueva selección de noticias de <strong>{{site_name}}</strong> para trabajar en clase.</p>
+  <p><a href="{{url}}">Leer la newsletter publicada</a></p>
   <p>Incluye actualidad de comercio electrónico, digitalización, marketing digital e inteligencia artificial aplicada al comercio.</p>
-  <p style="font-size: 13px; color: #666;">{unsubscribe}</p>
+  <p style="font-size: 13px; color: #666;">{{unsubscribe}}</p>
   <p>Un saludo,<br>Juan</p>
 </body>
 </html>"""
+
+
+def text_body(url: str) -> str:
+    return render_template(TEXT_TEMPLATE, template_context(url), fallback_text_template())
+
+
+def html_body(url: str) -> str:
+    return render_template(HTML_TEMPLATE, template_context(url), fallback_html_template())
+
+
+def preview_email(url: str) -> None:
+    print("=== TEXT ===")
+    print(text_body(url))
+    print("=== HTML ===")
+    print(html_body(url))
 
 
 def mailgun_payload(to_email: str, subject: str, url: str) -> dict[str, str]:
@@ -264,6 +292,7 @@ def main() -> None:
     parser.add_argument("--subject", default="", help="Asunto del correo.")
     parser.add_argument("--test", default="", help="Enviar/validar solo a este email.")
     parser.add_argument("--diagnose", action="store_true", help="Muestra configuración Mailgun sin enviar ni revelar la API key.")
+    parser.add_argument("--preview", action="store_true", help="Muestra el email renderizado sin enviar.")
     parser.add_argument("--send", action="store_true", help="Envía realmente por Mailgun.")
     parser.add_argument("--yes", action="store_true", help="Confirmación explícita para envío real.")
     args = parser.parse_args()
@@ -275,6 +304,12 @@ def main() -> None:
     newsletter_path = latest_newsletter(args.newsletter)
     url = issue_url(newsletter_path)
     subject = mail_subject(newsletter_path, args.subject)
+
+    if args.preview:
+        print(f"Asunto: {subject}")
+        print(f"URL pública: {url}")
+        preview_email(url)
+        return
 
     if args.test:
         recipients = [Subscriber(email=args.test.strip().lower())]

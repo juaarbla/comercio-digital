@@ -221,7 +221,7 @@ Decision operativa de este lote: no incorporar nuevas fuentes a `feeds.json` por
 
 ## Observacion de ejecuciones post-v0.8
 
-Periodo revisado: 2026-07-09 a 2026-07-14.
+Periodo revisado: 2026-07-09 a 2026-07-18.
 
 | Informe | Noticias ultima ejecucion | Fuentes en ultima ejecucion | Fuentes activas sin historico | Fuentes activas sin ultima ejecucion | Lectura |
 |---|---:|---|---:|---:|---|
@@ -230,6 +230,10 @@ Periodo revisado: 2026-07-09 a 2026-07-14.
 | 2026-07-11 | 11 | ecommerce-news.es: 9; casares.blog: 1; cyberclick.es: 1 | 5 | 11 | Ecommerce-news vuelve a concentrar la ultima ejecucion. |
 | 2026-07-13 | 1 | casares.blog: 1 | 5 | 13 | Ejecucion de muy bajo volumen; no tomar decisiones con este dato aislado. |
 | 2026-07-14 | 21 | ecommerce-news.es: 17; cyberclick.es: 4 | 5 | 12 | Buen volumen, pero ecommerce-news concentra el 81,0% de la ultima ejecucion. |
+| 2026-07-15 | 1 | casares.blog: 1 | 5 | 13 | Ejecucion minima; Casares aporta, pero el dato no permite decision de fuentes. |
+| 2026-07-16 | 9 | ecommerce-news.es: 9 | 5 | 13 | Concentracion total en ecommerce-news.es durante una ejecucion de volumen medio. |
+| 2026-07-17 | 19 | ecommerce-news.es: 18; casares.blog: 1 | 5 | 12 | Sistema estable sin alertas criticas, pero ecommerce-news concentra el 94,7% de la ultima ejecucion. |
+| 2026-07-18 | 0 | sin noticias nuevas | 5 | 12 | Ejecucion tecnica correcta. La logica de balance muestra cupos por fuente, pero no entra una tanda nueva para medir impacto editorial. |
 
 ### Lectura editorial
 
@@ -247,11 +251,26 @@ La concentracion de `ecommerce-news.es` sigue siendo el principal punto de obser
 ```text
 - 73,8% del historico clasificado en 2026-07-14;
 - 81,0% de la ultima ejecucion detectada en 2026-07-14.
+- 75,3% del historico clasificado en 2026-07-17;
+- 94,7% de la ultima ejecucion detectada en 2026-07-17.
+```
+
+Entre 2026-07-15 y 2026-07-17 no se detectan alertas criticas. El estado se mantiene en AMARILLO con 5 avisos. Los avisos principales son de calidad puntual (2 noticias sin RA y 2 sin conceptos clave) y de diversidad de fuentes.
+
+En 2026-07-18 se incorpora una primera regla de equilibrio por pesos en `feeds.json`. La ejecucion no anade noticias nuevas, por lo que no permite validar todavia la reduccion efectiva de concentracion, pero el log confirma que el agregador calcula cupos por fuente.
+
+Las fuentes nuevas de v0.8 siguen en observacion:
+
+```text
+- thinkwithgoogle.com, prestashop.es, ontsi.es, es.wordpress.org y es.semrush.com continuan sin aportacion historica;
+- casares.blog aporta de forma puntual;
+- cyberclick.es no aporta en las ejecuciones del 15 al 17, aunque ya aporto en dias anteriores;
+- camara.es mantiene una aportacion historica baja, esperable en una fuente institucional.
 ```
 
 ### Decision temporal
 
-No anadir nuevas fuentes todavia. Mantener la observacion durante 2 o 3 ejecuciones mas antes de activar candidatas documentadas como IAB Spain, IncoDocs o AI Weekly.
+No anadir nuevas fuentes todavia al pipeline automatico. Mantener la observacion durante algunas ejecuciones mas antes de activar candidatas documentadas como IAB Spain, IncoDocs o AI Weekly.
 
 Prioridad de observacion:
 
@@ -259,6 +278,6 @@ Prioridad de observacion:
 1. Confirmar si cyberclick.es mantiene aportacion util.
 2. Comprobar si camara.es vuelve a aportar CDI.
 3. Esperar senales de thinkwithgoogle.com y es.semrush.com.
-4. Vigilar si ecommerce-news.es sigue por encima del 80% en varias ultimas ejecuciones.
+4. Vigilar si ecommerce-news.es sigue por encima del 80% en varias ultimas ejecuciones; el 16 y el 17 de julio refuerzan este aviso. Tras activar pesos, comprobarlo en la siguiente tanda con noticias nuevas.
 5. Mantener sin cambios fuentes de baja frecuencia si el RSS sigue siendo valido.
 ```

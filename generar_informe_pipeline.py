@@ -281,6 +281,7 @@ def diagnosticar_aportacion_fuentes(feeds, por_fuente: Counter, por_fuente_ultim
             "aliases": [item for item in claves[1:] if item],
             "modulo": normalizar_texto(feed.get("modulo")),
             "tipo": normalizar_texto(feed.get("tipo")),
+            "peso": feed.get("peso", ""),
             "historico": historico,
             "ultima": ultima,
         })
@@ -645,11 +646,11 @@ def generar_informe():
     if diagnostico_aportacion_fuentes["disponible"]:
         informe.append("Cruce entre fuentes activas declaradas en `feeds.json` y noticias detectadas en el histórico y en la última ejecución.")
         informe.append("")
-        informe.append("| Fuente activa | Clave | Módulo | Histórico | Última ejecución |")
-        informe.append("|---|---|---|---:|---:|")
+        informe.append("| Fuente activa | Clave | Módulo | Peso | Histórico | Última ejecución |")
+        informe.append("|---|---|---|---:|---:|---:|")
         for fila in diagnostico_aportacion_fuentes["filas"]:
             informe.append(
-                f"| {fila['nombre']} | `{clave_visible_fila(fila)}` | {fila['modulo']} | {fila['historico']} | {fila['ultima']} |"
+                f"| {fila['nombre']} | `{clave_visible_fila(fila)}` | {fila['modulo']} | {fila['peso']} | {fila['historico']} | {fila['ultima']} |"
             )
         informe.append("")
         informe.append(f"- Fuentes activas sin aportación histórica: {len(diagnostico_aportacion_fuentes['activas_sin_historico'])}")

@@ -45,6 +45,10 @@ WP_CATEGORY_CACHE: dict[int, str] = {}
 # Horas hacia atrás para considerar una noticia "nueva"
 HORAS_RECIENTES = int(os.getenv("HORAS_RECIENTES", 48))
 
+# Límite de seguridad por fuente. El campo "peso" de feeds.json (1-5)
+# determina el cupo real dentro de este máximo.
+MAX_NOTICIAS_POR_FUENTE = int(os.getenv("MAX_NOTICIAS_POR_FUENTE", 5))
+
 # Palabras clave en el título que descartan la noticia automáticamente
 PALABRAS_DESCARTADAS = [
     "vulnerabilidad", "vulnerabilidades",
@@ -110,6 +114,28 @@ def es_relevante(entry) -> bool:
     return not descartada
 
 
+def cupo_fuente(feed_config: dict) -> int:
+    """Convierte el peso editorial (1-5) en cupo de noticias por ejecución."""
+    try:
+        peso = int(feed_config.get("peso", 3))
+    except (TypeError, ValueError):
+        peso = 3
+    peso = max(1, min(5, peso))
+    return min(peso, max(1, MAX_NOTICIAS_POR_FUENTE))
+
+
+def seleccionar_por_peso(candidatas: list[dict], feed_config: dict) -> list[dict]:
+    """Limita cada fuente para evitar que una sola monopolice la ejecución."""
+    cupo = cupo_fuente(feed_config)
+    seleccionadas = candidatas[:cupo]
+    nombre = feed_config.get("nombre") or feed_config.get("url", "Fuente")
+    print(
+        f"  [balance] {nombre}: {len(candidatas)} candidatas nuevas, "
+        f"{len(seleccionadas)} seleccionadas (peso {feed_config.get('peso', 3)}, cupo {cupo})"
+    )
+    return seleccionadas
+
+
 HEADERS_RSS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "application/rss+xml, application/xml, text/xml, */*",
@@ -160,6 +186,10 @@ def normalizar_post_wp(post: dict, feed_config: dict) -> dict:
         "contenido_original": limpiar_html(contenido)[:2000],
         "modulo": modulo,
         "tipo": feed_config.get("tipo", "articulo"),
+        "fuente": feed_config.get("nombre", "Juan Armada"),
+        "categoria_editorial": feed_config.get("categoria_editorial", ""),
+        "origen_fuente": feed_config.get("origen", ""),
+        "peso_fuente": feed_config.get("peso", 3),
         "fecha_publicacion": post.get("date_gmt") or post.get("date") or "",
         "date": post.get("date_gmt") or post.get("date") or "",
         "published": post.get("date_gmt") or post.get("date") or "",
@@ -171,6 +201,7 @@ def obtener_noticias_nuevas(historial: set) -> list[dict]:
         url    = feed_config["url"]
         modulo = feed_config.get("modulo", "")
         source = feed_config.get("source", "rss")
+        noticias_feed = []
         print(f"Leyendo: {url}")
         try:
             r = requests.get(url, headers=HEADERS_RSS, timeout=15)
@@ -182,10 +213,15 @@ def obtener_noticias_nuevas(historial: set) -> list[dict]:
                     noticia = normalizar_post_wp(post, feed_config)
                     if noticia["id"] in historial or not es_reciente(noticia) or not es_relevante(noticia):
                         continue
-                    noticias.append(noticia)
+                    noticias_feed.append(noticia)
+                print(f"  [feed] {len(posts)} entradas recibidas")
+                noticias.extend(seleccionar_por_peso(noticias_feed, feed_config))
                 continue
 
             feed = feedparser.parse(r.content)
+            print(f"  [feed] {len(feed.entries)} entradas recibidas")
+            if feed.bozo and not feed.entries:
+                print(f"  [feed] XML no válido o incompleto: {feed.bozo_exception}")
             for entry in feed.entries:
                 nid = id_noticia(entry)
                 if nid in historial or not es_reciente(entry) or not es_relevante(entry):
@@ -196,15 +232,20 @@ def obtener_noticias_nuevas(historial: set) -> list[dict]:
                     or entry.get("title", "")
                 )
                 contenido_limpio = limpiar_html(contenido)
-                noticias.append({
+                noticias_feed.append({
                     "id":                nid,
                     "titulo":            entry.get("title", "Sin título"),
                     "url":               entry.get("link", ""),
                     "contenido_original": contenido_limpio[:2000],
                     "modulo":            modulo,
                     "tipo":              feed_config.get("tipo", "noticia"),
+                    "fuente":             feed_config.get("nombre", ""),
+                    "categoria_editorial": feed_config.get("categoria_editorial", ""),
+                    "origen_fuente":      feed_config.get("origen", ""),
+                    "peso_fuente":        feed_config.get("peso", 3),
                     "fecha_publicacion": entry.get("published", ""),
                 })
+            noticias.extend(seleccionar_por_peso(noticias_feed, feed_config))
         except Exception as e:
             print(f"  ⚠️  Error leyendo {url}: {e}")
     print(f"\n✅ {len(noticias)} noticias nuevas encontradas\n")
@@ -346,6 +387,10 @@ def procesar_noticias():
                 "url":               noticia["url"],
                 "modulo":            noticia["modulo"],
                 "tipo":              noticia.get("tipo", "noticia"),
+                "fuente":            noticia.get("fuente", ""),
+                "categoria_editorial": noticia.get("categoria_editorial", ""),
+                "origen_fuente":     noticia.get("origen_fuente", ""),
+                "peso_fuente":       noticia.get("peso_fuente", 3),
                 "fecha_publicacion": noticia["fecha_publicacion"],
                 "resumen":           resumen,
                 "procesado_en":      datetime.now().isoformat(),

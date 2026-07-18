@@ -233,7 +233,7 @@ C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
 
 ```text
 Arguments:
-"C:/Users/Juan/Google Drive/00_CDI_press/mcp_servers/comercio_digital/server.py"
+"C:/Users/Juan/Google Drive/00. Proyectos/00_CDI_press/mcp_servers/comercio_digital/server.py"
 ```
 
 Con esta configuración, MCP Inspector conecta correctamente.

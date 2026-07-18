@@ -5,9 +5,9 @@ echo ==========================================
 echo Brief podcast Comercio Digital - Generacion
 echo ==========================================
 
-set PROJECT_DIR=C:\Users\Juan\Google Drive\00_CDI_press
-set PYTHON_EXE=C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
-set LOG_DIR=%PROJECT_DIR%\logs
+set "PROJECT_DIR=%~dp0"
+set "PYTHON_EXE=%LOCALAPPDATA%\PythonVenvs\comercio-digital\Scripts\python.exe"
+set "LOG_DIR=%PROJECT_DIR%logs"
 
 if not exist "%LOG_DIR%" mkdir "%LOG_DIR%"
 

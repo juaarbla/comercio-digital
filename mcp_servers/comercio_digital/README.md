@@ -109,10 +109,10 @@ Transport Type:
 STDIO
 
 Command:
-C:\Users\Juan\Google Drive\00_CDI_press\.venv\Scripts\python.exe
+C:\Users\Juan\AppData\Local\PythonVenvs\comercio-digital\Scripts\python.exe
 
 Arguments:
-"C:/Users/Juan/Google Drive/00_CDI_press/mcp_servers/comercio_digital/server.py"
+"C:/Users/Juan/Google Drive/00. Proyectos/00_CDI_press/mcp_servers/comercio_digital/server.py"
 ```
 
 Después pulsar:

@@ -5,9 +5,9 @@ setlocal EnableExtensions
 set "PYTHONUTF8=1"
 set "PYTHONIOENCODING=utf-8"
 
-set "PROJECT_DIR=C:\Users\Juan\Google Drive\00_CDI_press"
+set "PROJECT_DIR=%~dp0"
 set "VENV_PY=%LOCALAPPDATA%\PythonVenvs\comercio-digital\Scripts\python.exe"
-set "LOG_DIR=%PROJECT_DIR%\logs"
+set "LOG_DIR=%PROJECT_DIR%logs"
 set "LOG_FILE=%LOG_DIR%\publicacion_diaria.log"
 
 if not exist "%LOG_DIR%" mkdir "%LOG_DIR%"

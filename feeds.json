@@ -335,5 +335,16 @@
     "tipo": "articulo",
     "activo": false,
     "nota": "Portal institucional con ayudas, publicaciones y casos. Página HTML; no usar como feed hasta disponer de endpoint fiable."
+  },
+  {
+    "url": "https://www.autonomosyemprendedor.es/rss/todo-digital/",
+    "nombre": "Autónomos y Emprendedor · Todo Digital",
+    "categoria_editorial": "datos_y_digitalizacion",
+    "peso": 3,
+    "origen": "medio",
+    "modulo": "Digitalización GS",
+    "tipo": "noticia",
+    "activo": true,
+    "nota": "Aceptada con filtros en v0.9: RSS específico y activo sobre digitalización de pymes y autónomos, IA aplicada, ciberseguridad, factura electrónica, pagos y comercio digital; excluir ruido fiscal, laboral o normativo sin aplicación digital clara."
   }
 ]

@@ -281,3 +281,15 @@ Prioridad de observacion:
 4. Vigilar si ecommerce-news.es sigue por encima del 80% en varias ultimas ejecuciones; el 16 y el 17 de julio refuerzan este aviso. Tras activar pesos, comprobarlo en la siguiente tanda con noticias nuevas.
 5. Mantener sin cambios fuentes de baja frecuencia si el RSS sigue siendo valido.
 ```
+
+## Evaluación adicional de fuentes candidatas v0.9
+
+| Fuente | RSS evaluado | Estado | Decisión | Acción |
+|---|---|---|---|---|
+| Autónomos y Emprendedor · Todo Digital | `https://www.autonomosyemprendedor.es/rss/todo-digital/` | RSS específico válido, accesible y activo; 50 entradas | ACEPTAR CON FILTROS | Incorporado a `feeds.json` con peso 3 en Digitalización GS |
+| MaxMaxData Blog | `https://maxmaxdata.com/blog/feed/` y `https://maxmaxdata.com/feed/` | El feed del blog es de comentarios y está vacío; el feed raíz es válido pero solo contiene 5 entradas, mayoritariamente genéricas sobre modelos y agentes IA | NO INCORPORAR | Documentado; reevaluar si publica un feed de blog estable y más aplicado a marketing, comercio o empresa |
+
+### Criterio aplicado
+
+- Todo Digital dispone de un RSS oficial específico de la sección, con publicaciones recientes y buen encaje en digitalización de pymes, ciberseguridad, factura electrónica, pagos, IA aplicada y comercio digital. Se incorpora con filtros para evitar contenido normativo sin aplicación digital clara.
+- MaxMaxData no se incorpora: `/blog/feed/` no es un feed de artículos útil y el feed raíz muestra poco histórico, publicación concentrada y predominio de comparativas de modelos o agentes IA. No alcanza todavía la estabilidad y el encaje editorial exigidos.

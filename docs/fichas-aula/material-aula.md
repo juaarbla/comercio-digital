@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 20 JUL 2026
+Fecha de generación: 21 JUL 2026
 
 ---
 
@@ -175,38 +175,38 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 
 ---
 
-# 4. JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados
+# 4. Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»
 
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 23 jun. 2026
-- **Enlace:** https://ecommerce-news.es/jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y-apuesta-por-reciclar-a-sus-empleados/
+- **Fuente:** Ecommerce News
+- **Fecha:** 20 jul. 2026
+- **Enlace:** https://ecommerce-news.es/marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-inteligencia-artificial-en-amazon-dsp/
 - **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-- **CE relacionados:** RA2e, RA2b
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/004-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.html
-- **Ficha Markdown:** fichas-aula/004-jd-com-asume-que-los-robots-acabaran-sustituyendo-parte-del-reparto-y.md
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1b, RA1c
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/004-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.html
+- **Ficha Markdown:** fichas-aula/004-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.md
 
 ## Resumen
 
-La automatización mediante robots e inteligencia artificial está transformando radicalmente la logística y el reparto en el comercio electrónico, como ha demostrado JD.com. Este avance es un ejemplo clave de cómo la tecnología está redefiniendo la cadena de suministro en el *e-commerce*. Sin embargo, en lugar de simplemente despedir personal, la empresa apuesta por la reconversión de sus empleados. Esto subraya que, en el futuro, la clave del éxito no solo es la tecnología, sino también la capacidad de adaptar y formar a nuestro capital humano.
+Se llevó a cabo un importante evento de e-commerce en Madrid que reunió a expertos para analizar las tendencias más recientes del mercado. El foco principal estuvo en cómo la Inteligencia Artificial (IA) está transformando la manera en que se publicita y se vende en grandes *marketplaces* como Amazon. Esto subraya la importancia de la analítica avanzada y la automatización en cualquier estrategia digital. Para vuestro módulo, significa que la gestión de la visibilidad de productos y la publicidad online requieren ahora dominar herramientas basadas en datos y IA.
 
 ## Vinculación curricular
 
 - **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA2
+- **Resultado de aprendizaje:** RA1
 
-**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 
 ### Criterios de evaluación relacionados
 
-- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
-- **RA2b.** Se han definido acciones de captación de clientes enfocadas al comercio electrónico.
+- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
+- **RA1c.** Se han ejecutado los procesos de publicidad y promoción online ajustados a la normativa legal existente.
 
 ### Justificación docente
 
-La noticia aborda la logística y el proceso de reparto en el e-commerce, vinculando directamente la necesidad de gestionar los pedidos y el proceso logístico (CE e) con las acciones de captación de clientes (CE b) en entornos automatizados.
+La noticia enfatiza cómo la publicidad online y la visibilidad de productos en marketplaces se gestionan con IA y datos, lo cual se alinea directamente con la ejecución de procesos de posicionamiento y publicidad online.
 
 ## Pregunta detonadora
 
@@ -214,20 +214,20 @@ La noticia aborda la logística y el proceso de reparto en el e-commerce, vincul
 
 ## Actividad breve
 
-Estudia la noticia «JD.com asume que los robots acabarán sustituyendo parte del reparto y apuesta por reciclar a sus empleados» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2b.
+Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1c y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 
-- Tienda virtual
-- Negocio online
-- Captación de clientes
-- Modelos de negocio digital
-- B2B
-- B2C
-- Portal horizontal
-- Catálogo de productos online
-- Escaparate web
-- Catálogo electrónico
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
 
 ---
 

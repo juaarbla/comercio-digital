@@ -18,6 +18,9 @@ venv/
 logs/
 *.log
 
+# Bloqueos y estado efímero de automatización Linux
+.runtime/
+
 # Datos internos del agregador
 data/cache/
 data/backups/

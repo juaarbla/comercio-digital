@@ -69,6 +69,7 @@ CHAT_MODEL      = os.getenv("CHAT_MODEL", "gemma4:latest")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 ANTHROPIC_KEY   = os.getenv("ANTHROPIC_API_KEY", "")
 OPENAI_KEY      = os.getenv("OPENAI_API_KEY", "")
+OLLAMA_TIMEOUTS = 0
 
 # ─── FUNCIONES DE HISTORIAL ───────────────────────────────────────────────────
 
@@ -295,6 +296,8 @@ Solo el resumen en español, sin introducción ni explicaciones adicionales."""
 
 
 def resumir_con_ollama(noticia: dict) -> str:
+    global OLLAMA_TIMEOUTS
+
     url = f"{OLLAMA_BASE_URL}/api/chat"
     payload = {
         "model": CHAT_MODEL,
@@ -305,8 +308,15 @@ def resumir_con_ollama(noticia: dict) -> str:
         r = requests.post(url, json=payload, timeout=60)
         r.raise_for_status()
         return r.json()["message"]["content"].strip()
-    except Exception as e:
-        print(f"  ⚠️  Error Ollama para '{noticia['titulo']}': {e}")
+    except requests.Timeout:
+        OLLAMA_TIMEOUTS += 1
+        print(f"  ⚠️  Timeout Ollama para '{noticia['titulo']}'")
+        return ""
+    except requests.RequestException:
+        print(f"  ⚠️  Error de conexión con Ollama para '{noticia['titulo']}'")
+        return ""
+    except (KeyError, TypeError, ValueError):
+        print(f"  ⚠️  Respuesta no válida de Ollama para '{noticia['titulo']}'")
         return ""
 
 
@@ -365,9 +375,7 @@ def procesar_noticias():
     if LLM_PROVIDER not in {"ollama", "anthropic", "openai"}:
         raise ValueError(f"LLM_PROVIDER no soportado: {LLM_PROVIDER}")
 
-    print(f"🧠 Proveedor LLM: {LLM_PROVIDER.upper()}"
-          + (f" → {OLLAMA_BASE_URL}" if LLM_PROVIDER == "ollama" else "")
-          + f"  |  Modelo: {CHAT_MODEL}\n")
+    print(f"🧠 Proveedor LLM: {LLM_PROVIDER.upper()} | Modelo: {CHAT_MODEL}\n")
 
     historial = cargar_historial()
     print(f"📚 Historial: {len(historial)} noticias ya procesadas\n")
@@ -408,6 +416,8 @@ def procesar_noticias():
 
     guardar_historial(historial)
     print(f"\n🎉 Listo! {len(resultados)} noticias resumidas → {OUTPUT_FILE}")
+    if LLM_PROVIDER == "ollama":
+        print(f"Timeouts Ollama en esta ejecución: {OLLAMA_TIMEOUTS}")
 
 # ─── ENTRADA ──────────────────────────────────────────────────────────────────
 

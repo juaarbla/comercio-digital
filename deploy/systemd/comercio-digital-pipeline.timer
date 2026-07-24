@@ -1,0 +1,11 @@
+[Unit]
+Description=Comercio Digital - ejecución diaria a las 08:00 Europe/Madrid
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 Europe/Madrid
+Persistent=true
+AccuracySec=1min
+Unit=comercio-digital-pipeline.service
+
+[Install]
+WantedBy=timers.target

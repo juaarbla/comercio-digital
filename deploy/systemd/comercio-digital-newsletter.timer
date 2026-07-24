@@ -1,0 +1,11 @@
+[Unit]
+Description=Comercio Digital - newsletter los días 1 y 16 a las 08:45 Europe/Madrid
+
+[Timer]
+OnCalendar=*-*-01,16 08:45:00 Europe/Madrid
+Persistent=true
+AccuracySec=1min
+Unit=comercio-digital-newsletter.service
+
+[Install]
+WantedBy=timers.target

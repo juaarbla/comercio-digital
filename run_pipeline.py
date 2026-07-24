@@ -19,8 +19,11 @@ una edición semanal o quincenal.
 
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
+
+from paths import ensure_runtime_dirs
 
 
 PASOS = [
@@ -108,7 +111,10 @@ def ejecutar_paso(paso: dict) -> bool:
         print(mensaje + " — paso omitido")
         return True
 
+    inicio_paso = time.monotonic()
     resultado = subprocess.run([sys.executable, script, *args])
+    duracion_paso = time.monotonic() - inicio_paso
+    print(f"Duración del paso: {duracion_paso:.1f} segundos")
 
     if resultado.returncode == 0:
         print(f"✅ Paso completado: {nombre}")
@@ -124,6 +130,8 @@ def ejecutar_paso(paso: dict) -> bool:
 
 
 def main():
+    ensure_runtime_dirs()
+
     inicio = datetime.now()
     print("\n🚀 Iniciando pipeline Comercio Digital")
     print(f"Fecha/hora: {inicio.strftime('%Y-%m-%d %H:%M:%S')}")

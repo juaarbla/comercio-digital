@@ -332,8 +332,14 @@ def clasificar_con_ollama(noticia: dict[str, Any]) -> dict[str, Any] | None:
         r.raise_for_status()
         texto = r.json()["message"]["content"].strip()
         return json.loads(texto)
-    except Exception as e:
-        print(f"  Error Ollama: {e}")
+    except requests.Timeout:
+        print("  Timeout Ollama durante la clasificación")
+        return None
+    except requests.RequestException:
+        print("  Error de conexión con Ollama durante la clasificación")
+        return None
+    except (KeyError, TypeError, ValueError):
+        print("  Respuesta no válida de Ollama durante la clasificación")
         return None
 
 

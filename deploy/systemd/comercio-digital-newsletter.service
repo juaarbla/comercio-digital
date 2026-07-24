@@ -1,0 +1,16 @@
+[Unit]
+Description=Comercio Digital - generación quincenal de newsletter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=depinf
+Group=depinf
+WorkingDirectory=/home/depinf/proyectos/CDI-press/comercio-digital
+Environment=PYTHONUTF8=1
+Environment=PYTHONIOENCODING=utf-8
+ExecStart=/home/depinf/proyectos/CDI-press/comercio-digital/scripts/generar_newsletter_quincenal.sh
+UMask=0077
+PrivateTmp=true
+NoNewPrivileges=true

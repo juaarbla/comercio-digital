@@ -26,3 +26,18 @@ NOTICIAS_CLASIFICADAS = PROCESSED_DIR / "noticias_clasificadas.json"
 CACHE_CLASIFICACION = CACHE_DIR / "cache_clasificacion.json"
 CACHE_IMAGENES = CACHE_DIR / "cache_imagenes.json"
 
+
+RUNTIME_DIRS = (
+    PROCESSED_DIR,
+    CACHE_DIR,
+    BACKUPS_DIR,
+    LOGS_DIR,
+    OUTPUTS_DIR,
+    AULA_OUTPUTS_DIR,
+)
+
+
+def ensure_runtime_dirs() -> None:
+    """Crea los directorios locales necesarios para ejecutar el pipeline."""
+    for directory in RUNTIME_DIRS:
+        directory.mkdir(parents=True, exist_ok=True)

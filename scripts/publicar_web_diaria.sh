@@ -139,20 +139,44 @@ if [[ "${NO_PUBLISH}" == false ]]; then
 fi
 
 printf 'Ejecutando pipeline...\n'
+pipeline_started="$(date +%s)"
 set +e
 PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
     "${PYTHON}" "${PROJECT_DIR}/run_pipeline.py"
 pipeline_status="$?"
 set -e
+pipeline_duration="$(($(date +%s) - pipeline_started))"
+printf 'Resultado del pipeline: código %s, duración %s segundos.\n' \
+    "${pipeline_status}" "${pipeline_duration}"
+
+printf 'Generando informe post-pipeline como diagnóstico best-effort...\n'
+report_started="$(date +%s)"
+set +e
+PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
+    "${PYTHON}" "${PROJECT_DIR}/generar_informe_pipeline.py"
+report_status="$?"
+set -e
+report_duration="$(($(date +%s) - report_started))"
+if (( report_status == 0 )); then
+    printf 'Informe generado correctamente en %s segundos.\n' "${report_duration}"
+else
+    printf 'AVISO: el informe falló con código %s tras %s segundos.\n' \
+        "${report_status}" "${report_duration}"
+fi
 
 if (( pipeline_status != 0 )); then
-    printf 'ERROR: run_pipeline.py terminó con código %s.\n' "${pipeline_status}"
+    printf 'ERROR: run_pipeline.py terminó con código %s; no se publicará.\n' \
+        "${pipeline_status}"
+    printf '\nCambios locales conservados para diagnóstico:\n'
+    git status --short
+    git diff --stat
     exit "${pipeline_status}"
 fi
 
-printf 'Generando informe post-pipeline...\n'
-PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
-    "${PYTHON}" "${PROJECT_DIR}/generar_informe_pipeline.py"
+if (( report_status != 0 )); then
+    printf 'ERROR: el pipeline terminó correctamente, pero el informe es obligatorio para publicar.\n'
+    exit "${report_status}"
+fi
 
 if [[ "${NO_PUBLISH}" == true ]]; then
     printf '\n*** MODO DE PRUEBA / NO PUBLISH: cambios locales para inspección ***\n'

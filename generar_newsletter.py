@@ -194,6 +194,35 @@ def module_limit(modulo: str, max_items: int) -> int:
     return min(limits.get(modulo, 2), max_items)
 
 
+def usage_label(value: str) -> str:
+    """Convierte códigos internos de uso en etiquetas editoriales legibles."""
+    normalized = (value or "").strip().lower()
+    labels = {
+        "caso_empresa": "caso de empresa",
+        "actividad": "actividad",
+        "debate": "debate",
+        "lectura": "lectura guiada",
+        "archivo": "recurso de consulta",
+        "seguimiento": "seguimiento",
+    }
+    return labels.get(normalized, normalized.replace("_", " ") or "uso docente")
+
+
+def event_signatures(n: dict[str, Any]) -> set[str]:
+    """Detecta firmas de evento con nombre y año para evitar piezas repetitivas."""
+    title = pick(n, "titulo", "title").lower()
+    title = re.sub(r"[^a-z0-9áéíóúüñ]+", " ", title)
+    words = title.split()
+    signatures: set[str] = set()
+
+    for index in range(len(words) - 2):
+        group = words[index:index + 3]
+        if any(re.fullmatch(r"20\d{2}", word) for word in group):
+            signatures.add(" ".join(group))
+
+    return signatures
+
+
 def valid_news(n: dict[str, Any]) -> bool:
     titulo = pick(n, "titulo", "title")
     url = pick(n, "url", "link", "enlace")
@@ -211,6 +240,7 @@ def append_unique(target: list[dict[str, Any]], items: list[dict[str, Any]], see
 def select_with_module_balance(candidates: list[dict[str, Any]], max_items: int) -> list[dict[str, Any]]:
     selected: list[dict[str, Any]] = []
     selected_urls: set[str] = set()
+    selected_events: set[str] = set()
     module_counts: dict[str, int] = {}
 
     # Primera pasada: respeta límites por módulo.
@@ -219,12 +249,16 @@ def select_with_module_balance(candidates: list[dict[str, Any]], max_items: int)
             break
         url = pick(n, "url", "link", "enlace")
         modulo = module_key(n)
+        events = event_signatures(n)
         if not url or url in selected_urls:
+            continue
+        if events & selected_events:
             continue
         if module_counts.get(modulo, 0) >= module_limit(modulo, max_items):
             continue
         selected.append(n)
         selected_urls.add(url)
+        selected_events.update(events)
         module_counts[modulo] = module_counts.get(modulo, 0) + 1
 
     # Segunda pasada: si faltan noticias, rellena con las mejores restantes.
@@ -232,9 +266,11 @@ def select_with_module_balance(candidates: list[dict[str, Any]], max_items: int)
         if len(selected) >= max_items:
             break
         url = pick(n, "url", "link", "enlace")
-        if url and url not in selected_urls:
+        events = event_signatures(n)
+        if url and url not in selected_urls and not (events & selected_events):
             selected.append(n)
             selected_urls.add(url)
+            selected_events.update(events)
 
     return selected[:max_items]
 
@@ -384,7 +420,7 @@ def render_card(n: dict[str, Any], number: int) -> str:
         default="Sin resumen disponible.",
     )
     modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
-    uso = pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
+    uso = usage_label(pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente"))
     valor = pick(n, "valor_docente", "valor", "nivel_docente", default="sin valorar")
     ficha = ficha_url_for(n)
 
@@ -425,7 +461,7 @@ def render_featured_card(n: dict[str, Any]) -> str:
         default="Sin resumen disponible.",
     )
     modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
-    uso = pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
+    uso = usage_label(pick(n, "tipo_uso", "uso_propuesto", "uso", default="uso docente"))
     valor = pick(n, "valor_docente", "valor", "nivel_docente", default="sin valorar")
     ficha = ficha_url_for(n)
 
@@ -483,10 +519,13 @@ def classroom_prompt(noticia: dict[str, Any] | None) -> str:
 
     titulo = pick(noticia, "titulo", "title", default="esta noticia")
     modulo = pick(noticia, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="el módulo")
-    uso = pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="actividad")
+    uso = usage_label(pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="actividad"))
+    masculino = uso in {"caso de empresa", "debate", "seguimiento"}
+    articulo = "un" if masculino else "una"
+    relativo = "el que" if masculino else "la que"
 
     return (
-        f"A partir de la noticia «{titulo}», plantea una {uso} en la que el alumnado "
+        f"A partir de la noticia «{titulo}», plantea {articulo} {uso} en {relativo} el alumnado "
         f"relacione el caso con contenidos de {modulo} y proponga una decisión razonada "
         "para una pequeña empresa."
     )
@@ -598,7 +637,7 @@ def append_markdown_news(lines: list[str], noticia: dict[str, Any], heading: str
     url = pick(noticia, "url", "link", "enlace")
     resumen = pick(noticia, "resumen_docente", "resumen", "summary", "descripcion", "description", default="")
     modulo = pick(noticia, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
-    uso = pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="uso docente")
+    uso = usage_label(pick(noticia, "tipo_uso", "uso_propuesto", "uso", default="uso docente"))
     valor = pick(noticia, "valor_docente", "valor", "nivel_docente", default="sin valorar")
 
     lines.extend([

@@ -18,6 +18,8 @@ from dotenv import dotenv_values
 
 
 TIMEOUT_SECONDS = 15
+MAX_ATTEMPTS = 3
+RETRY_DELAY_SECONDS = 5
 PRIVATE_NETWORKS = tuple(
     ipaddress.ip_network(network)
     for network in (
@@ -32,30 +34,34 @@ PRIVATE_NETWORKS = tuple(
 )
 
 
-def fail(message: str) -> None:
-    print(f"ERROR: {message}", file=sys.stderr)
-    raise SystemExit(1)
+class PreflightError(Exception):
+    """Fallo clasificado sin incluir direcciones ni datos de configuración."""
+
+    def __init__(self, error_type: str, *, recoverable: bool) -> None:
+        super().__init__(error_type)
+        self.error_type = error_type
+        self.recoverable = recoverable
 
 
-def main() -> None:
+def check_once() -> None:
     project_dir = Path(__file__).resolve().parent.parent
     env_file = project_dir / ".env"
 
     if not env_file.is_file():
-        fail("no existe .env")
+        raise PreflightError("CONFIGURACION_LOCAL", recoverable=False)
 
     config = dotenv_values(env_file)
     base_url = (config.get("OLLAMA_BASE_URL") or "").strip().rstrip("/")
     chat_model = (config.get("CHAT_MODEL") or "").strip()
 
     if not base_url:
-        fail("OLLAMA_BASE_URL no está configurada")
+        raise PreflightError("CONFIGURACION_LOCAL", recoverable=False)
     if not chat_model:
-        fail("CHAT_MODEL no está configurado")
+        raise PreflightError("CONFIGURACION_LOCAL", recoverable=False)
 
     parsed = urllib.parse.urlparse(base_url)
     if parsed.scheme not in {"http", "https"} or not parsed.hostname:
-        fail("OLLAMA_BASE_URL no tiene un formato HTTP(S) válido")
+        raise PreflightError("CONFIGURACION_LOCAL", recoverable=False)
 
     try:
         addresses = {
@@ -67,16 +73,16 @@ def main() -> None:
             )
         }
     except socket.gaierror:
-        fail("no se puede resolver el host privado de Ollama")
+        raise PreflightError("DNS", recoverable=True) from None
 
     if not addresses or not all(
         any(ipaddress.ip_address(address) in network for network in PRIVATE_NETWORKS)
         for address in addresses
     ):
-        fail("OLLAMA_BASE_URL no resuelve exclusivamente a una red privada")
+        raise PreflightError("CONFIGURACION_LOCAL", recoverable=False)
 
     if not Path("/sys/class/net/tun0").is_dir():
-        fail("la interfaz VPN tun0 no está disponible")
+        raise PreflightError("RED_VPN", recoverable=True)
 
     try:
         route = subprocess.run(
@@ -87,31 +93,49 @@ def main() -> None:
             timeout=5,
         ).stdout.split()
     except (FileNotFoundError, subprocess.SubprocessError):
-        fail("no se puede comprobar la ruta privada hacia Ollama")
+        raise PreflightError("RUTA", recoverable=True) from None
 
     try:
         route_device = route[route.index("dev") + 1]
     except (ValueError, IndexError):
-        fail("la ruta hacia Ollama no indica una interfaz válida")
+        raise PreflightError("RUTA", recoverable=True) from None
     if route_device != "tun0":
-        fail("la ruta hacia Ollama no utiliza tun0")
+        raise PreflightError("RUTA", recoverable=True)
 
     request = urllib.request.Request(
         f"{base_url}/api/tags",
         headers={"Accept": "application/json"},
     )
-    started = time.monotonic()
 
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     try:
         with opener.open(request, timeout=TIMEOUT_SECONDS) as response:
             status = response.status
             payload = json.load(response)
-    except (TimeoutError, OSError, urllib.error.URLError, json.JSONDecodeError):
-        fail("Ollama no responde correctamente en /api/tags")
+    except urllib.error.HTTPError:
+        raise PreflightError("HTTP", recoverable=True) from None
+    except urllib.error.URLError as error:
+        reason = error.reason
+        if isinstance(reason, (TimeoutError, socket.timeout)):
+            error_type = "TIMEOUT"
+        elif isinstance(reason, socket.gaierror):
+            error_type = "DNS"
+        elif isinstance(reason, ConnectionRefusedError):
+            error_type = "CONEXION_RECHAZADA"
+        else:
+            error_type = "RED"
+        raise PreflightError(error_type, recoverable=True) from None
+    except (TimeoutError, socket.timeout):
+        raise PreflightError("TIMEOUT", recoverable=True) from None
+    except ConnectionRefusedError:
+        raise PreflightError("CONEXION_RECHAZADA", recoverable=True) from None
+    except OSError:
+        raise PreflightError("RED", recoverable=True) from None
+    except json.JSONDecodeError:
+        raise PreflightError("RESPUESTA_ENDPOINT", recoverable=True) from None
 
     if status != 200:
-        fail(f"Ollama devolvió HTTP {status} en /api/tags")
+        raise PreflightError("HTTP", recoverable=True)
 
     models = {
         str(item.get("name") or item.get("model") or "")
@@ -119,13 +143,42 @@ def main() -> None:
         if isinstance(item, dict)
     }
     if chat_model not in models:
-        fail("CHAT_MODEL no está disponible en Ollama")
+        raise PreflightError("MODELO_NO_DISPONIBLE", recoverable=False)
 
-    elapsed = time.monotonic() - started
-    print(
-        "Preflight Ollama correcto: "
-        f"tun0, red privada, endpoint y modelo confirmados ({elapsed:.3f} s)."
-    )
+
+def run_with_retries(
+    check=check_once,
+    *,
+    attempts: int = MAX_ATTEMPTS,
+    retry_delay: int = RETRY_DELAY_SECONDS,
+    sleep=time.sleep,
+) -> int:
+    for attempt in range(1, attempts + 1):
+        started = time.monotonic()
+        try:
+            check()
+        except PreflightError as error:
+            elapsed = time.monotonic() - started
+            print(
+                f"Intento {attempt}/{attempts}: "
+                f"FALLO {error.error_type} ({elapsed:.3f} s).",
+                file=sys.stderr,
+            )
+            if not error.recoverable or attempt == attempts:
+                return 1
+            sleep(retry_delay)
+        else:
+            elapsed = time.monotonic() - started
+            print(
+                f"Intento {attempt}/{attempts}: "
+                f"OK NINGUNO ({elapsed:.3f} s)."
+            )
+            return 0
+    return 1
+
+
+def main() -> None:
+    raise SystemExit(run_with_retries())
 
 
 if __name__ == "__main__":

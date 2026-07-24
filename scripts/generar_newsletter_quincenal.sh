@@ -9,9 +9,9 @@ NEWSLETTER_SCRIPT="${PROJECT_DIR}/generar_newsletter.py"
 LOG_DIR="${PROJECT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/newsletter_quincenal.log"
 LOCK_FILE="${PROJECT_DIR}/.runtime/comercio-digital.lock"
-PENDING_DIR="${PROJECT_DIR}/data/private/newsletter_pendiente"
-PENDING_FILES_DIR="${PENDING_DIR}/archivos"
-METADATA_FILE="${PENDING_DIR}/metadata.json"
+PENDING_PARENT="${PROJECT_DIR}/data/private"
+PENDING_DIR="${PENDING_PARENT}/newsletter_pendiente"
+TEMP_DIR=""
 START_EPOCH="$(date +%s)"
 START_TEXT="$(date --iso-8601=seconds)"
 
@@ -39,16 +39,34 @@ on_error() {
     printf 'ERROR: fallo en la línea %s (código %s).\n' "${line}" "${status}"
 }
 
+cleanup_temp_dir() {
+    if [[ -z "${TEMP_DIR}" || ! -e "${TEMP_DIR}" ]]; then
+        return
+    fi
+    case "${TEMP_DIR}" in
+        "${PENDING_PARENT}"/.newsletter_pendiente.tmp.*)
+            rm -rf -- "${TEMP_DIR}"
+            ;;
+        *)
+            printf 'ERROR: se rechaza limpiar una ruta temporal inesperada.\n'
+            ;;
+    esac
+}
+
 on_exit() {
     local status="$?"
     local end_epoch
     local duration
 
+    set +e
+    cleanup_temp_dir
     end_epoch="$(date +%s)"
     duration="$((end_epoch - START_EPOCH))"
     printf 'Finalización: %s\n' "$(date --iso-8601=seconds)"
     printf 'Duración: %s segundos\n' "${duration}"
     printf 'Código de salida: %s\n' "${status}"
+    trap - EXIT
+    exit "${status}"
 }
 
 trap 'on_error "${LINENO}" "$?"' ERR
@@ -89,16 +107,21 @@ if [[ -e "${PENDING_DIR}" ]]; then
     exit 76
 fi
 
-mkdir -p -- "${PENDING_FILES_DIR}"
-chmod 700 -- "${PENDING_DIR}" "${PENDING_FILES_DIR}"
+mkdir -p -- "${PENDING_PARENT}"
+chmod 700 -- "${PENDING_PARENT}"
+TEMP_DIR="$(mktemp -d "${PENDING_PARENT}/.newsletter_pendiente.tmp.XXXXXX")"
+TEMP_FILES_DIR="${TEMP_DIR}/archivos"
+TEMP_METADATA_FILE="${TEMP_DIR}/metadata.json"
+mkdir -p -- "${TEMP_FILES_DIR}"
+chmod 700 -- "${TEMP_DIR}" "${TEMP_FILES_DIR}"
 
 printf 'Generando borrador privado; no se enviará ni publicará automáticamente.\n'
 set +e
 PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
     "${PYTHON}" "${NEWSLETTER_SCRIPT}" \
     --periodicidad quincenal \
-    --output-dir "${PENDING_FILES_DIR}" \
-    --metadata-file "${METADATA_FILE}"
+    --output-dir "${TEMP_FILES_DIR}" \
+    --metadata-file "${TEMP_METADATA_FILE}"
 newsletter_status=$?
 set -e
 
@@ -108,13 +131,67 @@ if (( newsletter_status != 0 )); then
     exit "${newsletter_status}"
 fi
 
-chmod 600 -- "${METADATA_FILE}"
-find "${PENDING_FILES_DIR}" -maxdepth 1 -type f -exec chmod 600 -- {} +
+if ! "${PYTHON}" - "${TEMP_DIR}" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+draft_dir = Path(sys.argv[1])
+metadata_file = draft_dir / "metadata.json"
+files_dir = draft_dir / "archivos"
+
+try:
+    metadata = json.loads(metadata_file.read_text(encoding="utf-8"))
+except (OSError, json.JSONDecodeError):
+    raise SystemExit(1)
+
+declared = metadata.get("archivos")
+if (
+    metadata.get("estado") != "PENDIENTE"
+    or metadata.get("codigo_salida") != 0
+    or not metadata.get("fecha_generacion")
+    or not metadata.get("periodo")
+    or not isinstance(declared, list)
+):
+    raise SystemExit(1)
+
+declared_names = {str(name) for name in declared}
+actual_names = {path.name for path in files_dir.iterdir() if path.is_file()}
+html_issues = {name[:-5] for name in declared_names if name.startswith("newsletter-") and name.endswith(".html")}
+markdown_issues = {name[:-3] for name in declared_names if name.startswith("newsletter-") and name.endswith(".md")}
+
+if (
+    len(declared) != 3
+    or len(declared_names) != 3
+    or declared_names != actual_names
+    or "index.html" not in declared_names
+    or len(html_issues) != 1
+    or html_issues != markdown_issues
+):
+    raise SystemExit(1)
+PY
+then
+    printf 'ERROR: el borrador generado no supera la validación interna.\n'
+    exit 65
+fi
+
+chmod 600 -- "${TEMP_METADATA_FILE}"
+find "${TEMP_FILES_DIR}" -maxdepth 1 -type f -exec chmod 600 -- {} +
 
 if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
     printf 'ERROR: la generación alteró el árbol Git; no se considera válida.\n'
     exit 74
 fi
+
+if ! mv -T -- "${TEMP_DIR}" "${PENDING_DIR}" 2>/dev/null; then
+    if [[ -e "${PENDING_DIR}" ]]; then
+        printf 'ERROR: apareció otro borrador pendiente durante la generación.\n'
+        exit 76
+    fi
+    printf 'ERROR: no se pudo promover el borrador validado.\n'
+    exit 1
+fi
+TEMP_DIR=""
 
 printf 'Borrador PENDIENTE generado en: %s\n' "${PENDING_DIR#${PROJECT_DIR}/}"
 printf 'El árbol Git continúa limpio.\n'

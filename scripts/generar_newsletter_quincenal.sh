@@ -9,6 +9,9 @@ NEWSLETTER_SCRIPT="${PROJECT_DIR}/generar_newsletter.py"
 LOG_DIR="${PROJECT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/newsletter_quincenal.log"
 LOCK_FILE="${PROJECT_DIR}/.runtime/comercio-digital.lock"
+PENDING_DIR="${PROJECT_DIR}/data/private/newsletter_pendiente"
+PENDING_FILES_DIR="${PENDING_DIR}/archivos"
+METADATA_FILE="${PENDING_DIR}/metadata.json"
 START_EPOCH="$(date +%s)"
 START_TEXT="$(date --iso-8601=seconds)"
 
@@ -73,13 +76,46 @@ if [[ ! -x "${PYTHON}" ]]; then
     printf 'ERROR: .venv/bin/python no es ejecutable.\n'
     exit 1
 fi
-printf 'Generando newsletter; no se enviará ni publicará automáticamente.\n'
+
+if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
+    printf 'ERROR: el árbol Git debe estar limpio antes de generar el borrador.\n'
+    exit 74
+fi
+
+if [[ -e "${PENDING_DIR}" ]]; then
+    printf 'ERROR: ya existe un borrador o estado pendiente en %s.\n' \
+        "${PENDING_DIR#${PROJECT_DIR}/}"
+    printf 'Revísalo antes de generar una nueva edición.\n'
+    exit 76
+fi
+
+mkdir -p -- "${PENDING_FILES_DIR}"
+chmod 700 -- "${PENDING_DIR}" "${PENDING_FILES_DIR}"
+
+printf 'Generando borrador privado; no se enviará ni publicará automáticamente.\n'
+set +e
 PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
     "${PYTHON}" "${NEWSLETTER_SCRIPT}" \
     --periodicidad quincenal \
-    --force
+    --output-dir "${PENDING_FILES_DIR}" \
+    --metadata-file "${METADATA_FILE}"
+newsletter_status=$?
+set -e
 
-printf '\nCambios dejados para revisión editorial:\n'
-git status --short -- docs/newsletter/
-git diff --stat -- docs/newsletter/
-printf 'Newsletter generada y dejada sin preparar ni publicar.\n'
+if (( newsletter_status != 0 )); then
+    printf 'ERROR: la generación del borrador terminó con código %s.\n' \
+        "${newsletter_status}"
+    exit "${newsletter_status}"
+fi
+
+chmod 600 -- "${METADATA_FILE}"
+find "${PENDING_FILES_DIR}" -maxdepth 1 -type f -exec chmod 600 -- {} +
+
+if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
+    printf 'ERROR: la generación alteró el árbol Git; no se considera válida.\n'
+    exit 74
+fi
+
+printf 'Borrador PENDIENTE generado en: %s\n' "${PENDING_DIR#${PROJECT_DIR}/}"
+printf 'El árbol Git continúa limpio.\n'
+printf 'No se ejecutó Mailgun ni se preparó o publicó ningún archivo.\n'

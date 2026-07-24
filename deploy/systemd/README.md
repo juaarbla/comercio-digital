@@ -31,14 +31,24 @@ inspección y se conserva el código real de salida del pipeline.
 
 ## Flujo quincenal
 
-El timer propone los días 1 y 16 a las 08:45. El lanzador genera la quincena
-correspondiente con `generar_newsletter.py --periodicidad quincenal --force`.
-No prepara cambios, no crea commits, no publica y no ejecuta Mailgun.
+El timer propone los días 1 y 16 a las 08:45. El lanzador exige primero un
+árbol Git limpio y genera la quincena en el directorio local ignorado
+`data/private/newsletter_pendiente/`. No modifica `docs/`, no prepara cambios,
+no crea commits, no publica y no ejecuta Mailgun.
 
-La edición queda en `docs/newsletter/` para revisión editorial. Mientras esos
-cambios sigan pendientes, el lanzador diario se negará a continuar porque exige
-un árbol limpio. La revisión, publicación o descarte debe resolverse antes de
-la siguiente ejecución diaria.
+Si ya existe un borrador `PENDIENTE`, el lanzador no lo sobrescribe: informa
+del conflicto y termina con código 76. El estado editorial se consulta con:
+
+```bash
+scripts/estado_newsletter.sh
+```
+
+La revisión se realiza abriendo los archivos enumerados dentro de
+`data/private/newsletter_pendiente/archivos/`. Una fase posterior deberá
+incorporar una orden explícita y separada para aprobar y publicar el borrador.
+Hasta entonces no existe aprobación automática ni envío por Mailgun. Como el
+borrador permanece en una ruta ignorada, el pipeline diario puede seguir
+exigiendo un árbol limpio y ejecutarse mientras la revisión está pendiente.
 
 ## Logs y bloqueo
 

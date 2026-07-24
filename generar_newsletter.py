@@ -715,8 +715,8 @@ def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], per
     return "\n".join(lines)
 
 
-def render_index() -> str:
-    files = sorted(NEWSLETTER_DIR.glob("newsletter-*.html"), reverse=True)
+def render_index(newsletter_dir: Path = NEWSLETTER_DIR) -> str:
+    files = sorted(newsletter_dir.glob("newsletter-*.html"), reverse=True)
     ediciones = []
     cards = []
     for f in files:
@@ -786,16 +786,27 @@ def main() -> None:
     parser.add_argument("--max", type=int, default=6, help="Número máximo de noticias.")
     parser.add_argument("--fecha", default="", help="Fecha base en formato YYYY-MM-DD.")
     parser.add_argument("--force", action="store_true", help="Sobrescribe si la newsletter ya existe.")
+    parser.add_argument(
+        "--output-dir",
+        default="",
+        help="Directorio de salida alternativo. Por defecto se usa docs/newsletter/.",
+    )
+    parser.add_argument(
+        "--metadata-file",
+        default="",
+        help="JSON opcional con metadatos mínimos del borrador generado.",
+    )
     args = parser.parse_args()
 
     fecha = datetime.strptime(args.fecha, "%Y-%m-%d").date() if args.fecha else date.today()
     periodo = period_info(fecha, args.periodicidad)
+    newsletter_dir = Path(args.output_dir).expanduser().resolve() if args.output_dir else NEWSLETTER_DIR
 
-    NEWSLETTER_DIR.mkdir(parents=True, exist_ok=True)
+    newsletter_dir.mkdir(parents=True, exist_ok=True)
 
-    out_md = NEWSLETTER_DIR / f"newsletter-{periodo['slug']}.md"
-    out_html = NEWSLETTER_DIR / f"newsletter-{periodo['slug']}.html"
-    out_index = NEWSLETTER_DIR / "index.html"
+    out_md = newsletter_dir / f"newsletter-{periodo['slug']}.md"
+    out_html = newsletter_dir / f"newsletter-{periodo['slug']}.html"
+    out_index = newsletter_dir / "index.html"
 
     if out_html.exists() and not args.force:
         print(f"Ya existe: {out_html}")
@@ -810,7 +821,22 @@ def main() -> None:
 
     out_md.write_text(render_markdown(noticias, periodo, args.periodicidad), encoding="utf-8")
     out_html.write_text(render_html(noticias, periodo, args.periodicidad), encoding="utf-8")
-    out_index.write_text(render_index(), encoding="utf-8")
+    out_index.write_text(render_index(newsletter_dir), encoding="utf-8")
+
+    if args.metadata_file:
+        metadata_file = Path(args.metadata_file).expanduser().resolve()
+        metadata_file.parent.mkdir(parents=True, exist_ok=True)
+        metadata = {
+            "fecha_generacion": datetime.now().astimezone().isoformat(timespec="seconds"),
+            "periodo": periodo["label"],
+            "estado": "PENDIENTE",
+            "archivos": [out_md.name, out_html.name, out_index.name],
+            "codigo_salida": 0,
+        }
+        metadata_file.write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
     print("Newsletter generada correctamente:")
     print(f"- {out_md}")

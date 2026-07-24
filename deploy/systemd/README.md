@@ -46,19 +46,15 @@ Los dos lanzadores escriben en `logs/`, que está excluido de Git, y comparten
 exactamente el mismo bloqueo:
 
 ```text
-/run/user/UID/comercio-digital.lock
+PROJECT_DIR/.runtime/comercio-digital.lock
 ```
 
-El UID se calcula con `id -u`. El archivo se abre sin truncarlo y se adquiere
-con `flock -n` antes de crear logs. El descriptor permanece abierto durante
-preflight, pipeline o newsletter, informe y operaciones Git. Cualquier segunda
-operación, aunque sea del otro tipo, no espera: informa del conflicto y termina
-con código 75 sin modificar datos. Los servicios usan además `UMask=0077`.
-
-Si `/run/user/UID` no existe o no es escribible, el lanzador falla de forma
-segura. Antes de instalar los servicios debe confirmarse que el directorio de
-runtime de `depinf` existe también cuando systemd los inicia sin sesión
-interactiva.
+Cada lanzador crea `PROJECT_DIR/.runtime/` si es necesario, aplica permisos
+`0700`, abre el lock sin truncarlo y lo adquiere con `flock -n`. El descriptor
+permanece abierto durante preflight, pipeline o newsletter, informe y
+operaciones Git. Cualquier segunda operación, aunque sea del otro tipo, no
+espera: informa del conflicto y termina con código 75. `.runtime/` está
+excluido de Git y los servicios usan además `UMask=0077`.
 
 ## Dependencia de VPN
 

@@ -8,8 +8,7 @@ ENV_FILE="${PROJECT_DIR}/.env"
 NEWSLETTER_SCRIPT="${PROJECT_DIR}/generar_newsletter.py"
 LOG_DIR="${PROJECT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/newsletter_quincenal.log"
-RUNTIME_DIR="/run/user/$(id -u)"
-LOCK_FILE="${RUNTIME_DIR}/comercio-digital.lock"
+LOCK_FILE="${PROJECT_DIR}/.runtime/comercio-digital.lock"
 START_EPOCH="$(date +%s)"
 START_TEXT="$(date --iso-8601=seconds)"
 
@@ -18,12 +17,8 @@ if ! command -v flock >/dev/null 2>&1; then
     exit 1
 fi
 
-if [[ ! -d "${RUNTIME_DIR}" || ! -w "${RUNTIME_DIR}" ]]; then
-    printf 'ERROR: el directorio de ejecución %s no está disponible.\n' \
-        "${RUNTIME_DIR}" >&2
-    exit 1
-fi
-
+mkdir -p -- "${PROJECT_DIR}/.runtime"
+chmod 700 -- "${PROJECT_DIR}/.runtime"
 exec 9>>"${LOCK_FILE}"
 if ! flock -n 9; then
     printf 'ERROR: otra operación de Comercio Digital está activa; no se genera la newsletter.\n' >&2

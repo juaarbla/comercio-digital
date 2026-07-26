@@ -1,81 +1,75 @@
-# Propuesta de persistencia de OpenVPN 3
+# Persistencia de OpenVPN 3
 
-## Estado observado
+## Estado final
 
-- OpenVPN 3 Linux v27.1 está instalado.
-- El perfil importado se llama `ausias` y es persistente.
-- La sesión actual está conectada mediante `tun0`.
-- `openvpn3-autoload.service` existe, pero la propia herramienta indica que
-  está deprecada desde OpenVPN 3 Linux v20.
-- La instalación proporciona `openvpn3-session@.service`, que es el mecanismo
-  recomendado para una sesión gestionada por systemd.
+La transición a una sesión gestionada por systemd está completada. La unidad
+`openvpn3-session@ausias.service` está habilitada y fue validada después de un
+reinicio controlado. El VPS mantiene una única sesión VPN; no debe iniciarse
+otra sesión manual en paralelo.
 
-No se ha modificado el perfil, la ACL, la sesión ni ningún servicio.
+El túnel se usa únicamente para alcanzar el servicio privado requerido por el
+pipeline. SSH continúa entrando y saliendo por la interfaz pública del VPS. No
+se documentan aquí direcciones, rutas privadas, endpoints, perfiles ni
+credenciales.
 
-## Propuesta
+`comercio-digital-pipeline.service` declara `Wants=` y `After=` sobre la unidad
+VPN. La dependencia es deliberadamente débil: si la VPN no queda operativa, el
+preflight de Ollama termina con error antes del pull y antes de modificar
+datos.
 
-Usar la unidad instalada:
+## Diagnóstico seguro
 
-```text
-openvpn3-session@ausias.service
-```
-
-Antes de activarla, un administrador debe revisar y conceder a root acceso
-limitado al perfil importado. La documentación de OpenVPN recomienda configurar
-la ACL del perfil, opcionalmente bloquear la extracción de su contenido y
-transferir la propiedad de la sesión al usuario operativo cuando proceda.
-
-Comandos propuestos para una fase posterior, no ejecutados:
+Estas comprobaciones no muestran secretos ni el contenido del perfil:
 
 ```bash
-openvpn3 config-acl --show --config ausias
-sudo openvpn3 config-acl \
-  --config ausias \
-  --grant root \
-  --lock-down true \
-  --transfer-owner-session true
-sudo systemctl enable openvpn3-session@ausias.service
+systemctl is-enabled openvpn3-session@ausias.service
+systemctl status openvpn3-session@ausias.service
+journalctl -u openvpn3-session@ausias.service -b
+openvpn3 sessions-list
+ip link show tun0
 ```
 
-Como la sesión actual se inició manualmente, no debe usarse `--now` ni arrancar
-la unidad mientras siga conectada: eso podría intentar crear una sesión
-duplicada. La transición debe programarse en una ventana controlada, manteniendo
-dos sesiones SSH.
+La comprobación de ruta no se construye manualmente en esta guía para evitar
+exponer el destino. En la operación normal se usa
+`scripts/comprobar_ollama.py`, que obtiene la configuración local y valida la
+ruta completa con reintentos sin imprimir secretos.
 
-El borrador `comercio-digital-pipeline.service` declara `Wants=` y `After=`
-sobre esa unidad. Cuando la transición esté completada, un arranque manual o
-programado del pipeline pedirá a systemd que inicie primero la sesión VPN. La
-dependencia es deliberadamente débil: si OpenVPN falla, el servicio del pipeline
-continúa hasta su preflight y termina de forma segura con un error explícito, sin
-pull ni modificación de datos.
+Resultados esperados:
 
-## Validación antes de activar el pipeline
+1. la unidad figura como `enabled` y `active (running)`;
+2. `openvpn3 sessions-list` muestra una sola sesión correspondiente al perfil
+   operativo;
+3. `tun0` existe;
+4. la ruta privada usa el túnel;
+5. el preflight termina con código 0;
+6. una sesión SSH abierta por la interfaz pública permanece conectada.
 
-En una fase posterior:
+No se debe ejecutar el preflight durante esta revisión documental ni copiar su
+salida si contiene datos operativos.
 
-1. validar la ACL sin mostrar el perfil;
-2. habilitar la unidad sin `--now` mientras exista la sesión manual;
-3. verificar la unidad y su comportamiento tras un reinicio controlado;
-4. confirmar una única sesión `ausias`;
-5. confirmar que la ruta hacia Ollama usa el túnel;
-6. ejecutar `scripts/comprobar_ollama.py`;
-7. comprobar que SSH y los servicios públicos siguen accesibles.
+## Reversión controlada
 
-El preflight del pipeline exige que exista `tun0`, que la ruta al host privado
-use esa interfaz, que `/api/tags` responda y que `CHAT_MODEL` esté disponible.
-Si cualquiera de esas condiciones falla, el servicio termina con código
-distinto de cero antes del pull y antes de modificar datos.
+La reversión debe hacerse desde una ventana con dos sesiones SSH públicas
+abiertas:
 
-El timer del pipeline no debe activarse hasta superar estas pruebas.
+1. detener el timer del pipeline para evitar una ejecución durante el cambio;
+2. detener y deshabilitar `openvpn3-session@ausias.service`;
+3. comprobar que no quedan sesiones duplicadas;
+4. recuperar temporalmente la conexión mediante el procedimiento privado del
+   administrador;
+5. verificar primero SSH público y después el acceso privado;
+6. corregir la causa, restaurar una única sesión gestionada por systemd y
+   validar de nuevo tras reinicio antes de reactivar el timer.
 
-## Recuperación propuesta
-
-Si la unidad no restaura la VPN tras el reinicio:
+Comandos de reversión, que requieren privilegios y confirmación del
+administrador:
 
 ```bash
-sudo systemctl disable openvpn3-session@ausias.service
+sudo systemctl stop comercio-digital-pipeline.timer
+sudo systemctl disable --now openvpn3-session@ausias.service
+openvpn3 sessions-list
 ```
 
-Después se recuperaría temporalmente la conexión manual siguiendo el
-procedimiento operativo existente en `/home/depinf/vpn-ausias/`, sin modificar
-el perfil ni exponerlo.
+No se debe borrar el perfil ni modificar su ACL como parte de una recuperación
+básica. Si falla la reversión, se mantiene detenido el timer y se revisan el
+journal y el procedimiento privado sin exponer información sensible.

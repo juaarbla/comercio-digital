@@ -293,3 +293,32 @@ Prioridad de observacion:
 
 - Todo Digital dispone de un RSS oficial específico de la sección, con publicaciones recientes y buen encaje en digitalización de pymes, ciberseguridad, factura electrónica, pagos, IA aplicada y comercio digital. Se incorpora con filtros para evitar contenido normativo sin aplicación digital clara.
 - MaxMaxData no se incorpora: `/blog/feed/` no es un feed de artículos útil y el feed raíz muestra poco histórico, publicación concentrada y predominio de comparativas de modelos o agentes IA. No alcanza todavía la estabilidad y el encaje editorial exigidos.
+
+## Evaluación adicional de fuentes candidatas v0.9 · Stripe y Consultores IA
+
+| Fuente | RSS evaluado | Estado | Decisión | Acción |
+|---|---|---|---|---|
+| Stripe Blog | `https://stripe.com/blog/feed.rss` | RSS 2.0 válido, accesible y reciente; 10 entradas | ACEPTAR CON FILTROS | Incorporado a `feeds.json` como artículo de Comercio Electrónico |
+| Consultores IA · Blog general | `https://consultoresia.com/blog/feed/` frente a `https://consultoresia.com/inteligencia-artificial/feed/` | Ambos RSS son válidos; las 30 entradas coinciden por enlace | MANTENER LA FUENTE ACTUAL | No sustituir ni añadir el feed general para evitar duplicados |
+
+### Stripe Blog
+
+- URL principal: https://stripe.com/blog
+- RSS válido localizado: https://stripe.com/blog/feed.rss
+- Rutas probadas: `/blog/feed.rss` responde con RSS 2.0; `/blog/feed/`, `/blog/rss.xml`, `/blog/atom.xml`, `/blog/product/feed.rss` y `/blog/industry/feed.rss` responden 404.
+- Módulo sugerido: Comercio Electrónico.
+- Valor docente: alto cuando trata pagos online, checkout, fraude, riesgo, suscripciones, marketplaces, demanda internacional, fintech o comercio agéntico; las entradas recientes incluyen disputas por producto no recibido, gasto en IA, demanda global, riesgo y Stripe Radar.
+- Riesgo: fuente corporativa en inglés, con anuncios de producto y contenido técnico o promocional que puede carecer de aplicación directa al aula.
+- Motivo de la decisión: el RSS oficial es válido, accesible y reciente, no duplica una fuente activa y aporta un ángulo especializado sobre infraestructura de pagos que no cubren con el mismo detalle las fuentes actuales. Se incorpora con peso moderado y filtros editoriales.
+- Newsletter: solo si la entrada conecta claramente con pagos, fraude, checkout, marketplaces, ecommerce internacional, suscripciones o un caso empresarial útil; excluir anuncios corporativos y novedades operativas sin valor docente.
+
+### Consultores IA · Blog general
+
+- URL principal: https://consultoresia.com/blog/
+- RSS válidos comparados: https://consultoresia.com/blog/feed/ y https://consultoresia.com/inteligencia-artificial/feed/
+- Comparación: ambos feeds contienen 30 entradas recientes; se detectan 30 enlaces coincidentes, 0 exclusivos del feed de categoría y 0 exclusivos del feed general. Títulos, fechas y categorías observadas coinciden.
+- Módulo sugerido: IA para Marketing y Comercio.
+- Valor docente: medio-alto en transformación digital, analítica de negocio, automatización, productividad y usos empresariales de IA.
+- Riesgo: abundan contenidos generales sobre modelos, redes neuronales, edge computing y herramientas concretas; el feed general no amplía actualmente la cobertura útil y añadirlo generaría duplicados.
+- Motivo de la decisión: se mantiene `https://consultoresia.com/inteligencia-artificial/feed/`, ya activa y probada. Sustituirla no aporta entradas nuevas y añadir ambas incumpliría el criterio de no duplicación.
+- Newsletter: solo si el contenido se aplica a empresa, comercio, marketing, ecommerce, productividad, automatización o casos de uso útiles para aula; no automatizar piezas de IA general sin esa conexión.

@@ -53,6 +53,17 @@
     "activo": true
   },
   {
+    "url": "https://stripe.com/blog/feed.rss",
+    "nombre": "Stripe Blog",
+    "categoria_editorial": "pagos_y_ecommerce",
+    "peso": 3,
+    "origen": "empresa",
+    "modulo": "Comercio Electrónico",
+    "tipo": "articulo",
+    "activo": true,
+    "nota": "Aceptada con filtros en v0.9: RSS oficial válido sobre pagos, checkout, fraude, riesgo, suscripciones, marketplaces y comercio internacional. Excluir anuncios corporativos, contenido de producto sin aplicación docente e ingeniería demasiado técnica; newsletter solo con utilidad clara para Comercio y Marketing."
+  },
+  {
     "url": "https://marketing4ecommerce.net/ecommerce/feed",
     "nombre": "Marketing4eCommerce",
     "categoria_editorial": "actualidad_ecommerce",

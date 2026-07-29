@@ -128,13 +128,58 @@ EMPRESAS_CASO = [
     "shopify", "instagram", "whatsapp", "reddit"
 ]
 
-PREGUNTAS_AULA = {
+# Se conservan para reconocer y reemplazar preguntas heredadas de versiones
+# anteriores. Ya no se asignan directamente: eran iguales para todo un módulo.
+PREGUNTAS_AULA_LEGACY = {
     "Comercio Electrónico": "¿Cómo puede afectar esta noticia a una pequeña tienda online?",
     "CDI": "¿Qué impacto podría tener esta noticia en una empresa que vende en mercados internacionales?",
     "Digitalización": "¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?",
     "Marketing Digital": "¿Cómo podría aprovechar esta noticia una empresa para mejorar su comunicación o sus ventas?",
     "IA": "¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?",
-    "General": "¿Qué relación tiene esta noticia con la evolución actual de las empresas?"
+    "General": "¿Qué relación tiene esta noticia con la evolución actual de las empresas?",
+}
+
+PREGUNTAS_POR_RA = {
+    "Comercio Electrónico": {
+        "RA1": "¿Qué decisión de marketing digital tomarías ante {tema} y cómo medirías su resultado?",
+        "RA2": "¿Qué parte del proceso de compraventa online cambia con {tema} y qué riesgo debería prevenir una tienda?",
+        "RA3": "¿Qué mejora concreta aplicarías al catálogo, la navegación o el posicionamiento de una tienda a partir de {tema}?",
+        "RA4": "¿Cómo convertirías {tema} en una acción de comunicación en redes sociales dirigida a un público concreto?",
+        "RA5": "¿Qué oportunidad y qué riesgo para la reputación online plantea {tema}?",
+    },
+    "CDI": {
+        "RA1": "¿Cómo adaptarías una estrategia de marketing internacional ante {tema}?",
+        "RA2": "¿Qué información habría que contrastar antes de aprovechar internacionalmente {tema}?",
+        "RA3": "¿Qué servicio digital facilitaría responder a {tema} en una operación internacional?",
+        "RA4": "¿Qué decisión sobre plataforma, pago, logística o normativa exige {tema} al vender en otro país?",
+        "RA5": "¿Qué trámite o documento electrónico puede verse afectado por {tema} en una operación internacional?",
+    },
+    "Digitalización": {
+        "RA1": "¿Qué cambia entre el proceso tradicional y el digitalizado en {tema}?",
+        "RA2": "¿Qué tecnología habilitadora aparece en {tema} y qué limitación tendría al implantarla?",
+        "RA3": "¿Qué datos genera {tema}, dónde se procesarían y quién debería acceder a ellos?",
+        "RA4": "¿Qué proceso empresarial transforma {tema} y con qué indicador comprobarías la mejora?",
+        "RA5": "¿Qué dato, amenaza y medida de protección identificarías en {tema}?",
+        "RA6": "¿Cuál sería el primer paso de un plan de transformación digital inspirado en {tema}?",
+    },
+    "IA": {
+        "RA1": "¿Qué tarea podría automatizar la IA en {tema} y qué supervisión humana necesitaría?",
+        "RA2": "¿Qué instrucciones darías a una IA para crear un texto comercial relacionado con {tema}?",
+        "RA3": "¿Cómo usarías IA para crear un recurso visual sobre {tema} sin perder coherencia de marca?",
+        "RA4": "¿Qué campaña de redes sociales diseñarías a partir de {tema} y qué métrica elegirías?",
+        "RA5": "¿Qué segmento, canal y automatización combinarías en una estrategia basada en {tema}?",
+        "RA6": "¿Qué consulta de cliente vinculada con {tema} resolvería una IA y cuándo debería derivarla a una persona?",
+        "RA7": "¿Qué riesgo ético o legal presenta {tema} y qué medida preventiva propondrías?",
+    },
+}
+
+PREGUNTAS_POR_MODULO = {
+    "Comercio Electrónico": "¿Qué decisión debería tomar una tienda online ante {tema} y con qué dato la evaluarías?",
+    "CDI": "¿Qué oportunidad y qué barrera encontraría una empresa internacional ante {tema}?",
+    "Digitalización": "¿Qué proceso de una pyme transformarías a partir de {tema} y por qué?",
+    "Marketing Digital": "¿Qué público, canal y métrica elegirías para una acción de marketing basada en {tema}?",
+    "IA": "¿Qué beneficio, riesgo y control humano exigiría aplicar IA en {tema}?",
+    "General": "¿Qué decisión empresarial permite debatir {tema} y qué información falta para tomarla?",
 }
 
 
@@ -279,6 +324,26 @@ def detectar_fecha(noticia: Dict[str, Any]) -> str:
     )
 
 
+def tema_para_pregunta(noticia: Dict[str, Any], max_length: int = 120) -> str:
+    """Devuelve un asunto reconocible y breve a partir del titular."""
+    titulo = normalizar_texto(noticia.get("titulo") or noticia.get("title"))
+    titulo = " ".join(titulo.replace("¿", "").replace("?", "").split()).strip(" .:;¡!")
+    if not titulo:
+        return "el caso descrito en la noticia"
+    if len(titulo) > max_length:
+        titulo = titulo[:max_length].rsplit(" ", 1)[0].rstrip(" ,.:;") + "…"
+    return f"«{titulo}»"
+
+
+def generar_pregunta_aula(noticia: Dict[str, Any], modulo: str) -> str:
+    """Crea una pregunta vinculada al titular y, cuando existe, al RA."""
+    ra = normalizar_texto(noticia.get("ra_asignado")).upper().replace(" ", "")
+    plantilla = PREGUNTAS_POR_RA.get(modulo, {}).get(ra)
+    if not plantilla:
+        plantilla = PREGUNTAS_POR_MODULO.get(modulo, PREGUNTAS_POR_MODULO["General"])
+    return plantilla.format(tema=tema_para_pregunta(noticia))
+
+
 def enriquecer_uso_docente(noticia: Dict[str, Any], forzar: bool = False) -> Dict[str, Any]:
     n = dict(noticia)
 
@@ -287,12 +352,16 @@ def enriquecer_uso_docente(noticia: Dict[str, Any], forzar: bool = False) -> Dic
     valor = valor_desde_score(score)
     tipo = detectar_tipo_uso(n, valor)
 
+    pregunta_actual = normalizar_texto(n.get("pregunta_aula")).strip()
+    pregunta_legacy = pregunta_actual in PREGUNTAS_AULA_LEGACY.values()
+    pregunta_generada = generar_pregunta_aula(n, modulo)
+
     nuevos = {
         "score_docente": score,
         "valor_docente": valor,
         "modulo_relacionado": modulo,
         "tipo_uso": tipo,
-        "pregunta_aula": n.get("pregunta_aula") or PREGUNTAS_AULA.get(modulo, PREGUNTAS_AULA["General"]),
+        "pregunta_aula": pregunta_generada if (forzar or not pregunta_actual or pregunta_legacy) else pregunta_actual,
         "generar_ficha": valor == "alto",
         # Se recalcula luego con límite.
         "seleccion_newsletter": False,
@@ -301,7 +370,7 @@ def enriquecer_uso_docente(noticia: Dict[str, Any], forzar: bool = False) -> Dic
     }
 
     for campo, valor_campo in nuevos.items():
-        if forzar or campo not in n or n.get(campo) in [None, ""]:
+        if campo == "pregunta_aula" or forzar or campo not in n or n.get(campo) in [None, ""]:
             n[campo] = valor_campo
 
     return n

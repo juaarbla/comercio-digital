@@ -33,7 +33,7 @@ La noticia enfatiza cómo la publicidad online y la visibilidad de productos en 
 
 ### Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»» y cómo medirías su resultado?
 
 ### Actividad breve
 

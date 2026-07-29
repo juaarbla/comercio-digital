@@ -33,7 +33,7 @@ La noticia aborda la necesidad de comprender las nuevas tendencias del e-commerc
 
 ### Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026» y cómo medirías su resultado?
 
 ### Actividad breve
 

@@ -32,7 +32,7 @@ La noticia subraya que la seguridad no es opcional, requiriendo que en cualquier
 
 ### Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Qué dato, amenaza y medida de protección identificarías en «Cuatro nuevos avisos de SCI»?
 
 ### Actividad breve
 

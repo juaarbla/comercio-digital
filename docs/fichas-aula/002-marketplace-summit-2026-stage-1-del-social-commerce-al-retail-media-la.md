@@ -34,7 +34,7 @@ La noticia aborda tendencias de marketing digital como social commerce y retail 
 
 ### Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» y cómo medirías su resultado?
 
 ### Actividad breve
 

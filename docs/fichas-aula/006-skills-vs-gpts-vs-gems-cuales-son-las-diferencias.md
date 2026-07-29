@@ -33,7 +33,7 @@ La noticia trata sobre herramientas de IA generativa específicas para marketing
 
 ### Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué tarea podría automatizar la IA en «Skills vs. GPTs vs. Gems: cuáles son las diferencias» y qué supervisión humana necesitaría?
 
 ### Actividad breve
 

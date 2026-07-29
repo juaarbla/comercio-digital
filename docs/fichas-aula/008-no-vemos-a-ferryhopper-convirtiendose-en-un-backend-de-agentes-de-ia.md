@@ -33,7 +33,7 @@ La noticia trata sobre la integración de IA generativa (ChatGPT) para mejorar l
 
 ### Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué consulta de cliente vinculada con ««No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»» resolvería una IA y cuándo debería derivarla a una persona?
 
 ### Actividad breve
 

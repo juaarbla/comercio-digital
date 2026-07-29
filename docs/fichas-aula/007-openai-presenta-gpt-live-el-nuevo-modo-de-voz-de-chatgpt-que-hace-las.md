@@ -33,7 +33,7 @@ La noticia trata sobre GPT-Live, una herramienta de IA generativa que mejora la 
 
 ### Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué consulta de cliente vinculada con «OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales» resolvería una IA y cuándo debería derivarla a una persona?
 
 ### Actividad breve
 

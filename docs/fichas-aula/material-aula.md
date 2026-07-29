@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 28 JUL 2026
+Fecha de generación: 29 JUL 2026
 
 ---
 
@@ -41,7 +41,7 @@ La noticia aborda la necesidad de comprender las nuevas tendencias del e-commerc
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «IA, Retail Media, TikTok Shop o Commerce Media: entre los temas que marcarán el Marketplace Summit 2026» y cómo medirías su resultado?
 
 ## Actividad breve
 
@@ -98,7 +98,7 @@ La noticia aborda tendencias de marketing digital como social commerce y retail 
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» y cómo medirías su resultado?
 
 ## Actividad breve
 
@@ -154,7 +154,7 @@ La automatización y la gestión de la cadena de suministro son cruciales en la 
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué parte del proceso de compraventa online cambia con «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» y qué riesgo debería prevenir una tienda?
 
 ## Actividad breve
 
@@ -210,7 +210,7 @@ La noticia enfatiza cómo la publicidad online y la visibilidad de productos en 
 
 ## Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»» y cómo medirías su resultado?
 
 ## Actividad breve
 
@@ -267,7 +267,7 @@ Muse Image es una herramienta de IA generativa para diseño y creatividad, que p
 
 ## Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Cómo usarías IA para crear un recurso visual sobre «Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp» sin perder coherencia de marca?
 
 ## Actividad breve
 
@@ -323,7 +323,7 @@ La noticia trata sobre herramientas de IA generativa específicas para marketing
 
 ## Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué tarea podría automatizar la IA en «Skills vs. GPTs vs. Gems: cuáles son las diferencias» y qué supervisión humana necesitaría?
 
 ## Actividad breve
 
@@ -379,7 +379,7 @@ La noticia trata sobre GPT-Live, una herramienta de IA generativa que mejora la 
 
 ## Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué consulta de cliente vinculada con «OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales» resolvería una IA y cuándo debería derivarla a una persona?
 
 ## Actividad breve
 
@@ -435,7 +435,7 @@ La noticia trata sobre la integración de IA generativa (ChatGPT) para mejorar l
 
 ## Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Qué consulta de cliente vinculada con ««No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»» resolvería una IA y cuándo debería derivarla a una persona?
 
 ## Actividad breve
 
@@ -491,7 +491,7 @@ La noticia detalla cómo la necesidad de un alto poder de procesamiento para las
 
 ## Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Qué proceso empresarial transforma «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» y con qué indicador comprobarías la mejora?
 
 ## Actividad breve
 
@@ -546,7 +546,7 @@ La noticia subraya que la seguridad no es opcional, requiriendo que en cualquier
 
 ## Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Qué dato, amenaza y medida de protección identificarías en «Cuatro nuevos avisos de SCI»?
 
 ## Actividad breve
 

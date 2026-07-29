@@ -33,7 +33,7 @@ La automatización y la gestión de la cadena de suministro son cruciales en la 
 
 ### Pregunta detonadora
 
-¿Cómo puede afectar esta noticia a una pequeña tienda online?
+¿Qué parte del proceso de compraventa online cambia con «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» y qué riesgo debería prevenir una tienda?
 
 ### Actividad breve
 

@@ -34,7 +34,7 @@ Muse Image es una herramienta de IA generativa para diseño y creatividad, que p
 
 ### Pregunta detonadora
 
-¿Qué ventajas, riesgos y límites plantea el uso de IA en este caso?
+¿Cómo usarías IA para crear un recurso visual sobre «Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp» sin perder coherencia de marca?
 
 ### Actividad breve
 

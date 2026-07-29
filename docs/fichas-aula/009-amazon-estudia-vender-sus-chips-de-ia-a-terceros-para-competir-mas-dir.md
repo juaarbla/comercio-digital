@@ -33,7 +33,7 @@ La noticia detalla cómo la necesidad de un alto poder de procesamiento para las
 
 ### Pregunta detonadora
 
-¿Qué proceso empresarial podría mejorar una pyme aplicando esta tecnología o tendencia?
+¿Qué proceso empresarial transforma «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» y con qué indicador comprobarías la mejora?
 
 ### Actividad breve
 

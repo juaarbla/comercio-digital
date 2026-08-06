@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 5 AGO 2026
+Fecha de generación: 6 AGO 2026
 
 ---
 
@@ -344,59 +344,59 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 7. OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales
+# 7. Amazon Creative Agent: crear anuncios con IA conversacional
 
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 9 jul. 2026
-- **Enlace:** https://ecommerce-news.es/openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las-conversaciones-mas-naturales/
+- **Fuente:** Cyberclick
+- **Fecha:** 4 ago. 2026
+- **Enlace:** https://www.cyberclick.es/numerical-blog/amazon-creative-agent-crear-anuncios-con-ia-conversacional
 - **Módulo:** IA
-- **RA:** RA6
-- **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
-- **CE relacionados:** RA6a, RA6b
+- **RA:** RA3
+- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
+- **CE relacionados:** RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las.html
-- **Ficha Markdown:** fichas-aula/007-openai-presenta-gpt-live-el-nuevo-modo-de-voz-de-chatgpt-que-hace-las.md
+- **Ficha HTML:** fichas-aula/007-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
+- **Ficha Markdown:** fichas-aula/007-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
 
 ## Resumen
 
-OpenAI ha lanzado GPT-Live, una nueva función de voz para ChatGPT que permite mantener conversaciones más naturales y fluidas, ya que la inteligencia artificial puede escuchar y hablar al mismo tiempo. Esto mejora la interacción en tiempo real, con pausas e interrupciones como en una conversación normal. En comercio electrónico, esta tecnología puede usarse para mejorar la atención al cliente mediante chatbots más humanos y eficientes. Así, las empresas pueden ofrecer un servicio más cercano y rápido a sus usuarios.
+Amazon ha lanzado su herramienta "Creative Agent", una potente IA generativa dentro de Amazon Ads que revoluciona la publicidad digital. Esta plataforma permite a los anunciantes crear campañas publicitarias completas—incluyendo ideas, imágenes y videos—simplemente dándole una descripción textual. Desde la perspectiva del marketing digital, esto representa una gran automatización que agiliza enormemente la fase de creación de *contenido* y *assets* publicitarios. Por lo tanto, es clave entender que, aunque la IA acelere el proceso, el conocimiento estratégico para definir el mensaje y el *público objetivo* sigue siendo fundamental.
 
 ## Vinculación curricular
 
 - **Módulo:** IA
-- **Resultado de aprendizaje:** RA6
+- **Resultado de aprendizaje:** RA3
 
-**RA6.** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 
 ### Criterios de evaluación relacionados
 
-- **RA6a.** Se han implementado soluciones de inteligencia artificial para mejorar la experiencia del cliente.
-- **RA6b.** Se han utilizado chatbots para la atención al cliente online. (IA generativa.)
+- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
+- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
 
 ### Justificación docente
 
-La noticia trata sobre GPT-Live, una herramienta de IA generativa que mejora la atención al cliente mediante chatbots más naturales, vinculándose directamente con la gestión de atención al cliente potenciada por IA.
+La capacidad de generar ideas, imágenes y videos (assets) mediante IA generativa cubre los aspectos de diseño y creatividad, directamente relacionado con el uso de herramientas de IA para soporte de branding y diseño.
 
 ## Pregunta detonadora
 
-¿Qué consulta de cliente vinculada con «OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales» resolvería una IA y cuándo debería derivarla a una persona?
+¿Cómo usarías IA para crear un recurso visual sobre «Amazon Creative Agent: crear anuncios con IA conversacional» sin perder coherencia de marca?
 
 ## Actividad breve
 
-Revisa la noticia «OpenAI presenta GPT-Live, el nuevo modo de voz de ChatGPT que hace las conversaciones más naturales» como caso de atención al cliente con IA. Diseña un pequeño flujo de conversación: consulta inicial, respuesta del asistente, derivación y cierre. Relaciona el flujo con RA6a, RA6b.
+Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3b, RA3c.
 
 ## Conceptos clave
 
-- Atención al cliente
-- Experiencia del cliente
-- IA aplicada a la atención al cliente
-- Chatbots
-- Bots
-- IA generativa
-- IA predictiva
-- Sistemas predictivos
-- Automatización de respuestas
-- Personalización de la atención
+- Branding
+- Diseño asistido por IA
+- Herramientas de IA para diseño
+- Herramientas de IA para branding
+- Identidad de marca
+- Creatividad visual
+- Generación de imágenes con IA
+- Diseño de recursos gráficos
+- Coherencia visual
+- Aplicaciones básicas de IA en diseño
 
 ---
 

@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 6 AGO 2026
+Fecha de generación: 7 AGO 2026
 
 ---
 
@@ -288,7 +288,63 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 
 ---
 
-# 6. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
+# 6. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 6 ago. 2026
+- **Enlace:** https://ecommerce-news.es/meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-grandes-bases-de-codigo/
+- **Módulo:** Digitalización
+- **RA:** RA4
+- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+- **CE relacionados:** RA4b, RA4e
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/006-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
+- **Ficha Markdown:** fichas-aula/006-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
+
+## Resumen
+
+Meta ha lanzado Muse Code, un nuevo agente de inteligencia artificial diseñado para ayudar a programadores a desarrollar y modificar software complejo. Aunque parece una noticia de programación pura, es vital entender que el funcionamiento de cualquier plataforma de comercio electrónico depende de este tipo de desarrollo tecnológico. Esta herramienta representa un salto en la automatización de la creación de sitios web y aplicaciones, haciendo que la implementación de tiendas virtuales sea más rápida y accesible. En el futuro del e-commerce, significa que la creación, actualización y personalización de plataformas digitales se volverá cada vez más eficiente gracias a la IA.
+
+## Vinculación curricular
+
+- **Módulo:** Digitalización
+- **Resultado de aprendizaje:** RA4
+
+**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+
+### Criterios de evaluación relacionados
+
+- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
+- **RA4e.** Se han identificado los lenguajes de programación en IA.
+
+### Justificación docente
+
+La noticia sobre Muse Code aborda la IA para la creación y modificación de software, lo cual se relaciona directamente con la capacidad de identificar y aplicar tecnologías habilitadoras digitales (IA) para mejorar los sistemas de negocio y los procesos digitales (RA4).
+
+## Pregunta detonadora
+
+¿Qué proceso empresarial transforma «Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código» y con qué indicador comprobarías la mejora?
+
+## Actividad breve
+
+Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4e.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Automatización de procesos
+- Optimización de procesos
+- Tratamiento de datos
+- Minería de datos
+- Big Data
+- Rentabilidad empresarial
+- Lenguajes de programación en IA
+- Aplicaciones sectoriales de la IA
+- Mejora de procesos de trabajo
+
+---
+
+# 7. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
 
 - **Fuente:** cyberclick.es
 - **Fecha:** 9 jul. 2026
@@ -298,8 +354,8 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 - **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
 - **CE relacionados:** RA1a, RA1b
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
-- **Ficha Markdown:** fichas-aula/006-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
+- **Ficha HTML:** fichas-aula/007-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
+- **Ficha Markdown:** fichas-aula/007-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
 
 ## Resumen
 
@@ -344,7 +400,7 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 7. Amazon Creative Agent: crear anuncios con IA conversacional
+# 8. Amazon Creative Agent: crear anuncios con IA conversacional
 
 - **Fuente:** Cyberclick
 - **Fecha:** 4 ago. 2026
@@ -354,8 +410,8 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
-- **Ficha Markdown:** fichas-aula/007-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
+- **Ficha HTML:** fichas-aula/008-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
+- **Ficha Markdown:** fichas-aula/008-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
 
 ## Resumen
 
@@ -400,7 +456,7 @@ Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional
 
 ---
 
-# 8. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+# 9. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 1 jul. 2026
@@ -410,8 +466,8 @@ Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional
 - **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
 - **CE relacionados:** RA6a, RA6b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/008-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
-- **Ficha Markdown:** fichas-aula/008-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+- **Ficha HTML:** fichas-aula/009-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
+- **Ficha Markdown:** fichas-aula/009-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
 
 ## Resumen
 
@@ -456,7 +512,7 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 
 ---
 
-# 9. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
+# 10. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 19 jun. 2026
@@ -466,8 +522,8 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
-- **Ficha Markdown:** fichas-aula/009-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
+- **Ficha HTML:** fichas-aula/010-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
+- **Ficha Markdown:** fichas-aula/010-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
 
 ## Resumen
 
@@ -509,60 +565,5 @@ Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para compe
 - Lenguajes de programación en IA
 - Aplicaciones sectoriales de la IA
 - Mejora de procesos de trabajo
-
----
-
-# 10. Cuatro nuevos avisos de SCI
-
-- **Fuente:** incibe.es
-- **Fecha:** 12 jun. 2026
-- **Enlace:** https://www.incibe.es/node/631135
-- **Módulo:** Digitalización
-- **RA:** RA5
-- **Texto RA:** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
-- **CE relacionados:** RA5i
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/010-cuatro-nuevos-avisos-de-sci.html
-- **Ficha Markdown:** fichas-aula/010-cuatro-nuevos-avisos-de-sci.md
-
-## Resumen
-
-Los avisos de seguridad recientes nos alertan sobre las vulnerabilidades críticas en los dispositivos conectados que usamos hoy, desde cámaras de vigilancia hasta electrodomésticos. Estos fallos ocurren cuando fabricantes dejan la gestión de contraseñas predeterminadas o permiten el acceso sin requerir una autenticación fuerte. Para nuestro módulo de Digitalización, esto subraya que la conectividad por sí sola no garantiza la seguridad; debemos planificar y gestionar protocolos robustos de ciberseguridad y gestión de credenciales. En resumen, cualquier proyecto de digitalización debe tratar la seguridad digital como un requisito fundamental para proteger la información y el negocio de ciberataques.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA5
-
-**RA5.** Evalúa la importancia de los datos, así como su protección en una economía digital globalizada, definiendo sistemas de seguridad y ciberseguridad tanto a nivel de equipo/sistema, como globales.
-
-### Criterios de evaluación relacionados
-
-- **RA5i.** Se ha valorado la importancia de la seguridad y su regulación en relación con los datos.
-
-### Justificación docente
-
-La noticia subraya que la seguridad no es opcional, requiriendo que en cualquier transformación digital (RA5) se consideren las brechas de seguridad y la gestión de los datos (CEg, CEk).
-
-## Pregunta detonadora
-
-¿Qué dato, amenaza y medida de protección identificarías en «Cuatro nuevos avisos de SCI»?
-
-## Actividad breve
-
-Revisa la noticia «Cuatro nuevos avisos de SCI» desde la gestión del dato y la ciberseguridad. Identifica activos digitales, datos implicados, amenazas o medidas de protección. Relaciona el análisis con RA5i.
-
-## Conceptos clave
-
-- Dato
-- Información
-- Ciclo de vida del dato
-- Big Data
-- Análisis de datos
-- Machine learning
-- Deep learning
-- Inteligencia artificial
-- Almacenamiento de datos
-- Protección de datos
 
 ---

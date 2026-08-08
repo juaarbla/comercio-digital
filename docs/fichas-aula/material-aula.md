@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 7 AGO 2026
+Fecha de generación: 8 AGO 2026
 
 ---
 
@@ -400,7 +400,63 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 8. Amazon Creative Agent: crear anuncios con IA conversacional
+# 8. Anthropic crea un equipo para diseñar sus propios chips de IA para Claude
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 7 ago. 2026
+- **Enlace:** https://ecommerce-news.es/anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-claude/
+- **Módulo:** Digitalización
+- **RA:** RA4
+- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+- **CE relacionados:** RA4b, RA4c
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/008-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.html
+- **Ficha Markdown:** fichas-aula/008-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.md
+
+## Resumen
+
+Anthropic, una empresa de IA, ha formado un equipo interno para diseñar sus propios chips de procesador. Al hacer esto, la compañía busca mejorar el rendimiento de su modelo de IA (Claude) y no depender totalmente del hardware de terceros. Para el e-commerce, esto es clave porque demuestra que las empresas líderes intentan controlar toda su cadena tecnológica, desde el *software* hasta el *hardware*, para garantizar el mejor servicio. En resumen, la autogestión tecnológica es una estrategia de negocio crucial para mantener la competitividad en cualquier plataforma digital.
+
+## Vinculación curricular
+
+- **Módulo:** Digitalización
+- **Resultado de aprendizaje:** RA4
+
+**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+
+### Criterios de evaluación relacionados
+
+- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
+- **RA4c.** Se ha valorado la importancia presente y futura de la IA.
+
+### Justificación docente
+
+La necesidad de controlar el hardware (chips) es un ejemplo de cómo las tecnologías habilitadoras (THD) como la IA requieren la integración vertical de la cadena de valor, un principio clave de la transformación digital.
+
+## Pregunta detonadora
+
+¿Qué proceso empresarial transforma «Anthropic crea un equipo para diseñar sus propios chips de IA para Claude» y con qué indicador comprobarías la mejora?
+
+## Actividad breve
+
+Analiza la noticia «Anthropic crea un equipo para diseñar sus propios chips de IA para Claude» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4c.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Automatización de procesos
+- Optimización de procesos
+- Tratamiento de datos
+- Minería de datos
+- Big Data
+- Rentabilidad empresarial
+- Lenguajes de programación en IA
+- Aplicaciones sectoriales de la IA
+- Mejora de procesos de trabajo
+
+---
+
+# 9. Amazon Creative Agent: crear anuncios con IA conversacional
 
 - **Fuente:** Cyberclick
 - **Fecha:** 4 ago. 2026
@@ -410,8 +466,8 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
-- **Ficha Markdown:** fichas-aula/008-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
+- **Ficha HTML:** fichas-aula/009-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
+- **Ficha Markdown:** fichas-aula/009-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
 
 ## Resumen
 
@@ -456,7 +512,7 @@ Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional
 
 ---
 
-# 9. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
+# 10. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 1 jul. 2026
@@ -466,8 +522,8 @@ Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional
 - **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
 - **CE relacionados:** RA6a, RA6b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/009-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
-- **Ficha Markdown:** fichas-aula/009-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+- **Ficha HTML:** fichas-aula/010-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
+- **Ficha Markdown:** fichas-aula/010-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
 
 ## Resumen
 
@@ -509,61 +565,5 @@ Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de ag
 - Sistemas predictivos
 - Automatización de respuestas
 - Personalización de la atención
-
----
-
-# 10. Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 19 jun. 2026
-- **Enlace:** https://ecommerce-news.es/amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-directamente-con-nvidia/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-- **CE relacionados:** RA4b, RA4c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.html
-- **Ficha Markdown:** fichas-aula/010-amazon-estudia-vender-sus-chips-de-ia-a-terceros-para-competir-mas-dir.md
-
-## Resumen
-
-Amazon planea empezar a vender sus propios chips de inteligencia artificial, llamados Trainium, a otras empresas. Este movimiento supone que la compañía va a competir directamente con gigantes tecnológicos como Nvidia, que actualmente dominan el mercado de este tipo de hardware. Para nosotros, esto es clave porque los pilares de cualquier plataforma de e-commerce —como los motores de recomendación y el manejo de datos— dependen totalmente de la capacidad de procesamiento de IA. En resumen, la disponibilidad de estos chips es fundamental para el futuro de las tiendas online y la infraestructura tecnológica.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-
-### Criterios de evaluación relacionados
-
-- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
-- **RA4c.** Se ha valorado la importancia presente y futura de la IA.
-
-### Justificación docente
-
-La noticia detalla cómo la necesidad de un alto poder de procesamiento para las funciones de IA (como los motores de recomendación) es clave, lo que se alinea con la identificación de Tecnologías Habilitadoras Digitales (THD) como la IA y su impacto en los sistemas de e-commerce.
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial transforma «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» y con qué indicador comprobarías la mejora?
-
-## Actividad breve
-
-Analiza la noticia «Amazon estudia vender sus chips de IA a terceros para competir más directamente con Nvidia» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4c.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Automatización de procesos
-- Optimización de procesos
-- Tratamiento de datos
-- Minería de datos
-- Big Data
-- Rentabilidad empresarial
-- Lenguajes de programación en IA
-- Aplicaciones sectoriales de la IA
-- Mejora de procesos de trabajo
 
 ---

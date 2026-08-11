@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 10 AGO 2026
+Fecha de generación: 11 AGO 2026
 
 ---
 
@@ -400,7 +400,63 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 8. Anthropic crea un equipo para diseñar sus propios chips de IA para Claude
+# 8. ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 10 ago. 2026
+- **Enlace:** https://ecommerce-news.es/chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-gpt-5-6-luna/
+- **Módulo:** IA
+- **RA:** RA2
+- **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
+- **CE relacionados:** RA2b, RA2e
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/008-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html
+- **Ficha Markdown:** fichas-aula/008-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md
+
+## Resumen
+
+OpenAI acaba de mejorar su herramienta ChatGPT al eliminar los límites de texto para los usuarios gratuitos, dando acceso sin restricciones a modelos avanzados como GPT-5.6 Luna. Este cambio es crucial porque significa que las herramientas de inteligencia artificial se vuelven más accesibles y potentes para todos. Para nuestro módulo de Comercio Electrónico, esto es vital: podemos usar IA avanzada sin coste o limitaciones para generar descripciones de productos, crear estrategias de *marketing* o gestionar el servicio al cliente. En resumen, más potencia gratuita en IA significa que las pequeñas empresas y tiendas online tienen acceso a recursos profesionales de vanguardia.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA2
+
+**RA2.** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
+
+### Criterios de evaluación relacionados
+
+- **RA2b.** Se han planificado, elaborado y ejecutado textos persuasivos para acciones de marketing y ventas.
+- **RA2e.** Se han utilizado las herramientas de texto aplicándolas al marketing de contenidos y al SEO.
+
+### Justificación docente
+
+El acceso sin límites a IA generativa es crucial para la creación de contenido persuasivo y la optimización para SEO (marketing de contenidos), habilidades centrales en el ciclo de vida del contenido digital.
+
+## Pregunta detonadora
+
+¿Qué instrucciones darías a una IA para crear un texto comercial relacionado con «ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna»?
+
+## Actividad breve
+
+Usa la noticia «ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna» para crear una propuesta de texto comercial con IA. Define objetivo, público, tono y canal; después redacta una versión inicial y una versión mejorada. Conecta el trabajo con RA2b, RA2e.
+
+## Conceptos clave
+
+- Generación de textos con IA
+- Herramientas de creación de textos
+- Contenido creativo
+- Copywriting
+- Textos persuasivos
+- Marketing de contenidos
+- SEO con IA
+- Documentos empresariales
+- Documentos comerciales
+- Planificación de contenidos
+
+---
+
+# 9. Anthropic crea un equipo para diseñar sus propios chips de IA para Claude
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 7 ago. 2026
@@ -410,8 +466,8 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.html
-- **Ficha Markdown:** fichas-aula/008-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.md
+- **Ficha HTML:** fichas-aula/009-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.html
+- **Ficha Markdown:** fichas-aula/009-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.md
 
 ## Resumen
 
@@ -453,62 +509,6 @@ Analiza la noticia «Anthropic crea un equipo para diseñar sus propios chips de
 - Lenguajes de programación en IA
 - Aplicaciones sectoriales de la IA
 - Mejora de procesos de trabajo
-
----
-
-# 9. Amazon Creative Agent: crear anuncios con IA conversacional
-
-- **Fuente:** Cyberclick
-- **Fecha:** 4 ago. 2026
-- **Enlace:** https://www.cyberclick.es/numerical-blog/amazon-creative-agent-crear-anuncios-con-ia-conversacional
-- **Módulo:** IA
-- **RA:** RA3
-- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-- **CE relacionados:** RA3b, RA3c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-amazon-creative-agent-crear-anuncios-con-ia-conversacional.html
-- **Ficha Markdown:** fichas-aula/009-amazon-creative-agent-crear-anuncios-con-ia-conversacional.md
-
-## Resumen
-
-Amazon ha lanzado su herramienta "Creative Agent", una potente IA generativa dentro de Amazon Ads que revoluciona la publicidad digital. Esta plataforma permite a los anunciantes crear campañas publicitarias completas—incluyendo ideas, imágenes y videos—simplemente dándole una descripción textual. Desde la perspectiva del marketing digital, esto representa una gran automatización que agiliza enormemente la fase de creación de *contenido* y *assets* publicitarios. Por lo tanto, es clave entender que, aunque la IA acelere el proceso, el conocimiento estratégico para definir el mensaje y el *público objetivo* sigue siendo fundamental.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA3
-
-**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-
-### Criterios de evaluación relacionados
-
-- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
-- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
-
-### Justificación docente
-
-La capacidad de generar ideas, imágenes y videos (assets) mediante IA generativa cubre los aspectos de diseño y creatividad, directamente relacionado con el uso de herramientas de IA para soporte de branding y diseño.
-
-## Pregunta detonadora
-
-¿Cómo usarías IA para crear un recurso visual sobre «Amazon Creative Agent: crear anuncios con IA conversacional» sin perder coherencia de marca?
-
-## Actividad breve
-
-Analiza la noticia «Amazon Creative Agent: crear anuncios con IA conversacional» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3b, RA3c.
-
-## Conceptos clave
-
-- Branding
-- Diseño asistido por IA
-- Herramientas de IA para diseño
-- Herramientas de IA para branding
-- Identidad de marca
-- Creatividad visual
-- Generación de imágenes con IA
-- Diseño de recursos gráficos
-- Coherencia visual
-- Aplicaciones básicas de IA en diseño
 
 ---
 

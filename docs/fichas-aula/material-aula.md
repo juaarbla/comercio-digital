@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 16 AGO 2026
+Fecha de generación: 17 AGO 2026
 
 ---
 
@@ -456,59 +456,59 @@ Usa la noticia «ChatGPT elimina los límites de texto para los usuarios gratuit
 
 ---
 
-# 9. Anthropic crea un equipo para diseñar sus propios chips de IA para Claude
+# 9. El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados
 
-- **Fuente:** Ecommerce News
-- **Fecha:** 7 ago. 2026
-- **Enlace:** https://ecommerce-news.es/anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-claude/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-- **CE relacionados:** RA4b, RA4c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.html
-- **Ficha Markdown:** fichas-aula/009-anthropic-crea-un-equipo-para-disenar-sus-propios-chips-de-ia-para-cla.md
+- **Fuente:** Juan Armada
+- **Fecha:** 2026-08-16
+- **Enlace:** https://juanarmada.com/arancel-3-euros-ecommerce-productos-importados/
+- **Módulo:** CDI
+- **RA:** RA2
+- **Texto RA:** Realiza las tareas basicas necesarias para utilizar la red Internet, enfocando su uso como un canal de promocion internacional de la empresa.
+- **CE relacionados:** RA2e, RA2g
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/009-el-nuevo-arancel-de-3-euros-que-cambia-para-un-ecommerce-que-vende-pro.html
+- **Ficha Markdown:** fichas-aula/009-el-nuevo-arancel-de-3-euros-que-cambia-para-un-ecommerce-que-vende-pro.md
 
 ## Resumen
 
-Anthropic, una empresa de IA, ha formado un equipo interno para diseñar sus propios chips de procesador. Al hacer esto, la compañía busca mejorar el rendimiento de su modelo de IA (Claude) y no depender totalmente del hardware de terceros. Para el e-commerce, esto es clave porque demuestra que las empresas líderes intentan controlar toda su cadena tecnológica, desde el *software* hasta el *hardware*, para garantizar el mejor servicio. En resumen, la autogestión tecnológica es una estrategia de negocio crucial para mantener la competitividad en cualquier plataforma digital.
+A partir de 2026, las tiendas online que venden productos importados de fuera de la UE deberán gestionar un nuevo arancel fijo de 3 euros. Esto cambia completamente el modelo de negocio, ya que la tarifa no es solo un coste aduanero, sino que obliga al e-commerce a repensar su estrategia de precios y márgenes. En la práctica, esto significa que el cálculo de este coste debe integrarse con total transparencia en el proceso de compra, mucho antes de que el cliente llegue a la caja. Para vosotros, entender esto es crucial, porque la logística y la normativa fiscal pasan a ser variables clave en la experiencia de usuario y en la decisión final de compra.
 
 ## Vinculación curricular
 
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
+- **Módulo:** CDI
+- **Resultado de aprendizaje:** RA2
 
-**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+**RA2.** Realiza las tareas basicas necesarias para utilizar la red Internet, enfocando su uso como un canal de promocion internacional de la empresa.
 
 ### Criterios de evaluación relacionados
 
-- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
-- **RA4c.** Se ha valorado la importancia presente y futura de la IA.
+- **RA2e.** Se han utilizado los principales programas navegadores nacionales e internacionales para moverse por la red.
+- **RA2g.** Se han utilizado buscadores nacionales e internacionales especializados por temas y otras aplicaciones de busqueda avanzada.
 
 ### Justificación docente
 
-La necesidad de controlar el hardware (chips) es un ejemplo de cómo las tecnologías habilitadoras (THD) como la IA requieren la integración vertical de la cadena de valor, un principio clave de la transformación digital.
+La noticia afecta directamente a la planificación logística y de ventas internacionales, requiriendo identificar y adaptar búsquedas de información (tarifas, normativas) y fuentes de datos especializadas (aranceles aduaneros) para el comercio exterior.
 
 ## Pregunta detonadora
 
-¿Qué proceso empresarial transforma «Anthropic crea un equipo para diseñar sus propios chips de IA para Claude» y con qué indicador comprobarías la mejora?
+¿Qué información habría que contrastar antes de aprovechar internacionalmente «El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados»?
 
 ## Actividad breve
 
-Analiza la noticia «Anthropic crea un equipo para diseñar sus propios chips de IA para Claude» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4c.
+Estudia la noticia «El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados» como ejemplo de uso de Internet para la promoción internacional. Identifica fuentes de información, canales digitales y criterios para valorar la oportunidad exterior. Conecta el análisis con RA2e, RA2g.
 
 ## Conceptos clave
 
-- Inteligencia artificial
-- Automatización de procesos
-- Optimización de procesos
-- Tratamiento de datos
-- Minería de datos
-- Big Data
-- Rentabilidad empresarial
-- Lenguajes de programación en IA
-- Aplicaciones sectoriales de la IA
-- Mejora de procesos de trabajo
+- Internet
+- Origen de Internet
+- Servidores
+- Clientes
+- Protocolo TCP/IP
+- World Wide Web
+- Dominios de red
+- Modos de conexión a Internet
+- Configuración de acceso
+- Intranet
 
 ---
 

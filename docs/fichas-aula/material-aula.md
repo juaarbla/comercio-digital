@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 18 AGO 2026
+Fecha de generación: 19 AGO 2026
 
 ---
 
@@ -62,7 +62,63 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 
 ---
 
-# 2. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+# 2. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 18 ago. 2026
+- **Enlace:** https://ecommerce-news.es/dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low-cost-asiatico/
+- **Módulo:** CDI
+- **RA:** RA1
+- **Texto RA:** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
+- **CE relacionados:** RA1a, RA1e
+- **Tipo de uso:** Debate
+- **Ficha HTML:** fichas-aula/002-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
+- **Ficha Markdown:** fichas-aula/002-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
+
+## Resumen
+
+La Unión Europea ha implementado un nuevo arancel (la «tasa Shein») que grava los envíos de bajo valor procedentes de fuera de la comunidad. Este cambio afecta a la logística y la estructura de costes de todo el *e-commerce* transfronterizo. Como futuro profesional, es crucial entender que los aranceles aduaneros impactan directamente en el precio final del producto y en la viabilidad de los modelos de *low cost*. Estudiar estas regulaciones nos ayuda a gestionar mejor la cadena de suministro y a prever costes de importación en cualquier estrategia de comercio electrónico.
+
+## Vinculación curricular
+
+- **Módulo:** CDI
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se ha confeccionado un plan de marketing digital internacional capaz de alcanzar los objetivos comerciales de la empresa en el exterior.
+- **RA1e.** Se han evaluado los desafios del marketing electronico internacional: la confianza en los medios de pago, los problemas logisticos y la seguridad.
+
+### Justificación docente
+
+La noticia aborda un impacto arancelario (normativa aduanera) en la estructura de costes del comercio transfronterizo, lo cual debe ser considerado al diseñar un plan de marketing digital internacional viable, afectando tanto los objetivos comerciales como la evaluación de los desafíos logísticos y de coste.
+
+## Pregunta detonadora
+
+¿Cómo adaptarías una estrategia de marketing internacional ante «Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático»?
+
+## Actividad breve
+
+Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático» como posible acción dentro de un plan de marketing digital internacional. Define mercado objetivo, canal de entrada y adaptación del mensaje. Relaciona la propuesta con RA1a, RA1e.
+
+## Conceptos clave
+
+- Plan de marketing digital internacional
+- Cliente online internacional
+- Web exportadora
+- Promoción online internacional
+- Promoción offline de la web exportadora
+- Posicionamiento en buscadores internacionales
+- E-mail marketing internacional
+- SEM internacional
+- SEO internacional
+- Campañas en páginas afines
+
+---
+
+# 3. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 2 jul. 2026
@@ -72,8 +128,8 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1a, RA1b, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/002-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
-- **Ficha Markdown:** fichas-aula/002-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
+- **Ficha HTML:** fichas-aula/003-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
+- **Ficha Markdown:** fichas-aula/003-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
 
 ## Resumen
 
@@ -119,7 +175,7 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 3. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
+# 4. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jun. 2026
@@ -129,8 +185,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 - **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
 - **CE relacionados:** RA2e, RA2f
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
-- **Ficha Markdown:** fichas-aula/003-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
+- **Ficha HTML:** fichas-aula/004-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
+- **Ficha Markdown:** fichas-aula/004-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
 
 ## Resumen
 
@@ -175,7 +231,7 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 
 ---
 
-# 4. Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»
+# 5. Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 20 jul. 2026
@@ -185,8 +241,8 @@ Estudia la noticia «El 95% de las empresas logísticas acelera automatización 
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1b, RA1c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/004-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.html
-- **Ficha Markdown:** fichas-aula/004-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.md
+- **Ficha HTML:** fichas-aula/005-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.html
+- **Ficha Markdown:** fichas-aula/005-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.md
 
 ## Resumen
 
@@ -231,7 +287,7 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplic
 
 ---
 
-# 5. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
+# 6. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jul. 2026
@@ -241,8 +297,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplic
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
-- **Ficha Markdown:** fichas-aula/005-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
+- **Ficha HTML:** fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
+- **Ficha Markdown:** fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
 
 ## Resumen
 
@@ -288,7 +344,7 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 
 ---
 
-# 6. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
+# 7. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 6 ago. 2026
@@ -298,8 +354,8 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4e
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
-- **Ficha Markdown:** fichas-aula/006-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
+- **Ficha HTML:** fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
+- **Ficha Markdown:** fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
 
 ## Resumen
 
@@ -344,7 +400,7 @@ Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar soft
 
 ---
 
-# 7. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
+# 8. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
 
 - **Fuente:** cyberclick.es
 - **Fecha:** 9 jul. 2026
@@ -354,8 +410,8 @@ Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar soft
 - **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
 - **CE relacionados:** RA1a, RA1b
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
-- **Ficha Markdown:** fichas-aula/007-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
+- **Ficha HTML:** fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
+- **Ficha Markdown:** fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
 
 ## Resumen
 
@@ -400,7 +456,7 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 8. ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna
+# 9. ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 10 ago. 2026
@@ -410,8 +466,8 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 - **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
 - **CE relacionados:** RA2b, RA2e
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html
-- **Ficha Markdown:** fichas-aula/008-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md
+- **Ficha HTML:** fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html
+- **Ficha Markdown:** fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md
 
 ## Resumen
 
@@ -456,114 +512,58 @@ Usa la noticia «ChatGPT elimina los límites de texto para los usuarios gratuit
 
 ---
 
-# 9. El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados
+# 10. Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI
 
-- **Fuente:** Juan Armada
-- **Fecha:** 2026-08-16
-- **Enlace:** https://juanarmada.com/arancel-3-euros-ecommerce-productos-importados/
-- **Módulo:** CDI
-- **RA:** RA2
-- **Texto RA:** Realiza las tareas basicas necesarias para utilizar la red Internet, enfocando su uso como un canal de promocion internacional de la empresa.
-- **CE relacionados:** RA2e, RA2g
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/009-el-nuevo-arancel-de-3-euros-que-cambia-para-un-ecommerce-que-vende-pro.html
-- **Ficha Markdown:** fichas-aula/009-el-nuevo-arancel-de-3-euros-que-cambia-para-un-ecommerce-que-vende-pro.md
-
-## Resumen
-
-A partir de 2026, las tiendas online que venden productos importados de fuera de la UE deberán gestionar un nuevo arancel fijo de 3 euros. Esto cambia completamente el modelo de negocio, ya que la tarifa no es solo un coste aduanero, sino que obliga al e-commerce a repensar su estrategia de precios y márgenes. En la práctica, esto significa que el cálculo de este coste debe integrarse con total transparencia en el proceso de compra, mucho antes de que el cliente llegue a la caja. Para vosotros, entender esto es crucial, porque la logística y la normativa fiscal pasan a ser variables clave en la experiencia de usuario y en la decisión final de compra.
-
-## Vinculación curricular
-
-- **Módulo:** CDI
-- **Resultado de aprendizaje:** RA2
-
-**RA2.** Realiza las tareas basicas necesarias para utilizar la red Internet, enfocando su uso como un canal de promocion internacional de la empresa.
-
-### Criterios de evaluación relacionados
-
-- **RA2e.** Se han utilizado los principales programas navegadores nacionales e internacionales para moverse por la red.
-- **RA2g.** Se han utilizado buscadores nacionales e internacionales especializados por temas y otras aplicaciones de busqueda avanzada.
-
-### Justificación docente
-
-La noticia afecta directamente a la planificación logística y de ventas internacionales, requiriendo identificar y adaptar búsquedas de información (tarifas, normativas) y fuentes de datos especializadas (aranceles aduaneros) para el comercio exterior.
-
-## Pregunta detonadora
-
-¿Qué información habría que contrastar antes de aprovechar internacionalmente «El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados»?
-
-## Actividad breve
-
-Estudia la noticia «El nuevo arancel de 3 euros: qué cambia para un ecommerce que vende productos importados» como ejemplo de uso de Internet para la promoción internacional. Identifica fuentes de información, canales digitales y criterios para valorar la oportunidad exterior. Conecta el análisis con RA2e, RA2g.
-
-## Conceptos clave
-
-- Internet
-- Origen de Internet
-- Servidores
-- Clientes
-- Protocolo TCP/IP
-- World Wide Web
-- Dominios de red
-- Modos de conexión a Internet
-- Configuración de acceso
-- Intranet
-
----
-
-# 10. «No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 1 jul. 2026
-- **Enlace:** https://ecommerce-news.es/no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia/
-- **Módulo:** IA
-- **RA:** RA6
-- **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
-- **CE relacionados:** RA6a, RA6b
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/010-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.html
-- **Ficha Markdown:** fichas-aula/010-no-vemos-a-ferryhopper-convirtiendose-en-un-backend-de-agentes-de-ia.md
+- **Fuente:** Ecommerce News
+- **Fecha:** 18 ago. 2026
+- **Enlace:** https://ecommerce-news.es/nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impulsar-un-nuevo-centro-de-datos-de-openai/
+- **Módulo:** Digitalización
+- **RA:** RA4
+- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+- **CE relacionados:** RA4b, RA4d
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.html
+- **Ficha Markdown:** fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.md
 
 ## Resumen
 
-Ferryhopper, una plataforma de reservas de ferries presente en 33 países, ha lanzado la primera app integrada con ChatGPT para facilitar las reservas a través de inteligencia artificial. Su CEO destaca que no buscan convertirse en un sistema que solo funcione como backend para agentes de IA, sino mantener un enfoque directo con el cliente. Esta innovación muestra cómo el comercio electrónico puede aprovechar la inteligencia artificial para mejorar la experiencia de compra y atención al cliente. Es un ejemplo práctico de integración tecnológica en plataformas digitales de venta online.
+Este artículo muestra la magnitud de la infraestructura tecnológica que sostiene la era digital. En esencia, grandes corporaciones como Nvidia están invirtiendo miles de millones de dólares para construir centros de datos gigantes para empresas de Inteligencia Artificial, como OpenAI. Para los estudiantes de Comercio Electrónico, es crucial entender que estos centros de datos son la "central eléctrica" invisible: son el soporte físico donde se ejecutan los algoritmos que hacen posible la personalización, los pagos y el funcionamiento de cualquier tienda online. En resumen, mientras más avanzada sea la IA, más potentes deben ser estas bases tecnológicas, lo que garantiza el futuro del comercio en línea.
 
 ## Vinculación curricular
 
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA6
+- **Módulo:** Digitalización
+- **Resultado de aprendizaje:** RA4
 
-**RA6.** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 
 ### Criterios de evaluación relacionados
 
-- **RA6a.** Se han implementado soluciones de inteligencia artificial para mejorar la experiencia del cliente.
-- **RA6b.** Se han utilizado chatbots para la atención al cliente online. (IA generativa.)
+- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
+- **RA4d.** Se han identificado los sectores con implantación más relevante de IA.
 
 ### Justificación docente
 
-La noticia trata sobre la integración de IA generativa (ChatGPT) para mejorar la atención al cliente en comercio electrónico, vinculándose directamente con la implementación de soluciones IA para mejorar la experiencia y el uso de chatbots.
+La noticia destaca la importancia de la IA y el Big Data como infraestructura que soporta el comercio, lo cual se relaciona directamente con la capacidad de la IA para optimizar procesos y crear nuevos modelos de negocio en entornos digitales.
 
 ## Pregunta detonadora
 
-¿Qué consulta de cliente vinculada con ««No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»» resolvería una IA y cuándo debería derivarla a una persona?
+¿Qué proceso empresarial transforma «Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI» y con qué indicador comprobarías la mejora?
 
 ## Actividad breve
 
-Revisa la noticia ««No vemos a Ferryhopper convirtiéndose en un backend de agentes de IA»» como caso de atención al cliente con IA. Diseña un pequeño flujo de conversación: consulta inicial, respuesta del asistente, derivación y cierre. Relaciona el flujo con RA6a, RA6b.
+Analiza la noticia «Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4d.
 
 ## Conceptos clave
 
-- Atención al cliente
-- Experiencia del cliente
-- IA aplicada a la atención al cliente
-- Chatbots
-- Bots
-- IA generativa
-- IA predictiva
-- Sistemas predictivos
-- Automatización de respuestas
-- Personalización de la atención
+- Inteligencia artificial
+- Automatización de procesos
+- Optimización de procesos
+- Tratamiento de datos
+- Minería de datos
+- Big Data
+- Rentabilidad empresarial
+- Lenguajes de programación en IA
+- Aplicaciones sectoriales de la IA
+- Mejora de procesos de trabajo
 
 ---

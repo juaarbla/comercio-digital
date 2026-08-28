@@ -24,29 +24,29 @@
     "md": "fichas-aula/005-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.md",
     "titulo": "Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»"
   },
+  "https://ecommerce-news.es/salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-para-agentes-de-ia/": {
+    "html": "fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html",
+    "md": "fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md",
+    "titulo": "Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA"
+  },
   "https://ecommerce-news.es/meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-instagram-y-whatsapp/": {
-    "html": "fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html",
-    "md": "fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md",
+    "html": "fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html",
+    "md": "fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md",
     "titulo": "Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp"
   },
   "https://ecommerce-news.es/meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-grandes-bases-de-codigo/": {
-    "html": "fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html",
-    "md": "fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md",
+    "html": "fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html",
+    "md": "fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md",
     "titulo": "Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código"
   },
   "https://www.cyberclick.es/numerical-blog/skills-vs-gpts-vs-gems-cuales-son-las-diferencias": {
-    "html": "fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html",
-    "md": "fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md",
+    "html": "fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html",
+    "md": "fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md",
     "titulo": "Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?"
   },
   "https://ecommerce-news.es/chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-gpt-5-6-luna/": {
-    "html": "fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html",
-    "md": "fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md",
+    "html": "fichas-aula/010-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html",
+    "md": "fichas-aula/010-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md",
     "titulo": "ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna"
-  },
-  "https://ecommerce-news.es/nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impulsar-un-nuevo-centro-de-datos-de-openai/": {
-    "html": "fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.html",
-    "md": "fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.md",
-    "titulo": "Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI"
   }
 }

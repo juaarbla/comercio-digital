@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 27 AGO 2026
+Fecha de generación: 28 AGO 2026
 
 ---
 
@@ -287,7 +287,63 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplic
 
 ---
 
-# 6. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
+# 6. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 27 ago. 2026
+- **Enlace:** https://ecommerce-news.es/salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-para-agentes-de-ia/
+- **Módulo:** Digitalización
+- **RA:** RA4
+- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+- **CE relacionados:** RA4a, RA4b
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
+- **Ficha Markdown:** fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
+
+## Resumen
+
+Salesforce está modernizando sus sistemas para que la Inteligencia Artificial (IA) pueda interactuar directamente con todas las funciones de negocio de una empresa. Esto significa que los agentes de IA pueden utilizar los datos, procesos y reglas que ya existen en el negocio, sin necesidad de que la empresa tenga que reconstruir su plataforma desde cero. En términos de comercio electrónico, esto implica que podremos integrar la automatización avanzada en sistemas de venta, gestión de clientes (CRM) y *back-office* de forma mucho más fluida y rápida. Este avance nos muestra que la clave del éxito en el e-commerce moderno será la capacidad de conectar diferentes tecnologías (IA, IA y plataformas) para optimizar la experiencia del cliente.
+
+## Vinculación curricular
+
+- **Módulo:** Digitalización
+- **Resultado de aprendizaje:** RA4
+
+**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+
+### Criterios de evaluación relacionados
+
+- **RA4a.** Se ha identificado la importancia de la IA en la automatización de procesos y su optimización.
+- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
+
+### Justificación docente
+
+La noticia sobre Salesforce refuerza la necesidad de que los profesionales sepan cómo integrar la IA en los procesos de negocio (IT y OT) para optimizar ventas, lo cual es el foco de RA4.
+
+## Pregunta detonadora
+
+¿Qué proceso empresarial transforma «Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA» y con qué indicador comprobarías la mejora?
+
+## Actividad breve
+
+Analiza la noticia «Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4a, RA4b.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Automatización de procesos
+- Optimización de procesos
+- Tratamiento de datos
+- Minería de datos
+- Big Data
+- Rentabilidad empresarial
+- Lenguajes de programación en IA
+- Aplicaciones sectoriales de la IA
+- Mejora de procesos de trabajo
+
+---
+
+# 7. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jul. 2026
@@ -297,8 +353,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplic
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
-- **Ficha Markdown:** fichas-aula/006-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
+- **Ficha HTML:** fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
+- **Ficha Markdown:** fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
 
 ## Resumen
 
@@ -344,7 +400,7 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 
 ---
 
-# 7. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
+# 8. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 6 ago. 2026
@@ -354,8 +410,8 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4b, RA4e
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
-- **Ficha Markdown:** fichas-aula/007-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
+- **Ficha HTML:** fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
+- **Ficha Markdown:** fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
 
 ## Resumen
 
@@ -400,7 +456,7 @@ Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar soft
 
 ---
 
-# 8. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
+# 9. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
 
 - **Fuente:** cyberclick.es
 - **Fecha:** 9 jul. 2026
@@ -410,8 +466,8 @@ Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar soft
 - **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
 - **CE relacionados:** RA1a, RA1b
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
-- **Ficha Markdown:** fichas-aula/008-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
+- **Ficha HTML:** fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
+- **Ficha Markdown:** fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
 
 ## Resumen
 
@@ -456,7 +512,7 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 
 ---
 
-# 9. ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna
+# 10. ChatGPT elimina los límites de texto para los usuarios gratuitos con GPT-5.6 Luna
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 10 ago. 2026
@@ -466,8 +522,8 @@ Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» 
 - **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
 - **CE relacionados:** RA2b, RA2e
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html
-- **Ficha Markdown:** fichas-aula/009-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md
+- **Ficha HTML:** fichas-aula/010-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.html
+- **Ficha Markdown:** fichas-aula/010-chatgpt-elimina-los-limites-de-texto-para-los-usuarios-gratuitos-con-g.md
 
 ## Resumen
 
@@ -509,61 +565,5 @@ Usa la noticia «ChatGPT elimina los límites de texto para los usuarios gratuit
 - Documentos empresariales
 - Documentos comerciales
 - Planificación de contenidos
-
----
-
-# 10. Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI
-
-- **Fuente:** Ecommerce News
-- **Fecha:** 18 ago. 2026
-- **Enlace:** https://ecommerce-news.es/nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impulsar-un-nuevo-centro-de-datos-de-openai/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-- **CE relacionados:** RA4b, RA4d
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.html
-- **Ficha Markdown:** fichas-aula/010-nvidia-pone-mas-de-100-000-millones-de-dolares-sobre-la-mesa-para-impu.md
-
-## Resumen
-
-Este artículo muestra la magnitud de la infraestructura tecnológica que sostiene la era digital. En esencia, grandes corporaciones como Nvidia están invirtiendo miles de millones de dólares para construir centros de datos gigantes para empresas de Inteligencia Artificial, como OpenAI. Para los estudiantes de Comercio Electrónico, es crucial entender que estos centros de datos son la "central eléctrica" invisible: son el soporte físico donde se ejecutan los algoritmos que hacen posible la personalización, los pagos y el funcionamiento de cualquier tienda online. En resumen, mientras más avanzada sea la IA, más potentes deben ser estas bases tecnológicas, lo que garantiza el futuro del comercio en línea.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-
-### Criterios de evaluación relacionados
-
-- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
-- **RA4d.** Se han identificado los sectores con implantación más relevante de IA.
-
-### Justificación docente
-
-La noticia destaca la importancia de la IA y el Big Data como infraestructura que soporta el comercio, lo cual se relaciona directamente con la capacidad de la IA para optimizar procesos y crear nuevos modelos de negocio en entornos digitales.
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial transforma «Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI» y con qué indicador comprobarías la mejora?
-
-## Actividad breve
-
-Analiza la noticia «Nvidia pone más de 100.000 millones de dólares sobre la mesa para impulsar un nuevo centro de datos de OpenAI» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4d.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Automatización de procesos
-- Optimización de procesos
-- Tratamiento de datos
-- Minería de datos
-- Big Data
-- Rentabilidad empresarial
-- Lenguajes de programación en IA
-- Aplicaciones sectoriales de la IA
-- Mejora de procesos de trabajo
 
 ---

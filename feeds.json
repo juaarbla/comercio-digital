@@ -46,11 +46,33 @@
     "url": "https://ecommerce-news.es/feed/",
     "nombre": "Ecommerce News",
     "categoria_editorial": "actualidad_ecommerce",
-    "peso": 5,
+    "peso": 2,
     "origen": "medio",
     "modulo": "Comercio Electrónico",
     "tipo": "noticia",
     "activo": true
+  },
+  {
+    "url": "https://www.ticpymes.es/feed/",
+    "nombre": "TIC Pymes",
+    "categoria_editorial": "tecnologia_pymes",
+    "peso": 3,
+    "origen": "medio",
+    "modulo": "Digitalización GS",
+    "tipo": "noticia",
+    "activo": true,
+    "nota": "Fuente experimental para tecnología empresarial, digitalización, innovación y ciberseguridad en pymes. Aplicar filtros a contenido promocional, eventos y consumo."
+  },
+  {
+    "url": "https://www.innovaspain.com/feed/",
+    "nombre": "Innovaspain",
+    "categoria_editorial": "innovacion_y_startups",
+    "peso": 3,
+    "origen": "medio",
+    "modulo": "IA para Marketing y Comercio",
+    "tipo": "noticia",
+    "activo": true,
+    "nota": "Fuente experimental sobre innovación, startups, scaleups y tecnología aplicada en España. Filtrar ciencia no conectada con empresa, salud y contenido patrocinado."
   },
   {
     "url": "https://stripe.com/blog/feed.rss",

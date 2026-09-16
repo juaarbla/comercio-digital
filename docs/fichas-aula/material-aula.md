@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 15 SEP 2026
+Fecha de generación: 16 SEP 2026
 
 ---
 
@@ -175,78 +175,78 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 4. El 95% de las empresas logísticas acelera automatización y transformación digital en 2026
+# 4. Cómo construir autoridad de marca en Amazon y TikTok frente a competidores
 
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 8 jun. 2026
-- **Enlace:** https://ecommerce-news.es/el-95-de-las-empresa-logisticas-acelera-su-digitalizacion-en-2026/
+- **Fuente:** Cyberclick
+- **Fecha:** 15 sep. 2026
+- **Enlace:** https://www.cyberclick.es/numerical-blog/como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competidores
 - **Módulo:** Comercio Electrónico
-- **RA:** RA2
-- **Texto RA:** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
-- **CE relacionados:** RA2e, RA2f
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/004-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.html
-- **Ficha Markdown:** fichas-aula/004-el-95-de-las-empresas-logisticas-acelera-automatizacion-y-transformaci.md
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1b, RA1g
+- **Tipo de uso:** Debate
+- **Ficha HTML:** fichas-aula/004-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.html
+- **Ficha Markdown:** fichas-aula/004-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.md
 
 ## Resumen
 
-El sector logístico está pasando por una enorme transformación, ya que la mayoría de las empresas están acelerando la automatización y la digitalización de sus procesos. Esto significa que la tecnología, como los robots y el software avanzado, está reemplazando tareas manuales en la gestión de almacenes y envíos. Para el comercio electrónico, este avance es crucial, ya que la eficiencia en la cadena de suministro es lo que garantiza la rapidez y fiabilidad de la entrega al cliente. Como futuros profesionales, deben entender que la gestión digital de inventario y la automatización son pilares fundamentales para ofrecer una experiencia de compra online exitosa.
+En un mercado saturado de productos casi idénticos, las marcas están apostando por construir "autoridad de marca" en marketplaces como Amazon y TikTok Shop para destacar frente a la competencia. En Amazon lo hacen con herramientas como la Brand Store, que ordena el catálogo y refuerza la identidad visual; en TikTok Shop, esa autoridad se genera a través del contenido, los creadores y la relación cercana con la audiencia. Para nosotros como futuros profesionales del marketing digital, esto se conecta directamente con lo que estamos trabajando de branding, estrategia de contenidos y funnel de venta multicanal: no basta con que el producto esté a la venta, hay que que la marca sea reconocida y genere confianza antes de que el consumidor pulse "comprar".
 
 ## Vinculación curricular
 
 - **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA2
+- **Resultado de aprendizaje:** RA1
 
-**RA2.** Realiza las acciones necesarias para efectuar ventas online, aplicando las políticas de comercio electrónico definidas por la empresa.
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 
 ### Criterios de evaluación relacionados
 
-- **RA2e.** Se ha planificado la gestión de los pedidos recibidos y todo el proceso logístico.
-- **RA2f.** Se han establecido los medios de pago que se van a utilizar.
+- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
 
 ### Justificación docente
 
-La automatización y la gestión de la cadena de suministro son cruciales en la planificación de pedidos y el proceso logístico, afectando directamente la elección de medios de pago y los sistemas de seguridad requeridos en el e-commerce.
+La noticia sobre la construcción de autoridad de marca en Amazon y TikTok Shop se vincula directamente con la ejecución de procesos de posicionamiento y marketing online (CE b) y con el reconocimiento de nuevas tendencias de comunicación y relación con el cliente, como el social commerce impulsado por creadores de contenido (CE g).
 
 ## Pregunta detonadora
 
-¿Qué parte del proceso de compraventa online cambia con «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» y qué riesgo debería prevenir una tienda?
+¿Qué decisión de marketing digital tomarías ante «Cómo construir autoridad de marca en Amazon y TikTok frente a competidores» y cómo medirías su resultado?
 
 ## Actividad breve
 
-Estudia la noticia «El 95% de las empresas logísticas acelera automatización y transformación digital en 2026» desde el punto de vista de la compraventa online. Describe el flujo comercial afectado —captación, pedido, pago, entrega o devolución— y localiza dos riesgos o mejoras. Conecta tus conclusiones con RA2e, RA2f.
+Analiza la noticia «Cómo construir autoridad de marca en Amazon y TikTok frente a competidores» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 
-- Tienda virtual
-- Negocio online
-- Captación de clientes
-- Modelos de negocio digital
-- B2B
-- B2C
-- Portal horizontal
-- Catálogo de productos online
-- Escaparate web
-- Catálogo electrónico
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
 
 ---
 
-# 5. Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»
+# 5. Cyberclick amplía su partnership con TikTok con nuevas acreditaciones
 
-- **Fuente:** Ecommerce News
-- **Fecha:** 20 jul. 2026
-- **Enlace:** https://ecommerce-news.es/marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-inteligencia-artificial-en-amazon-dsp/
+- **Fuente:** Cyberclick
+- **Fecha:** 15 sep. 2026
+- **Enlace:** https://www.cyberclick.es/numerical-blog/cyberclick-ampila-su-partnership-con-tiktok-con-nuevas-acreditaciones
 - **Módulo:** Comercio Electrónico
 - **RA:** RA1
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-- **CE relacionados:** RA1b, RA1c
+- **CE relacionados:** RA1b, RA1c, RA1g
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.html
-- **Ficha Markdown:** fichas-aula/005-marketplace-summit-2026-stage-1-b2agentic-y-mcp-aplicacion-de-la-intel.md
+- **Ficha HTML:** fichas-aula/005-cyberclick-amplia-su-partnership-con-tiktok-con-nuevas-acreditaciones.html
+- **Ficha Markdown:** fichas-aula/005-cyberclick-amplia-su-partnership-con-tiktok-con-nuevas-acreditaciones.md
 
 ## Resumen
 
-Se llevó a cabo un importante evento de e-commerce en Madrid que reunió a expertos para analizar las tendencias más recientes del mercado. El foco principal estuvo en cómo la Inteligencia Artificial (IA) está transformando la manera en que se publicita y se vende en grandes *marketplaces* como Amazon. Esto subraya la importancia de la analítica avanzada y la automatización en cualquier estrategia digital. Para vuestro módulo, significa que la gestión de la visibilidad de productos y la publicidad online requieren ahora dominar herramientas basadas en datos y IA.
+La empresa Cyberclick ha sumado dos nuevas acreditaciones de TikTok (Shop Partner y Affiliate Partner) a su ya existente condición de Marketing Partner, lo que le permite ofrecer a las marcas una solución integral que unifica la gestión de la tienda online, las campañas publicitarias y la red de creadores de contenido. Esto refleja la tendencia creciente del social commerce, donde el descubrimiento del producto, la recomendación de un influencer y la compra final ocurren dentro de la misma plataforma. Desde el módulo de Marketing Digital, este caso es útil para analizar cómo las estrategias integradas (publicidad + e-commerce + marketing de afiliación) permiten construir un embudo de conversión más cerrado dentro de un único ecosistema digital. Además, pone de manifiesto la importancia de trabajar con partners acreditados como canal de ejecución para marcas que no pueden gestionar directamente su presencia y ventas en redes sociales.
 
 ## Vinculación curricular
 
@@ -259,18 +259,19 @@ Se llevó a cabo un importante evento de e-commerce en Madrid que reunió a expe
 
 - **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
 - **RA1c.** Se han ejecutado los procesos de publicidad y promoción online ajustados a la normativa legal existente.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
 
 ### Justificación docente
 
-La noticia enfatiza cómo la publicidad online y la visibilidad de productos en marketplaces se gestionan con IA y datos, lo cual se alinea directamente con la ejecución de procesos de posicionamiento y publicidad online.
+La noticia ilustra la ejecución de procesos de marketing online integrados (publicidad + e-commerce + afiliación) como plan digital unificado (CE b, c) y pone de manifiesto el social commerce como nueva tendencia de relación con el cliente en la que descubrimiento, recomendación y compra convergen en una misma plataforma (CE g), lo que encaja directamente con la aplicación y sostenimiento del plan de marketing digital contemplado en RA1.
 
 ## Pregunta detonadora
 
-¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»» y cómo medirías su resultado?
+¿Qué decisión de marketing digital tomarías ante «Cyberclick amplía su partnership con TikTok con nuevas acreditaciones» y cómo medirías su resultado?
 
 ## Actividad breve
 
-Analiza la noticia «Marketplace Summit 2026 | Stage 1: «B2Agentic y MCP: aplicación de la Inteligencia Artificial en Amazon DSP»» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1c y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+Analiza la noticia «Cyberclick amplía su partnership con TikTok con nuevas acreditaciones» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1c, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 

@@ -11,6 +11,7 @@ LOG_FILE="${LOG_DIR}/newsletter_quincenal.log"
 LOCK_FILE="${PROJECT_DIR}/.runtime/comercio-digital.lock"
 PENDING_PARENT="${PROJECT_DIR}/data/private"
 PENDING_DIR="${PENDING_PARENT}/newsletter_pendiente"
+NOTIFY_SCRIPT="${PROJECT_DIR}/scripts/notificar_newsletter.sh"
 TEMP_DIR=""
 START_EPOCH="$(date +%s)"
 START_TEXT="$(date --iso-8601=seconds)"
@@ -65,6 +66,13 @@ on_exit() {
     printf 'Finalización: %s\n' "$(date --iso-8601=seconds)"
     printf 'Duración: %s segundos\n' "${duration}"
     printf 'Código de salida: %s\n' "${status}"
+    local subject="Newsletter quincenal: resultado ${status}"
+    if (( status == 0 )); then subject="Newsletter quincenal generada"; fi
+    if (( status == 76 )); then subject="Newsletter quincenal bloqueada: borrador pendiente"; fi
+    if (( status != 0 && status != 76 )); then subject="Error en newsletter quincenal (código ${status})"; fi
+    if [[ -x "${NOTIFY_SCRIPT}" ]]; then
+        "${NOTIFY_SCRIPT}" "${status}" "${subject}" "Proyecto: ${PROJECT_DIR}\nFecha: ${START_TEXT}\nCódigo: ${status}\nRuta pendiente: ${PENDING_DIR}\n\nÚltimas líneas del registro:\n$(tail -n 40 "${LOG_FILE}" 2>/dev/null)" >/dev/null 2>&1 || printf 'AVISO: no se pudo enviar la notificación Mailgun.\n'
+    fi
     trap - EXIT
     exit "${status}"
 }
@@ -99,6 +107,7 @@ if [[ -n "$(git status --porcelain --untracked-files=normal)" ]]; then
     printf 'ERROR: el árbol Git debe estar limpio antes de generar el borrador.\n'
     exit 74
 fi
+
 
 if [[ -e "${PENDING_DIR}" ]]; then
     printf 'ERROR: ya existe un borrador o estado pendiente en %s.\n' \

@@ -1155,6 +1155,48 @@ nav.site-nav .nav-menu li a.active {
   color: #fff;
 }
 
+.site-nav .nav-group { position: relative; }
+.site-nav .nav-group summary {
+  display: block;
+  padding: 0.55rem 1.1rem;
+  color: #d4c9b0;
+  border-right: 1px solid #333;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  list-style: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.site-nav .nav-group summary::-webkit-details-marker { display: none; }
+.site-nav .nav-group summary::after { content: " ▾"; color: var(--accent); }
+.site-nav .nav-group summary:hover,
+.site-nav .nav-group summary:focus-visible,
+.site-nav .nav-group summary.active { background: var(--accent); color: #fff; outline: none; }
+.site-nav .nav-group summary:hover::after,
+.site-nav .nav-group summary:focus-visible::after,
+.site-nav .nav-group summary.active::after { color: #fff; }
+.site-nav .nav-submenu,
+nav.site-nav .nav-submenu {
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  display: none;
+  min-width: 225px;
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  border: 1px solid #333;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 25%);
+}
+.site-nav .nav-group details[open] > .nav-submenu,
+.site-nav .nav-group:hover > details > .nav-submenu,
+.site-nav .nav-group:focus-within > details > .nav-submenu { display: block; }
+.site-nav .nav-submenu li a,
+nav.site-nav .nav-submenu li a { border-right: 0; border-bottom: 1px solid #333; }
+
 @media (max-width: 768px) {
   .site-nav,
   nav.site-nav {
@@ -1240,6 +1282,35 @@ nav.site-nav .nav-menu li a.active {
     border-left: 4px solid var(--accent);
     padding-left: calc(1rem - 4px);
   }
+
+  .site-nav .nav-group summary {
+    min-height: 46px;
+    padding: 0.85rem 1rem;
+    border-right: 0;
+    border-bottom: 1px solid #333;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+  }
+  .site-nav .nav-group summary.active {
+    border-left: 4px solid var(--accent);
+    padding-left: calc(1rem - 4px);
+  }
+  .site-nav .nav-submenu,
+  nav.site-nav .nav-submenu {
+    position: static;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  .site-nav .nav-submenu li a,
+  nav.site-nav .nav-submenu li a {
+    padding-left: 2rem;
+    background: #171614;
+    font-size: 0.71rem;
+  }
+  .site-nav .nav-submenu li a.active,
+  nav.site-nav .nav-submenu li a.active { padding-left: calc(2rem - 4px); }
 }
 
 @media (max-width: 420px) {

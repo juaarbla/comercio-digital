@@ -21,6 +21,7 @@ from datetime import datetime
 
 from paths import NOTICIAS_CLASIFICADAS
 from schema_utils import insertar_jsonld, schema_ficha_aula_basico
+from web_ui_common import nav_html as common_nav_html
 
 
 def fecha_corta():
@@ -305,25 +306,7 @@ Ficha generada por Comercio Digital para uso educativo.
 """
 
 def nav_html():
-    docs = Path("docs")
-    menu = [
-        ("../index.html", "Portada", "index.html"),
-        ("../comercio-electronico.html", "E-commerce", "comercio-electronico.html"),
-        ("../internacional.html", "Internacional", "internacional.html"),
-        ("../digitalizacion.html", "Digitalización", "digitalizacion.html"),
-        ("../ia-marketing.html", "IA & Marketing", "ia-marketing.html"),
-        ("../aula.html", "Aula", "aula.html"),
-        ("../newsletter/index.html", "Newsletter", "newsletter/index.html"),
-        ("../del-autor.html", "Del autor", "del-autor.html"),
-    ]
-    siempre = {"index.html", "aula.html", "newsletter/index.html", "del-autor.html"}
-    items = []
-    for href, txt, check in menu:
-        if check not in siempre and not (docs / check).exists():
-            continue
-        cls = "active" if txt == "Aula" else ""
-        items.append(f'<li><a class="{cls}" href="{href}">{h(txt)}</a></li>')
-    return "\n".join(items)
+    return common_nav_html("aula", base_prefix="../")
 
 
 def render_html(n, md_file, html_file=None):
@@ -355,7 +338,7 @@ def render_html(n, md_file, html_file=None):
   <div class="masthead-side right">{fecha_corta()}<br>comerciodigital.net</div>
 </header>
 
-<nav><ul>{nav_html()}</ul></nav>
+{nav_html()}
 
 <div class="subtitle-bar">
   <span>Ficha docente</span>

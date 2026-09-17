@@ -129,6 +129,7 @@ def nav_html(
 
     items = f'<li><a href="{href_for("index.html")}"{active_class("portada")}>Portada</a></li>' + salto
 
+    actualidad_items = ""
     for seccion in secciones:
         sid = seccion.get("id", "")
         if sid in {"otros", "del-autor"}:
@@ -136,14 +137,33 @@ def nav_html(
         if secciones_con_noticias is not None and sid not in secciones_con_noticias:
             continue
         href = href_for(seccion["file"])
-        items += f'    <li><a href="{href}"{active_class(sid)}>{seccion["label"]}</a></li>' + salto
+        actualidad_items += (
+            f'          <li><a href="{href}"{active_class(sid)}>{seccion["label"]}</a></li>'
+            + salto
+        )
 
-    items += f'    <li><a href="{href_for("aula.html")}"{active_class("aula")}>Aula</a></li>' + salto
+    actualidad_activa = active in {
+        s.get("id", "") for s in secciones if s.get("id") not in {"otros", "del-autor"}
+    }
+    aula_activa = active in {"aula", "oportunidades", "newsletter"}
+    items += f'''    <li class="nav-group">
+      <details>
+        <summary{' class="active"' if actualidad_activa else ''}>Actualidad</summary>
+        <ul class="nav-submenu">
+{actualidad_items}        </ul>
+      </details>
+    </li>''' + salto
 
-    items += f'    <li><a href="{href_for("oportunidades/index.html")}"{active_class("oportunidades")}>Oportunidades</a></li>' + salto
-
-    newsletter_href = href_for("newsletter/index.html")
-    items += f'    <li><a href="{newsletter_href}"{active_class("newsletter")}>Newsletter</a></li>' + salto
+    items += f'''    <li class="nav-group">
+      <details>
+        <summary{' class="active"' if aula_activa else ''}>Aula</summary>
+        <ul class="nav-submenu">
+          <li><a href="{href_for("aula.html")}"{active_class("aula")}>Recursos de aula</a></li>
+          <li><a href="{href_for("oportunidades/index.html")}"{active_class("oportunidades")}>Oportunidades</a></li>
+          <li><a href="{href_for("newsletter/index.html")}"{active_class("newsletter")}>Newsletter</a></li>
+        </ul>
+      </details>
+    </li>''' + salto
 
     del_autor = next((s for s in secciones if s.get("id") == "del-autor"), None)
     if del_autor:

@@ -71,7 +71,13 @@ on_exit() {
     if (( status == 76 )); then subject="Newsletter quincenal bloqueada: borrador pendiente"; fi
     if (( status != 0 && status != 76 )); then subject="Error en newsletter quincenal (código ${status})"; fi
     if [[ -x "${NOTIFY_SCRIPT}" ]]; then
-        "${NOTIFY_SCRIPT}" "${status}" "${subject}" "Proyecto: ${PROJECT_DIR}\nFecha: ${START_TEXT}\nCódigo: ${status}\nRuta pendiente: ${PENDING_DIR}\n\nÚltimas líneas del registro:\n$(tail -n 40 "${LOG_FILE}" 2>/dev/null)" >/dev/null 2>&1 || printf 'AVISO: no se pudo enviar la notificación Mailgun.\n'
+        local body
+        if (( status == 0 )); then
+            body=$(printf "Proyecto: %s\nFecha: %s\nEstado: generación completada\nCódigo: %s\nRuta del borrador: %s\n\nEl borrador está listo para revisión; no se publicó ni se envió a suscriptores." "${PROJECT_DIR}" "${START_TEXT}" "${status}" "${PENDING_DIR}")
+        else
+            body=$(printf "Proyecto: %s\nFecha: %s\nEstado: ejecución no completada\nCódigo: %s\nRuta pendiente: %s\n\nRevisa el registro en %s." "${PROJECT_DIR}" "${START_TEXT}" "${status}" "${PENDING_DIR}" "${LOG_FILE}")
+        fi
+        "${NOTIFY_SCRIPT}" "${status}" "${subject}" "${body}" >/dev/null 2>&1 || printf "AVISO: no se pudo enviar la notificación Mailgun.\n"
     fi
     trap - EXIT
     exit "${status}"

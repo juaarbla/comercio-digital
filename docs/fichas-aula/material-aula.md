@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 16 SEP 2026
+Fecha de generación: 17 SEP 2026
 
 ---
 
@@ -175,7 +175,63 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 4. Cómo construir autoridad de marca en Amazon y TikTok frente a competidores
+# 4. Gestión in-house vs. partner en TikTok Shop: qué internalizar
+
+- **Fuente:** Cyberclick
+- **Fecha:** 16 sep. 2026
+- **Enlace:** https://www.cyberclick.es/numerical-blog/gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1b, RA1g
+- **Tipo de uso:** Debate
+- **Ficha HTML:** fichas-aula/004-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
+- **Ficha Markdown:** fichas-aula/004-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
+
+## Resumen
+
+Las marcas se enfrentan a una decisión clave: gestionar su tienda en TikTok Shop con su propio equipo o delegar la operación en una agencia externa, y no se trata solo de ahorrar dinero, sino de identificar qué competencias conviene controlar internamente y cuáles externalizar para ganar velocidad. Este debate conecta directamente con el concepto de integración de canales digitales que trabajamos en el módulo, porque operar TikTok Shop exige coordinar contenido, creadores, afiliados, catálogo, campañas y logística en una sola plataforma, algo más complejo que simplemente lanzar un anuncio. En términos de estrategia, es un ejemplo práctico de cómo la especialización de cada área (community management, e-commerce, publicidad) puede repartirse entre recursos propios y partners para maximizar la eficiencia de la operación digital.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+La noticia aborda la toma estratégica de decisiones para ejecutar el marketing online (qué internalizar vs. externalizar en TikTok Shop), lo que conecta con la CE b, y presenta el social commerce en TikTok como una nueva tendencia de comunicación y relación con el cliente, alineada con la CE g.
+
+## Pregunta detonadora
+
+¿Qué decisión de marketing digital tomarías ante «Gestión in-house vs. partner en TikTok Shop: qué internalizar» y cómo medirías su resultado?
+
+## Actividad breve
+
+Analiza la noticia «Gestión in-house vs. partner en TikTok Shop: qué internalizar» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+
+## Conceptos clave
+
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
+
+---
+
+# 5. Cómo construir autoridad de marca en Amazon y TikTok frente a competidores
 
 - **Fuente:** Cyberclick
 - **Fecha:** 15 sep. 2026
@@ -185,8 +241,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1b, RA1g
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/004-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.html
-- **Ficha Markdown:** fichas-aula/004-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.md
+- **Ficha HTML:** fichas-aula/005-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.html
+- **Ficha Markdown:** fichas-aula/005-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.md
 
 ## Resumen
 
@@ -215,63 +271,6 @@ La noticia sobre la construcción de autoridad de marca en Amazon y TikTok Shop 
 ## Actividad breve
 
 Analiza la noticia «Cómo construir autoridad de marca en Amazon y TikTok frente a competidores» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
-
-## Conceptos clave
-
-- Plan de marketing digital
-- Cliente online
-- Alta en buscadores
-- Directorios especializados
-- Email marketing
-- Boletines electrónicos
-- Blog corporativo
-- SEM
-- SEO
-- Campañas en páginas afines
-
----
-
-# 5. Cyberclick amplía su partnership con TikTok con nuevas acreditaciones
-
-- **Fuente:** Cyberclick
-- **Fecha:** 15 sep. 2026
-- **Enlace:** https://www.cyberclick.es/numerical-blog/cyberclick-ampila-su-partnership-con-tiktok-con-nuevas-acreditaciones
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
-- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-- **CE relacionados:** RA1b, RA1c, RA1g
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/005-cyberclick-amplia-su-partnership-con-tiktok-con-nuevas-acreditaciones.html
-- **Ficha Markdown:** fichas-aula/005-cyberclick-amplia-su-partnership-con-tiktok-con-nuevas-acreditaciones.md
-
-## Resumen
-
-La empresa Cyberclick ha sumado dos nuevas acreditaciones de TikTok (Shop Partner y Affiliate Partner) a su ya existente condición de Marketing Partner, lo que le permite ofrecer a las marcas una solución integral que unifica la gestión de la tienda online, las campañas publicitarias y la red de creadores de contenido. Esto refleja la tendencia creciente del social commerce, donde el descubrimiento del producto, la recomendación de un influencer y la compra final ocurren dentro de la misma plataforma. Desde el módulo de Marketing Digital, este caso es útil para analizar cómo las estrategias integradas (publicidad + e-commerce + marketing de afiliación) permiten construir un embudo de conversión más cerrado dentro de un único ecosistema digital. Además, pone de manifiesto la importancia de trabajar con partners acreditados como canal de ejecución para marcas que no pueden gestionar directamente su presencia y ventas en redes sociales.
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-
-### Criterios de evaluación relacionados
-
-- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
-- **RA1c.** Se han ejecutado los procesos de publicidad y promoción online ajustados a la normativa legal existente.
-- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
-
-### Justificación docente
-
-La noticia ilustra la ejecución de procesos de marketing online integrados (publicidad + e-commerce + afiliación) como plan digital unificado (CE b, c) y pone de manifiesto el social commerce como nueva tendencia de relación con el cliente en la que descubrimiento, recomendación y compra convergen en una misma plataforma (CE g), lo que encaja directamente con la aplicación y sostenimiento del plan de marketing digital contemplado en RA1.
-
-## Pregunta detonadora
-
-¿Qué decisión de marketing digital tomarías ante «Cyberclick amplía su partnership con TikTok con nuevas acreditaciones» y cómo medirías su resultado?
-
-## Actividad breve
-
-Analiza la noticia «Cyberclick amplía su partnership con TikTok con nuevas acreditaciones» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1c, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 

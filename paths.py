@@ -41,3 +41,7 @@ def ensure_runtime_dirs() -> None:
     """Crea los directorios locales necesarios para ejecutar el pipeline."""
     for directory in RUNTIME_DIRS:
         directory.mkdir(parents=True, exist_ok=True)
+
+# Oportunidades: revisión privada y archivo editorial versionable.
+OPORTUNIDADES_BORRADORES = DATA_DIR / "private" / "oportunidades"
+OPORTUNIDADES_CASOS = DATA_DIR / "editorial" / "oportunidades"

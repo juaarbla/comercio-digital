@@ -2081,3 +2081,74 @@ body.ficha-page .ficha-docente-box {
     padding-left: 0.75rem;
   }
 }
+
+
+/* La misma tipografía de la cabecera, disponible también sin Google Fonts. */
+@font-face {
+  font-family: "Comercio Digital Masthead";
+  src: url("unifrakturmaguntia.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+.site-title {
+  font-family: "Comercio Digital Masthead", "UnifrakturMaguntia", cursive;
+}
+
+/* De la noticia a la oportunidad: conserva papel, tinta y acento del sitio. */
+.oportunidades-page .newsletter-activity { margin-block: 1.5rem; }
+.oportunidades-page .newsletter-activity > p { margin-block: .8rem; }
+.oportunidades-page .newsletter-activity ul,
+.oportunidades-page .newsletter-activity ol {
+  padding-left: 1.5rem;
+  margin-block: 1.2rem;
+}
+.oportunidades-page .newsletter-activity ul { list-style: disc outside; }
+.oportunidades-page .newsletter-activity ol { list-style: decimal outside; }
+.oportunidades-page .newsletter-activity li { margin-block: .55rem; padding-left: .25rem; }
+.oportunidades-page li::marker { color: var(--accent); font-weight: 700; }
+.oportunidades-page .oportunidad-datos {
+  padding: 1rem 1rem 1rem 2.3rem;
+  background: var(--paper-dark);
+  border-left: 3px solid var(--accent);
+}
+.oportunidades-page details > summary {
+  cursor: pointer;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+  padding-block: .5rem;
+}
+.oportunidades-page summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.oportunidad-respuesta { padding-block: 1.2rem; border-bottom: 1px solid #cdbfad; }
+.oportunidad-respuesta h2 { margin-bottom: .5rem; }
+.oportunidad-respuesta p { max-width: 78ch; }
+.oportunidad-dafo { margin-block: 2rem; }
+.oportunidad-dafo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+.oportunidad-dafo-card {
+  border: 1px solid #cdbfad;
+  border-top: 3px solid var(--accent);
+  background: var(--paper-dark);
+  padding: 1.2rem;
+}
+.oportunidad-dafo-card h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: .55rem;
+}
+.oportunidad-dafo-card .newsletter-kicker { margin-bottom: .4rem; }
+.oportunidad-pitch {
+  padding: 1.4rem;
+  background: var(--paper-dark);
+  border-left: 4px solid var(--accent);
+  margin-block: 1.5rem;
+}
+.oportunidad-pitch h2 { margin-bottom: .6rem; }
+@media (max-width: 640px) {
+  .oportunidad-dafo-grid { grid-template-columns: 1fr; }
+}

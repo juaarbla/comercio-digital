@@ -66,6 +66,12 @@ PASOS = [
         "obligatorio": False,
     },
     {
+        "nombre": "Casos de oportunidad aprobados",
+        "script": "generar_oportunidades.py",
+        "obligatorio": True,
+        "args": ["--renderizar"],
+    },
+    {
         "nombre": "Generación de la web principal",
         "script": "generar_web.py",
         "obligatorio": True,

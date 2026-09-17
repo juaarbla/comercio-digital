@@ -140,7 +140,9 @@ def nav_html(
 
     items += f'    <li><a href="{href_for("aula.html")}"{active_class("aula")}>Aula</a></li>' + salto
 
-    newsletter_href = "index.html" if base_prefix else "newsletter/index.html"
+    items += f'    <li><a href="{href_for("oportunidades/index.html")}"{active_class("oportunidades")}>Oportunidades</a></li>' + salto
+
+    newsletter_href = href_for("newsletter/index.html")
     items += f'    <li><a href="{newsletter_href}"{active_class("newsletter")}>Newsletter</a></li>' + salto
 
     del_autor = next((s for s in secciones if s.get("id") == "del-autor"), None)

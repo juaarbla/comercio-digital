@@ -261,7 +261,7 @@ def generar_sitemap(html_files: list[Path]) -> None:
     urls = []
 
     for ruta in sorted(html_files, key=lambda p: (p.name != "index.html", p.name)):
-        canonical = canonical_url(ruta.name)
+        canonical = canonical_url(ruta.relative_to(DOCS_DIR).as_posix())
         fecha = datetime.fromtimestamp(
             ruta.stat().st_mtime,
             tz=timezone.utc,
@@ -310,7 +310,8 @@ def main() -> None:
         actualizar_html(ruta)
         print(f"  Metadatos -> {ruta}")
 
-    generar_sitemap(html_files)
+    # Las páginas de oportunidades ya incorporan sus propios metadatos.
+    generar_sitemap(html_files + sorted((DOCS_DIR / "oportunidades").glob("*.html")))
     print(f"  Sitemap -> {DOCS_DIR / 'sitemap.xml'}")
 
     generar_robots()

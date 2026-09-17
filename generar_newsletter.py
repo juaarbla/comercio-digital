@@ -9,6 +9,9 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Any
 
+from oportunidades import (
+    caso_newsletter, preparar_borrador, teaser_html, teaser_markdown,
+)
 from paths import BASE_DIR, DOCS_DIR, NOTICIAS_CLASIFICADAS
 from schema_utils import insertar_jsonld, schema_newsletter_index, schema_newsletter_issue
 from web_ui_common import (
@@ -531,7 +534,10 @@ def classroom_prompt(noticia: dict[str, Any] | None) -> str:
     )
 
 
-def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str) -> str:
+def render_html(
+    noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str,
+    oportunidad: dict | None = None,
+) -> str:
     titulo = "Comercio Digital en el aula"
     descripcion = "Newsletter docente de Comercio Digital para trabajar noticias de comercio electrónico, digitalización e IA en el aula."
     sections = split_newsletter_sections(noticias)
@@ -599,6 +605,8 @@ def render_html(noticias: list[dict[str, Any]], periodo: dict[str, str], periodi
       {breves_html}
     </section>
 
+    {teaser_html(oportunidad)}
+
     <section class="newsletter-activity">
       <h2>Propuesta rápida para clase</h2>
       <p>{e(propuesta)}</p>
@@ -660,7 +668,10 @@ def append_markdown_news(lines: list[str], noticia: dict[str, Any], heading: str
         lines.extend([f"[Ver ficha de aula]({ficha})", ""])
 
 
-def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str) -> str:
+def render_markdown(
+    noticias: list[dict[str, Any]], periodo: dict[str, str], periodicidad: str,
+    oportunidad: dict | None = None,
+) -> str:
     sections = split_newsletter_sections(noticias)
     destacada = sections["destacada"][0] if sections["destacada"] else None
 
@@ -696,6 +707,9 @@ def render_markdown(noticias: list[dict[str, Any]], periodo: dict[str, str], per
         modulo = pick(n, "modulo_relacionado", "módulo_relacionado", "modulo", "categoria", default="Sin módulo")
         lines.extend([f"- **{modulo}:** [{titulo}]({url})"])
     lines.append("")
+
+    if oportunidad:
+        lines.append(teaser_markdown(oportunidad))
 
     lines.extend([
         "## Propuesta rápida para clase",
@@ -785,6 +799,7 @@ def main() -> None:
     parser.add_argument("--periodicidad", choices=["semanal", "quincenal"], default="quincenal")
     parser.add_argument("--max", type=int, default=6, help="Número máximo de noticias.")
     parser.add_argument("--fecha", default="", help="Fecha base en formato YYYY-MM-DD.")
+    parser.add_argument("--sin-oportunidad", action="store_true", help="Omite la preparación de un nuevo caso; conserva el aprobado.")
     parser.add_argument("--force", action="store_true", help="Sobrescribe si la newsletter ya existe.")
     parser.add_argument(
         "--output-dir",
@@ -819,8 +834,19 @@ def main() -> None:
     if not noticias:
         raise RuntimeError("No se han encontrado noticias válidas para generar la newsletter.")
 
-    out_md.write_text(render_markdown(noticias, periodo, args.periodicidad), encoding="utf-8")
-    out_html.write_text(render_html(noticias, periodo, args.periodicidad), encoding="utf-8")
+    # El caso se genera en data/private/, fuera de los tres archivos del borrador.
+    # Solo un caso aprobado y renderizado se enlaza en la edición pública.
+    oportunidad = caso_newsletter(periodo['slug']) if args.periodicidad == 'quincenal' else None
+    if args.periodicidad == 'quincenal' and not args.sin_oportunidad and not oportunidad:
+        try:
+            borrador = preparar_borrador(flatten_news(data), periodo['slug'], fecha)
+            print("Oportunidad pendiente de revisión en data/private/oportunidades/." if borrador
+                  else "Sin oportunidad nueva apta; consulta data/private/oportunidades/.")
+        except Exception as exc:
+            print(f"No se preparó la oportunidad ({type(exc).__name__}); continúa la newsletter.")
+
+    out_md.write_text(render_markdown(noticias, periodo, args.periodicidad, oportunidad), encoding="utf-8")
+    out_html.write_text(render_html(noticias, periodo, args.periodicidad, oportunidad), encoding="utf-8")
     out_index.write_text(render_index(newsletter_dir), encoding="utf-8")
 
     if args.metadata_file:

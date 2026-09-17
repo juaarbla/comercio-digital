@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-Q2-ab579cab3a",
+  "periodo": "2026-09-Q2",
+  "estado": "APROBADO",
+  "tema": "confianza",
+  "creado": "2026-09-16T21:54:19.502584+00:00",
+  "fuente": {
+    "titulo": "What Stripe data shows about fraud at AI startups",
+    "url": "https://stripe.com/blog/what-stripe-data-shows-about-fraud-at-ai-startups",
+    "fecha": "2026-09-15",
+    "consulta": "2026-09-16",
+    "sha256": "b32a1821592bb1e6f22476ea9e7695761f368614881b0417c7bb5ebb2e14af3d"
+  },
+  "seleccion": {
+    "motivo": "El artículo documenta un cambio comercial medible (fraude transaccional 4,3× superior en startups digitales; multi-cuenta +40 % en seis meses) que afecta directamente a pymes con modelos de suscripción digital. Existe una necesidad operativa real de protección de ingresos en el e-commerce, y la solución (Radar o similares) ya está disponible. Aun siendo un informe de Stripe con tono promocional, los datos permiten trabajar el diseño de un proceso de venta segura para una pyme digital.",
+    "puntuaciones": {
+      "cambio": 4,
+      "cliente": 3,
+      "solucion": 3,
+      "aula": 4
+    }
+  },
+  "contenido": {
+    "titulo": "Ayudar a pequeños servicios de IA a reducir el abuso de pruebas gratuitas",
+    "hechos": "Stripe analiza el fraude en empresas que utilizan su plataforma. Según sus datos, los intentos de abuso mediante múltiples cuentas aumentaron un 40 % entre enero y junio de 2026 en empresas de suscripción de IA. Una misma persona puede abrir varias cuentas para consumir repetidamente créditos o pruebas gratuitas. La noticia también describe fraude en los pagos y presenta herramientas comerciales de Stripe. Estos datos se refieren a su muestra; no demuestran que todos los pequeños negocios sufran el mismo problema.",
+    "pregunta": "Si un pequeño negocio ofrece una herramienta de IA con una prueba gratuita, ¿qué servicio podríamos ofrecerle para detectar posibles abusos sin dificultar el acceso de los clientes legítimos?",
+    "cliente": "Nuestro cliente pagador sería una pequeña empresa que vende acceso a una herramienta de IA por suscripción y ofrece créditos o pruebas gratuitas. Empezaríamos por negocios sin una persona dedicada a revisar estos problemas. Sus usuarios finales son quienes prueban o contratan la herramienta; no serían los compradores de nuestro servicio.",
+    "necesidad": "Como hipótesis, algunos negocios pueden perder recursos al atender pruebas repetidas y no saber distinguirlas de un uso legítimo. También pueden bloquear por error a buenos clientes. Tendríamos que comprobar la frecuencia del problema, su coste y si necesitan ayuda externa; la noticia no demuestra esa demanda.",
+    "solucion": "Proponemos un servicio de diagnóstico y acompañamiento. Revisaríamos con la empresa cómo funciona su prueba gratuita, analizaríamos informes agregados que ya tenga disponibles y elaboraríamos un plan sencillo de mejoras. Podríamos acompañar la configuración de las herramientas que tenga contratadas, dentro de sus funciones verificadas, y formar al equipo para revisar incidencias. No desarrollaríamos una nueva plataforma antifraude para empezar.",
+    "diferencia": "La posible diferencia sería especializarnos en negocios pequeños y traducir sus datos en decisiones comprensibles, con seguimiento humano. Compararíamos nuestra propuesta con la ayuda de la propia pasarela y otros proveedores para comprobar si aportamos algo por lo que pagar.",
+    "canales": "Llegaríamos a las empresas mediante una web con un ejemplo de diagnóstico, contenidos profesionales y colaboraciones con agencias que crean servicios digitales. Prestaríamos el servicio por videollamada, un informe y sesiones de seguimiento. Para el primer diagnóstico pediríamos informes agregados, sin contraseñas ni datos de tarjetas.",
+    "ingresos": "La empresa contratante pagaría por el diagnóstico inicial y, si le resulta útil, por un seguimiento periódico. El precio sería una hipótesis a contrastar con entrevistas y un presupuesto piloto. No daríamos por hecho que cada bloqueo supone una venta recuperada ni prometeríamos eliminar el fraude.",
+    "validacion": "Entrevistaríamos a cinco pequeños negocios del perfil elegido —como prueba inicial, no como muestra representativa— para entender qué ocurre, cómo lo resuelven y cuánto tiempo les ocupa. Después ofreceríamos un diagnóstico piloto con alcance y precio definidos. Comprobaríamos si alguno acepta pagar y si el trabajo aporta mejoras medibles antes de crear una plataforma o ampliar el servicio.",
+    "indicadores": "Mediríamos solicitudes de diagnóstico, presupuestos aceptados y clientes que renuevan. En cada piloto observaríamos el tiempo dedicado a revisar incidencias y los recursos consumidos por pruebas identificadas como abusivas. También revisaríamos reclamaciones de usuarios legítimos para no confundir más bloqueos con mejores resultados. Compararíamos periodos equivalentes, sin fijar objetivos numéricos antes de conocer la situación inicial.",
+    "disponibilidad": "Hoy se pueden entrevistar empresas y ofrecer una revisión de sus procesos actuales. La noticia describe herramientas existentes, pero sus funciones, condiciones, compatibilidad y precios deben comprobarse antes de incluirlas en un presupuesto. La propuesta no necesita esperar a un lanzamiento futuro ni presupone que una función sea gratuita.",
+    "fortaleza": "Propuesta acotada que combina análisis comercial, acompañamiento y una explicación comprensible para equipos pequeños.",
+    "debilidad": "Necesitaríamos formación y experiencia para interpretar las incidencias correctamente y reconocer los casos que requieren un especialista técnico.",
+    "oportunidad": "El abuso descrito en la noticia permite investigar si hay pequeñas empresas que necesitan ayuda para gestionar sus pruebas gratuitas y proteger la experiencia del cliente.",
+    "amenaza": "Que las plataformas incluyan acompañamiento suficiente o que otros proveedores resuelvan la necesidad a menor coste. También pueden cambiar las técnicas de abuso y las herramientas disponibles.",
+    "pitch": "Hemos detectado que algunos servicios de IA pueden sufrir abusos de sus pruebas gratuitas. Queremos comprobar si las pequeñas empresas necesitan ayuda para reconocerlos sin perjudicar a sus clientes legítimos. Proponemos un diagnóstico y un acompañamiento sencillo, aprovechando sus herramientas actuales. Llegaríamos a ellas por una web y colaboraciones con agencias. Validaríamos la idea con entrevistas y un piloto pagado, midiendo el interés, el tiempo de gestión y las incidencias. La oportunidad todavía está por comprobar."
+  },
+  "nota_editorial": "Ejemplo revisado y aprobado por el docente en esta tarea el 17-09-2026.",
+  "revision": {
+    "revisor": "Docente: aprobación en esta tarea el 17-09-2026",
+    "fuente_verificada": true,
+    "fecha": "2026-09-17T04:51:16.406191+00:00",
+    "huella": "747510a04cb2d27c089f2595b788903ed0e1594489e727078b64acfeb09cabb0"
+  }
+}

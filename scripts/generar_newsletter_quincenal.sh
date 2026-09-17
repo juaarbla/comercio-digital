@@ -204,4 +204,4 @@ TEMP_DIR=""
 
 printf 'Borrador PENDIENTE generado en: %s\n' "${PENDING_DIR#${PROJECT_DIR}/}"
 printf 'El árbol Git continúa limpio.\n'
-printf 'No se ejecutó Mailgun ni se preparó o publicó ningún archivo.\n'
+printf 'No se ejecutó el envío de la newsletter; se envió únicamente el aviso operativo por Mailgun.\n'

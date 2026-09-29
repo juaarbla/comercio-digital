@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 28 SEP 2026
+Fecha de generación: 29 SEP 2026
 
 ---
 
@@ -62,7 +62,63 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 
 ---
 
-# 2. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
+# 2. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 28 sep. 2026
+- **Enlace:** https://ecommerce-news.es/ecommerce-news-podcast-218/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1d, RA1g
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/002-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
+- **Ficha Markdown:** fichas-aula/002-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
+
+## Resumen
+
+Las páginas de producto en el comercio electrónico han evolucionado: ya no basta con subir una foto, una descripción, un precio y un botón de "comprar", sino que ahora deben estar optimizadas para que también las lean y procesen buscadores, marketplaces y agentes de inteligencia artificial que ayudan a los usuarios a descubrir productos. Esto conecta directamente con lo que trabajamos en el módulo sobre la importancia de la ficha de producto bien estructurada, la SEO on-page y la adaptación del catálogo a nuevos canales de venta. En la práctica, significa que un buen comercio online debe cuidar no solo la experiencia visual del cliente, sino también la "veracidad" y completitud de los datos de cada producto (atributos, especificaciones, preguntas frecuentes) para que cualquier algoritmo o asistente de IA pueda interpretarlo correctamente y recomendárselo al comprador.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1d.** Se han identificado los elementos que configuran el marketing de buscadores.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+La noticia aborda la optimización SEO on-page de la ficha de producto para buscadores y la emergencia de agentes de IA como nuevos intermediarios en la descubrir productos, conectando directamente con los elementos del marketing de buscadores y con la identificación de nuevas tendencias en la relación digital cliente-empresa.
+
+## Pregunta detonadora
+
+¿Qué decisión de marketing digital tomarías ante «Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto» y cómo medirías su resultado?
+
+## Actividad breve
+
+Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1d, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+
+## Conceptos clave
+
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
+
+---
+
+# 3. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 18 ago. 2026
@@ -72,8 +128,8 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 - **Texto RA:** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
 - **CE relacionados:** RA1a, RA1e
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/002-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
-- **Ficha Markdown:** fichas-aula/002-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
+- **Ficha HTML:** fichas-aula/003-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
+- **Ficha Markdown:** fichas-aula/003-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
 
 ## Resumen
 
@@ -118,7 +174,7 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 
 ---
 
-# 3. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+# 4. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 2 jul. 2026
@@ -128,8 +184,8 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1a, RA1b, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
-- **Ficha Markdown:** fichas-aula/003-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
+- **Ficha HTML:** fichas-aula/004-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
+- **Ficha Markdown:** fichas-aula/004-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
 
 ## Resumen
 
@@ -175,7 +231,7 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 4. Gestión in-house vs. partner en TikTok Shop: qué internalizar
+# 5. Gestión in-house vs. partner en TikTok Shop: qué internalizar
 
 - **Fuente:** Cyberclick
 - **Fecha:** 16 sep. 2026
@@ -185,8 +241,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1b, RA1g
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/004-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
-- **Ficha Markdown:** fichas-aula/004-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
+- **Ficha HTML:** fichas-aula/005-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
+- **Ficha Markdown:** fichas-aula/005-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
 
 ## Resumen
 
@@ -215,62 +271,6 @@ La noticia aborda la toma estratégica de decisiones para ejecutar el marketing 
 ## Actividad breve
 
 Analiza la noticia «Gestión in-house vs. partner en TikTok Shop: qué internalizar» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
-
-## Conceptos clave
-
-- Plan de marketing digital
-- Cliente online
-- Alta en buscadores
-- Directorios especializados
-- Email marketing
-- Boletines electrónicos
-- Blog corporativo
-- SEM
-- SEO
-- Campañas en páginas afines
-
----
-
-# 5. Cómo construir autoridad de marca en Amazon y TikTok frente a competidores
-
-- **Fuente:** Cyberclick
-- **Fecha:** 15 sep. 2026
-- **Enlace:** https://www.cyberclick.es/numerical-blog/como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competidores
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
-- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-- **CE relacionados:** RA1b, RA1g
-- **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/005-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.html
-- **Ficha Markdown:** fichas-aula/005-como-construir-autoridad-de-marca-en-amazon-y-tiktok-frente-a-competid.md
-
-## Resumen
-
-En un mercado saturado de productos casi idénticos, las marcas están apostando por construir "autoridad de marca" en marketplaces como Amazon y TikTok Shop para destacar frente a la competencia. En Amazon lo hacen con herramientas como la Brand Store, que ordena el catálogo y refuerza la identidad visual; en TikTok Shop, esa autoridad se genera a través del contenido, los creadores y la relación cercana con la audiencia. Para nosotros como futuros profesionales del marketing digital, esto se conecta directamente con lo que estamos trabajando de branding, estrategia de contenidos y funnel de venta multicanal: no basta con que el producto esté a la venta, hay que que la marca sea reconocida y genere confianza antes de que el consumidor pulse "comprar".
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-
-### Criterios de evaluación relacionados
-
-- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
-- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
-
-### Justificación docente
-
-La noticia sobre la construcción de autoridad de marca en Amazon y TikTok Shop se vincula directamente con la ejecución de procesos de posicionamiento y marketing online (CE b) y con el reconocimiento de nuevas tendencias de comunicación y relación con el cliente, como el social commerce impulsado por creadores de contenido (CE g).
-
-## Pregunta detonadora
-
-¿Qué decisión de marketing digital tomarías ante «Cómo construir autoridad de marca en Amazon y TikTok frente a competidores» y cómo medirías su resultado?
-
-## Actividad breve
-
-Analiza la noticia «Cómo construir autoridad de marca en Amazon y TikTok frente a competidores» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 

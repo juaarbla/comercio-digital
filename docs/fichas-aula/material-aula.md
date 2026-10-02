@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 1 OCT 2026
+Fecha de generación: 2 OCT 2026
 
 ---
 
@@ -62,7 +62,63 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 
 ---
 
-# 2. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
+# 2. Ecommerce Tour Alicante 2026: así vive el ecommerce la revolución de la IA
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 1 oct. 2026
+- **Enlace:** https://ecommerce-news.es/ecommerce-tour-alicante-2026/
+- **Módulo:** IA
+- **RA:** RA6
+- **Texto RA:** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+- **CE relacionados:** RA6a, RA6b
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/002-ecommerce-tour-alicante-2026-asi-vive-el-ecommerce-la-revolucion-de-la.html
+- **Ficha Markdown:** fichas-aula/002-ecommerce-tour-alicante-2026-asi-vive-el-ecommerce-la-revolucion-de-la.md
+
+## Resumen
+
+La tercera edición del Ecommerce Tour se celebró en Alicante, reuniendo a marcas, expertos y directivos para analizar cómo la inteligencia artificial está transformando el comercio electrónico, especialmente con el llamado "comercio agéntico": sistemas de IA que ya no solo recomiendan productos, sino que toman decisiones de compra por el usuario. En la jornada también se debatieron temas centrales del sector como la estrategia en marketplaces (Amazon, AliExpress, etc.), los retos logísticos y el auge de las marcas locales que compiten contra grandes plataformas. Para el módulo de Comercio Electrónico, esta noticia es clave porque muestra que el profesional del sector ya no solo gestiona catálogos y campañas online, sino que debe diseñar experiencias donde un agente de IA media entre la marca y el cliente. En resumen: el e-commerce está pasando de un modelo "yo vendo, tú compras" a un ecosistema donde la IA actúa como intermediaria inteligente, y quien domine esa transición tendrá ventaja competitiva.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA6
+
+**RA6.** Gestiona la atención al cliente, potenciada por la inteligencia artificial.
+
+### Criterios de evaluación relacionados
+
+- **RA6a.** Se han implementado soluciones de inteligencia artificial para mejorar la experiencia del cliente.
+- **RA6b.** Se han utilizado chatbots para la atención al cliente online. (IA generativa.)
+
+### Justificación docente
+
+El comercio agéntico descrito en la noticia (agentes de IA autónomos que deciden la compra por el usuario) es la evolución directa de los chatbots de atención al cliente (CE b) hacia soluciones de IA que transforman toda la experiencia de compra (CE a), exigiendo al profesional diseñar interacciones marca-cliente mediadas por IA.
+
+## Pregunta detonadora
+
+¿Qué consulta de cliente vinculada con «Ecommerce Tour Alicante 2026: así vive el ecommerce la revolución de la IA» resolvería una IA y cuándo debería derivarla a una persona?
+
+## Actividad breve
+
+Revisa la noticia «Ecommerce Tour Alicante 2026: así vive el ecommerce la revolución de la IA» como caso de atención al cliente con IA. Diseña un pequeño flujo de conversación: consulta inicial, respuesta del asistente, derivación y cierre. Relaciona el flujo con RA6a, RA6b.
+
+## Conceptos clave
+
+- Atención al cliente
+- Experiencia del cliente
+- IA aplicada a la atención al cliente
+- Chatbots
+- Bots
+- IA generativa
+- IA predictiva
+- Sistemas predictivos
+- Automatización de respuestas
+- Personalización de la atención
+
+---
+
+# 3. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 28 sep. 2026
@@ -72,8 +128,8 @@ Analiza la noticia «IA, Retail Media, TikTok Shop o Commerce Media: entre los t
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1d, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/002-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
-- **Ficha Markdown:** fichas-aula/002-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
+- **Ficha HTML:** fichas-aula/003-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
+- **Ficha Markdown:** fichas-aula/003-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
 
 ## Resumen
 
@@ -118,7 +174,7 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 
 ---
 
-# 3. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
+# 4. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 18 ago. 2026
@@ -128,8 +184,8 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 - **Texto RA:** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
 - **CE relacionados:** RA1a, RA1e
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/003-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
-- **Ficha Markdown:** fichas-aula/003-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
+- **Ficha HTML:** fichas-aula/004-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
+- **Ficha Markdown:** fichas-aula/004-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
 
 ## Resumen
 
@@ -174,7 +230,63 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 
 ---
 
-# 4. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+# 5. ‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 1 oct. 2026
+- **Enlace:** https://ecommerce-news.es/scrolling-stones-musica-actualidad-ecommerce/
+- **Módulo:** IA
+- **RA:** RA2
+- **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
+- **CE relacionados:** RA2e, RA2d
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/005-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.html
+- **Ficha Markdown:** fichas-aula/005-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.md
+
+## Resumen
+
+Ecommerce News ha lanzado "The Scrolling Stones", un proyecto que cada viernes convierte las noticias más relevantes del sector del comercio electrónico en una canción original de pop electrónico, generada con la plataforma de inteligencia artificial SUNO. Para el módulo de Comercio Electrónico, esto es un caso práctico muy directo de **marketing de contenidos**: una marca que busca diferenciarse creando un formato audiovisual innovador para captar la atención de su audiencia y generar engagement en redes sociales. También nos permite analizar cómo las herramientas de IA están transformando la forma en que se produce y distribuye el contenido de marca, un tema que ya está siendo clave en las estrategias de e-commerce. Podéis usarlo como ejemplo para discutir en clase: ¿funcionaría esta estrategia para una tienda online pequeña? ¿Qué ventajas ofrece frente a un newsletter tradicional?
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA2
+
+**RA2.** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
+
+### Criterios de evaluación relacionados
+
+- **RA2e.** Se han utilizado las herramientas de texto aplicándolas al marketing de contenidos y al SEO.
+- **RA2d.** Se han utilizado las funciones y prestaciones de las diferentes herramientas, combinándolas y creando sinergias entre ellas.
+
+### Justificación docente
+
+La noticia ilustra la creación de contenido original (canciones) mediante una herramienta de IA generativa (SUNO) aplicándolo directamente al marketing de contenidos y engagement en redes, lo que enlaza con la elaboración de contenido con IA y el uso de funciones de herramientas de IA en estrategias de marketing digital.
+
+## Pregunta detonadora
+
+¿Qué instrucciones darías a una IA para crear un texto comercial relacionado con «‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado»?
+
+## Actividad breve
+
+Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado» para crear una propuesta de texto comercial con IA. Define objetivo, público, tono y canal; después redacta una versión inicial y una versión mejorada. Conecta el trabajo con RA2e, RA2d.
+
+## Conceptos clave
+
+- Generación de textos con IA
+- Herramientas de creación de textos
+- Contenido creativo
+- Copywriting
+- Textos persuasivos
+- Marketing de contenidos
+- SEO con IA
+- Documentos empresariales
+- Documentos comerciales
+- Planificación de contenidos
+
+---
+
+# 6. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 2 jul. 2026
@@ -184,8 +296,8 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1a, RA1b, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/004-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
-- **Ficha Markdown:** fichas-aula/004-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
+- **Ficha HTML:** fichas-aula/006-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
+- **Ficha Markdown:** fichas-aula/006-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
 
 ## Resumen
 
@@ -231,7 +343,7 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 5. Gestión in-house vs. partner en TikTok Shop: qué internalizar
+# 7. Gestión in-house vs. partner en TikTok Shop: qué internalizar
 
 - **Fuente:** Cyberclick
 - **Fecha:** 16 sep. 2026
@@ -241,8 +353,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1b, RA1g
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/005-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
-- **Ficha Markdown:** fichas-aula/005-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
+- **Ficha HTML:** fichas-aula/007-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
+- **Ficha Markdown:** fichas-aula/007-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
 
 ## Resumen
 
@@ -287,7 +399,63 @@ Analiza la noticia «Gestión in-house vs. partner en TikTok Shop: qué internal
 
 ---
 
-# 6. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
+# 8. La inteligencia artificial para operaciones informáticas
+
+- **Fuente:** Consultores IA
+- **Fecha:** 1 oct. 2026
+- **Enlace:** https://consultoresia.com/la-inteligencia-artificial-para-operaciones-informaticas/
+- **Módulo:** Digitalización
+- **RA:** RA4
+- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+- **CE relacionados:** RA4a, RA4f
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/008-la-inteligencia-artificial-para-operaciones-informaticas.html
+- **Ficha Markdown:** fichas-aula/008-la-inteligencia-artificial-para-operaciones-informaticas.md
+
+## Resumen
+
+La inteligencia artificial está empezando a aplicarse en la gestión de sistemas informáticos (lo que se conoce como AIOps) para detectar fallos de forma anticipada y actuar automáticamente, reduciendo el tiempo que una empresa se queda sin servicio. Esto es especialmente relevante para el comercio digital: si la tienda online, el CRM o el pasarela de pagos se cae, se pierden ventas y confianza del cliente en cuestión de minutos. En el módulo veremos que la IA no solo sirve para crear campañas o segmentar audiencias, sino también para mantener «bajo los focos» la infraestructura digital que sostiene todo el negocio. Un ejemplo práctico es cómo grandes e-commerces como Amazon o AliExpress usan IA para monitorizar millones de transacciones por segundo y evitar cortes que les costarían millones de euros.
+
+## Vinculación curricular
+
+- **Módulo:** Digitalización
+- **Resultado de aprendizaje:** RA4
+
+**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
+
+### Criterios de evaluación relacionados
+
+- **RA4a.** Se ha identificado la importancia de la IA en la automatización de procesos y su optimización.
+- **RA4f.** Se ha descrito como influye la IA en el sector del título.
+
+### Justificación docente
+
+La noticia sobre AIOps (IA para monitorización y respuesta automática de infraestructuras IT) ilustra la importancia de la IA en la automatización y optimización de procesos (CE a) y su influencia concreta en el sector del comercio electrónico, donde plataformas como Amazon o AliExpress la emplean para evitar caídas de tiendas online y pasarelas de pago (CE f).
+
+## Pregunta detonadora
+
+¿Qué proceso empresarial transforma «La inteligencia artificial para operaciones informáticas» y con qué indicador comprobarías la mejora?
+
+## Actividad breve
+
+Analiza la noticia «La inteligencia artificial para operaciones informáticas» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4a, RA4f.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Automatización de procesos
+- Optimización de procesos
+- Tratamiento de datos
+- Minería de datos
+- Big Data
+- Rentabilidad empresarial
+- Lenguajes de programación en IA
+- Aplicaciones sectoriales de la IA
+- Mejora de procesos de trabajo
+
+---
+
+# 9. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 27 ago. 2026
@@ -297,8 +465,8 @@ Analiza la noticia «Gestión in-house vs. partner en TikTok Shop: qué internal
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4a, RA4b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
-- **Ficha Markdown:** fichas-aula/006-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
+- **Ficha HTML:** fichas-aula/009-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
+- **Ficha Markdown:** fichas-aula/009-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
 
 ## Resumen
 
@@ -343,7 +511,7 @@ Analiza la noticia «Salesforce convierte sus aplicaciones empresariales en capa
 
 ---
 
-# 7. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
+# 10. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 8 jul. 2026
@@ -353,8 +521,8 @@ Analiza la noticia «Salesforce convierte sus aplicaciones empresariales en capa
 - **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
 - **CE relacionados:** RA3a, RA3b, RA3c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
-- **Ficha Markdown:** fichas-aula/007-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
+- **Ficha HTML:** fichas-aula/010-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
+- **Ficha Markdown:** fichas-aula/010-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
 
 ## Resumen
 
@@ -397,173 +565,5 @@ Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con 
 - Diseño de recursos gráficos
 - Coherencia visual
 - Aplicaciones básicas de IA en diseño
-
----
-
-# 8. Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código
-
-- **Fuente:** Ecommerce News
-- **Fecha:** 6 ago. 2026
-- **Enlace:** https://ecommerce-news.es/meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-grandes-bases-de-codigo/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-- **CE relacionados:** RA4b, RA4e
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.html
-- **Ficha Markdown:** fichas-aula/008-meta-lanza-muse-code-su-agente-de-ia-para-desarrollar-software-en-gran.md
-
-## Resumen
-
-Meta ha lanzado Muse Code, un nuevo agente de inteligencia artificial diseñado para ayudar a programadores a desarrollar y modificar software complejo. Aunque parece una noticia de programación pura, es vital entender que el funcionamiento de cualquier plataforma de comercio electrónico depende de este tipo de desarrollo tecnológico. Esta herramienta representa un salto en la automatización de la creación de sitios web y aplicaciones, haciendo que la implementación de tiendas virtuales sea más rápida y accesible. En el futuro del e-commerce, significa que la creación, actualización y personalización de plataformas digitales se volverá cada vez más eficiente gracias a la IA.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-
-### Criterios de evaluación relacionados
-
-- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
-- **RA4e.** Se han identificado los lenguajes de programación en IA.
-
-### Justificación docente
-
-La noticia sobre Muse Code aborda la IA para la creación y modificación de software, lo cual se relaciona directamente con la capacidad de identificar y aplicar tecnologías habilitadoras digitales (IA) para mejorar los sistemas de negocio y los procesos digitales (RA4).
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial transforma «Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código» y con qué indicador comprobarías la mejora?
-
-## Actividad breve
-
-Analiza la noticia «Meta lanza Muse Code, su agente de IA para desarrollar software en grandes bases de código» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4b, RA4e.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Automatización de procesos
-- Optimización de procesos
-- Tratamiento de datos
-- Minería de datos
-- Big Data
-- Rentabilidad empresarial
-- Lenguajes de programación en IA
-- Aplicaciones sectoriales de la IA
-- Mejora de procesos de trabajo
-
----
-
-# 9. Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?
-
-- **Fuente:** cyberclick.es
-- **Fecha:** 9 jul. 2026
-- **Enlace:** https://www.cyberclick.es/numerical-blog/skills-vs-gpts-vs-gems-cuales-son-las-diferencias
-- **Módulo:** IA
-- **RA:** RA1
-- **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
-- **CE relacionados:** RA1a, RA1b
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.html
-- **Ficha Markdown:** fichas-aula/009-skills-vs-gpts-vs-gems-cuales-son-las-diferencias.md
-
-## Resumen
-
-La inteligencia artificial está evolucionando hacia una mayor personalización, adaptando los asistentes digitales a tareas específicas de cada equipo o empresa. Por ejemplo, ChatGPT ofrece los GPTs, Google tiene los Gems y Claude presenta las Skills, que son herramientas diseñadas para funciones concretas. Esto es importante en marketing digital porque permite crear experiencias más personalizadas para los clientes y optimizar procesos de comunicación y análisis. Así, se mejora la eficacia de las campañas y la gestión de datos en las empresas.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
-
-### Criterios de evaluación relacionados
-
-- **RA1a.** Se ha identificado e informado sobre las opciones de herramientas de inteligencia artificial adecuadas a emplear.
-- **RA1b.** Se ha relacionado la tarea a desempeñar con la herramienta a utilizar.
-
-### Justificación docente
-
-La noticia trata sobre herramientas de IA generativa específicas para marketing digital, por lo que encaja en el reconocimiento y uso de herramientas de IA adecuadas para tareas empresariales y de marketing.
-
-## Pregunta detonadora
-
-¿Qué tarea podría automatizar la IA en «Skills vs. GPTs vs. Gems: cuáles son las diferencias» y qué supervisión humana necesitaría?
-
-## Actividad breve
-
-Analiza la noticia «Skills vs. GPTs vs. Gems: ¿cuáles son las diferencias?» para identificar qué herramienta o uso de IA aparece. Explica qué tarea mejora, qué datos necesita y qué limitaciones tendría en una empresa real. Relaciona el análisis con RA1a, RA1b.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Historia de la inteligencia artificial
-- Evolución de la inteligencia artificial
-- Inteligencia artificial actual
-- Herramientas de inteligencia artificial
-- IA aplicada a la empresa
-- IA aplicada al marketing
-- IA aplicada al comercio
-- Selección de herramientas de IA
-- Relación entre tarea y herramienta
-
----
-
-# 10. Anthropic lanza Claude Opus 5.5
-
-- **Fuente:** Ecommerce News
-- **Fecha:** 23 sep. 2026
-- **Enlace:** https://ecommerce-news.es/anthropic-lanza-claude-opus-5-5/
-- **Módulo:** IA
-- **RA:** RA1
-- **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
-- **CE relacionados:** RA1a, RA1b
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-anthropic-lanza-claude-opus-5-5.html
-- **Ficha Markdown:** fichas-aula/010-anthropic-lanza-claude-opus-5-5.md
-
-## Resumen
-
-Anthropic ha lanzado Claude Opus 5.5, un modelo de inteligencia artificial orientado a tareas empresariales y programación, destacando por ofrecer un rendimiento de primer nivel a un coste de uso notablemente inferior. Para un negocio de comercio electrónico, esto se traduce en que herramientas de IA para automatizar atención al cliente, redactar descripciones de producto o gestionar campañas de marketing online están al alcance también de pymes y autónomos, no solo de grandes empresas. La carrera de la IA está cambiando de "quién tiene el modelo más potente" a "quién ofrece más valor por menos dinero", y eso es una oportunidad real para que los futuros profesionales del e-commerce integren estas tecnologías en sus estrategias comerciales sin que el presupuesto sea una barrera.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
-
-### Criterios de evaluación relacionados
-
-- **RA1a.** Se ha identificado e informado sobre las opciones de herramientas de inteligencia artificial adecuadas a emplear.
-- **RA1b.** Se ha relacionado la tarea a desempeñar con la herramienta a utilizar.
-
-### Justificación docente
-
-La noticia presenta el lanzamiento de Claude Opus 5.5 como nueva herramienta de IA generativa accesible para pymes, encajando directamente con la identificación e información sobre opciones de IA adecuadas al ámbito del comercio y la relación de dicha herramienta con tareas concretas como automatizar atención al cliente, redactar descripciones de producto y gestionar campañas de marketing online.
-
-## Pregunta detonadora
-
-¿Qué tarea podría automatizar la IA en «Anthropic lanza Claude Opus 5.5» y qué supervisión humana necesitaría?
-
-## Actividad breve
-
-Analiza la noticia «Anthropic lanza Claude Opus 5.5» para identificar qué herramienta o uso de IA aparece. Explica qué tarea mejora, qué datos necesita y qué limitaciones tendría en una empresa real. Relaciona el análisis con RA1a, RA1b.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Historia de la inteligencia artificial
-- Evolución de la inteligencia artificial
-- Inteligencia artificial actual
-- Herramientas de inteligencia artificial
-- IA aplicada a la empresa
-- IA aplicada al marketing
-- IA aplicada al comercio
-- Selección de herramientas de IA
-- Relación entre tarea y herramienta
 
 ---

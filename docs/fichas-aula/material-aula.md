@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 8 OCT 2026
+Fecha de generación: 9 OCT 2026
 
 ---
 
@@ -118,7 +118,63 @@ Revisa la noticia «Ecommerce Tour Alicante 2026: así vive el ecommerce la revo
 
 ---
 
-# 3. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
+# 3. Todavía estás a tiempo de presentar tu candidatura a los Retail Media Awards 2026
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 8 oct. 2026
+- **Enlace:** https://ecommerce-news.es/todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media-awards-2026/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1c, RA1g
+- **Tipo de uso:** Actividad de aula
+- **Ficha HTML:** fichas-aula/003-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.html
+- **Ficha Markdown:** fichas-aula/003-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.md
+
+## Resumen
+
+Se abre el plazo para presentar proyectos a la tercera edición de los Retail Media Awards 2026, cuya gala se celebrará el 19 de noviembre en el Movistar Arena de Madrid. El retail media es una tendencia clave en el comercio electrónico: los retailers (marketplaces, tiendas online) no solo venden productos, sino que monetizan su plataforma digital ofreciendo espacios publicitarios a las marcas. En otras palabras, la tienda online se convierte también en un canal de publicidad, lo que conecta directamente con lo que trabajamos en el módulo sobre estrategia omnicanal y modelos de ingresos digitales. Estos premios visibilizan casos de éxito reales que nos sirven de referencia para entender hacia dónde evoluciona el e-commerce más allá de la simple venta.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1c.** Se han ejecutado los procesos de publicidad y promoción online ajustados a la normativa legal existente.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+El retail media, donde la tienda online se convierte en canal publicitario para terceros, es una aplicación directa de la publicidad y promoción online (CE c) y representa una nueva tendencia en la estrategia de marketing digital que los estudiantes deben reconocer (CE g).
+
+## Pregunta detonadora
+
+¿Qué decisión de marketing digital tomarías ante «Todavía estás a tiempo de presentar tu candidatura a los Retail Media Awards 2026» y cómo medirías su resultado?
+
+## Actividad breve
+
+Analiza la noticia «Todavía estás a tiempo de presentar tu candidatura a los Retail Media Awards 2026» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1c, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+
+## Conceptos clave
+
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
+
+---
+
+# 4. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 28 sep. 2026
@@ -128,8 +184,8 @@ Revisa la noticia «Ecommerce Tour Alicante 2026: así vive el ecommerce la revo
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1d, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
-- **Ficha Markdown:** fichas-aula/003-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
+- **Ficha HTML:** fichas-aula/004-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
+- **Ficha Markdown:** fichas-aula/004-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
 
 ## Resumen
 
@@ -174,7 +230,7 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 
 ---
 
-# 4. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
+# 5. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 18 ago. 2026
@@ -184,8 +240,8 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 - **Texto RA:** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
 - **CE relacionados:** RA1a, RA1e
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/004-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
-- **Ficha Markdown:** fichas-aula/004-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
+- **Ficha HTML:** fichas-aula/005-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
+- **Ficha Markdown:** fichas-aula/005-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
 
 ## Resumen
 
@@ -230,7 +286,7 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 
 ---
 
-# 5. ‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado
+# 6. ‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 1 oct. 2026
@@ -240,8 +296,8 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 - **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
 - **CE relacionados:** RA2e, RA2d
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/005-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.html
-- **Ficha Markdown:** fichas-aula/005-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.md
+- **Ficha HTML:** fichas-aula/006-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.html
+- **Ficha Markdown:** fichas-aula/006-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.md
 
 ## Resumen
 
@@ -286,7 +342,7 @@ Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUN
 
 ---
 
-# 6. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
+# 7. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
 
 - **Fuente:** ecommerce-news.es
 - **Fecha:** 2 jul. 2026
@@ -296,8 +352,8 @@ Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUN
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1a, RA1b, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/006-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
-- **Ficha Markdown:** fichas-aula/006-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
+- **Ficha HTML:** fichas-aula/007-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
+- **Ficha Markdown:** fichas-aula/007-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
 
 ## Resumen
 
@@ -327,62 +383,6 @@ La noticia aborda tendencias de marketing digital como social commerce y retail 
 ## Actividad breve
 
 Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
-
-## Conceptos clave
-
-- Plan de marketing digital
-- Cliente online
-- Alta en buscadores
-- Directorios especializados
-- Email marketing
-- Boletines electrónicos
-- Blog corporativo
-- SEM
-- SEO
-- Campañas en páginas afines
-
----
-
-# 7. Gestión in-house vs. partner en TikTok Shop: qué internalizar
-
-- **Fuente:** Cyberclick
-- **Fecha:** 16 sep. 2026
-- **Enlace:** https://www.cyberclick.es/numerical-blog/gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
-- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-- **CE relacionados:** RA1b, RA1g
-- **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/007-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.html
-- **Ficha Markdown:** fichas-aula/007-gestion-in-house-vs-partner-en-tiktok-shop-que-internalizar.md
-
-## Resumen
-
-Las marcas se enfrentan a una decisión clave: gestionar su tienda en TikTok Shop con su propio equipo o delegar la operación en una agencia externa, y no se trata solo de ahorrar dinero, sino de identificar qué competencias conviene controlar internamente y cuáles externalizar para ganar velocidad. Este debate conecta directamente con el concepto de integración de canales digitales que trabajamos en el módulo, porque operar TikTok Shop exige coordinar contenido, creadores, afiliados, catálogo, campañas y logística en una sola plataforma, algo más complejo que simplemente lanzar un anuncio. En términos de estrategia, es un ejemplo práctico de cómo la especialización de cada área (community management, e-commerce, publicidad) puede repartirse entre recursos propios y partners para maximizar la eficiencia de la operación digital.
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-
-### Criterios de evaluación relacionados
-
-- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
-- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
-
-### Justificación docente
-
-La noticia aborda la toma estratégica de decisiones para ejecutar el marketing online (qué internalizar vs. externalizar en TikTok Shop), lo que conecta con la CE b, y presenta el social commerce en TikTok como una nueva tendencia de comunicación y relación con el cliente, alineada con la CE g.
-
-## Pregunta detonadora
-
-¿Qué decisión de marketing digital tomarías ante «Gestión in-house vs. partner en TikTok Shop: qué internalizar» y cómo medirías su resultado?
-
-## Actividad breve
-
-Analiza la noticia «Gestión in-house vs. partner en TikTok Shop: qué internalizar» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
 
 ## Conceptos clave
 

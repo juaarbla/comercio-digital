@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 13 OCT 2026
+Fecha de generación: 15 OCT 2026
 
 ---
 
@@ -399,7 +399,63 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 
 ---
 
-# 8. La inteligencia artificial para operaciones informáticas
+# 8. SHEIN lanza su servicio de logística cooperativa para ayudar a los vendedores españoles a acceder a nuevos mercados europeos
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 14 oct. 2026
+- **Enlace:** https://ecommerce-news.es/shein-lanza-su-servicio-de-logistica-cooperativa/
+- **Módulo:** CDI
+- **RA:** RA4
+- **Texto RA:** Define la politica de comercio electronico de la empresa, estableciendo las acciones necesarias para efectuar ventas internacionales on-line.
+- **CE relacionados:** RA4e, RA4c
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/008-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.html
+- **Ficha Markdown:** fichas-aula/008-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.md
+
+## Resumen
+
+SHEIN ha lanzado en España un servicio de logística cooperativa, un modelo similar al de Amazon FBA, en el que la propia plataforma almacena y envía los productos de los vendedores de su Marketplace a otros países de la UE. España es el primer país europeo en contar con este servicio, lo que permite a pequeños y medianos comerciantes vender en el mercado europeo sin gestionar ellos mismos aduanas, transporte internacional ni la entrega al cliente. Para el aula, es un ejemplo claro de cómo la externalización del *fulfillment* y los *marketplaces* están eliminando las barreras del comercio transfronterizo y abaratando el acceso a mercados internacionales.
+
+## Vinculación curricular
+
+- **Módulo:** CDI
+- **Resultado de aprendizaje:** RA4
+
+**RA4.** Define la politica de comercio electronico de la empresa, estableciendo las acciones necesarias para efectuar ventas internacionales on-line.
+
+### Criterios de evaluación relacionados
+
+- **RA4e.** Se ha planificado la gestion de los pedidos recibidos y todo el proceso logistico.
+- **RA4c.** Se han reconocido los modelos de negocio existentes en la red.
+
+### Justificación docente
+
+El servicio de logística cooperativa de SHEIN para vender en la UE ilustra la planificación del proceso logístico internacional (CE e) y el reconocimiento del modelo de negocio marketplace tipo FBA que elimina barreras de aduanas y transporte transfronterizo (CE c).
+
+## Pregunta detonadora
+
+¿Qué decisión sobre plataforma, pago, logística o normativa exige «SHEIN lanza su servicio de logística cooperativa para ayudar a los vendedores españoles a acceder a nuevos mercados…» al vender en otro país?
+
+## Actividad breve
+
+Analiza la noticia «SHEIN lanza su servicio de logística cooperativa para ayudar a los vendedores españoles a acceder a nuevos mercados europeos» desde una política de comercio electrónico internacional. Identifica decisiones sobre plataforma, logística, pagos, cliente o normativa. Propón una acción concreta y vincúlala con RA4e, RA4c.
+
+## Conceptos clave
+
+- Comercio electrónico internacional
+- Tienda virtual internacional
+- Modelos de negocio digital
+- Portales horizontales
+- B2B
+- B2C
+- Dominio
+- Registro de dominio
+- Escaparate web
+- Catálogo electrónico
+
+---
+
+# 9. La inteligencia artificial para operaciones informáticas
 
 - **Fuente:** Consultores IA
 - **Fecha:** 1 oct. 2026
@@ -409,8 +465,8 @@ Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al r
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4a, RA4f
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-la-inteligencia-artificial-para-operaciones-informaticas.html
-- **Ficha Markdown:** fichas-aula/008-la-inteligencia-artificial-para-operaciones-informaticas.md
+- **Ficha HTML:** fichas-aula/009-la-inteligencia-artificial-para-operaciones-informaticas.html
+- **Ficha Markdown:** fichas-aula/009-la-inteligencia-artificial-para-operaciones-informaticas.md
 
 ## Resumen
 
@@ -455,7 +511,7 @@ Analiza la noticia «La inteligencia artificial para operaciones informáticas»
 
 ---
 
-# 9. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
+# 10. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 27 ago. 2026
@@ -465,8 +521,8 @@ Analiza la noticia «La inteligencia artificial para operaciones informáticas»
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4a, RA4b
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/009-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
-- **Ficha Markdown:** fichas-aula/009-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
+- **Ficha HTML:** fichas-aula/010-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
+- **Ficha Markdown:** fichas-aula/010-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
 
 ## Resumen
 
@@ -508,62 +564,5 @@ Analiza la noticia «Salesforce convierte sus aplicaciones empresariales en capa
 - Lenguajes de programación en IA
 - Aplicaciones sectoriales de la IA
 - Mejora de procesos de trabajo
-
----
-
-# 10. Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 8 jul. 2026
-- **Enlace:** https://ecommerce-news.es/meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-instagram-y-whatsapp/
-- **Módulo:** IA
-- **RA:** RA3
-- **Texto RA:** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-- **CE relacionados:** RA3a, RA3b, RA3c
-- **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/010-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.html
-- **Ficha Markdown:** fichas-aula/010-meta-lanza-muse-image-su-nuevo-generador-de-imagenes-con-ia-para-insta.md
-
-## Resumen
-
-Meta ha lanzado Muse Image, un nuevo generador de imágenes basado en inteligencia artificial que permite crear y editar imágenes usando texto, fotos o dibujos. Esta herramienta está integrada en Instagram y WhatsApp, facilitando la creación de contenido visual atractivo para redes sociales. En el contexto del comercio electrónico, Muse Image puede ayudar a las empresas a mejorar su marketing digital y la presentación de productos de forma rápida y personalizada. Así, se potencia la comunicación visual, clave para captar la atención de los clientes online.
-
-## Vinculación curricular
-
-- **Módulo:** IA
-- **Resultado de aprendizaje:** RA3
-
-**RA3.** Utiliza herramientas de inteligencia artificial como soporte para trabajar diferentes aspectos del diseño, el branding y la creatividad.
-
-### Criterios de evaluación relacionados
-
-- **RA3a.** Se han identificado las herramientas adecuadas para el diseño.
-- **RA3b.** Se ha realizado algún diseño utilizando como soporte herramientas de inteligencia artificial.
-- **RA3c.** Se conocen las diferentes aplicaciones básicas de la IA en el diseño y la creatividad.
-
-### Justificación docente
-
-Muse Image es una herramienta de IA generativa para diseño y creatividad, que permite crear imágenes para marketing digital, alineándose con el uso de IA en diseño y branding.
-
-## Pregunta detonadora
-
-¿Cómo usarías IA para crear un recurso visual sobre «Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp» sin perder coherencia de marca?
-
-## Actividad breve
-
-Analiza la noticia «Meta lanza Muse Image, su nuevo generador de imágenes con IA para Instagram y WhatsApp» desde la creación visual, diseño o branding con IA. Propón un recurso visual para una campaña y justifica prompt, estilo, público y coherencia de marca. Relaciona la propuesta con RA3a, RA3b, RA3c.
-
-## Conceptos clave
-
-- Branding
-- Diseño asistido por IA
-- Herramientas de IA para diseño
-- Herramientas de IA para branding
-- Identidad de marca
-- Creatividad visual
-- Generación de imágenes con IA
-- Diseño de recursos gráficos
-- Coherencia visual
-- Aplicaciones básicas de IA en diseño
 
 ---

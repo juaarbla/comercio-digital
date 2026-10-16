@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 15 OCT 2026
+Fecha de generación: 16 OCT 2026
 
 ---
 
@@ -118,7 +118,63 @@ Revisa la noticia «Ecommerce Tour Alicante 2026: así vive el ecommerce la revo
 
 ---
 
-# 3. Todavía estás a tiempo de presentar tu candidatura a los Retail Media Awards 2026
+# 3. ‘The Scrolling Stones’ sin fronteras
+
+- **Fuente:** Ecommerce News
+- **Fecha:** 15 oct. 2026
+- **Enlace:** https://ecommerce-news.es/scrolling-stones-sin-fronteras-ecommerce/
+- **Módulo:** Comercio Electrónico
+- **RA:** RA1
+- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+- **CE relacionados:** RA1a, RA1g
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/003-the-scrolling-stones-sin-fronteras.html
+- **Ficha Markdown:** fichas-aula/003-the-scrolling-stones-sin-fronteras.md
+
+## Resumen
+
+"The Scrolling Stones" es un resumen semanal de novedades en comercio electrónico que convierte las principales noticias de la semana (movimientos de Shopify, el crecimiento de TikTok Shop, las herramientas de IA de Meta y OpenAI, la expansión internacional de SHEIN y la nueva estrategia de IKEA) en una canción de pop electrónico. Para nosotros, lo más relevante es que concentra en un solo tema tendencias clave del sector: el social commerce a través de TikTok Shop, el uso de la inteligencia artificial en tiendas online y la estrategia de crecimiento cross-border de marcas como SHEIN y IKEA. Es un buen ejemplo de cómo el e-commerce ya no se limita a "vender por internet", sino que entrelaza redes sociales, inteligencia artificial y presencia en varios mercados a la vez, algo que debemos tener en cuenta al diseñar cualquier estrategia digital.
+
+## Vinculación curricular
+
+- **Módulo:** Comercio Electrónico
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se han examinado las características generales y particulares de un plan de marketing digital capaz de alcanzar los objetivos comerciales de la empresa.
+- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
+
+### Justificación docente
+
+La noticia concentra tendencias emergentes del e-commerce (social commerce en TikTok Shop, IA en tiendas online, expansión cross-border de SHEIN e IKEA) que los alumnos deben reconocer como nuevas tendencias de comunicación y relación con el cliente, y que condicionan el diseño integral de un plan de marketing digital actualizado.
+
+## Pregunta detonadora
+
+¿Qué decisión de marketing digital tomarías ante «‘The Scrolling Stones’ sin fronteras» y cómo medirías su resultado?
+
+## Actividad breve
+
+Analiza la noticia «‘The Scrolling Stones’ sin fronteras» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
+
+## Conceptos clave
+
+- Plan de marketing digital
+- Cliente online
+- Alta en buscadores
+- Directorios especializados
+- Email marketing
+- Boletines electrónicos
+- Blog corporativo
+- SEM
+- SEO
+- Campañas en páginas afines
+
+---
+
+# 4. Todavía estás a tiempo de presentar tu candidatura a los Retail Media Awards 2026
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 8 oct. 2026
@@ -128,8 +184,8 @@ Revisa la noticia «Ecommerce Tour Alicante 2026: así vive el ecommerce la revo
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1c, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/003-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.html
-- **Ficha Markdown:** fichas-aula/003-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.md
+- **Ficha HTML:** fichas-aula/004-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.html
+- **Ficha Markdown:** fichas-aula/004-todavia-estas-a-tiempo-de-presentar-tu-candidatura-a-los-retail-media.md
 
 ## Resumen
 
@@ -174,7 +230,7 @@ Analiza la noticia «Todavía estás a tiempo de presentar tu candidatura a los 
 
 ---
 
-# 4. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
+# 5. Ecommerce News Podcast #218: Product Truth, IA y el futuro de las páginas de producto
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 28 sep. 2026
@@ -184,8 +240,8 @@ Analiza la noticia «Todavía estás a tiempo de presentar tu candidatura a los 
 - **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
 - **CE relacionados:** RA1d, RA1g
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/004-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
-- **Ficha Markdown:** fichas-aula/004-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
+- **Ficha HTML:** fichas-aula/005-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.html
+- **Ficha Markdown:** fichas-aula/005-ecommerce-news-podcast-218-product-truth-ia-y-el-futuro-de-las-paginas.md
 
 ## Resumen
 
@@ -230,7 +286,7 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 
 ---
 
-# 5. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
+# 6. Dos meses de la «tasa Shein»: así están reaccionando los gigantes del low cost asiático
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 18 ago. 2026
@@ -240,8 +296,8 @@ Analiza la noticia «Ecommerce News Podcast #218: Product Truth, IA y el futuro 
 - **Texto RA:** Elabora el plan de marketing digital internacional, disenando las politicas especificas que han de desarrollarse.
 - **CE relacionados:** RA1a, RA1e
 - **Tipo de uso:** Debate
-- **Ficha HTML:** fichas-aula/005-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
-- **Ficha Markdown:** fichas-aula/005-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
+- **Ficha HTML:** fichas-aula/006-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.html
+- **Ficha Markdown:** fichas-aula/006-dos-meses-de-la-tasa-shein-asi-estan-reaccionando-los-gigantes-del-low.md
 
 ## Resumen
 
@@ -286,7 +342,7 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 
 ---
 
-# 6. ‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado
+# 7. ‘The Scrolling Stones’: las noticias del ecommerce como NUNCA te las habían cAntado
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 1 oct. 2026
@@ -296,8 +352,8 @@ Analiza la noticia «Dos meses de la «tasa Shein»: así están reaccionando lo
 - **Texto RA:** Elabora textos y contenido utilizando herramientas de inteligencia artificial.
 - **CE relacionados:** RA2e, RA2d
 - **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/006-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.html
-- **Ficha Markdown:** fichas-aula/006-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.md
+- **Ficha HTML:** fichas-aula/007-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.html
+- **Ficha Markdown:** fichas-aula/007-the-scrolling-stones-las-noticias-del-ecommerce-como-nunca-te-las-habi.md
 
 ## Resumen
 
@@ -339,63 +395,6 @@ Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUN
 - Documentos empresariales
 - Documentos comerciales
 - Planificación de contenidos
-
----
-
-# 7. Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce
-
-- **Fuente:** ecommerce-news.es
-- **Fecha:** 2 jul. 2026
-- **Enlace:** https://ecommerce-news.es/marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-las-tendencias-que-transforman-el-ecommerce/
-- **Módulo:** Comercio Electrónico
-- **RA:** RA1
-- **Texto RA:** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-- **CE relacionados:** RA1a, RA1b, RA1g
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/007-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.html
-- **Ficha Markdown:** fichas-aula/007-marketplace-summit-2026-stage-1-del-social-commerce-al-retail-media-la.md
-
-## Resumen
-
-El Marketplace Summit 2026 reunió a expertos, marcas y plataformas para analizar las tendencias que están transformando el comercio electrónico, como el social commerce y el retail media. Estos conceptos son clave en el módulo de Comercio Electrónico, ya que muestran cómo las redes sociales y la publicidad digital influyen en las ventas online. Además, el evento destacó la importancia de las plataformas digitales para mejorar la experiencia de compra y la visibilidad de los productos. Esto refleja la evolución constante del ecommerce y la necesidad de adaptarse a nuevas estrategias de marketing digital.
-
-## Vinculación curricular
-
-- **Módulo:** Comercio Electrónico
-- **Resultado de aprendizaje:** RA1
-
-**RA1.** Aplica las directrices del plan de marketing digital de la empresa, participando en su ejecución y sostenimiento.
-
-### Criterios de evaluación relacionados
-
-- **RA1a.** Se han examinado las características generales y particulares de un plan de marketing digital capaz de alcanzar los objetivos comerciales de la empresa.
-- **RA1b.** Se han ejecutado los procesos de posicionamiento y marketing online.
-- **RA1g.** Se han reconocido las nuevas tendencias de comunicación y relación con el cliente en el marketing digital.
-
-### Justificación docente
-
-La noticia aborda tendencias de marketing digital como social commerce y retail media, que están transformando el marketing online y la comunicación con el cliente, vinculándose directamente con la planificación y ejecución del plan de marketing digital.
-
-## Pregunta detonadora
-
-¿Qué decisión de marketing digital tomarías ante «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» y cómo medirías su resultado?
-
-## Actividad breve
-
-Analiza la noticia «Marketplace Summit 2026 | Stage 1: del social commerce al retail media, las tendencias que transforman el ecommerce» como ejemplo de decisión de marketing digital. Identifica el público objetivo, el canal digital utilizado y la propuesta de valor. Relaciona el caso con RA1a, RA1b, RA1g y concluye qué mejora aplicarías en una empresa de comercio electrónico.
-
-## Conceptos clave
-
-- Plan de marketing digital
-- Cliente online
-- Alta en buscadores
-- Directorios especializados
-- Email marketing
-- Boletines electrónicos
-- Blog corporativo
-- SEM
-- SEO
-- Campañas en páginas afines
 
 ---
 

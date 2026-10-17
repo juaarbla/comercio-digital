@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 16 OCT 2026
+Fecha de generación: 17 OCT 2026
 
 ---
 

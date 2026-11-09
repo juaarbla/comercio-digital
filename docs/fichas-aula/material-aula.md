@@ -2,7 +2,7 @@
 
 Selección de fichas docentes generadas a partir de noticias clasificadas.
 
-Fecha de generación: 8 NOV 2026
+Fecha de generación: 9 NOV 2026
 
 ---
 
@@ -398,7 +398,62 @@ Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUN
 
 ---
 
-# 8. SHEIN lanza su servicio de logística cooperativa para ayudar a los vendedores españoles a acceder a nuevos mercados europeos
+# 8. Google prepara nuevas herramientas para que los autónomos y pymes puedan gestionar su negocio desde Gemini
+
+- **Fuente:** Autónomos y Emprendedor · Todo Digital
+- **Fecha:** 8 nov. 2026
+- **Enlace:** https://www.autonomosyemprendedor.es/todo-digital/google-prepara-nuevas-herramientas-que-autonomos-pymes-puedan-gestionar-negocio-gemini/20261106154535056782.html
+- **Módulo:** IA
+- **RA:** RA1
+- **Texto RA:** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
+- **CE relacionados:** RA1a
+- **Tipo de uso:** Caso de empresa
+- **Ficha HTML:** fichas-aula/008-google-prepara-nuevas-herramientas-para-que-los-autonomos-y-pymes-pued.html
+- **Ficha Markdown:** fichas-aula/008-google-prepara-nuevas-herramientas-para-que-los-autonomos-y-pymes-pued.md
+
+## Resumen
+
+Google está lanzando nuevas funciones dentro de su asistente Gemini orientadas a autónomos y pymes, que permiten conectar herramientas de comercio electrónico, marketing digital y gestión financiera en una sola plataforma. Esto encaja directamente con lo que trabajamos en el módulo de Digitalización GS: la integración de procesos empresariales (ventas, publicidad, facturación) mediante soluciones en la nube que evitan depender de varios programas sueltos. En la práctica, un pequeño negocio podría gestionar su tienda online, sus campañas en redes sociales y su contabilidad desde un único panel asistido por IA, algo que antes exigía contratar y aprender varias plataformas por separado. Algunas de estas funciones ya están activas, aunque otras todavía no tienen fecha confirmada para España.
+
+## Vinculación curricular
+
+- **Módulo:** IA
+- **Resultado de aprendizaje:** RA1
+
+**RA1.** Conoce y reconoce distintas herramientas de inteligencia artificial aplicadas al ámbito de la empresa, marketing y comercio.
+
+### Criterios de evaluación relacionados
+
+- **RA1a.** Se ha identificado e informado sobre las opciones de herramientas de inteligencia artificial adecuadas a emplear.
+
+### Justificación docente
+
+La noticia presenta Gemini como una nueva herramienta de IA generativa que integra comercio electrónico, marketing digital y gestión financiera para pymes, lo que conecta directamente con la identificación e información sobre opciones de herramientas de IA adecuadas para el ámbito empresarial y comercial.
+
+## Pregunta detonadora
+
+¿Qué tarea podría automatizar la IA en «Google prepara nuevas herramientas para que los autónomos y pymes puedan gestionar su negocio desde Gemini» y qué supervisión humana necesitaría?
+
+## Actividad breve
+
+Analiza la noticia «Google prepara nuevas herramientas para que los autónomos y pymes puedan gestionar su negocio desde Gemini» para identificar qué herramienta o uso de IA aparece. Explica qué tarea mejora, qué datos necesita y qué limitaciones tendría en una empresa real. Relaciona el análisis con RA1a.
+
+## Conceptos clave
+
+- Inteligencia artificial
+- Historia de la inteligencia artificial
+- Evolución de la inteligencia artificial
+- Inteligencia artificial actual
+- Herramientas de inteligencia artificial
+- IA aplicada a la empresa
+- IA aplicada al marketing
+- IA aplicada al comercio
+- Selección de herramientas de IA
+- Relación entre tarea y herramienta
+
+---
+
+# 9. SHEIN lanza su servicio de logística cooperativa para ayudar a los vendedores españoles a acceder a nuevos mercados europeos
 
 - **Fuente:** Ecommerce News
 - **Fecha:** 14 oct. 2026
@@ -408,8 +463,8 @@ Usa la noticia «‘The Scrolling Stones’: las noticias del ecommerce como NUN
 - **Texto RA:** Define la politica de comercio electronico de la empresa, estableciendo las acciones necesarias para efectuar ventas internacionales on-line.
 - **CE relacionados:** RA4e, RA4c
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/008-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.html
-- **Ficha Markdown:** fichas-aula/008-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.md
+- **Ficha HTML:** fichas-aula/009-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.html
+- **Ficha Markdown:** fichas-aula/009-shein-lanza-su-servicio-de-logistica-cooperativa-para-ayudar-a-los-ven.md
 
 ## Resumen
 
@@ -454,7 +509,7 @@ Analiza la noticia «SHEIN lanza su servicio de logística cooperativa para ayud
 
 ---
 
-# 9. La inteligencia artificial para operaciones informáticas
+# 10. La inteligencia artificial para operaciones informáticas
 
 - **Fuente:** Consultores IA
 - **Fecha:** 1 oct. 2026
@@ -464,8 +519,8 @@ Analiza la noticia «SHEIN lanza su servicio de logística cooperativa para ayud
 - **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
 - **CE relacionados:** RA4a, RA4f
 - **Tipo de uso:** Caso de empresa
-- **Ficha HTML:** fichas-aula/009-la-inteligencia-artificial-para-operaciones-informaticas.html
-- **Ficha Markdown:** fichas-aula/009-la-inteligencia-artificial-para-operaciones-informaticas.md
+- **Ficha HTML:** fichas-aula/010-la-inteligencia-artificial-para-operaciones-informaticas.html
+- **Ficha Markdown:** fichas-aula/010-la-inteligencia-artificial-para-operaciones-informaticas.md
 
 ## Resumen
 
@@ -494,62 +549,6 @@ La noticia sobre AIOps (IA para monitorización y respuesta automática de infra
 ## Actividad breve
 
 Analiza la noticia «La inteligencia artificial para operaciones informáticas» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4a, RA4f.
-
-## Conceptos clave
-
-- Inteligencia artificial
-- Automatización de procesos
-- Optimización de procesos
-- Tratamiento de datos
-- Minería de datos
-- Big Data
-- Rentabilidad empresarial
-- Lenguajes de programación en IA
-- Aplicaciones sectoriales de la IA
-- Mejora de procesos de trabajo
-
----
-
-# 10. Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA
-
-- **Fuente:** Ecommerce News
-- **Fecha:** 27 ago. 2026
-- **Enlace:** https://ecommerce-news.es/salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-para-agentes-de-ia/
-- **Módulo:** Digitalización
-- **RA:** RA4
-- **Texto RA:** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-- **CE relacionados:** RA4a, RA4b
-- **Tipo de uso:** Actividad de aula
-- **Ficha HTML:** fichas-aula/010-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.html
-- **Ficha Markdown:** fichas-aula/010-salesforce-convierte-sus-aplicaciones-empresariales-en-capacidades-par.md
-
-## Resumen
-
-Salesforce está modernizando sus sistemas para que la Inteligencia Artificial (IA) pueda interactuar directamente con todas las funciones de negocio de una empresa. Esto significa que los agentes de IA pueden utilizar los datos, procesos y reglas que ya existen en el negocio, sin necesidad de que la empresa tenga que reconstruir su plataforma desde cero. En términos de comercio electrónico, esto implica que podremos integrar la automatización avanzada en sistemas de venta, gestión de clientes (CRM) y *back-office* de forma mucho más fluida y rápida. Este avance nos muestra que la clave del éxito en el e-commerce moderno será la capacidad de conectar diferentes tecnologías (IA, IA y plataformas) para optimizar la experiencia del cliente.
-
-## Vinculación curricular
-
-- **Módulo:** Digitalización
-- **Resultado de aprendizaje:** RA4
-
-**RA4.** Identifica aplicaciones de la IA (inteligencia artificial) en entornos del sector donde está enmarcado el título describiendo las mejoras implícitas en su implementación.
-
-### Criterios de evaluación relacionados
-
-- **RA4a.** Se ha identificado la importancia de la IA en la automatización de procesos y su optimización.
-- **RA4b.** Se ha relacionado la IA con la recogida masiva de datos (Big Data) y su tratamiento (análisis) con la rentabilidad de las empresas.
-
-### Justificación docente
-
-La noticia sobre Salesforce refuerza la necesidad de que los profesionales sepan cómo integrar la IA en los procesos de negocio (IT y OT) para optimizar ventas, lo cual es el foco de RA4.
-
-## Pregunta detonadora
-
-¿Qué proceso empresarial transforma «Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA» y con qué indicador comprobarías la mejora?
-
-## Actividad breve
-
-Analiza la noticia «Salesforce convierte sus aplicaciones empresariales en capacidades para agentes de IA» como ejemplo de tecnología aplicada al sector productivo o comercial. Describe el proceso que se transforma, la tecnología utilizada y el beneficio esperado. Después, plantea una mejora adicional vinculada con RA4a, RA4b.
 
 ## Conceptos clave
 
